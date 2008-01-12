@@ -1,0 +1,76 @@
+namespace CodeCampServer.Model.Domain
+{
+    public class Attendee : EntityBase
+    {
+        private Contact _contact = new Contact();
+        private string _website;
+        private string _comment;
+        private Conference _conference;
+        private string _password;
+        private string _passwordSalt;
+
+        public Attendee()
+        {
+        }
+
+        public Attendee(string firstName, string lastName, string website,
+                        string comment, Conference conference, string email, string password, string passwordSalt)
+        {
+            _contact.FirstName = firstName;
+            _contact.LastName = lastName;
+            _contact.Email = email;
+            _website = website;
+            _comment = comment;
+            _conference = conference;
+            _password = password;
+            _passwordSalt = passwordSalt;
+        }
+
+    	public Attendee(string firstName, string lastName)
+    	{
+    		_contact.FirstName = firstName;
+    		_contact.LastName = lastName;
+    	}
+
+    	public virtual Contact Contact
+        {
+            get { return _contact; }
+        }
+
+        public virtual string Website
+        {
+            get { return _website; }
+            set { _website = value; }
+        }
+
+        public virtual string Comment
+        {
+            get { return _comment; }
+            set { _comment = value; }
+        }
+
+        public virtual string Password
+        {
+            get { return _password; }
+            set { _password = value; }
+        }
+
+        public virtual string PasswordSalt
+        {
+            get { return _passwordSalt; }
+            set { _passwordSalt = value; }
+        }
+
+        public virtual Conference Conference
+        {
+            get { return _conference; }
+            set { _conference = value; }
+        }
+
+    	public virtual string GetName()
+    	{
+			Contact contact = Contact;
+			return string.Format("{0} {1}", contact.FirstName, contact.LastName);
+    	}
+    }
+}
