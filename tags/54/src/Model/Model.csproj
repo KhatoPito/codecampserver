@@ -1,0 +1,110 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5D1C1E7E-AD24-41D1-9C15-5BC4ED0FD3EC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CodeCampServer.Model</RootNamespace>
+    <AssemblyName>CodeCampServer.Model</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\nhibernate\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\nhibernate\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\structuremap\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Domain\IAttendeeRepository.cs" />
+    <Compile Include="Domain\IConferenceRepository.cs" />
+    <Compile Include="Domain\ILoginService.cs" />
+    <Compile Include="Domain\ISessionRepository.cs" />
+    <Compile Include="Domain\ISpeakerRepository.cs" />
+    <Compile Include="Domain\ISponsorRepository.cs" />
+    <Compile Include="Domain\Attendee.cs" />
+    <Compile Include="Domain\Conference.cs" />
+    <Compile Include="Domain\ConfirmedSponsor.cs" />
+    <Compile Include="Domain\Contact.cs" />
+    <Compile Include="Domain\EntityBase.cs" />
+    <Compile Include="Domain\Location.cs" />
+    <Compile Include="Domain\OnlineResource.cs" />
+    <Compile Include="Domain\OnlineResourceType.cs" />
+    <Compile Include="Domain\Session.cs" />
+    <Compile Include="Domain\Speaker.cs" />
+    <Compile Include="Domain\Sponsor.cs" />
+    <Compile Include="Domain\SponsorLevel.cs" />
+    <Compile Include="Domain\TimeSlot.cs" />
+    <Compile Include="Exceptions\DataValidationException.cs" />
+    <Compile Include="IClock.cs" />
+    <Compile Include="IConferenceService.cs" />
+    <Compile Include="Impl\ClockStub.cs" />
+    <Compile Include="Impl\ConferenceService.cs" />
+    <Compile Include="Impl\LoginService.cs" />
+    <Compile Include="Impl\SystemClock.cs" />
+    <Compile Include="Keys.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Presentation\AttendeeListing.cs" />
+    <Compile Include="Presentation\SessionListing.cs" />
+    <Compile Include="Presentation\SpeakerListingCollection.cs" />
+    <Compile Include="Presentation\SpeakerListing.cs" />
+    <Compile Include="Presentation\ScheduledConference.cs" />
+    <Compile Include="Presentation\ScheduleListing.cs" />
+    <Compile Include="Security\IAuthenticationService.cs" />
+    <Compile Include="Security\IAuthorizationService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagrams\ConferenceAggregateDiagram.cd" />
+    <None Include="Diagrams\DomainModelDiagram.cd" />
+    <None Include="Diagrams\IConferenceRepository.cd" />
+    <None Include="Diagrams\Repositories.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
