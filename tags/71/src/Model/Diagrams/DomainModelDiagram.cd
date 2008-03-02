@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="CodeCampServer.Model.Domain.Attendee">
+    <Position X="10.75" Y="8" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EAQAAAAEEAAggCAACAAAAAAAAAAAAAACAAQACAEABAA=</HashCode>
+      <FileName>Domain\Attendee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Contact" />
+      <Property Name="Conference" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CodeCampServer.Model.Domain.TimeSlot">
+    <Position X="13.25" Y="10.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IAEAAAAAIAAgAAAAAAAAAAAIIAAgAAAiIAAACAAAAAA=</HashCode>
+      <FileName>Domain\TimeSlot.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Conference" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CodeCampServer.Model.Domain.Conference">
+    <Position X="7.25" Y="6.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Location" Type="CodeCampServer.Model.Domain.Location">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.11" Y="0.06" Height="0.167" Width="0.868" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAgIAYEAAKAAAR4AQAAAAAACCABAEAAEAA=</HashCode>
+      <FileName>Domain\Conference.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Location" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_sponsors" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CodeCampServer.Model.Domain.Contact">
+    <Position X="15.5" Y="9.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAEAAEAAACAAAIAAAAEAAAAAAAAAAAAAAAAAAAAAAAk=</HashCode>
+      <FileName>Domain\Contact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeCampServer.Model.Domain.Location">
+    <Position X="7.25" Y="10.75" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ACABIAACgAAAAAAIIAAEQAQAAAAAAAAQAAAAAEACAAA=</HashCode>
+      <FileName>Domain\Location.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeCampServer.Model.Domain.OnlineResource">
+    <Position X="11" Y="13.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAABAQAAAAAAAQAAAAAAABAAQAAAAAAAAA=</HashCode>
+      <FileName>Domain\OnlineResource.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CodeCampServer.Model.Domain.Session">
+    <Position X="14.25" Y="13.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="_speaker" Type="CodeCampServer.Model.Domain.Speaker" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.375" Y="13.5" />
+        <Point X="14.375" Y="13.125" />
+        <Point X="13" Y="13.125" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAQAABBMAAAEAAAAAAAABgAAgAAAACgAAACAQAIIA=</HashCode>
+      <FileName>Domain\Session.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_speaker" />
+      <Property Name="Track" />
+      <Property Name="TimeSlot" />
+      <Property Name="Speaker" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CodeCampServer.Model.Domain.Speaker">
+    <Position X="11.5" Y="11.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAACAAABIAAAAAAQAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Domain\Speaker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeCampServer.Model.Domain.Sponsor">
+    <Position X="15.5" Y="6.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAgAgCAAiAAAAQQAAAAAAIABAAAAgAEAAAA=</HashCode>
+      <FileName>Domain\Sponsor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Contact" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CodeCampServer.Model.Domain.Track">
+    <Position X="15.5" Y="11.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Domain\Track.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Conference" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="CodeCampServer.Model.Domain.OnlineResourceType">
+    <Position X="9.25" Y="12.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAAIAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Domain\OnlineResourceType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CodeCampServer.Model.Domain.SponsorLevel">
+    <Position X="13.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgIAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Domain\SponsorLevel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="8.25" />
+</ClassDiagram>
