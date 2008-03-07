@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using System.Web.Routing;
 using CodeCampServer.Model;
 using StructureMap;
 
@@ -12,19 +13,14 @@ namespace CodeCampServer.Website
 		{
 			RouteCollection routes = RouteTable.Routes;
 
-            routes.Add(new Route
-            {
-                Url = "login/[action]",
-                Defaults = new { Controller = "login", Action = "index" },
-                RouteHandler = typeof(BetterMvcRouteHandler)
-            });
+			routes.Add(new Route("login/[action]",
+			                     new RouteValueDictionary(new {Controller = "login", Action = "index"}),
+			                     new BetterMvcRouteHandler()));
 
-            routes.Add(new Route
-		    {
-		        Url = "[conferenceKey]/speaker/[speakerId]",
-                Defaults = new { Controller = "speaker", Action = "view" },
-                RouteHandler = typeof(BetterMvcRouteHandler)
-		    });
+			routes.Add(new Route("[conferenceKey]/speaker/[speakerId]",
+								 new RouteValueDictionary(new { Controller = "speaker", Action = "view" }),
+								 new BetterMvcRouteHandler()));
+
 
             routes.Add(new Route
             {
