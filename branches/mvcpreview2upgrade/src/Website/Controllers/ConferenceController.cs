@@ -27,13 +27,11 @@ namespace CodeCampServer.Website.Controllers
 			return new ScheduledConference(conference, _clock);
 		}
 
-		[ControllerAction]
 		public void Index()
 		{
 			RedirectToAction("details");
 		}
 
-		[ControllerAction]
 		public void Details(string conferenceKey)
 		{
 			ScheduledConference conference = getScheduledConference(conferenceKey);		    
@@ -41,7 +39,6 @@ namespace CodeCampServer.Website.Controllers
 			RenderView("details", SmartBag);
 		}
 
-	    [ControllerAction]
 	    public void List()
 	    {
 	        RequireAdmin();
@@ -58,14 +55,12 @@ namespace CodeCampServer.Website.Controllers
             }
         }
 
-		[ControllerAction]
 		public void PleaseRegister(string conferenceKey)
 		{
 			ScheduledConference conference = getScheduledConference(conferenceKey);
 			RenderView("registerform", new SmartBag().Add(conference));
 		}
 
-		[ControllerAction]
 		public void Register(string conferenceKey, string firstName, string lastName, string email, string website,
 		                     string comment, string password)
 		{
@@ -75,7 +70,6 @@ namespace CodeCampServer.Website.Controllers
 			RenderView("registerconfirm", new SmartBag().Add(attendee).Add(scheduledConference));
 		}
 
-		[ControllerAction]
 		public void ListAttendees(string conferenceKey, int? page, int? perPage)
 		{
 			int effectivePage = page.GetValueOrDefault(0);
@@ -89,7 +83,6 @@ namespace CodeCampServer.Website.Controllers
 			RenderView("listattendees", new SmartBag().Add(scheduledConference).Add(listings));
 		}
 
-		[ControllerAction]
 		public void New()
 		{
 			RenderView("Edit", new SmartBag().Add(new Conference()));

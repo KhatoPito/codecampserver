@@ -28,14 +28,14 @@ namespace CodeCampServer.Website.Controllers
 			}
 		}
 
-		protected override bool OnPreAction(string actionName, MethodInfo methodInfo)
+		protected override void OnActionExecuting(FilterExecutingContext filterContext)
 		{
 			if (_authorizationService.IsAdministrator)
 			{
 				SmartBag.Add("ShouldRenderAdminPanel", true);
 			}
 
-			return base.OnPreAction(actionName, methodInfo);
+			base.OnActionExecuting(filterContext);
 		}
 
 		protected new void RenderView(string viewName)
