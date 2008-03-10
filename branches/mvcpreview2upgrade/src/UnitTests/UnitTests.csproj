@@ -81,6 +81,7 @@
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Extensions.cs" />
+    <Compile Include="MockHttpSessionState.cs" />
     <Compile Include="Model\ConferenceServiceTester.cs" />
     <Compile Include="Model\Domain\AttendeeTester.cs" />
     <Compile Include="Model\Domain\ConferenceTester.cs" />
