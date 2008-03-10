@@ -77,10 +77,6 @@ namespace CodeCampServer.UnitTests.Website.Controllers
 		private TestingSpeakerController GetController()
 		{
             HttpContextBase context = _mocks.FakeHttpContext("~/speaker");
-            // We don't want to do this here - the session shouldn't return the ActualTempData...
-            // the session is the "backing store" for TempData - we need to mock out the session such
-            // that it will get/set values like normal.
-            //context.Session.SetAllSessionStateResults(TestingSpeakerController.ActualTempData);
             TestingSpeakerController controller = new TestingSpeakerController(_conferenceService, _speakerService, _authorizationService, new ClockStub(), _userSession);
             controller.CreateTempData(context);
 

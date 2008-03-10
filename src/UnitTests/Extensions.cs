@@ -14,7 +14,7 @@ namespace CodeCampServer.UnitTests
             HttpContextBase context = mocks.PartialMock<HttpContextBase>();
             HttpRequestBase request = mocks.PartialMock<HttpRequestBase>();
             HttpResponseBase response = mocks.PartialMock<HttpResponseBase>();
-            HttpSessionStateBase session = mocks.PartialMock<HttpSessionStateBase>();
+            MockHttpSessionState session = new MockHttpSessionState();
             HttpServerUtilityBase server = mocks.PartialMock<HttpServerUtilityBase>();
 
             SetupResult.For(context.Request).Return(request);
@@ -30,6 +30,7 @@ namespace CodeCampServer.UnitTests
         {
             HttpContextBase context = FakeHttpContext(mocks);
             context.Request.SetupRequestUrl(url);
+            mocks.Replay(context.Request);
             return context;
         }
 
@@ -66,16 +67,6 @@ namespace CodeCampServer.UnitTests
             SetupResult.For(request.HttpMethod).Return(httpMethod);
         }
 
-        public static void SetSessionStateResult(this HttpSessionStateBase session, string name, object value)
-        {
-            SetupResult.For(session[name]).Return(value);
-        }
-
-        public static void SetAllSessionStateResults(this HttpSessionStateBase session, object value)
-        {
-            SetupResult.For(session[null]).IgnoreArguments().Return(value);
-        }
-
         public static void SetupRequestUrl(this HttpRequestBase request, string url)
         {
             if (url == null)
@@ -88,6 +79,5 @@ namespace CodeCampServer.UnitTests
             SetupResult.For(request.AppRelativeCurrentExecutionFilePath).Return(GetUrlFileName(url));
             SetupResult.For(request.PathInfo).Return(string.Empty);
         }
-       
     }
 }
