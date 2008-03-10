@@ -18,11 +18,10 @@ namespace CodeCampServer.UnitTests.Website.Controllers
             {
             }
 
-            [ControllerAction]
             public void Bar()
             {
                 //would normally be called by the Execute method
-                OnPreAction("bar", null);
+                OnActionExecuting(null);
             }
         }
 
@@ -82,12 +81,11 @@ namespace CodeCampServer.UnitTests.Website.Controllers
                 ActualViewData = viewData;
             }
 
-            [ControllerAction]
             public void RenderWithViewName(string viewName)
             {
                 RenderView(viewName);
             }
-            [ControllerAction]
+
             public void RenderWithViewNameAndMasterName(string viewName, string masterName)
             {
                 RenderView(viewName, masterName);
