@@ -21,54 +21,33 @@ namespace CodeCampServer.Website
 								 new RouteValueDictionary(new { Controller = "speaker", Action = "view" }),
 								 new BetterMvcRouteHandler()));
 
+            routes.Add(new Route("[conferenceKey]/speakers/[action]",
+                                 new RouteValueDictionary(new { Controller = "speaker", Action = "list" }),
+                                 new BetterMvcRouteHandler()));
 
-            routes.Add(new Route
-            {
-                Url = "[conferenceKey]/speakers/[action]",
-                Defaults = new { Controller = "speaker", Action = "list" },
-                RouteHandler = typeof(BetterMvcRouteHandler)
-            });
+            routes.Add(new Route("[conferenceKey]/schedule/[action]",
+                                 new RouteValueDictionary(new { Controller = "schedule", Action = "index" }),
+                                 new BetterMvcRouteHandler()));
 
-			routes.Add(new Route
-			{
-				Url = "[conferenceKey]/schedule/[action]",
-				Defaults = new { Controller = "schedule", Action = "index" },
-				RouteHandler = typeof(BetterMvcRouteHandler)
-			});
+            routes.Add(new Route("[conferenceKey]/sessions/[action]",
+                                 new RouteValueDictionary(new { Controller = "session", Action = "list" }),
+                                 new BetterMvcRouteHandler()));
 
-            routes.Add(new Route
-            {
-                Url = "[conferenceKey]/sessions/[action]",
-                Defaults = new { Controller = "session", Action = "list" },
-                RouteHandler = typeof(BetterMvcRouteHandler)
-            });
+            routes.Add(new Route("[conferenceKey]/sponsors/[action]",
+                                 new RouteValueDictionary(new { Controller = "sponsor", Action = "list" }),
+                                 new BetterMvcRouteHandler()));
 
-            routes.Add(new Route
-            {
-                Url = "[conferenceKey]/sponsors/[action]",
-                Defaults = new { Controller = "sponsor", Action = "list" },
-                RouteHandler = typeof(BetterMvcRouteHandler)
-            });
+            routes.Add(new Route("[conferenceKey]/sponsors/[action]/[sponsorName]",
+                                 new RouteValueDictionary(new { Controller = "sponsor", Action = "edit" }),
+                                 new BetterMvcRouteHandler()));
 
-            routes.Add(new Route
-            {
-                Url = "[conferenceKey]/sponsors/[action]/[sponsorName]",
-                Defaults = new { Controller = "sponsor", Action = "edit" },
-                RouteHandler = typeof(BetterMvcRouteHandler)
-            });
+            routes.Add(new Route("[conferenceKey]/[action]",
+                                 new RouteValueDictionary(new { Controller = "conference", Action = "index" }),
+                                 new BetterMvcRouteHandler()));
 
-            routes.Add(new Route("[conferenceKey]/[action]",   
-				new ControllerDefaults("index", "conference"),
-				typeof(BetterMvcRouteHandler)));
-
-			routes.Add(new Route("Default.aspx",
-				new
-				{
-					action = "details",
-					controller = "conference",
-					conferenceKey = "austincodecamp2008"
-				},
-				typeof(BetterMvcRouteHandler)));
+            routes.Add(new Route("Default.aspx",
+                                 new RouteValueDictionary(new { Controller = "conference", Action = "details", ConferenceKey = "austincodecamp2008" }),
+                                 new BetterMvcRouteHandler()));
 		}
 	}
 }

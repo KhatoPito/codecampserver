@@ -10,6 +10,7 @@ using CodeCampServer.Website.Views;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
+using System.Web.Routing;
 
 namespace CodeCampServer.UnitTests.Website.Controllers
 {
@@ -26,7 +27,7 @@ namespace CodeCampServer.UnitTests.Website.Controllers
             public string ActualViewName;
             public string ActualMasterName;
             public object ActualViewData;
-            public Hashtable RedirectToActionValues;
+            public RouteValueDictionary RedirectToActionValues;
 
             public TestingSponsorController(IConferenceRepository conferenceRepository,
                                             IAuthorizationService authorizationService, IClock clock)
@@ -43,9 +44,9 @@ namespace CodeCampServer.UnitTests.Website.Controllers
                 ActualViewData = viewData;
             }
 
-            protected override void RedirectToAction(object values)
+            protected override void RedirectToAction(RouteValueDictionary values)
             {
-                RedirectToActionValues = HtmlExtensionUtility.GetPropertyHash(values);
+                RedirectToActionValues = values;
             }
         }
 

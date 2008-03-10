@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
-using Rhino.Mocks;
-using System.Web;
-using NUnit.Framework;
 using System.ComponentModel;
+using System.Web;
+using System.Web.Routing;
+using NUnit.Framework;
+using Rhino.Mocks;
 
 namespace CodeCampServer.UnitTests
 {
@@ -15,11 +13,11 @@ namespace CodeCampServer.UnitTests
         public static void AssertRoute(RouteCollection routes, string url, object expectations)
         {
             MockRepository mocks = new MockRepository();
-            IHttpContext httpContext;
+            HttpContextBase httpContext = mocks.FakeHttpContext(url);
 
             using (mocks.Record())
-            {                
-                httpContext = mocks.DynamicIHttpContext(url);
+            {
+                httpContext = mocks.FakeHttpContext(url);
             }
 
             using (mocks.Playback())
