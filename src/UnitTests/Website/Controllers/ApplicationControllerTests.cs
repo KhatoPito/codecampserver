@@ -4,13 +4,14 @@ using CodeCampServer.Website.Controllers;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
+using System.Reflection;
 
 namespace CodeCampServer.UnitTests.Website.Controllers
 {
     [TestFixture]
     public class ApplicationControllerTests
     {
-        IAuthorizationService _authorizationService;
+        IAuthorizationService _authorizationService;       
 
         private class FooController : ApplicationController
         {
@@ -37,33 +38,13 @@ namespace CodeCampServer.UnitTests.Website.Controllers
         [Test]
         public void OnPreActionShouldVerifyTheUserIsAnAdmin()
         {
-            Expect.Call(_authorizationService.IsAdministrator).Return(true);
-            _mocks.ReplayAll();
-
-            FooController controller = new FooController(_authorizationService);            
-            controller.Bar();
-            
-            _mocks.VerifyAll();
+            Assert.Fail("not implemented for preview2 update");
         }
 
         [Test]
         public void OnPreActionShouldSetSmartBagDataToRenderAdminPanelWhenTheUserIsAnAdmin()
         {
-            SetupResult.For(_authorizationService.IsAdministrator).Return(true);
-            _mocks.ReplayAll();
-
-            FooController controller = new FooController(_authorizationService);
-            controller.Bar();
-
-            Assert.That(controller.SmartBag.ContainsKey("ShouldRenderAdminPanel"));
-            Assert.That(controller.SmartBag.Get<bool>("ShouldRenderAdminPanel"), Is.True);
-
-            _mocks.BackToRecordAll();
-            SetupResult.For(_authorizationService.IsAdministrator).Return(false);
-            _mocks.ReplayAll();
-
-            controller.Bar();
-            _mocks.VerifyAll();
+            Assert.Fail("not implemented for preview2 update");
         }
 
 
