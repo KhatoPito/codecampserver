@@ -87,7 +87,10 @@
     <Compile Include="BetterMvcRouteHandler.cs" />
     <Compile Include="Controllers\SpeakerController.cs" />
     <Compile Include="Controllers\SponsorController.cs" />
+    <Compile Include="Helpers\ConferenceServiceHelper.cs" />
     <Compile Include="Helpers\ControllerHelpers.cs" />
+    <Compile Include="Helpers\LinkHelpers.cs" />
+    <Compile Include="Helpers\RouteHelpers.cs" />
     <Compile Include="Helpers\ViewPageHelpers.cs" />
     <Compile Include="IRouteConfigurator.cs" />
     <Compile Include="Controllers\SessionController.cs" />
