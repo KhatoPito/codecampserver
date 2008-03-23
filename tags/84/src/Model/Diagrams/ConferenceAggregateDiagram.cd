@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="CodeCampServer.Model.Domain.TimeSlot">
+    <Position X="14.25" Y="10.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IAEAAAAAIAAgAAAAAAAAAAAIIAAgAAAiIAAACAAAAAA=</HashCode>
+      <FileName>Domain\TimeSlot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeCampServer.Model.Domain.Conference">
+    <Position X="11.25" Y="6.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AABAIAAAAAAgIAYMEAKAAAR4AUAAAAAECCABAEEAOAA=</HashCode>
+      <FileName>Domain\Conference.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Location" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_sponsors" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CodeCampServer.Model.Domain.Location">
+    <Position X="11.5" Y="11.75" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ACABIAACgAAAAAAIIAAEQAQAAAAAAAAQAAAAAEACAAA=</HashCode>
+      <FileName>Domain\Location.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeCampServer.Model.Domain.Session">
+    <Position X="14.75" Y="6.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AACAQAABAMAgAEAAAAAAAABgAAgAAAACgAAACAAAIIA=</HashCode>
+      <FileName>Domain\Session.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeCampServer.Model.Domain.Sponsor">
+    <Position X="6.75" Y="6.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAgAgCAAiAAAAQQAAAAAAIABAAAAgAEAAAA=</HashCode>
+      <FileName>Domain\Sponsor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Enum Name="CodeCampServer.Model.Domain.SponsorLevel">
+    <Position X="9.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgIAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Domain\SponsorLevel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="8.25" />
+</ClassDiagram>
