@@ -58,10 +58,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\mvccontrib\MvcContrib.Castle.dll</HintPath>
     </Reference>
-    <Reference Include="RouteDebug, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\bin\system.web.mvc\RouteDebug.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -108,19 +104,16 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminOnlyAttribute.cs" />
     <Compile Include="Controllers\Controller.cs" />
-    <Compile Include="Controllers\AuthorizationFilterAttribute.cs" />
     <Compile Include="Controllers\CreateAdminAccountTask.cs" />
     <Compile Include="Controllers\FlashMessageComponent.cs" />
     <Compile Include="Controllers\ITask.cs" />
     <Compile Include="Controllers\JsonResult.cs" />
     <Compile Include="Controllers\UrlRedirectResult.cs" />
-    <Compile Include="Controllers\RequireLoginAttribute.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\SpeakerController.cs" />
     <Compile Include="Controllers\SponsorComponentController.cs" />
     <Compile Include="Controllers\SponsorController.cs" />
     <Compile Include="Controllers\TrackController.cs" />
-    <Compile Include="Helpers\ComponentControllerBase.cs" />
     <Compile Include="Helpers\ControllerHelpers.cs" />
     <Compile Include="Helpers\IoC.cs" />
     <Compile Include="Helpers\LinkHelpers.cs" />

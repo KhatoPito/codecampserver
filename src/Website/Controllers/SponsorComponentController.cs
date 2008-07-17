@@ -3,7 +3,7 @@ using CodeCampServer.Website.Helpers;
 
 namespace CodeCampServer.Website.Controllers
 {
-	public class SponsorComponentController : ComponentControllerBase
+	public class SponsorComponentController
 	{
 		private readonly IConferenceRepository _conferenceRepository;
 
@@ -16,7 +16,8 @@ namespace CodeCampServer.Website.Controllers
 		{
 			Conference conference = _conferenceRepository.GetConferenceByKey(key);
 			Sponsor[] sponsors = conference.GetSponsors(level);
-			RenderView("List", sponsors);
+            //TODO: re-implement this without component controller
+			//RenderView("List", sponsors);
 		}
 	}
 }
