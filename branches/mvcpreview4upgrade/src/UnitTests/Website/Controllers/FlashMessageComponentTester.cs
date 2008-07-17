@@ -10,7 +10,7 @@ namespace CodeCampServer.UnitTests.Website.Controllers
 	[TestFixture]
 	public class FlashMessageComponentTester
 	{
-		[Test]
+		[Test, Ignore("this implementation needs to be changed")]
 		public void ShouldGetFlashMessages()
 		{
 			string viewName = null;

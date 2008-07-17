@@ -3,7 +3,7 @@ using CodeCampServer.Website.Helpers;
 
 namespace CodeCampServer.Website.Controllers
 {
-	public class FlashMessageComponent : ComponentControllerBase
+	public class FlashMessageComponent
 	{
 		private readonly IUserSession _session;
 
@@ -19,7 +19,13 @@ namespace CodeCampServer.Website.Controllers
 		public void GetMessages()
 		{
 			FlashMessage[] flashMessages = _session.PopUserMessages();
-			RenderView("list", flashMessages);
+            //TODO:  re-implement this without component controller
+			//RenderView("list", flashMessages);
 		}
+
+	    public void RenderView(object o, object o1)
+	    {	        
+            //just to get this compiling without component controller
+	    }
 	}
 }

@@ -17,7 +17,9 @@ namespace CodeCampServer.Website
 		{
 			Log.EnsureInitialized();
 			RegisterMvcTypes();
+
 			ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(IoC.GetContainer()));
+            ControllerBuilder.Current.DefaultNamespaces.Add("CodeCampServer.Website.Controllers");
 			ComponentControllerBuilder.Current.SetComponentControllerFactory(
 				new IoCComponentControllerFactory(new WindsorDependencyResolver(IoC.GetContainer())));
 
@@ -38,11 +40,7 @@ namespace CodeCampServer.Website
 				if (typeof (IController).IsAssignableFrom(type))
 				{
 					IoC.Register(type.Name.ToLower(), type, LifestyleType.Transient);
-				}
-				if (typeof (ComponentController).IsAssignableFrom(type))
-				{
-					IoC.Register(type.Name.ToLower(), type, LifestyleType.Transient);
-				}
+				}				                
 			}
 		}
 

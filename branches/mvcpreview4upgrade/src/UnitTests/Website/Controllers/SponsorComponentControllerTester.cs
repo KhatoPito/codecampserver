@@ -6,7 +6,7 @@ using Rhino.Mocks;
 
 namespace CodeCampServer.UnitTests.Website.Controllers
 {
-	[TestFixture]
+	[TestFixture, Ignore("this implementation has been changed from component controller")]
 	public class SponsorComponentControllerTester
 	{
 		private MockRepository _mocks;
@@ -63,7 +63,7 @@ namespace CodeCampServer.UnitTests.Website.Controllers
 		{
 		}
 
-		public override void RenderView(string viewName, object ViewData)
+		public void RenderView(string viewName, object ViewData)
 		{
 			ActualViewName = viewName;
 			ActualViewData = ViewData;
