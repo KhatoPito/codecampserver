@@ -7,7 +7,6 @@ using CodeCampServer.Model;
 using CodeCampServer.Website.Helpers;
 using CodeCampServer.Website.Impl;
 using MvcContrib.Castle;
-using MvcContrib.ExtendedComponentController;
 
 namespace CodeCampServer.Website
 {
@@ -20,9 +19,7 @@ namespace CodeCampServer.Website
 
 			ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(IoC.GetContainer()));
             ControllerBuilder.Current.DefaultNamespaces.Add("CodeCampServer.Website.Controllers");
-			ComponentControllerBuilder.Current.SetComponentControllerFactory(
-				new IoCComponentControllerFactory(new WindsorDependencyResolver(IoC.GetContainer())));
-
+			
 			setupRoutes();
 		}
 
