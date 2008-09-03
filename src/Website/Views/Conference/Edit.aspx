@@ -4,6 +4,7 @@
 <%@ Import namespace="MvcContrib"%>
 <%@ Import namespace="CodeCampServer.Model.Domain"%>
 <%@ Import Namespace="System.Web.Mvc" %>
+<%@ Import Namespace="Microsoft.Web.Mvc" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"> 
   <script type="text/javascript">
@@ -81,7 +82,7 @@
             <span class="info">Max 1000 characters.  No formatting.</span>
             
             <label for="conf_enabled">Visible to the public</label>
-            <%= Html.CheckBox("conf_enabled", "", conference.PubliclyVisible) %>
+            <%= Html.CheckBox("conf_enabled", conference.PubliclyVisible) %>
             
             <div class="button-row">
                 <input type="submit" id="conf_save" value="Save" class="submit" />
