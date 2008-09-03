@@ -40,9 +40,7 @@ namespace CodeCampServer.UnitTests.Website.Controllers
         [Test]
         public void should_render_default_view()
         {            
-            var viewResult = _result as ViewResult;
-            Assert.That(viewResult, Is.Not.Null);
-            Assert.That(viewResult.ViewName, Is.Null);
+            _result.ShouldRenderDefaultView();            
         }
 
         [Test]
