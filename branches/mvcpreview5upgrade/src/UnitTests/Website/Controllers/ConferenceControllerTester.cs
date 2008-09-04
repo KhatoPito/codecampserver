@@ -123,7 +123,7 @@ namespace CodeCampServer.UnitTests.Website.Controllers
 			var controller = createConferenceController();
 			_conferenceRepository.Expect(x => x.ConferenceExists("conference", "conf")).Return(true);
 
-		    controller.Save("conference", "conf", DateTime.Parse("Dec 12 2007"), null, null);			
+		    controller.Save(Guid.Empty, "conference", "conf", DateTime.Parse("Dec 12 2007"), null, null, true);			
 		}
 
 		[Test]
@@ -132,7 +132,7 @@ namespace CodeCampServer.UnitTests.Website.Controllers
 			var controller = createConferenceController();
 			_conferenceRepository.Stub(x=>x.ConferenceExists("conference", "conf")).Return(true);
 
-			controller.Save("conference", "conf", DateTime.Parse("Dec 12 2007"), null, null);
+			controller.Save(Guid.Empty, "conference", "conf", DateTime.Parse("Dec 12 2007"), null, null, true);
 			Assert.That(controller.TempData.ContainsKey(TempDataKeys.Error));
 		}
 
@@ -142,7 +142,7 @@ namespace CodeCampServer.UnitTests.Website.Controllers
 			var controller = createConferenceController();
 			_conferenceRepository.Stub(x=>x.ConferenceExists("conference", "conf")).Return(false);                        
 
-			controller.Save("conference", "conf", DateTime.Parse("Dec 12 2007"), null, null);
+			controller.Save(Guid.Empty, "conference", "conf", DateTime.Parse("Dec 12 2007"), null, null, true);
 
 			_conferenceRepository.AssertWasCalled(x => x.Save(null), x => x.IgnoreArguments());
 		}
