@@ -6,7 +6,6 @@
 <%@ Import namespace="CodeCampServer.Website.Controllers"%>
 <%@ Import namespace="System.Web.Mvc"%>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
@@ -33,7 +32,7 @@
 <body>
     <div id="header">
 	    <div id="logo">
-		    <h1><%=Html.ActionLink(ViewData.GetOrDefault("PageTitle", "Code Camp Server"), "Details", "Conference") %></h1>
+		    <h1><%=Html.ActionLink(ViewData.GetOrDefault("PageTitle", "Code Camp Server"), "Index", "Conference") %></h1>
 		    <p>Powered by <a href="http://codecampserver.org">Code Camp Server</a></p>
 	    </div>
 	    <div id="menu">

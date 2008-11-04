@@ -1,35 +1,49 @@
 ﻿using System.Web.Mvc;
 using CodeCampServer.Model;
 using CodeCampServer.Model.Domain;
-using CodeCampServer.Model.Presentation;
 using MvcContrib;
-using IUserSession=CodeCampServer.Model.IUserSession;
 
 namespace CodeCampServer.Website.Controllers
 {
+    [Authorize(Roles="Administrator")]
 	public class TrackController : BaseController
 	{
-		private readonly ITrackRepository _trackRepository;
+	    private readonly ITrackService _trackService;		
 		private readonly IConferenceRepository _conferenceRepository;
-		private readonly IClock _clock;
 
-		public TrackController(ITrackRepository trackRepository, IConferenceRepository conferenceRepository, IClock clock,
-		                       IUserSession userSession)
-			: base(userSession)
+		public TrackController(IConferenceRepository conferenceRepository, IUserSession userSession, 
+            ITrackService trackService) : base(userSession)
 		{
-			_trackRepository = trackRepository;
-			_conferenceRepository = conferenceRepository;
-			_clock = clock;
+		    _trackService = trackService;
+		    _conferenceRepository = conferenceRepository;
 		}
 
 		public ActionResult List(string conferenceKey)
 		{
-			Conference conference = _conferenceRepository.GetConferenceByKey(conferenceKey);
-			Track[] tracks = _trackRepository.GetTracksFor(conference);
-			ViewData.Add(new Schedule(conference, _clock, null, _trackRepository));
+			var conference = _conferenceRepository.GetConferenceByKey(conferenceKey);
+			var tracks = _trackService.GetTracksFor(conference);
+			ViewData.Add(conference);
 			ViewData.Add(tracks);
 
 			return View();
 		}
+
+        public ActionResult New(string conferenceKey)
+        {
+            var conference = _conferenceRepository.GetConferenceByKey(conferenceKey);
+            ViewData.Add(conference);
+            ViewData.Add(new Track());
+            return View("edit");
+        }        
+
+        public ActionResult Edit(string conferenceKey, string trackName)
+        {
+            var conference = _conferenceRepository.GetConferenceByKey(conferenceKey);
+            var track = _trackService.FindTrack(conference, trackName);
+
+            ViewData.Add(conference);
+            ViewData.Add(track);
+            return View();
+        }
 	}
 }
