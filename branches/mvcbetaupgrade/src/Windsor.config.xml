@@ -41,7 +41,12 @@
 		<component id="IConferenceService"
 				   service="CodeCampServer.Model.IConferenceService, CodeCampServer.Model"
 				   type="CodeCampServer.Model.Impl.ConferenceService, CodeCampServer.Model"
-				   lifestyle="transient"/>
+				   lifestyle="transient" />
+
+    <component id="ITrackService"
+           service="CodeCampServer.Model.ITrackService, CodeCampServer.Model"
+           type="CodeCampServer.Model.Impl.TrackService, CodeCampServer.Model"
+           lifestyle="transient" />
 
 		<!-- repositories -->
 		<component id="IConferenceRepository"

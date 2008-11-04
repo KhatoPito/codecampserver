@@ -1,8 +1,10 @@
 using System;
 using System.IO;
+using System.Reflection;
 using Castle.Core;
 using Castle.Windsor;
 using Castle.Windsor.Configuration.Interpreters;
+using MvcContrib.Castle;
 
 namespace CodeCampServer.Website.Helpers
 {
@@ -64,6 +66,12 @@ namespace CodeCampServer.Website.Helpers
 			Register<Interface, Implementation>(typeof (Interface).Name);
 		}
 
+        public static void Register<Interface, Implementation>(LifestyleType lifestyle)
+        {
+            EnsureInitialized();
+            _container.AddComponentWithLifestyle(typeof(Interface).Name, typeof(Interface), typeof(Implementation), lifestyle);
+        }
+
 		public static void Register<Interface, Implementation>(string key)
 		{
 			EnsureInitialized();
@@ -90,5 +98,10 @@ namespace CodeCampServer.Website.Helpers
 				_container = null;
 			}
 		}
+
+	    public static void RegisterControllers(Assembly assembly)
+	    {
+	        _container.RegisterControllers(assembly);
+	    }	   
 	}
 }
