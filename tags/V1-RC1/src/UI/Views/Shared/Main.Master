@@ -1,0 +1,72 @@
+<%@ Import Namespace="CodeCampServer.UI.Helpers.Filters"%>
+<%@ Import Namespace="System.Reflection"%>
+<%@ Import Namespace="CodeCampServer.Core"%>
+<%@ Import Namespace="MvcContrib"%>
+<%@ Import Namespace="CodeCampServer.UI"%>
+<%@ Import Namespace="CodeCampServer.UI.Models.Forms"%>
+<%@ Import Namespace="MvcContrib"%>
+<%@ Import Namespace="CodeCampServer.UI.Controllers"%>
+<%@ Import Namespace="CodeCampServer.UI"%>
+<%@ Import Namespace="CodeCampServer.Infrastructure.UI.Services"%>
+<%@ Master Language="C#" AutoEventWireup="true" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Import Namespace="CodeCampServer.Core.Domain.Model"%>
+<%@ Import Namespace="MvcContrib"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	  <title>Code Camp Server 1.0</title>
+
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  
+	  <link id="cssBaseline" rel="Stylesheet" type="text/css" media="all" href="/css/Baseline.css" runat="server" />
+	  <link id="cssGenericClasses" rel="Stylesheet" type="text/css" media="all" href="/css/GenericClasses.css" runat="server" />
+	  <link id="cssRedefinitions" rel="Stylesheet" type="text/css" media="all" href="/css/Redefinitions.css" runat="server" />
+	  
+	  <link href="<%=Url.Content("~/css/codecampserver.css")%>" rel="stylesheet" type="text/css" />
+	  
+	  <script type="text/javascript" src="/scripts/jquery-1.2.6.min.js"></script>
+     <!-- required plugins -->
+     <script type="text/javascript" src="/scripts/date.js"></script>
+     <!-- jquery.datePicker.js -->
+     <script type="text/javascript" src="/scripts/jquery.datePicker.js"></script>
+
+     <!-- datePicker required styles -->
+     <link rel="stylesheet" type="text/css" media="screen" href="/css/datePicker.css"/>
+
+     <!-- page specific scripts -->
+     <script type="text/javascript">
+     Date.format = 'mm/dd/yyyy';
+     $(function() {
+		$('.date-pick').datePicker({ startDate: '01/01/2009' });
+     });
+     </script>
+	  <asp:ContentPlaceHolder ID="Stylesheets" runat="server"></asp:ContentPlaceHolder>	  
+	</head>
+	<body>
+		<div id="header">
+			<h1><a href="/"><%=ViewData["title"] %></a></h1>
+			<h2>
+				<asp:LoginView ID="LoginView3" runat="server">
+				<LoggedInTemplate>
+					Welcome, <%=ViewData.Get<User>().Name%>
+					(<a href="<%=Url.Action<LoginController>(c=>c.LogOut()) %>">Log out</a>)
+				</LoggedInTemplate>
+				<AnonymousTemplate>
+					<%=Html.ActionLink<LoginController>("Log in", c=>c.Index()) %>
+				</AnonymousTemplate>
+			</asp:LoginView>
+			</h2>
+		</div>
+		<% Html.RenderPartial("Menu"); %>
+		
+		<div id="content">
+			<div class="mainContent">
+				<asp:ContentPlaceHolder id="Main" runat="server" />
+			</div>
+			<asp:ContentPlaceHolder ID="Footer" runat="server">
+			<p class="ml10"><span>Revision Number: </span><span id="revisionNumber"><%=ViewData[AssemblyVersionFilterAttribute.AssemblyVersion].ToString() %></span></p>
+			</asp:ContentPlaceHolder>
+		</div>
+		<div style="clear: both;">&nbsp;</div>
+  </body>
+</html>
