@@ -1,0 +1,20 @@
+#This is the projected Release Plan for the project.
+
+= Introduction =
+
+The projected release plan for the Code Camp Server is as follows:
+
+= Details =
+Version 1 - Release Candidate
+  * Supports the functionality of Version 1
+
+Version 1 (Will release with the ASP.Net 1.0 Release)
+  * Supports a single Admin user
+  * Supports a single Code Camp / Conference
+  * Supports Multiple Tracks, Timeslots,Sessions, and Speakers
+  * Supports Attendee signup and Attendee listing.
+
+Version 2
+  * Supports multiple conferences
+  * Supports multiple users with the ability to own multiple conferences.
+  * Supports an organization that groups users together with their conferences.
