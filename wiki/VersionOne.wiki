@@ -6,6 +6,7 @@
   * Change deployment process to support database migrations. The deploy currently rebuilds the database/schema and data.
   * Domain change to make Speaker a child of a Conference.
   * Clean up packaging nant target. There are files that need to be excluded in the packaging process.
+  * Change the key for the Default User Group. localhost is currently being used.  This causes a problem on the User Groups list page.  The url for the user group turns into http://localhost, we need to be able to generate the domain name from the key.
 
 ===Low Priority===
   * Add users to manage a User Group.
