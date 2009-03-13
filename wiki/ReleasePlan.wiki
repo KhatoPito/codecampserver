@@ -8,13 +8,11 @@ The projected release plan for the Code Camp Server is as follows:
   * Supports the functionality of Version 1
   * Currently using Asp.Net MVC Beta
 
-==Version 1 (Will release with the ASP.Net 1.0 Release)==
-  * Supports a single Admin user
-  * Supports a single Code Camp / Conference
-  * Supports Multiple Tracks, Timeslots,Sessions, and Speakers
-  * Supports Attendee signup and Attendee listing.
-
-==Version 2==
-  * Supports multiple conferences
+==[Version 1] (Will release with the ASP.Net 1.0 Release)==
+  * X Supports Multiple Tracks, Timeslots,Sessions, and Speakers
+  * X Supports Attendee signup and Attendee listing.
+  * X Supports multiple conferences
   * Supports multiple users with the ability to own multiple conferences.
-  * Supports an organization that groups users together with their conferences.
+  * X Supports an organization that groups users together with their conferences.
+
+==[Version 2]==
