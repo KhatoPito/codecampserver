@@ -8,7 +8,7 @@ The projected release plan for the Code Camp Server is as follows:
   * Supports the functionality of Version 1
   * Currently using Asp.Net MVC Beta
 
-== Version1 (Will release with the ASP.Net MVC 1.0 Release)==
+== [VersionOne Version 1] (Will release with the ASP.Net MVC 1.0 Release)==
   * X Supports Multiple Tracks, Timeslots,Sessions, and Speakers
   * X Supports Attendee signup and Attendee listing.
   * X Supports multiple conferences
