@@ -5,6 +5,7 @@
   * ~~Deploy to the production server cruise control setup to deploy. one click.~~
   * Change deployment process to support database migrations. The deploy currently rebuilds the database/schema and data.
   * Domain change to make Speaker a child of a Conference.
+  * Clean up packaging nant target. There are files that need to be excluded in the packaging process.
 
 ===Low Priority===
   * Add users to manage a User Group.
