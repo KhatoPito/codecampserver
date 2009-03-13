@@ -10,7 +10,9 @@
   * Add A record to CodeCampServer.com to point to the production server.
   * Configure TeamCity to auto commit the LatestVersion zip file.
 
+
 ===Low Priority===
+  * Upgrade to MVC V1 with MvcContrib
   * Change the Speaker entity to be a child of a Conference. Currently it is a Root Aggregate.
   * Add users to manage a User Group.
   * allow users to register on the site
