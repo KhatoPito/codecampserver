@@ -2,7 +2,7 @@
   * ~~show upcoming events on the usergroup homepage~~
   * ~~show past events on the schedule page - add as a secound list or just sort them by newest first.~~
   * ~~display a usergroup from a domain name(hostheader)~~
-  * ~~Deploy to the production server~~ cruise control setup to deploy. one click.
+  * ~~Deploy to the production server cruise control setup to deploy. one click.~~
   * Change deployment process to support database migrations. The deploy currently rebuilds the database/schema and data.
   * Domain change to make Speaker a child of a Conference.
 
