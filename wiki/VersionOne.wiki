@@ -1,8 +1,23 @@
+===High Priority===
+  * ~~show upcoming events on the usergroup homepage~~
+  * ~~show past events on the schedule page - add as a secound list or just sort them by newest first.~~
+  *
+  * 
   *
   *
   *
   *
-  *
-  *
-  *
-  *
+
+===Low Priority===
+  * manage user permissions by usergroup.
+  * add a map link to the location on conference
+  * google analytics per google.
+  * convert proposal to allow anonymous access
+  * edit / css overrides for the group / deal with image later.
+  * Show sessions for a single track conference on the conference homepage.
+
+
+
+
+
+
