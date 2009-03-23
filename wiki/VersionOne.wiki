@@ -9,6 +9,7 @@
   * Change the key for the Default User Group. localhost is currently being used.  This causes a problem on the User Groups list page.  The url for the user group turns into http://localhost, we need to be able to generate the domain name from the key.
   * Add A record to CodeCampServer.com to point to the production server.
   * Configure TeamCity to auto commit the LatestVersion zip file.
+  * ~~Add new new.adung.org cname to test out the adnug.org website.~~
 
 
 ===Low Priority (Should Have)===
