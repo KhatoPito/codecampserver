@@ -10,6 +10,7 @@
   * ~~Add A record to CodeCampServer.com to point to the production server.~~
   * Configure TeamCity to auto commit the LatestVersion zip file.
   * ~~Add new new.adung.org cname to test out the adnug.org website.~~
+  * Allow HTML editing of conference homepage html.
 
 
 ===Low Priority (Should Have)===
@@ -21,7 +22,7 @@
   * Apply User Group Admin Security to editing
   * manage user permissions by usergroup.
   * add a map link to the location on conference
-  * google analytics per google.
+  * google analytics per usergroup.
   * convert proposal to allow anonymous access
   * edit / css overrides for the group / deal with image later.
   * Show sessions for a single track conference on the conference homepage.
