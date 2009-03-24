@@ -10,7 +10,7 @@
   * ~~Add A record to CodeCampServer.com to point to the production server.~~
   * Configure TeamCity to auto commit the LatestVersion zip file.
   * ~~Add new new.adung.org cname to test out the adnug.org website.~~
-  * Allow HTML editing of conference homepage html.
+  * ~~Allow HTML editing of conference homepage html.~~
 
 
 ===Low Priority (Should Have)===
