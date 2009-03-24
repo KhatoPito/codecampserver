@@ -11,6 +11,7 @@
   * Configure TeamCity to auto commit the LatestVersion zip file.
   * ~~Add new new.adung.org cname to test out the adnug.org website.~~
   * ~~Allow HTML editing of conference homepage html.~~
+  * Remove auto schema export in zdataloader. Have migration nant target call export schema.
 
 
 ===Low Priority (Should Have)===
