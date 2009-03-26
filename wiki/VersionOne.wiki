@@ -16,7 +16,7 @@
 
 ===Low Priority (Should Have)===
   * ~~Upgrade to MVC V1 with MvcContrib~~
-  * Change the Speaker entity to be a child of a Conference. Currently it is a Root Aggregate.
+  * ~~Change the Speaker entity to be a child of a Conference. Currently it is a Root Aggregate.~~
   * Add users to manage a User Group.
   * allow users to register on the site
   * Apply System Admin Security to editing
