@@ -21,12 +21,12 @@
 
 ===Could Have===
  * Add users to manage a User Group.
-  * allow users to register on the site
-  * Apply System Admin Security to editing
-  * Apply User Group Admin Security to editing
-  * manage user permissions by usergroup.
-  * add a map link to the location on conference
-  * google analytics per usergroup.
-  * convert proposal to allow anonymous access
-  * edit / css overrides for the group / deal with image later.
-  * Show sessions for a single track conference on the conference homepage.
+ * allow users to register on the site
+ * Apply System Admin Security to editing
+ * Apply User Group Admin Security to editing
+ * manage user permissions by usergroup.
+ * add a map link to the location on conference
+ * google analytics per usergroup.
+ * convert proposal to allow anonymous access
+ * edit / css overrides for the group / deal with image later.
+ * Show sessions for a single track conference on the conference homepage.
