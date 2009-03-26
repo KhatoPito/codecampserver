@@ -8,10 +8,10 @@
   * ~~Add Method to reverse map the key to a domain name... or add a domain name to the User Group Entity.~~
   * ~~Change the key for the Default User Group. localhost is currently being used.  This causes a problem on the User Groups list page.  The url for the user group turns into http://localhost, we need to be able to generate the domain name from the key.~~
   * ~~Add A record to CodeCampServer.com to point to the production server.~~
-  * Configure TeamCity to auto commit the LatestVersion zip file.
   * ~~Add new new.adung.org cname to test out the adnug.org website.~~
   * ~~Allow HTML editing of conference homepage html.~~
   * ~~Remove auto schema export in zdataloader. Have migration nant target call export schema.~~
+  * Configure TeamCity to auto commit the LatestVersion zip file.
 
 
 ===Low Priority (Should Have)===
