@@ -12,14 +12,8 @@
   * ~~Allow HTML editing of conference homepage html.~~
   * ~~Remove auto schema export in zdataloader. Have migration nant target call export schema.~~
   * Configure TeamCity to auto commit the LatestVersion zip file.
-
-
-===Low Priority (Should Have)===
   * ~~Upgrade to MVC V1 with MvcContrib~~
-  * ~~Change the Speaker entity to be a child of a Conference. Currently it is a Root Aggregate.~~
- 
-
-===Could Have===
+  * ~~Change the Speaker entity to be a child of a Conference. Currently it is a Root 
  * Add users to manage a User Group.
  * allow users to register on the site
  * Apply System Admin Security to editing
@@ -30,3 +24,9 @@
  * convert proposal to allow anonymous access
  * edit / css overrides for the group / deal with image later.
  * Show sessions for a single track conference on the conference homepage.
+
+===Low Priority (Should Have)===
+Aggregate.~~
+ 
+
+===Could Have===
