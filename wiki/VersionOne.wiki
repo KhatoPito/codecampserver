@@ -14,7 +14,7 @@
   * Configure TeamCity to auto commit the LatestVersion zip file.
   * ~~Upgrade to MVC V1 with MvcContrib~~
   * ~~Change the Speaker entity to be a child of a Conference. Currently it is a Root Aggregate.~~
-  * Add users to manage a User Group.
+  * ~~Add users to manage a User Group.~~
   * allow users to register on the site
   * Apply System Admin Security to editing
   * Apply User Group Admin Security to editing
