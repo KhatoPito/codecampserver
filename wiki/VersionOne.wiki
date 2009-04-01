@@ -16,7 +16,7 @@
   * ~~Change the Speaker entity to be a child of a Conference. Currently it is a Root Aggregate.~~
   * ~~Add users to manage a User Group.~~
   * allow users to register on the site
-  * Apply System Admin Security to editing
+  * ~~Apply System Admin Security to editing~~
   * Apply User Group Admin Security to editing
     * Users
     * Tracks
@@ -25,7 +25,7 @@
     * speakers
     * ~~Conferences~~
     * ~~UserGroups~~
-  * manage user permissions by usergroup.
+  * ~~manage user permissions by usergroup.~~
   * add a map link to the location on conference
   * google analytics per usergroup.
   * convert proposal to allow anonymous access
