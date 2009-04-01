@@ -18,6 +18,13 @@
   * allow users to register on the site
   * Apply System Admin Security to editing
   * Apply User Group Admin Security to editing
+    * Users
+    * Tracks
+    * Timeslots
+    * Sessions
+    * speakers
+    * ~~Conferences~~
+    * ~~UserGroups~~
   * manage user permissions by usergroup.
   * add a map link to the location on conference
   * google analytics per usergroup.
