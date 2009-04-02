@@ -18,13 +18,13 @@
   * ~~google analytics per usergroup.~~
   * ~~manage user permissions by usergroup.~~
   * Apply User Group Admin Security to editing
-    * Users
-    * Tracks
-    * Timeslots
-    * Sessions
+    * ~~Sessions~~
     * ~~speakers~~
     * ~~Conferences~~
     * ~~UserGroups~~
+    * Users
+    * Tracks
+    * Timeslots
   * allow users to register on the site
 
 ===Low Priority (Should Have)===
