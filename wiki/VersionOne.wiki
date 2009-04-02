@@ -26,12 +26,12 @@
     * ~~Conferences~~
     * ~~UserGroups~~
   * allow users to register on the site
-  * Show sessions for a single track conference on the conference homepage.
 
 ===Low Priority (Should Have)===
   * Sponsors management
   * convert proposal to allow anonymous access
   * Configure TeamCity to auto commit the LatestVersion zip file.
+  * Show sessions for a single track conference on the conference homepage.
  
 
 ===Could Have===
