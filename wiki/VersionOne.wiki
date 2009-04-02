@@ -11,12 +11,12 @@
   * ~~Add new new.adung.org cname to test out the adnug.org website.~~
   * ~~Allow HTML editing of conference homepage html.~~
   * ~~Remove auto schema export in zdataloader. Have migration nant target call export schema.~~
-  * Configure TeamCity to auto commit the LatestVersion zip file.
   * ~~Upgrade to MVC V1 with MvcContrib~~
   * ~~Change the Speaker entity to be a child of a Conference. Currently it is a Root Aggregate.~~
   * ~~Add users to manage a User Group.~~
-  * allow users to register on the site
   * ~~Apply System Admin Security to editing~~
+  * ~~google analytics per usergroup.~~
+  * ~~manage user permissions by usergroup.~~
   * Apply User Group Admin Security to editing
     * Users
     * Tracks
@@ -25,12 +25,12 @@
     * ~~speakers~~
     * ~~Conferences~~
     * ~~UserGroups~~
-  * ~~manage user permissions by usergroup.~~
+  * allow users to register on the site
   * add a map link to the location on conference
-  * ~~google analytics per usergroup.~~
   * convert proposal to allow anonymous access
   * edit / css overrides for the group / deal with image later.
   * Show sessions for a single track conference on the conference homepage.
+  * Configure TeamCity to auto commit the LatestVersion zip file.
 
 ===Low Priority (Should Have)===
   * Sponsors management
