@@ -26,16 +26,16 @@
     * ~~Conferences~~
     * ~~UserGroups~~
   * allow users to register on the site
-  * add a map link to the location on conference
-  * convert proposal to allow anonymous access
-  * edit / css overrides for the group / deal with image later.
   * Show sessions for a single track conference on the conference homepage.
-  * Configure TeamCity to auto commit the LatestVersion zip file.
 
 ===Low Priority (Should Have)===
   * Sponsors management
+  * convert proposal to allow anonymous access
+  * Configure TeamCity to auto commit the LatestVersion zip file.
  
 
 ===Could Have===
+  * edit / css overrides for the group / deal with image later.
   * RSS Mashups for group / conference bloggers / local events
   * ICS for events.
+  * add a map link to the location on conference
