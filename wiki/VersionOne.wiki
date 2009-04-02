@@ -22,8 +22,8 @@
     * ~~speakers~~
     * ~~Conferences~~
     * ~~UserGroups~~
+    * ~~Tracks~~
     * Users
-    * Tracks
     * Timeslots
   * allow users to register on the site
 
