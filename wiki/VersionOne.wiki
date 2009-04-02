@@ -22,7 +22,7 @@
     * Tracks
     * Timeslots
     * Sessions
-    * speakers
+    * ~~speakers~~
     * ~~Conferences~~
     * ~~UserGroups~~
   * ~~manage user permissions by usergroup.~~
