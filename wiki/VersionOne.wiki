@@ -23,8 +23,8 @@
     * ~~Conferences~~
     * ~~UserGroups~~
     * ~~Tracks~~  Checked In - Needs integration testing.
+    * ~~Timeslots~~
     * Users
-    * Timeslots
   * allow users to register on the site
 
 ===Low Priority (Should Have)===
