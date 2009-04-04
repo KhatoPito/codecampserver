@@ -17,15 +17,15 @@
   * ~~Apply System Admin Security to editing~~
   * ~~google analytics per usergroup.~~
   * ~~manage user permissions by usergroup.~~
-  * Apply User Group Admin Security to editing
+  * ~~Apply User Group Admin Security to editing~~
     * ~~Sessions~~
     * ~~speakers~~
     * ~~Conferences~~
     * ~~UserGroups~~
-    * ~~Tracks~~  Checked In - Needs integration testing.
+    * ~~Tracks~~
     * ~~Timeslots~~
     * ~~Users~~
-  * allow users to register on the site
+  * ~~allow users to register on the site~~
 
 ===Low Priority (Should Have)===
   * Sponsors management
