@@ -24,7 +24,7 @@
     * ~~UserGroups~~
     * ~~Tracks~~  Checked In - Needs integration testing.
     * ~~Timeslots~~
-    * Users
+    * ~~Users~~
   * allow users to register on the site
 
 ===Low Priority (Should Have)===
