@@ -1,13 +1,14 @@
 using System;
+using CodeCampServer.Core.Domain.Model;
+using CodeCampServer.IntegrationTests.Infrastructure.DataAccess;
 using NHibernate;
 using StructureMap;
-using Tarantino.Core.Commons.Model;
 using Tarantino.Infrastructure.Commons.DataAccess.ORMapper;
 using Tarantino.Infrastructure.Commons.DataAccess.Repositories;
 
 namespace RegressionTests
 {
-    public class DataCreationHelper : RepositoryBase
+    public class DataCreationHelper : PersistanceSpecificationHelper
     {
         private ISessionBuilder sessionBuilder;
         private ISession session;

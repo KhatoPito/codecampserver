@@ -41,10 +41,6 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tarantino.Core, Version=1.0.99.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\tarantino\Tarantino.Core.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
@@ -56,6 +52,8 @@
     <Compile Include="Common\ReflectionExtensions.cs" />
     <Compile Include="Common\UINameHelper.cs" />
     <Compile Include="Domain\IUserGroupRepository.cs" />
+    <Compile Include="Domain\Model\Enumerations\Enumeration.cs" />
+    <Compile Include="Domain\Model\PersistentObject.cs" />
     <Compile Include="Domain\Model\Planning\StateCommands\AcceptedToConfirmedCommand.cs" />
     <Compile Include="Domain\Model\Planning\StateCommands\DraftToSubmittedCommand.cs" />
     <Compile Include="Domain\Model\Planning\IStateCommand.cs" />
@@ -108,6 +106,7 @@
     <Compile Include="Services\IProposalCoordinator.cs" />
     <Compile Include="Services\ISecurityContext.cs" />
     <Compile Include="Services\IStateCommandFactory.cs" />
+    <Compile Include="Services\ISystemClock.cs" />
     <Compile Include="Services\IUserSession.cs" />
     <Compile Include="SystemTime.cs" />
     <Compile Include="Domain\Model\ValueObject.cs" />

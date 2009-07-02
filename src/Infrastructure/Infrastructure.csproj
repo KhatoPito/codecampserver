@@ -75,10 +75,6 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tarantino.Core, Version=1.0.99.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\tarantino\Tarantino.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Tarantino.Infrastructure, Version=1.0.99.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\tarantino\Tarantino.Infrastructure.dll</HintPath>
@@ -94,12 +90,16 @@
     <Compile Include="DataAccess\Impl\RepositoryBase.cs" />
     <Compile Include="DataAccess\Impl\SessionRepository.cs" />
     <Compile Include="DataAccess\Impl\SpeakerRepository.cs" />
+    <Compile Include="DataAccess\Impl\TarantinoRepositoryBase.cs" />
     <Compile Include="DataAccess\Impl\TimeSlotRepository.cs" />
     <Compile Include="DataAccess\Impl\TrackRepository.cs" />
     <Compile Include="DataAccess\Impl\UserGroupRepository.cs" />
     <Compile Include="DataAccess\Impl\UserRepository.cs" />
     <Compile Include="DependencyRegistry.cs" />
+    <Compile Include="EnumerationType.cs" />
     <Compile Include="HttpFileDownloaderService.cs" />
+    <Compile Include="IGuidGenerator.cs" />
+    <Compile Include="UI\IWebContext.cs" />
     <Compile Include="UI\Services\AssemblyVersion.cs" />
     <Compile Include="UI\Services\Impl\UploadFileNamer.cs" />
     <Compile Include="UI\Services\IUploadFileNamer.cs" />

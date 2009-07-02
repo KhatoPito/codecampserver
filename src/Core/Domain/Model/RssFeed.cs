@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Tarantino.Core.Commons.Model;
 
 namespace CodeCampServer.Core.Domain.Model
 {

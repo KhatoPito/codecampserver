@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using CodeCampServer.Core.Domain.Model;
-using Tarantino.Core.Commons.Model;
 
 namespace CodeCampServer.RegressionTests.TestHelpers
 {

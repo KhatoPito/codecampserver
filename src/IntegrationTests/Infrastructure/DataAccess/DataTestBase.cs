@@ -5,14 +5,13 @@ using CodeCampServer.Core.Domain.Model.Planning;
 using CodeCampServer.DependencyResolution;
 using NHibernate;
 using NUnit.Framework;
-using Tarantino.Core.Commons.Model;
 using Tarantino.Infrastructure.Commons.DataAccess.ORMapper;
 using Tarantino.Infrastructure.Commons.DataAccess.Repositories;
 
 namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 {
     [TestFixture]
-    public abstract class DataTestBase : RepositoryBase
+    public abstract class DataTestBase : PersistanceSpecificationHelper
     {
         #region Setup/Teardown
 

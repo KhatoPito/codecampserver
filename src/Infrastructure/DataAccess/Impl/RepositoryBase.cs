@@ -1,8 +1,8 @@
 using System;
 using System.Linq;
 using CodeCampServer.Core.Domain;
+using CodeCampServer.Core.Domain.Model;
 using NHibernate;
-using Tarantino.Core.Commons.Model;
 using Tarantino.Infrastructure.Commons.DataAccess.ORMapper;
 using Tarantino.Infrastructure.Commons.DataAccess.Repositories;
 

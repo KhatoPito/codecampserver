@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Tarantino.Core.Commons.Model.Enumerations;
 
 namespace CodeCampServer.Core.Domain.Model.Enumerations
 {

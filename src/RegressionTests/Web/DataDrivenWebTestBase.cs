@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.DependencyResolution;
 using CodeCampServer.RegressionTests.TestHelpers;
 using CodeCampServer.RegressionTests.Web;
 using MbUnit.Framework;
 using RegressionTests;
-using Tarantino.Core.Commons.Model;
 
 namespace CodeCampServer.RegressionTests.Web
 {

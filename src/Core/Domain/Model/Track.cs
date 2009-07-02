@@ -1,5 +1,3 @@
-using Tarantino.Core.Commons.Model;
-
 namespace CodeCampServer.Core.Domain.Model
 {
 	public class Track : PersistentObject
