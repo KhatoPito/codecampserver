@@ -124,7 +124,7 @@
     <Compile Include="ViewPages.cs" />
     <Compile Include="Views\AutoMapperConfiguration.cs" />
     <Compile Include="Services\ConferenceKeyCannotBeAControllerNameConstraint.cs" />
-    <Compile Include="CodeCampServerProfile.cs" />
+    <Compile Include="AutoMapperProfile.cs" />
     <Compile Include="Controllers\AttendeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />

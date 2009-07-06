@@ -99,6 +99,7 @@
     <Compile Include="EnumerationType.cs" />
     <Compile Include="HttpFileDownloaderService.cs" />
     <Compile Include="IGuidGenerator.cs" />
+    <Compile Include="SystemClock.cs" />
     <Compile Include="UI\IWebContext.cs" />
     <Compile Include="UI\Services\AssemblyVersion.cs" />
     <Compile Include="UI\Services\Impl\UploadFileNamer.cs" />
