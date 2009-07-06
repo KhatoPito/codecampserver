@@ -1,11 +1,10 @@
 using System;
 
 
-namespace Tarantino.Core.Commons.Services.Environment
+namespace CodeCampServer.Core.Services.Bases
 {
-	
-	public interface ISystemClock
-	{
-		DateTime GetCurrentDateTime();
-	}
+    public interface ISystemClock
+    {
+        DateTime GetCurrentDateTime();
+    }
 }
