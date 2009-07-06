@@ -1,14 +1,14 @@
 using System;
+using CodeCampServer.Core.Services.Bases;
 
 
-namespace Tarantino.Core.Commons.Services.Environment.Impl
+namespace CodeCampServer.Infrastructure
 {
-	
-	public class SystemClock : ISystemClock
-	{
-		public DateTime GetCurrentDateTime()
-		{
-			return DateTime.Now;
-		}
-	}
+    public class SystemClock : ISystemClock
+    {
+        public DateTime GetCurrentDateTime()
+        {
+            return DateTime.Now;
+        }
+    }
 }
