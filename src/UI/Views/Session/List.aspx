@@ -34,8 +34,8 @@
 		            
             		<%if (User.Identity.IsAuthenticated){%>
 		            <td>
-		                <div class="fr pl10"><%Html.RenderPartial(PartialViews.Shared.DeleteSessionLink,session); %></div>
-			            <div class="fr"><%Html.RenderPartial(PartialViews.Shared.EditSessionLink,session); %></div>
+		                <div class="fr pl10"><%Html.RenderPartial("DeleteSessionLink",session); %></div>
+			            <div class="fr"><%Html.RenderPartial("EditSessionLink",session); %></div>
                     </td>
                     <%}%>
 		        </tr>
