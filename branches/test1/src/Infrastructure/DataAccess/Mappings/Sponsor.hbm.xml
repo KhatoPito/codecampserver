@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+									namespace="July09v31.Core.Domain.Model"
+									assembly="July09v31.Core">
+
+	<class name="Sponsor" table="Sponsors" dynamic-update="true">
+		<cache usage="read-write"/>
+		<id name="Id" column="Id" type="Guid">
+			<generator class="guid.comb"/>
+		</id>
+		<property name="Name" length="100"/>
+		<property name="Url" length="255"/>
+    <property name="BannerUrl" length="255"/>
+    <property name="Level" type="July09v31.Infrastructure.EnumerationType`1[[July09v31.Core.Domain.Model.SponsorLevel, July09v31.Core]], July09v31.Infrastructure"/>
+	</class>
+</hibernate-mapping>

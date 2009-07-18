@@ -1,0 +1,30 @@
+<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master"
+ AutoEventWireup="true" Inherits="July09v31.UI.Helpers.ViewPage.BaseViewPage<LoginForm>"%>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="Menu" runat="server">
+<% Html.RenderPartial("HomeMenu"); %>
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="Main" runat="server">  
+       <form action="<%= Url.Action<LoginController>(x => x.Login(null)) %>" method="post">
+		<div>
+	    <h1>Please Log In:</h1>
+      <%=Errors.Display()%>
+	    <table class="dataEntry">
+		    <tr>
+			    <td class="w50p">
+						<%=Html.Input(f=>f.Username) %>
+						<%=Html.Input(f=>f.Password) %>
+			    </td>
+		    </tr>
+		  </table>
+	    <br />
+	    <br />
+	    <div class="p10 tac">
+				<%=Html.SubmitButton("login", "Log in", new{@class="pr10 w100"}) %>    
+				<a href="<%=Url.Action<HomeController>(x => x.Index(null,null)).ToXHTMLLink() %>"  class="pr10 mt5" rel="cancel">Cancel</a>				
+	    </div>
+</div>
+
+</form>
+</asp:Content>

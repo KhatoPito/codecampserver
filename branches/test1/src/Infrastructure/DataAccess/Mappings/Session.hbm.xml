@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+									namespace="July09v31.Core.Domain.Model"
+									assembly="July09v31.Core">
+
+	<class name="Session" table="Sessions" dynamic-update="true">
+		<cache usage="read-write"/>
+		<id name="Id" column="Id" type="Guid">
+			<generator class="guid.comb"/>
+		</id>
+		<property name="Key" column="SessionKey" length="255"/>
+		<many-to-one name="Track" />
+		<many-to-one name="TimeSlot" />
+		<many-to-one name="Speaker" />
+		<many-to-one name="Conference" />
+		<property name="Level" type="July09v31.Infrastructure.EnumerationType`1[[July09v31.Core.Domain.Model.Enumerations.SessionLevel, July09v31.Core]], July09v31.Infrastructure"/>
+		<property name="RoomNumber" length="50"/>
+		<property name="Title" length="255"/>
+		<property name="Abstract" length="2000"/>
+		<property name="MaterialsUrl" length="1000"/>
+	</class>
+</hibernate-mapping>
