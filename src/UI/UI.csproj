@@ -328,7 +328,9 @@
     <Content Include="scripts\jquery-1.2.6-vsdoc.js" />
     <Content Include="scripts\jquery.autocomplete.pack.js" />
     <Content Include="scripts\jquery.bgiframe.min.js" />
+    <Content Include="scripts\jquery.corners.min.js" />
     <Content Include="scripts\jquery.dataTables.js" />
+    <Content Include="scripts\jquery.dataTables.min.js" />
     <Content Include="scripts\jquery.datePicker.js" />
     <Content Include="scripts\jquery.form.js" />
     <Content Include="scripts\jquery.maskedinput-1.1.4.pack.js" />
