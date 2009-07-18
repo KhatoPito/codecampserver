@@ -90,7 +90,7 @@
     <Compile Include="Controllers\SponsorController.cs" />
     <Compile Include="Controllers\ProposalController.cs" />
     <Compile Include="Controllers\RssController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\Bases\UserController.cs" />
     <Compile Include="Controllers\UserGroupController.cs" />
     <Compile Include="Helpers\Attributes\NoInputAttribute.cs" />
     <Compile Include="Helpers\Binders\UserGroupModelBinder.cs" />
@@ -101,9 +101,9 @@
     <Compile Include="Helpers\Mappers\IUserGroupSponsorMapper.cs" />
     <Compile Include="Helpers\Mappers\IUserGroupMapper.cs" />
     <Compile Include="Helpers\Mappers\UserGroupMapper.cs" />
-    <Compile Include="Helpers\Validation\Attributes\ValidateKeyAttribute.cs" />
-    <Compile Include="Helpers\ViewPage\InputBuilders\NoInputBuilder.cs" />
-    <Compile Include="Helpers\ViewPage\InputBuilders\UserInputBuilder.cs" />
+    <Compile Include="Bases\Validation\Attributes\ValidateKeyAttribute.cs" />
+    <Compile Include="Bases\ViewPage\InputBuilders\NoInputBuilder.cs" />
+    <Compile Include="Bases\ViewPage\InputBuilders\UserInputBuilder.cs" />
     <Compile Include="Models\Forms\AdminForm.cs" />
     <Compile Include="Models\Forms\RssFeedForm.cs" />
     <Compile Include="Models\Forms\SponsorForm.cs" />
@@ -119,15 +119,15 @@
     <Compile Include="Services\IAssemblyVersion.cs" />
     <Compile Include="Services\IUrlService.cs" />
     <Compile Include="Services\UrlService.cs" />
-    <Compile Include="DomainnameRouteHandler.cs" />
-    <Compile Include="ViewNames.cs" />
-    <Compile Include="ViewPages.cs" />
+    <Compile Include="Bases\DomainnameRouteHandler.cs" />
+    <Compile Include="Bases\ViewNames.cs" />
+    <Compile Include="Bases\ViewPages.cs" />
     <Compile Include="Views\AutoMapperConfiguration.cs" />
     <Compile Include="Services\ConferenceKeyCannotBeAControllerNameConstraint.cs" />
-    <Compile Include="AutoMapperProfile.cs" />
+    <Compile Include="Bases\AutoMapperProfile.cs" />
     <Compile Include="Controllers\AttendeeController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\Bases\HomeController.cs" />
+    <Compile Include="Controllers\Bases\LoginController.cs" />
     <Compile Include="Controllers\SaveController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
@@ -155,7 +155,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\ISubController.cs" />
+    <Compile Include="Bases\ISubController.cs" />
     <Compile Include="Helpers\Mappers\AttendeeMapper.cs" />
     <Compile Include="Helpers\Mappers\ConferenceMapper.cs" />
     <Compile Include="Helpers\Mappers\EditMode.cs" />
@@ -166,47 +166,47 @@
     <Compile Include="Helpers\Mappers\ISpeakerMapper.cs" />
     <Compile Include="Helpers\Mappers\ITimeSlotMapper.cs" />
     <Compile Include="Helpers\Mappers\ITrackMapper.cs" />
-    <Compile Include="Helpers\Mappers\IUserMapper.cs" />
+    <Compile Include="Helpers\Mappers\Bases\IUserMapper.cs" />
     <Compile Include="Helpers\Mappers\AutoFormMapper.cs" />
     <Compile Include="Helpers\Mappers\ScheduleMapper.cs" />
     <Compile Include="Helpers\Mappers\SessionMapper.cs" />
     <Compile Include="Helpers\Mappers\SpeakerMapper.cs" />
     <Compile Include="Helpers\Mappers\TimeSlotMapper.cs" />
     <Compile Include="Helpers\Mappers\TrackMapper.cs" />
-    <Compile Include="Helpers\Mappers\UserMapper.cs" />
+    <Compile Include="Helpers\Mappers\Bases\UserMapper.cs" />
     <Compile Include="Helpers\Extensions\ModelStateExtensions.cs" />
     <Compile Include="Helpers\Attributes\ShowAsRequiredAttribute.cs" />
     <Compile Include="Helpers\Attributes\UserDropDownAttribute.cs" />
     <Compile Include="Helpers\Attributes\HiddenAttribute.cs" />
     <Compile Include="Helpers\Attributes\LabelAttribute.cs" />
-    <Compile Include="Helpers\UserSession.cs" />
-    <Compile Include="Helpers\Validation\Attributes\BetterValidateIntegerAttribute.cs" />
-    <Compile Include="Helpers\Validation\Attributes\BetterValidateNotEmptyAttribute.cs" />
-    <Compile Include="Helpers\Validation\Attributes\BetterValidateDateAttribute.cs" />
-    <Compile Include="Helpers\Validation\Attributes\BetterValidateDateTimeAttribute.cs" />
-    <Compile Include="Helpers\Validation\Attributes\BetterValidateDecimalAttribute.cs" />
-    <Compile Include="Helpers\Validation\Attributes\BetterValidateEmailAttribute.cs" />
-    <Compile Include="Helpers\Validation\Validators\DateNotInFutureValidator.cs" />
-    <Compile Include="Helpers\Validation\Attributes\ValidateDateNotInFutureAttribute.cs" />
+    <Compile Include="Bases\UserSession.cs" />
+    <Compile Include="Bases\Validation\Attributes\BetterValidateIntegerAttribute.cs" />
+    <Compile Include="Bases\Validation\Attributes\BetterValidateNotEmptyAttribute.cs" />
+    <Compile Include="Bases\Validation\Attributes\BetterValidateDateAttribute.cs" />
+    <Compile Include="Bases\Validation\Attributes\BetterValidateDateTimeAttribute.cs" />
+    <Compile Include="Bases\Validation\Attributes\BetterValidateDecimalAttribute.cs" />
+    <Compile Include="Bases\Validation\Attributes\BetterValidateEmailAttribute.cs" />
+    <Compile Include="Bases\Validation\Validators\DateNotInFutureValidator.cs" />
+    <Compile Include="Bases\Validation\Attributes\ValidateDateNotInFutureAttribute.cs" />
     <Compile Include="Helpers\Extensions\MvcHelperExtensions.cs" />
-    <Compile Include="Helpers\SubController.cs" />
+    <Compile Include="Bases\SubController.cs" />
     <Compile Include="Helpers\Extensions\InputTextExtensions.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Helpers\ViewPage\BaseInputBuilder.cs" />
-    <Compile Include="Helpers\ViewPage\DisplayErrorMessages.cs" />
-    <Compile Include="Helpers\ViewPage\IDisplayErrorMessages.cs" />
-    <Compile Include="Helpers\ViewPage\IInputSpecification.cs" />
-    <Compile Include="Helpers\ViewPage\IInputSpecificationExpression.cs" />
-    <Compile Include="Helpers\ViewPage\InputBuilders\PersistentObjectInputBuilder.cs" />
-    <Compile Include="Helpers\ViewPage\InputBuilders\SpeakerInputBuilder.cs" />
-    <Compile Include="Helpers\ViewPage\InputBuilders\TimeSlotInputBuilder.cs" />
-    <Compile Include="Helpers\ViewPage\InputBuilders\TrackInputBuilder.cs" />
-    <Compile Include="Helpers\ViewPage\InputBuilders\EnumerationInputBuilder.cs" />
-    <Compile Include="Helpers\ViewPage\InputBuilders\RadioInputBuilder.cs" />
-    <Compile Include="Helpers\ViewPage\InputSpecification.cs" />
-    <Compile Include="Helpers\ViewPage\IViewBase.cs" />
-    <Compile Include="Helpers\ViewPage\ViewBaseExtensions.cs" />
-    <Compile Include="HtmlExtensions.cs" />
+    <Compile Include="Bases\ViewPage\BaseInputBuilder.cs" />
+    <Compile Include="Bases\ViewPage\DisplayErrorMessages.cs" />
+    <Compile Include="Bases\ViewPage\IDisplayErrorMessages.cs" />
+    <Compile Include="Bases\ViewPage\IInputSpecification.cs" />
+    <Compile Include="Bases\ViewPage\IInputSpecificationExpression.cs" />
+    <Compile Include="Bases\ViewPage\InputBuilders\PersistentObjectInputBuilder.cs" />
+    <Compile Include="Helpers\InputBuilders\SpeakerInputBuilder.cs" />
+    <Compile Include="Helpers\InputBuilders\TimeSlotInputBuilder.cs" />
+    <Compile Include="Helpers\InputBuilders\TrackInputBuilder.cs" />
+    <Compile Include="Bases\ViewPage\InputBuilders\EnumerationInputBuilder.cs" />
+    <Compile Include="Bases\ViewPage\InputBuilders\RadioInputBuilder.cs" />
+    <Compile Include="Bases\ViewPage\InputSpecification.cs" />
+    <Compile Include="Bases\ViewPage\IViewBase.cs" />
+    <Compile Include="Bases\ViewPage\ViewBaseExtensions.cs" />
+    <Compile Include="Bases\HtmlExtensions.cs" />
     <Compile Include="Models\CustomResolvers\BaseFormatter.cs" />
     <Compile Include="Models\CustomResolvers\BaseResolver.cs" />
     <Compile Include="Models\CustomResolvers\FixedPointFormatter.cs" />
@@ -221,26 +221,26 @@
     <Compile Include="Models\Forms\UserForm.cs" />
     <Compile Include="Helpers\Extensions\UrlHelperExtensions.cs" />
     <Compile Include="Helpers\Extensions\ViewDataExtensions.cs" />
-    <Compile Include="Helpers\ViewPage\BaseViewPageT.cs">
+    <Compile Include="Bases\ViewPage\BaseViewPageT.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Helpers\ViewPage\BaseViewUserControlT.cs">
+    <Compile Include="Bases\ViewPage\BaseViewUserControlT.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Helpers\ViewPage\InputBuilders\CheckboxInputBuilder.cs" />
-    <Compile Include="Helpers\ViewPage\InputBuilders\DateInputBuilder.cs" />
-    <Compile Include="Helpers\ViewPage\InputBuilders\HiddenInputBuilder.cs" />
-    <Compile Include="Helpers\ViewPage\IInputBuilder.cs" />
-    <Compile Include="Helpers\ViewPage\BaseViewPage.cs">
+    <Compile Include="Bases\ViewPage\InputBuilders\CheckboxInputBuilder.cs" />
+    <Compile Include="Bases\ViewPage\InputBuilders\DateInputBuilder.cs" />
+    <Compile Include="Bases\ViewPage\InputBuilders\HiddenInputBuilder.cs" />
+    <Compile Include="Bases\ViewPage\IInputBuilder.cs" />
+    <Compile Include="Bases\ViewPage\BaseViewPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Helpers\ViewPage\BaseViewUserControl.cs">
+    <Compile Include="Bases\ViewPage\BaseViewUserControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Helpers\ViewPage\IInputBuilderFactory.cs" />
-    <Compile Include="Helpers\ViewPage\InputBuilderFactory.cs" />
-    <Compile Include="Helpers\ViewPage\InputBuilders\TextBoxInputBuilder.cs" />
-    <Compile Include="Helpers\ViewPage\InputBuilders\YesNoRadioInputBuilder.cs" />
+    <Compile Include="Bases\ViewPage\IInputBuilderFactory.cs" />
+    <Compile Include="Bases\ViewPage\InputBuilderFactory.cs" />
+    <Compile Include="Bases\ViewPage\InputBuilders\TextBoxInputBuilder.cs" />
+    <Compile Include="Bases\ViewPage\InputBuilders\YesNoRadioInputBuilder.cs" />
     <Compile Include="Controllers\ConferenceController.cs" />
     <Compile Include="Models\Forms\AttendeeForm.cs" />
     <Compile Include="Models\Forms\ConferenceForm.cs" />
@@ -252,12 +252,7 @@
     <Compile Include="Models\Forms\TimeSlotForm.cs" />
     <Compile Include="Models\Forms\TrackForm.cs" />
     <Compile Include="Models\CustomResolvers\NullValueResolver.cs" />
-    <Compile Include="PartialViewGenerator.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PartialViewGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RouteConfigurator.cs" />
+    <Compile Include="Bases\RouteConfigurator.cs" />
     <Compile Include="Controllers\TimeSlotController.cs" />
     <Compile Include="Views\InputBuilderExtender.cs" />
     <Compile Include="Views\InputSpecificationBuilder.cs" />
@@ -404,10 +399,6 @@
     <None Include="CodeTemplates\AddView\IndexTemplate.tt">
     </None>
     <None Include="CodeTemplates\AddView\List.tt">
-    </None>
-    <None Include="PartialViewGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PartialViewGenerator.cs</LastGenOutput>
     </None>
     <None Include="xhtml1-transitional.dtd">
     </None>
