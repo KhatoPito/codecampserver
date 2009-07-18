@@ -35,6 +35,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\castle\Castle.Components.Validator.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\nhibernate\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="MvcContrib, Version=0.0.1.168, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\mvccontrib\MvcContrib.dll</HintPath>
@@ -75,17 +79,17 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tarantino.Infrastructure, Version=1.0.99.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\tarantino\Tarantino.Infrastructure.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="DataAccess\Impl\ConferenceRepository.cs" />
+    <Compile Include="DataAccess\Impl\HybridSessionBuilder.cs" />
+    <Compile Include="DataAccess\Impl\ISessionBuilder.cs" />
     <Compile Include="DataAccess\Impl\KeyedRepository.cs" />
+    <Compile Include="DataAccess\Impl\Logger.cs" />
+    <Compile Include="DataAccess\Impl\NHibernateSessionModule.cs" />
     <Compile Include="DataAccess\Impl\Planning\ProposalRepository.cs" />
     <Compile Include="DataAccess\Impl\RepositoryBase.cs" />
     <Compile Include="DataAccess\Impl\SessionRepository.cs" />

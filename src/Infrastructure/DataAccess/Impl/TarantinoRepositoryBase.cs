@@ -1,7 +1,7 @@
 using System.Reflection;
 using CodeCampServer.Core.Domain.Model;
+using CodeCampServer.Infrastructure.DataAccess.Impl;
 using NHibernate;
-using Tarantino.Infrastructure.Commons.DataAccess.ORMapper;
 
 namespace Tarantino.Infrastructure.Commons.DataAccess.Repositories
 {
