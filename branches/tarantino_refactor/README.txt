@@ -2,12 +2,20 @@ http://codecampserver.org
 Source Code located at: http://code.google.com/p/codecampserver/source/checkout
 Apache License 2.0
 
-To build and run this project, execute "click to build.bat". 
- You must have the .Net Framework 3.5 and SQL Express (TcpIp,MixedMode enabled) installed.
- This build runs against the Asp.Net MVC RC1.  If you have the Mvc Beta installed you will need to unistall that to prevent name collisions with the GAC'ed version of the System.Web.Mvc assembly.
 
-The solution works in Visual Studio 2008.
+Requirements to Run this project:
+=============================================
+ - SQL Express (TcpIp,MixedMode enabled) installed as localhost\SqlExpress
+ - Asp.Net MVC 1.0.
+ - Visual Studio 2008.
 
+Getting Started:
+==============================================
+To build and run this project you must first run the "click to build.bat" batch file.  This will create a CodeCampServer database on your local Sql Express database engine instance.
+
+
+Discussion Group:
+==============================================
 Join the discussion list:  http://groups.google.com/group/codecampserver-discuss
 
 Thank you!  
