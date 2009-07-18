@@ -45,6 +45,24 @@
 		</asminfo>
 	</target>
 
+	<target name="continousIntegration">
+    	    <exec failonerror="false" program="${svn.executable}" commandline="info --xml --revision HEAD ${svnargs}" output="svninfo.xml" append="false" verbose="false"/>
+	    <xmlpeek failonerror="true" file="svninfo.xml" xpath="/info/entry/url" property="trunkurl"/>
+    
+ 		<echo message="Current SVN URL: ${trunkurl}"/>
+
+		<copy todir="..\CodeCampServer-ContinousIntegration" flatten="false">
+			<fileset basedir="lib/CruiseControl.Net">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+		<xmlpoke failonerror="false" file="..\CodeCampServer-ContinousIntegration\Server\CCNet.config" 
+			xpath="/cruisecontrol/project/sourcecontrol/sourceControlProvider/trunkUrl" value="${trunkurl}"/>
+
+    	    <exec failonerror="true" 
+			workingdir="..\CodeCampServer-ContinousIntegration\Server" 
+			program="..\CodeCampServer-ContinousIntegration\Server\ccnet.exe" verbose="false"/>						
+	</target>
 	<target name="compile" depends="init">
 		<echo message="Build Directory is ${dir.build}" />
 		<exec program="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe"
