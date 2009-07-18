@@ -1,9 +1,0 @@
-namespace July09v31.Core.Services
-{
-    public interface ICryptographer
-    {
-        string CreateSalt();
-        string ComputeHash(string valueToHash);
-        string GetPasswordHash(string password, string salt);
-    }
-}
