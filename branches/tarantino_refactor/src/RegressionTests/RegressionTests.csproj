@@ -169,6 +169,10 @@
       <Project>{3A222037-75A5-4DFF-BA27-9487BF3A8536}</Project>
       <Name>DependencyResolution</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{FBE3CFE2-CAC1-4652-9F49-18F35B65123D}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IntegrationTests\IntegrationTests.csproj">
       <Project>{9AA9FD4D-58F4-4148-9376-EE09868E2B73}</Project>
       <Name>IntegrationTests</Name>

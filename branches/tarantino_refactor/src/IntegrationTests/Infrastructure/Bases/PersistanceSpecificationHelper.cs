@@ -1,9 +1,9 @@
 using System.Reflection;
 using CodeCampServer.Core.Domain.Model;
+using CodeCampServer.Infrastructure.DataAccess.Impl;
 using NHibernate;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
-using Tarantino.Infrastructure.Commons.DataAccess.ORMapper;
 
 namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 {

@@ -3,9 +3,9 @@ using System.Linq;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.Core.Domain.Model.Planning;
 using CodeCampServer.DependencyResolution;
+using CodeCampServer.Infrastructure.DataAccess.Impl;
 using NHibernate;
 using NUnit.Framework;
-using Tarantino.Infrastructure.Commons.DataAccess.ORMapper;
 using Tarantino.Infrastructure.Commons.DataAccess.Repositories;
 
 namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
