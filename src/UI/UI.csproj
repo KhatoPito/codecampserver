@@ -116,22 +116,25 @@
     <Compile Include="Helpers\Mappers\ProposalMapper.cs" />
     <Compile Include="Models\Forms\ProposalForm.cs" />
     <Compile Include="Models\PageInfo.cs" />
-    <Compile Include="Services\IAssemblyVersion.cs" />
-    <Compile Include="Services\IUrlService.cs" />
-    <Compile Include="Services\UrlService.cs" />
+    <Compile Include="Services\Bases\AutoMapperConfiguration.cs" />
+    <Compile Include="Services\Bases\AutoMapperProfile.cs" />
+    <Compile Include="Services\Bases\IAssemblyVersion.cs" />
+    <Compile Include="Services\Bases\InputBuilderExtender.cs" />
+    <Compile Include="Services\Bases\InputSpecificationBuilder.cs" />
+    <Compile Include="Services\Bases\IUrlService.cs" />
+    <Compile Include="Services\Bases\RouteConfigurator.cs" />
+    <Compile Include="Services\Bases\UrlService.cs" />
     <Compile Include="Bases\Routes\DomainnameRouteHandler.cs" />
     <Compile Include="Bases\ViewNames.cs" />
     <Compile Include="Bases\ViewPages.cs" />
-    <Compile Include="Services\AutoMapperConfiguration.cs" />
     <Compile Include="Services\ConferenceKeyCannotBeAControllerNameConstraint.cs" />
-    <Compile Include="Services\AutoMapperProfile.cs" />
     <Compile Include="Controllers\AttendeeController.cs" />
     <Compile Include="Controllers\Bases\HomeController.cs" />
     <Compile Include="Controllers\Bases\LoginController.cs" />
-    <Compile Include="Controllers\SaveController.cs" />
+    <Compile Include="Controllers\Bases\SaveController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
-    <Compile Include="Controllers\SmartController.cs" />
+    <Compile Include="Controllers\Bases\SmartController.cs" />
     <Compile Include="Controllers\SpeakerController.cs" />
     <Compile Include="Controllers\TrackController.cs" />
     <Compile Include="Default.aspx.cs">
@@ -252,10 +255,7 @@
     <Compile Include="Models\Forms\TimeSlotForm.cs" />
     <Compile Include="Models\Forms\TrackForm.cs" />
     <Compile Include="Bases\Resolvers\NullValueResolver.cs" />
-    <Compile Include="Services\RouteConfigurator.cs" />
     <Compile Include="Controllers\TimeSlotController.cs" />
-    <Compile Include="Services\InputBuilderExtender.cs" />
-    <Compile Include="Services\InputSpecificationBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\hibernate.cfg.xml">
