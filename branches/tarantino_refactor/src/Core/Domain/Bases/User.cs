@@ -2,7 +2,7 @@ using System;
 
 namespace CodeCampServer.Core.Domain.Model
 {
-	public class User : PersistentObject
+	public class User : KeyedObject
 	{
 		public const string ADMIN_USERNAME = "admin";
 		public virtual string Username { get; set; }
@@ -16,5 +16,16 @@ namespace CodeCampServer.Core.Domain.Model
 			bool userIsAdmin = Username == ADMIN_USERNAME;
 			return userIsAdmin;
 		}
+        public override string Key
+        {
+            get
+            {
+                return Username;
+            }
+            set
+            {
+                Username = value;
+            }
+        }
 	}
 }
