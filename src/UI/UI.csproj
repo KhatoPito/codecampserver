@@ -96,6 +96,7 @@
     <Compile Include="Bases\Attributes\NoInputAttribute.cs" />
     <Compile Include="Helpers\Binders\UserGroupModelBinder.cs" />
     <Compile Include="Helpers\Filters\AddUserGroupToViewDataActionFilterAttribute.cs" />
+    <Compile Include="Helpers\Filters\RequireAuthenticationFilterAttribute.cs" />
     <Compile Include="Helpers\Mappers\UserGroupRssFeedMapper.cs" />
     <Compile Include="Helpers\Mappers\IUserGroupRssFeedMapper.cs" />
     <Compile Include="Helpers\Mappers\UserGroupSponsorMapper.cs" />
@@ -156,7 +157,6 @@
     <Compile Include="Bases\Filters\AutoMappedToModelFilter.cs" />
     <Compile Include="Bases\Filters\BaseActionFilter.cs" />
     <Compile Include="Helpers\Filters\AdminUserCreatedFilterAttribute.cs" />
-    <Compile Include="Bases\Filters\RequireAuthenticationFilterAttribute.cs" />
     <Compile Include="Helpers\Filters\RequiresConferenceFilterAttribute.cs" />
     <Compile Include="Bases\Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
