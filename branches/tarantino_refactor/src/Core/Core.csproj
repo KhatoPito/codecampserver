@@ -82,7 +82,7 @@
     <Compile Include="Domain\ISessionRepository.cs" />
     <Compile Include="Domain\ITimeSlotRepository.cs" />
     <Compile Include="Domain\ITrackRepository.cs" />
-    <Compile Include="Domain\IUserRepository.cs" />
+    <Compile Include="Domain\Bases\IUserRepository.cs" />
     <Compile Include="Domain\Model\AttendanceStatus.cs" />
     <Compile Include="Domain\Model\Conference.cs" />
     <Compile Include="Domain\Model\Enumerations\SessionLevel.cs" />
@@ -92,7 +92,7 @@
     <Compile Include="Domain\Model\Speaker.cs" />
     <Compile Include="Domain\Model\TimeSlot.cs" />
     <Compile Include="Domain\Model\Track.cs" />
-    <Compile Include="Bases\User.cs" />
+    <Compile Include="Domain\Bases\User.cs" />
     <Compile Include="Services\Bases\IAuthenticationService.cs" />
     <Compile Include="Services\Bases\ICryptographer.cs" />
     <Compile Include="Services\Bases\IHttpFileDownloaderService.cs" />
