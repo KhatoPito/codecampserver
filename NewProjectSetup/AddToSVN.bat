@@ -1,3 +1,4 @@
+cd ..
 lib\addtosvn\addtosvn.exe lib\subversion\svn.exe .
 echo bin>ignore.txt
 echo obj>>ignore.txt
