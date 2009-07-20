@@ -1,4 +1,2 @@
-﻿remove,Domain\
-remove,Services\
-keep,Services\Bases
-keep,Domain\Bases
+﻿remove,Infrastructure\DataAccess\
+keep,Infrastructure\DataAccess\Bases\
