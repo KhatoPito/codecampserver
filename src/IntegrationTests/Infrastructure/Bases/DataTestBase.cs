@@ -1,12 +1,10 @@
 using System;
 using System.Linq;
 using CodeCampServer.Core.Domain.Model;
-using CodeCampServer.Core.Domain.Model.Planning;
 using CodeCampServer.DependencyResolution;
 using CodeCampServer.Infrastructure.DataAccess.Impl;
 using NHibernate;
 using NUnit.Framework;
-using Tarantino.Infrastructure.Commons.DataAccess.Repositories;
 
 namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 {
@@ -36,9 +34,11 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 
         protected virtual void DeleteAllObjects()
         {
-            var types =
+            Type[] types =
                 typeof (User).Assembly.GetTypes().Where(
-                    type => type.BaseType==typeof(KeyedObject) || type.BaseType == typeof (PersistentObject) && !type.IsAbstract).ToArray();
+                    type =>
+                    type.BaseType == typeof (KeyedObject) ||
+                    type.BaseType == typeof (PersistentObject) && !type.IsAbstract).ToArray();
             using (ISession session = GetSession())
             {
                 foreach (Type type in types)

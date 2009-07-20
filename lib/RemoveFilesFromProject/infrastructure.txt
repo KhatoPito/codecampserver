@@ -1,4 +1,5 @@
-﻿remove,Domain\
+﻿remove,DataAccess\
 remove,Services\
-keep,Services\Bases
-keep,Domain\Bases
+remove,DataBase\Update
+keep,DataAccess\Bases
+keep,DataAccess\Mappings\Bases
