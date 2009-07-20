@@ -86,6 +86,7 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Bases\Mappers\AutoFormMapper.cs" />
     <Compile Include="Controllers\RssFeedController.cs" />
     <Compile Include="Controllers\SponsorController.cs" />
     <Compile Include="Controllers\ProposalController.cs" />
@@ -104,6 +105,9 @@
     <Compile Include="Bases\Validation\Attributes\ValidateKeyAttribute.cs" />
     <Compile Include="Bases\ViewPage\InputBuilders\NoInputBuilder.cs" />
     <Compile Include="Bases\ViewPage\InputBuilders\UserInputBuilder.cs" />
+    <Compile Include="Models\Bases\EditForm.cs" />
+    <Compile Include="Models\Bases\EditMode.cs" />
+    <Compile Include="Models\Bases\LoginForm.cs" />
     <Compile Include="Models\Forms\AdminForm.cs" />
     <Compile Include="Models\Forms\RssFeedForm.cs" />
     <Compile Include="Models\Forms\SponsorForm.cs" />
@@ -161,7 +165,6 @@
     <Compile Include="Bases\ISubController.cs" />
     <Compile Include="Helpers\Mappers\AttendeeMapper.cs" />
     <Compile Include="Helpers\Mappers\ConferenceMapper.cs" />
-    <Compile Include="Helpers\Mappers\EditMode.cs" />
     <Compile Include="Helpers\Mappers\IAttendeeMapper.cs" />
     <Compile Include="Helpers\Mappers\IConferenceMapper.cs" />
     <Compile Include="Helpers\Mappers\IScheduleMapper.cs" />
@@ -170,7 +173,6 @@
     <Compile Include="Helpers\Mappers\ITimeSlotMapper.cs" />
     <Compile Include="Helpers\Mappers\ITrackMapper.cs" />
     <Compile Include="Areas\Users\IUserMapper.cs" />
-    <Compile Include="Helpers\Mappers\AutoFormMapper.cs" />
     <Compile Include="Helpers\Mappers\ScheduleMapper.cs" />
     <Compile Include="Helpers\Mappers\SessionMapper.cs" />
     <Compile Include="Helpers\Mappers\SpeakerMapper.cs" />
@@ -247,8 +249,6 @@
     <Compile Include="Controllers\ConferenceController.cs" />
     <Compile Include="Models\Forms\AttendeeForm.cs" />
     <Compile Include="Models\Forms\ConferenceForm.cs" />
-    <Compile Include="Models\Forms\EditForm.cs" />
-    <Compile Include="Models\Forms\LoginForm.cs" />
     <Compile Include="Models\Forms\ScheduleForm.cs" />
     <Compile Include="Models\Forms\SessionForm.cs" />
     <Compile Include="Models\Forms\SpeakerForm.cs" />
