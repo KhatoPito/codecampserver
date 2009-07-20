@@ -123,14 +123,14 @@
     <Compile Include="Infrastructure\Bases\DataTestBase.cs" />
     <Compile Include="Infrastructure\DataAccess\Mappings\ConferenceMappingsTester.cs" />
     <Compile Include="Infrastructure\DataAccess\Mappings\AttendeeMappingsTester.cs" />
-    <Compile Include="Infrastructure\DataAccess\Mappings\UserMappingsTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\Bases\UserMappingsTester.cs" />
     <Compile Include="Infrastructure\DataAccess\ProposalRepositoryTester.cs" />
     <Compile Include="Infrastructure\Bases\RepositoryTester.cs" />
     <Compile Include="Infrastructure\DataAccess\SessionRepositoryTester.cs" />
     <Compile Include="Infrastructure\DataAccess\SpeakerRepositoryTester.cs" />
     <Compile Include="Infrastructure\DataAccess\TimeSlotRepositoryTester.cs" />
     <Compile Include="Infrastructure\DataAccess\TrackRepositoryTester.cs" />
-    <Compile Include="Infrastructure\DataAccess\UserRepositoryTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\Bases\UserRepositoryTester.cs" />
     <Compile Include="Infrastructure\UI\Controllers\DependencyRegistrarTester.cs" />
     <Compile Include="ReflectionHelper.cs" />
     <Compile Include="TestHelper.cs" />
