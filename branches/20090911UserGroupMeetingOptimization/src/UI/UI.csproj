@@ -111,6 +111,8 @@
     <Compile Include="Helpers\ViewPage\InputBuilders\NoInputBuilder.cs" />
     <Compile Include="Helpers\ViewPage\InputBuilders\UserInputBuilder.cs" />
     <Compile Include="Models\Forms\AdminForm.cs" />
+    <Compile Include="Models\Forms\EventForm.cs" />
+    <Compile Include="Models\Forms\MeetingForm.cs" />
     <Compile Include="Models\Forms\RssFeedForm.cs" />
     <Compile Include="Models\Forms\SponsorForm.cs" />
     <Compile Include="Models\Forms\UserGroupForm.cs" />
@@ -360,6 +362,7 @@
     <Content Include="Views\Conference\List.aspx" />
     <Content Include="Views\Attendee\Edit.aspx" />
     <Content Include="Views\Attendee\Index.aspx" />
+    <Content Include="Views\Home\About.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Login\Index.aspx" />
     <Content Include="Views\Proposal\Confirmation.aspx" />
@@ -371,7 +374,7 @@
     <Content Include="Views\Schedule\Index.aspx" />
     <Content Include="Views\Session\List.aspx" />
     <Content Include="Views\Session\Edit.aspx" />
-    <Content Include="Views\Shared\ConferenceList.ascx" />
+    <Content Include="Views\Shared\EventList.ascx" />
     <Content Include="Views\Shared\DeleteTrackLink.ascx" />
     <Content Include="Views\Shared\EditSponsorLink.ascx" />
     <Content Include="Views\Shared\NotAuthorized.ascx" />

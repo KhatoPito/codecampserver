@@ -168,6 +168,12 @@
     <EmbeddedResource Include="DataAccess\Mappings\RssFeed.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DataAccess\Mappings\Meeting.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataAccess\Mappings\Event.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
