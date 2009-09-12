@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.UI.Controllers;
@@ -17,18 +16,33 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 		[Test]
 		public void The_index_should_retrieve_the_user_group_by_its_domain_name()
 		{
-            UserGroup  userGroup =  new UserGroup();
+			var userGroup = new UserGroup();
 
 
-		    var mapper = S<IUserGroupMapper>();
-		    mapper.Stub(groupMapper => groupMapper.Map(userGroup)).Return(new UserGroupForm());
+			var mapper = S<IUserGroupMapper>();
+			mapper.Stub(groupMapper => groupMapper.Map(userGroup)).Return(new UserGroupForm());
 
-		    var home = new HomeController(mapper);
+			var home = new HomeController(mapper);
 
-            ViewResult result = home.Index(userGroup,S<IConferenceRepository>());
-		    result.ForView("");
-            result.WithViewData<UserGroupForm>().ShouldNotBeNull();
+			ViewResult result = home.Index(userGroup, S<IConferenceRepository>());
+			result.ForView("");
+			result.WithViewData<UserGroupForm>().ShouldNotBeNull();
 		}
 
+		[Test]
+		public void About_should_go_to_about_view()
+		{
+			var userGroup = new UserGroup();
+
+			var mapper = S<IUserGroupMapper>();
+			var groupForm = new UserGroupForm();
+			mapper.Stub(m => m.Map(userGroup)).Return(groupForm);
+
+			var home = new HomeController(mapper);
+
+			ViewResult result = home.About(userGroup);
+			result.ViewName.ShouldEqual("");
+			result.ViewData.Model.ShouldEqual(groupForm);
+		}
 	}
 }
