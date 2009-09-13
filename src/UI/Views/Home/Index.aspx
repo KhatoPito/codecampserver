@@ -22,7 +22,7 @@
     <div class="sidebar">
         <%Html.RenderPartial("Sponsors", Model.Sponsors);%></div>
     <div class="content">
-        <%Html.RenderPartial("EventList", ViewData.Get<EventForm[]>()); %></div>
+        <%Html.RenderAction<EventController>(c => c.UpComing(null));%></div>
     <div class="cleaner">
     </div>
 </asp:Content>

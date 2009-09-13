@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.UI.Controllers;
 using CodeCampServer.UI.Helpers.Mappers;
@@ -14,22 +13,6 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 	public class HomeControllerTester : SaveControllerTester
 	{
 		[Test]
-		public void The_index_should_retrieve_the_user_group_by_its_domain_name()
-		{
-			var userGroup = new UserGroup();
-
-
-			var mapper = S<IUserGroupMapper>();
-			mapper.Stub(groupMapper => groupMapper.Map(userGroup)).Return(new UserGroupForm());
-
-			var home = new HomeController(mapper);
-
-			ViewResult result = home.Index(userGroup, S<IConferenceRepository>());
-			result.ForView("");
-			result.WithViewData<UserGroupForm>().ShouldNotBeNull();
-		}
-
-		[Test]
 		public void About_should_go_to_about_view()
 		{
 			var userGroup = new UserGroup();
@@ -43,6 +26,22 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 			ViewResult result = home.About(userGroup);
 			result.ViewName.ShouldEqual("");
 			result.ViewData.Model.ShouldEqual(groupForm);
+		}
+
+		[Test]
+		public void The_index_should_retrieve_the_user_group_by_its_domain_name()
+		{
+			var userGroup = new UserGroup();
+
+
+			var mapper = S<IUserGroupMapper>();
+			mapper.Stub(groupMapper => groupMapper.Map(userGroup)).Return(new UserGroupForm());
+
+			var home = new HomeController(mapper);
+
+			ViewResult result = home.Index(userGroup);
+			result.ForView("");
+			result.WithViewData<UserGroupForm>().ShouldNotBeNull();
 		}
 	}
 }

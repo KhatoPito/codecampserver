@@ -15,5 +15,6 @@ namespace CodeCampServer.Core.Domain.Model
 		public virtual string Region { get; set; }
 		public virtual string PostalCode { get; set; }
 		public virtual UserGroup UserGroup { get; set; }
+		public virtual string TimeZone { get; set; }
 	}
 }

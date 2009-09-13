@@ -19,7 +19,8 @@
 		<property name="City" />
 		<property name="Region" />
 		<property name="PostalCode" />
-		
+    <property name="TimeZone" />
+
     <many-to-one name="UserGroup" column="UserGroupID" class="UserGroup" />
     
 	</class>

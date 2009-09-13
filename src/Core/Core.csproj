@@ -55,6 +55,7 @@
     <Compile Include="Common\PrimitiveExtensions.cs" />
     <Compile Include="Common\ReflectionExtensions.cs" />
     <Compile Include="Common\UINameHelper.cs" />
+    <Compile Include="Domain\IEventRepository.cs" />
     <Compile Include="Domain\IUserGroupRepository.cs" />
     <Compile Include="Domain\Model\Event.cs" />
     <Compile Include="Domain\Model\Meeting.cs" />
