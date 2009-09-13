@@ -117,6 +117,7 @@
     <Compile Include="DatabaseConnectionTester.cs" />
     <Compile Include="DependencyResolution\DependencyRegistrarTester.cs" />
     <Compile Include="Infrastructure\DataAccess\ConferenceRepositoryTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\EventRepositoryTester.cs" />
     <Compile Include="Infrastructure\DataAccess\Mappings\MeetingMappingsTester.cs" />
     <Compile Include="Infrastructure\DataAccess\Mappings\RssFeedMappingsTester.cs" />
     <Compile Include="Infrastructure\DataAccess\Mappings\SponsorMappingsTester.cs" />

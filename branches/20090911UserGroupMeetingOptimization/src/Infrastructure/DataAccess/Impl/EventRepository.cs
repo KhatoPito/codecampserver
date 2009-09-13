@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using CodeCampServer.Core;
 using CodeCampServer.Core.Domain;
@@ -7,18 +6,11 @@ using Tarantino.Infrastructure.Commons.DataAccess.ORMapper;
 
 namespace CodeCampServer.Infrastructure.DataAccess.Impl
 {
-	public class ConferenceRepository : KeyedRepository<Conference>, IConferenceRepository
+	public class EventRepository : KeyedRepository<Event>, IEventRepository
 	{
-		public ConferenceRepository(ISessionBuilder sessionFactory) : base(sessionFactory) {}
+		public EventRepository(ISessionBuilder sessionFactory) : base(sessionFactory) {}
 
-		public Conference GetNextConference()
-		{
-			return GetSession().CreateQuery(
-				"from Conference conf where conf.StartDate >= :today order by conf.StartDate").SetDateTime(
-				"today", DateTime.Now.Midnight()).SetMaxResults(1).UniqueResult<Conference>();
-		}
-
-		public Conference[] GetAllForUserGroup(UserGroup usergroup)
+		public Event[] GetAllForUserGroup(UserGroup usergroup)
 		{
 			return GetSession().CreateQuery(
 				"from Conference conf where conf.UserGroup = :usergroup order by conf.StartDate desc").
@@ -26,7 +18,7 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 				          usergroup).List<Conference>().ToArray();
 		}
 
-		public Conference[] GetFutureForUserGroup(UserGroup usergroup)
+		public Event[] GetFutureForUserGroup(UserGroup usergroup)
 		{
 			return GetSession().CreateQuery(
 				"from Conference conf where conf.UserGroup = :usergroup and conf.EndDate >= :datetime order by conf.StartDate")

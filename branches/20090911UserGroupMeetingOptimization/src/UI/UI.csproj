@@ -90,6 +90,7 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\RssFeedController.cs" />
     <Compile Include="Controllers\SponsorController.cs" />
     <Compile Include="Controllers\ProposalController.cs" />
@@ -362,6 +363,8 @@
     <Content Include="Views\Conference\List.aspx" />
     <Content Include="Views\Attendee\Edit.aspx" />
     <Content Include="Views\Attendee\Index.aspx" />
+    <Content Include="Views\Event\ConferenceAnnouncement.ascx" />
+    <Content Include="Views\Event\MeetingAnnouncement.ascx" />
     <Content Include="Views\Home\About.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Login\Index.aspx" />
@@ -374,7 +377,7 @@
     <Content Include="Views\Schedule\Index.aspx" />
     <Content Include="Views\Session\List.aspx" />
     <Content Include="Views\Session\Edit.aspx" />
-    <Content Include="Views\Shared\EventList.ascx" />
+    <Content Include="Views\Event\List.ascx" />
     <Content Include="Views\Shared\DeleteTrackLink.ascx" />
     <Content Include="Views\Shared\EditSponsorLink.ascx" />
     <Content Include="Views\Shared\NotAuthorized.ascx" />

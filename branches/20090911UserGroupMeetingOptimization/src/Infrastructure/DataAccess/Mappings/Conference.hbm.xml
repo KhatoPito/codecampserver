@@ -5,7 +5,6 @@
 
   <joined-subclass name="Conference" extends="Event" table="Conferences" dynamic-update="true">
     <key column="Id"/>
-    <property name="TimeZone" />
     <property name="PhoneNumber" />
     <property name="HtmlContent" type="StringClob">
       <column name="HtmlContent" sql-type="ntext"/>

@@ -18,7 +18,7 @@
 		    <%=Html.Input(f=>f.Password) %>
 		    
 		    <p class="buttons"><%=Html.SubmitButton("login", "Log in") %>
-		        <%= Html.ActionLink<HomeController>("Cancel", x => x.Index(null, null)) %>			   
+		        <%= Html.ActionLink<HomeController>("Cancel", x => x.Index(null)) %>			   
 			</p>
         </fieldset>
                 	

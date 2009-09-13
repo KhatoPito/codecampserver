@@ -39,6 +39,9 @@ namespace CodeCampServer.UI.Models.Forms
 		[Label("Zip Code")]
 		public virtual string PostalCode { get; set; }
 
+		[BetterValidateNonEmpty("Time Zone")]
+		public virtual string TimeZone { get; set; }
+
 		public string GetDate()
 		{
 			string start = DateTime.Parse(StartDate).ToString("h:mm");
