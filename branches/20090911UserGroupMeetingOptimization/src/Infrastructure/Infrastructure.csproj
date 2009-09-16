@@ -91,6 +91,7 @@
     <Compile Include="DataAccess\Impl\ConferenceRepository.cs" />
     <Compile Include="DataAccess\Impl\EventRepository.cs" />
     <Compile Include="DataAccess\Impl\KeyedRepository.cs" />
+    <Compile Include="DataAccess\Impl\MeetingRepository.cs" />
     <Compile Include="DataAccess\Impl\Planning\ProposalRepository.cs" />
     <Compile Include="DataAccess\Impl\RepositoryBase.cs" />
     <Compile Include="DataAccess\Impl\SessionRepository.cs" />

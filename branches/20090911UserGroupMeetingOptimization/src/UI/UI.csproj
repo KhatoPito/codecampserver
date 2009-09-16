@@ -102,6 +102,9 @@
     <Compile Include="Helpers\ConferenceViewExtensions.cs" />
     <Compile Include="Helpers\Filters\AddUserGroupToViewDataActionFilterAttribute.cs" />
     <Compile Include="Helpers\ImageLinkHelper.cs" />
+    <Compile Include="Helpers\Mappers\EventMapperBase.cs" />
+    <Compile Include="Helpers\Mappers\IMeetingMapper.cs" />
+    <Compile Include="Helpers\Mappers\MeetingMapper.cs" />
     <Compile Include="Helpers\Mappers\UserGroupRssFeedMapper.cs" />
     <Compile Include="Helpers\Mappers\IUserGroupRssFeedMapper.cs" />
     <Compile Include="Helpers\Mappers\UserGroupSponsorMapper.cs" />
@@ -378,6 +381,7 @@
     <Content Include="Views\Session\List.aspx" />
     <Content Include="Views\Session\Edit.aspx" />
     <Content Include="Views\Event\List.ascx" />
+    <Content Include="Views\Shared\ConferenceList.ascx" />
     <Content Include="Views\Shared\DeleteTrackLink.ascx" />
     <Content Include="Views\Shared\EditSponsorLink.ascx" />
     <Content Include="Views\Shared\NotAuthorized.ascx" />
