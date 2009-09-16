@@ -2,7 +2,7 @@ using System;
 
 namespace CodeCampServer.Core.Domain.Model
 {
-	public class Event : KeyedObject
+	public abstract class Event : KeyedObject
 	{
 		public virtual string Name { get; set; }
 		public virtual string Description { get; set; }

@@ -13,18 +13,18 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 		public Event[] GetAllForUserGroup(UserGroup usergroup)
 		{
 			return GetSession().CreateQuery(
-				"from Conference conf where conf.UserGroup = :usergroup order by conf.StartDate desc").
+				"from Event e where e.UserGroup = :usergroup order by e.StartDate desc").
 				SetEntity("usergroup",
-				          usergroup).List<Conference>().ToArray();
+				          usergroup).List<Event>().ToArray();
 		}
 
 		public Event[] GetFutureForUserGroup(UserGroup usergroup)
 		{
 			return GetSession().CreateQuery(
-				"from Conference conf where conf.UserGroup = :usergroup and conf.EndDate >= :datetime order by conf.StartDate")
+				"from Event e where e.UserGroup = :usergroup and e.EndDate >= :datetime order by e.StartDate")
 				.SetEntity("usergroup", usergroup)
 				.SetDateTime("datetime", SystemTime.Now().Midnight())
-				.List<Conference>().ToArray();
+				.List<Event>().ToArray();
 		}
 	}
 }
