@@ -22,6 +22,12 @@ namespace CodeCampServer.UI.Controllers
 			return View(form);
 		}
 
+		public ViewResult Events(UserGroup userGroup)
+		{
+			UserGroupForm form = MapToForm(userGroup);
+			return View(form);
+		}
+
 		public ViewResult About(UserGroup userGroup)
 		{
 			UserGroupForm form = MapToForm(userGroup);

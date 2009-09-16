@@ -369,6 +369,7 @@
     <Content Include="Views\Event\ConferenceAnnouncement.ascx" />
     <Content Include="Views\Event\MeetingAnnouncement.ascx" />
     <Content Include="Views\Home\About.aspx" />
+    <Content Include="Views\Home\Events.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Login\Index.aspx" />
     <Content Include="Views\Proposal\Confirmation.aspx" />

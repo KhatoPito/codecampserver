@@ -8,7 +8,8 @@
 			</LoggedInTemplate>
 		</asp:LoginView>
 		
-		<li><a href="<%=Url.Action<EventController>(c=>c.List(null)) %>">all events</a></li>
+		<li><a href="<%=Url.Action<HomeController>(c=>c.Index(null)) %>">upcoming events</a></li>
+		<li><a href="<%=Url.Action<HomeController>(c=>c.Events(null)) %>">all events</a></li>
 		<li><a href="<%=Url.Action<HomeController>(c=>c.About(null)) %>">about us</a></li>
 		<li><a href="<%=Url.Action<UserGroupController>(c=>c.List()) %>">user groups</a></li>
 	</ul>
