@@ -9,7 +9,7 @@ namespace CodeCampServer.UI.Controllers
 {
 	public class EventController : SmartController
 	{
-		private const string ANNOUNCEMENT_PARTIAL_SUFFIX = "Announcement";
+		public const string ANNOUNCEMENT_PARTIAL_SUFFIX = "Announcement";
 		private readonly IEventRepository _eventRepository;
 		private readonly IConferenceMapper _conferenceMapper;
 		private readonly IMeetingMapper _meetingMapper;

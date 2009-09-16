@@ -7,15 +7,9 @@ namespace CodeCampServer.Core.Domain.Model
 	public class Conference : Event
 	{
 		private readonly IList<Attendee> _attendees = new List<Attendee>();
-		private readonly IList<Sponsor> _sponsors = new List<Sponsor>();
 		public virtual string PhoneNumber { get; set; }
 		public virtual string HtmlContent { get; set; }
 		public virtual bool HasRegistration { get; set; }
-
-		public virtual Sponsor[] GetSponsors()
-		{
-			return _sponsors.ToArray();
-		}
 
 		public virtual void AddAttendee(Attendee attendee)
 		{

@@ -6,7 +6,7 @@ using CodeCampServer.UI.Models.Validation.Attributes;
 
 namespace CodeCampServer.UI.Models.Forms
 {
-	public class EventForm
+	public abstract class EventForm
 	{
 		[BetterValidateNonEmpty("Event Key")]
 		[ValidateRegExp(@"^[A-Za-z0-9\-]+$", "Key should only contain letters, numbers, and hypens.")]
