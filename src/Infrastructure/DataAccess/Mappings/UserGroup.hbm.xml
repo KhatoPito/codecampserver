@@ -18,6 +18,8 @@
     <property name="Country" length="50" />
     <property name="GoogleAnalysticsCode" length="50" />
     <property name="DomainName" length="255" />
+    <property name="Theme" type="Tarantino.Infrastructure.Commons.DataAccess.ORMapper.EnumerationType`1[[CodeCampServer.Core.Domain.Model.Enumerations.WebsiteTheme, CodeCampServer.Core]], Tarantino.Infrastructure"/>
+   
     <bag name="Users" access="field.camelcase-underscore"  table="UserGroupAdminUsers" >
 			<key column="UserGroupId"  />
 			<many-to-many class="User" column="UserID"/>
