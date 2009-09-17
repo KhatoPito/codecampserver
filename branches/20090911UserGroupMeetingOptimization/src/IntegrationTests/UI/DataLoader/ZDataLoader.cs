@@ -48,7 +48,8 @@ namespace CodeCampServer.IntegrationTests.UI.DataLoader
 			                		Region = "Texas",
 			                		Country = "USA",
 			                		Key = "localhost",
-			                		HomepageHTML = "Austin .Net Users Group"
+			                		HomepageHTML = "Austin .Net Users Group",
+													Theme = WebsiteTheme.Emporium
 			                	};
 			userGroup.Add(user);
             userGroup.Add(new Sponsor() { Level = SponsorLevel.Platinum, Name = "Microsoft", Url = "http://microsoft.com/", BannerUrl = "http://www.microsoft.com/presspass/images/gallery/logos/web/net_v_web.jpg" });

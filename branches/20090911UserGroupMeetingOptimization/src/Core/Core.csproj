@@ -81,6 +81,7 @@
     <Compile Include="Domain\Model\Sponsor.cs" />
     <Compile Include="Domain\Model\SponsorLevel.cs" />
     <Compile Include="Domain\Model\UserGroup.cs" />
+    <Compile Include="Domain\Model\Enumerations\WebsiteTheme.cs" />
     <Compile Include="Domain\ValidationResult.cs" />
     <Compile Include="Domain\IConferencerRepository.cs" />
     <Compile Include="Domain\IKeyedRepository.cs" />
