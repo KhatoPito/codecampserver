@@ -19,7 +19,6 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess.Mappings
 			usergroup.HomepageHTML = "<H1>Hello World</H1>";
 			usergroup.GoogleAnalysticsCode = "foo";
 			usergroup.DomainName = "foo/bar";
-			usergroup.Theme = WebsiteTheme.Emporium;
 			usergroup.Add(new User {EmailAddress = "foo", Name = "bar"});
 			usergroup.Add(new Sponsor {Level = SponsorLevel.Platinum, Name = "the sponsor"});
 			usergroup.Add(new RssFeed());

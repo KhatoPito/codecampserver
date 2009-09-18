@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CodeCampServer.Core.Domain.Model.Enumerations;
 
 namespace CodeCampServer.Core.Domain.Model
 {
@@ -17,7 +16,6 @@ namespace CodeCampServer.Core.Domain.Model
 		public virtual string Country { get; set; }
 		public virtual string GoogleAnalysticsCode { get; set; }
 		public virtual string DomainName { get; set; }
-		public virtual WebsiteTheme Theme { get; set; }
 
 		public virtual void Add(Sponsor child)
 		{
