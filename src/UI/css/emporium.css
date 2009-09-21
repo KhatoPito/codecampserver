@@ -261,7 +261,10 @@ input, textarea, select {
 	display: none;
 }
 
-
+.addMeeting 
+{
+    float:right;
+}
 /* Sidebar */
 
 #sidebar {
@@ -378,4 +381,71 @@ html>body #footer {
 #legal a {
 	font-weight: normal;
 	color: #1B75A9;
+}
+
+fieldset 
+{
+	background-color: #eee;
+	padding: 20px;
+	margin: 10px auto;
+	border: solid 4px #aba;
+	width: 480px;
+}
+
+fieldset.wide 
+{
+	width: 650px;
+}
+
+fieldset legend 
+{
+	font-weight: bold;
+	background-color: #fff;
+}
+
+fieldset label 
+{
+	float: left;
+	display: block;
+	width: 125px;
+	text-align: right;		
+	height: 20px;	
+	margin: 7px;	
+}
+
+fieldset input[type="text"], textarea, fieldset input[type="password"] 
+{
+	font-size: 1.1em;	
+	margin: 1px;
+	padding: 4px;
+	width:300px;
+}
+
+fieldset select 
+{
+	font-size: 1.1em;
+	margin: 1px;
+	padding: 4px;
+}
+
+fieldset input[type="checkbox"]
+{
+	margin: 8px 0;	
+}
+
+fieldset input[type='submit'] 
+{
+	width: inherit;
+}
+
+fieldset p.buttons 
+{
+	text-align:right;
+	margin: 6px;
+}
+
+.cleaner
+{
+	clear: both;
+	height: 0px;
 }
