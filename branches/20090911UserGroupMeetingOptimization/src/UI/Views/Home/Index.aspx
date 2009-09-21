@@ -6,6 +6,7 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="Main" runat="server">
+    <%=Errors.Display()%>
     <%Html.RenderAction<EventController>(c => c.UpComing(null));%>
 </asp:Content>
 

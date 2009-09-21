@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
@@ -73,7 +74,7 @@ namespace CodeCampServer.UI.Controllers
 		{
 			if (_securityContext.HasPermissionsForUserGroup(form.UserGroupId))
 			{
-				return ProcessSave(form, conference => RedirectToAction<ConferenceController>(c => c.List(conference.UserGroup)));
+				return ProcessSave(form, conference => RedirectToAction<HomeController>(c => c.Index(conference.UserGroup)));
 			}
 			return View(ViewPages.NotAuthorized);
 		}
@@ -99,5 +100,20 @@ namespace CodeCampServer.UI.Controllers
 		{
 			return View("Edit", _mapper.Map(new Conference {UserGroup = usergroup}));
 		}
+
+	    public ActionResult Delete(Conference conference)
+	    {
+            if (!_securityContext.HasPermissionsFor(conference))
+            {
+                return NotAuthorizedView;
+            }
+
+            _repository.Delete(conference);
+
+            TempData.Add("message", conference.Name + " was deleted.");
+
+            return RedirectToAction<HomeController>(c => c.Index(conference.UserGroup));
+
+        }
 	}
 }

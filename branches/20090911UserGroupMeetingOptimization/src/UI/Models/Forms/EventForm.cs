@@ -44,11 +44,18 @@ namespace CodeCampServer.UI.Models.Forms
 
 		public string GetDate()
 		{
-			string start = DateTime.Parse(StartDate).ToString("h:mm");
-			string end = DateTime.Parse(EndDate).ToString("h:mm tt");
-			string date = DateTime.Parse(StartDate).ToShortDateString();
+		    try
+		    {
+                string start = DateTime.Parse(StartDate).ToString("h:mm");
+                string end = DateTime.Parse(EndDate).ToString("h:mm tt");
+                string date = DateTime.Parse(StartDate).ToShortDateString();
 
-			return string.Format("{0} {1} - {2} {3}", date, start, end, TimeZone);
+                return string.Format("{0} {1} - {2} {3}", date, start, end, TimeZone);
+            }
+            catch {
+                ;
+            }
+		    return "";
 		}
 	}
 }

@@ -13,7 +13,7 @@ namespace CodeCampServer.UI.Models.Forms
 		[BetterValidateNonEmpty("Speaker")]
 		public virtual string SpeakerName { get; set; }
 
-		[BetterValidateNonEmpty("Biio")]
+		[BetterValidateNonEmpty("Bio")]
 		public virtual string SpeakerBio { get; set; }
 
 		[BetterValidateNonEmpty("Speaker Website")]
