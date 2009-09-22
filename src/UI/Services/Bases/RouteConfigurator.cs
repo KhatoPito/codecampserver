@@ -33,16 +33,16 @@ namespace CodeCampServer.UI
                 .RouteHandler = new DomainNameRouteHandler();
         
 
-            MvcRoute.MappUrl("{conferenceKey}/{controller}/{action}")
-                .WithDefaults(new {controller = "Conference", action = "index"})
-                .WithConstraints(new
-                                     {
-                                         conferenceKey = new ConferenceKeyCannotBeAControllerNameConstraint(),
-                                         controller =
-                                     "schedule|session|timeslot|track|attendee|conference|speaker|admin|proposal|user|sponsor"
-                                     })
-                .AddWithName("conferenceDefault", routes)
-                .RouteHandler = new DomainNameRouteHandler();
+            //MvcRoute.MappUrl("{conferenceKey}/{controller}/{action}")
+            //    .WithDefaults(new {controller = "Conference", action = "index"})
+            //    .WithConstraints(new
+            //                         {
+            //                             conferenceKey = new ConferenceKeyCannotBeAControllerNameConstraint(),
+            //                             controller =
+            //                         "schedule|session|timeslot|track|attendee|conference|speaker|admin|proposal|user|sponsor"
+            //                         })
+            //    .AddWithName("conferenceDefault", routes)
+            //    .RouteHandler = new DomainNameRouteHandler();
 
             MvcRoute.MappUrl("{controller}/{action}")
                 .WithDefaults(new {controller = "home", action = "index"})

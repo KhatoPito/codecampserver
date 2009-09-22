@@ -9,24 +9,24 @@ using CodeCampServer.UI.Models.Forms;
 
 namespace CodeCampServer.UI.Helpers.Binders
 {
-    public class UserFormTypeConverter:System.ComponentModel.TypeConverter
-    {
-        public override bool CanConvertFrom(System.ComponentModel.ITypeDescriptorContext context, Type sourceType)
-        {
-            if(sourceType==typeof(string))
-                return true;
-            else
-                return base.CanConvertFrom(context, sourceType);
-        }
+    //public class UserFormTypeConverter:System.ComponentModel.TypeConverter
+    //{
+    //    public override bool CanConvertFrom(System.ComponentModel.ITypeDescriptorContext context, Type sourceType)
+    //    {
+    //        if(sourceType==typeof(string))
+    //            return true;
+    //        else
+    //            return base.CanConvertFrom(context, sourceType);
+    //    }
 
-        public override object ConvertFrom(System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
-        {
-            var returnValue =new UserSelector();
-            returnValue.Id = new Guid(value.ToString());
-            return returnValue;
-        }
+    //    public override object ConvertFrom(System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
+    //    {
+    //        var returnValue =new UserSelector();
+    //        returnValue.Id = new Guid(value.ToString());
+    //        return returnValue;
+    //    }
         
-    }
+    //}
 	public class SmartBinder : DefaultModelBinder
 	{
 		public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)

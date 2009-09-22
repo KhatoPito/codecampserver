@@ -12,7 +12,7 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 	public class UserRepositoryTester : RepositoryTester<User, UserRepository>
 	{
 		[Test]
-		public void Should_find_employee_by_username()
+		public void Should_find_user_by_username()
 		{
 			var one = new User
 			          	{
@@ -45,7 +45,7 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 		}
 
 		[Test]
-		public void Should_get_by_last_name_start_text()
+		public void Should_get_user_by_last_name_start_text()
 		{
 			var user = new User {Name = "test1"};
 			var user1 = new User {Name = "test2"};

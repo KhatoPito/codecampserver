@@ -29,7 +29,7 @@
 				</div>
 				<div class="cleaner"></div>
 				<asp:ContentPlaceHolder id="Menu" runat="server">
-				<% if(ViewData.Contains<Conference>())
+<%--				<% if(ViewData.Contains<Conference>())
 				{
 					Html.RenderPartial("Menu"); 
 				}
@@ -38,7 +38,7 @@
 					Html.RenderPartial("HomeMenu"); 
 				}
 				%>
-				</asp:ContentPlaceHolder>				
+--%>				</asp:ContentPlaceHolder>				
 				<div id="contentWrapper">
 					<asp:ContentPlaceHolder id="Main" runat="server" />
 				</div>				
