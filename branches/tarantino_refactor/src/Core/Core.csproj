@@ -51,47 +51,17 @@
     <Compile Include="Common\PrimitiveExtensions.cs" />
     <Compile Include="Common\ReflectionExtensions.cs" />
     <Compile Include="Common\UINameHelper.cs" />
-    <Compile Include="Domain\IUserGroupRepository.cs" />
     <Compile Include="Bases\Enumeration.cs" />
     <Compile Include="Bases\PersistentObject.cs" />
-    <Compile Include="Domain\Model\Planning\StateCommands\AcceptedToConfirmedCommand.cs" />
-    <Compile Include="Domain\Model\Planning\StateCommands\DraftToSubmittedCommand.cs" />
-    <Compile Include="Domain\Model\Planning\IStateCommand.cs" />
     <Compile Include="Bases\Mapper.cs" />
     <Compile Include="Bases\IMapper.cs" />
-    <Compile Include="Domain\Model\Planning\IProposalMapper.cs" />
-    <Compile Include="Domain\Model\Planning\IProposalRepository.cs" />
-    <Compile Include="Domain\ISpeakerRepository.cs" />
-    <Compile Include="Domain\Messages\IProposalMessage.cs" />
     <Compile Include="Bases\EnumerationHelper.cs" />
     <Compile Include="Bases\OrderedEnumeration.cs" />
-    <Compile Include="Domain\Model\Enumerations\YesNo.cs" />
-    <Compile Include="Domain\Model\Planning\Proposal.cs" />
-    <Compile Include="Domain\Model\Planning\ProposalStatus.cs" />
-    <Compile Include="Domain\Model\Planning\StateCommands\SaveDraftCommand.cs" />
-    <Compile Include="Domain\Model\Planning\StateCommands\StateCommandBase.cs" />
-    <Compile Include="Domain\Model\Planning\StateCommands\SubmittedToAcceptedCommand.cs" />
-    <Compile Include="Domain\Model\RssFeed.cs" />
-    <Compile Include="Domain\Model\Sponsor.cs" />
-    <Compile Include="Domain\Model\SponsorLevel.cs" />
-    <Compile Include="Domain\Model\UserGroup.cs" />
     <Compile Include="Bases\ValidationResult.cs" />
-    <Compile Include="Domain\IConferencerRepository.cs" />
     <Compile Include="Bases\IKeyedRepository.cs" />
     <Compile Include="Bases\IRepository.cs" />
-    <Compile Include="Domain\ISessionRepository.cs" />
-    <Compile Include="Domain\ITimeSlotRepository.cs" />
-    <Compile Include="Domain\ITrackRepository.cs" />
     <Compile Include="Domain\Bases\IUserRepository.cs" />
-    <Compile Include="Domain\Model\AttendanceStatus.cs" />
-    <Compile Include="Domain\Model\Conference.cs" />
-    <Compile Include="Domain\Model\Enumerations\SessionLevel.cs" />
-    <Compile Include="Domain\Model\Attendee.cs" />
     <Compile Include="Bases\KeyedObject.cs" />
-    <Compile Include="Domain\Model\Session.cs" />
-    <Compile Include="Domain\Model\Speaker.cs" />
-    <Compile Include="Domain\Model\TimeSlot.cs" />
-    <Compile Include="Domain\Model\Track.cs" />
     <Compile Include="Domain\Bases\User.cs" />
     <Compile Include="Services\Bases\IAuthenticationService.cs" />
     <Compile Include="Services\Bases\ICryptographer.cs" />
@@ -100,12 +70,6 @@
     <Compile Include="Services\Bases\Cryptographer.cs" />
     <Compile Include="Common\ObjectExtensions.cs" />
     <Compile Include="Common\EnumerableExtensions.cs" />
-    <Compile Include="Services\Impl\ProposalCoordinator.cs" />
-    <Compile Include="Services\Impl\SecurityContext.cs" />
-    <Compile Include="Services\Impl\StateCommandFactory.cs" />
-    <Compile Include="Services\IProposalCoordinator.cs" />
-    <Compile Include="Services\ISecurityContext.cs" />
-    <Compile Include="Services\IStateCommandFactory.cs" />
     <Compile Include="Services\Bases\ISystemClock.cs" />
     <Compile Include="Services\Bases\IUserSession.cs" />
     <Compile Include="Common\SystemTime.cs" />
@@ -115,12 +79,7 @@
   <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Domain\Model\CoreModel.cd" />
-    <None Include="Domain\Model\ConferenceRepository.cd" />
-    <None Include="Domain\Model\LargeModel.cd" />
-    <None Include="Domain\Model\Model.cd" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>

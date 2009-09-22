@@ -32,19 +32,19 @@ namespace CodeCampServer.UI.Controllers
                 pageInfo = ViewData.Get<PageInfo>();
             }
 
-            if (ViewData.Contains<UserGroup>())
-            {
-                var usergroup = ViewData.Get<UserGroup>();
-                pageInfo.Title = usergroup.Name;
+            //if (ViewData.Contains<UserGroup>())
+            //{
+            //    var usergroup = ViewData.Get<UserGroup>();
+            //    pageInfo.Title = usergroup.Name;
 
-                if (!usergroup.IsDefault())
-                    pageInfo.TrackingCode = usergroup.GoogleAnalysticsCode;
-            }
+            //    if (!usergroup.IsDefault())
+            //        pageInfo.TrackingCode = usergroup.GoogleAnalysticsCode;
+            //}
 
-            if (ViewData.Contains<Conference>())
-            {
-                pageInfo.SubTitle = ViewData.Get<Conference>().Name;
-            }
+            //if (ViewData.Contains<Conference>())
+            //{
+            //    pageInfo.SubTitle = ViewData.Get<Conference>().Name;
+            //}
 
 		}
 
@@ -61,8 +61,8 @@ namespace CodeCampServer.UI.Controllers
 			var version = new AssemblyVersionFilterAttribute();
 			version.OnActionExecuting(filterContext);
         
-            var usergroup = new AddUserGroupToViewDataActionFilterAttribute();
-            usergroup.OnActionExecuting(filterContext);
+            //var usergroup = new AddUserGroupToViewDataActionFilterAttribute();
+            //usergroup.OnActionExecuting(filterContext);
         }
 
 		public RedirectToRouteResult RedirectToAction<TController>(Expression<Func<TController, object>> actionExpression)

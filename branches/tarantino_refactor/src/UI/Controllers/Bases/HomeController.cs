@@ -1,3 +1,4 @@
+using System;
 using System.Web.Mvc;
 using AutoMapper;
 using CodeCampServer.Core.Domain;
@@ -10,27 +11,31 @@ using MvcContrib;
 
 namespace CodeCampServer.UI.Controllers
 {
-    [AdminUserCreatedFilter]
+   // [AdminUserCreatedFilter]
     public class HomeController : SmartController
     {
-        private readonly IUserGroupMapper _mapper;
+     //   private readonly IUserGroupMapper _mapper;
 
-        public HomeController(IUserGroupMapper mapper)
-        {
-            _mapper = mapper;
-        }
+        //public HomeController(IUserGroupMapper mapper)
+        //{
+        //    _mapper = mapper;
+        //}
 
-        public ViewResult Index(UserGroup userGroup, IConferenceRepository _conferenceRepository)
-        {
-            Conference[] conferences = _conferenceRepository.GetFutureForUserGroup(userGroup);
+        //public ViewResult Index(UserGroup userGroup, IConferenceRepository _conferenceRepository)
+        //{
+        //    Conference[] conferences = _conferenceRepository.GetFutureForUserGroup(userGroup);
 
-            var conferenceForms =
-                (ConferenceForm[]) Mapper.Map(conferences, typeof (Conference[]), typeof (ConferenceForm[]));
+        //    var conferenceForms =
+        //        (ConferenceForm[]) Mapper.Map(conferences, typeof (Conference[]), typeof (ConferenceForm[]));
 
-            ViewData.Add(conferenceForms);
+        //    ViewData.Add(conferenceForms);
 
             
-            return View(_mapper.Map(userGroup));
+        //    return View(_mapper.Map(userGroup));
+        //}
+        public object Index(object o, object o1)
+        {
+            throw new NotImplementedException();
         }
     }
 }

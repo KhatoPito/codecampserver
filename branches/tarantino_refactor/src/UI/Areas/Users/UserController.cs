@@ -76,4 +76,15 @@ namespace CodeCampServer.UI.Controllers
             return View(_mapper.Map(_repository.GetAll()));
         }
     }
+
+    public interface ISecurityContext {
+        bool IsAdmin();
+    }
+
+    public class SecurityContext : ISecurityContext {
+        public bool IsAdmin()
+        {
+            return true;
+        }
+    }
 }

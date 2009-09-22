@@ -24,7 +24,7 @@ namespace CodeCampServer.UI
 
 			ModelBinders.Binders.DefaultBinder = new SmartBinder();
             DependencyRegistrar.EnsureDependenciesRegistered();
-            ModelBinders.Binders.Add(typeof(UserGroup),DependencyRegistrar.Resolve<UserGroupModelBinder>());
+            //ModelBinders.Binders.Add(typeof(UserGroup),DependencyRegistrar.Resolve<UserGroupModelBinder>());
 		}
 	}
 }

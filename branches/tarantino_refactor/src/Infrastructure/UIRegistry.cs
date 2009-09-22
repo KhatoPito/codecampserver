@@ -17,14 +17,14 @@ namespace CodeCampServer.Infrastructure.UI
 				          		x.OfConcreteType<HiddenInputBuilder>();
 				          		x.OfConcreteType<CheckboxInputBuilder>();
 				          		x.OfConcreteType<YesNoRadioInputBuilder>();
-				          		x.OfConcreteType<RadioInputBuilder>();
+				          //		x.OfConcreteType<RadioInputBuilder>();
 				          		x.OfConcreteType<DateInputBuilder>();
 				          		x.OfConcreteType<EnumerationInputBuilder>();
 				          		x.OfConcreteType<TextBoxInputBuilder>();
-				          		x.OfConcreteType<TrackInputBuilder>();
-				          		x.OfConcreteType<TimeSlotInputBuilder>();
-				          		x.OfConcreteType<SpeakerInputBuilder>();
-                                x.OfConcreteType<UserInputBuilder>();
+                                //x.OfConcreteType<TrackInputBuilder>();
+                                //x.OfConcreteType<TimeSlotInputBuilder>();
+                                //x.OfConcreteType<SpeakerInputBuilder>();
+                                //x.OfConcreteType<UserInputBuilder>();
 				          	});
 		}
 	}
