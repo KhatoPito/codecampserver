@@ -1,0 +1,15 @@
+using CodeCampServer.Core.Domain;
+using CodeCampServer.Core.Domain.Model;
+
+namespace CodeCampServer.Infrastructure.DataAccess.Impl
+{
+	public class UserGroupRepository : KeyedRepository<UserGroup>, IUserGroupRepository
+	{
+		public UserGroupRepository(ISessionBuilder sessionFactory) : base(sessionFactory) {}
+
+		public UserGroup GetDefaultUserGroup()
+		{
+			return GetByKey("localhost");
+		}
+	}
+}
