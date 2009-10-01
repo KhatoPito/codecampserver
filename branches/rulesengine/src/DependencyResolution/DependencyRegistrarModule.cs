@@ -1,6 +1,10 @@
 using System;
 using System.Web;
+using CodeCampServer.Core.Domain.Model;
+using CommandProcessor;
+using Microsoft.Practices.ServiceLocation;
 using StructureMap;
+using System.Linq;
 
 namespace CodeCampServer.DependencyResolution
 {
@@ -35,12 +39,23 @@ namespace CodeCampServer.DependencyResolution
 						ObjectFactory.ResetDefaults();
 						var registrar = new DependencyRegistrar();
 						registrar.RegisterDependencies();
+
+						SetUpRulesEngine();
+
 						_dependenciesRegistered = true;
 
 						
 					}
 				}
 			}
+		}
+
+		private void SetUpRulesEngine()
+		{
+			ServiceLocator.SetLocatorProvider(() => new StructureMapServiceLocator());
+			var rulesEngine = new RulesEngine();
+			RulesEngine.MessageProcessorFactory = new MessageProcessorFactory();
+			rulesEngine.Initialize(typeof(Event).Assembly);
 		}
 	}
 }
