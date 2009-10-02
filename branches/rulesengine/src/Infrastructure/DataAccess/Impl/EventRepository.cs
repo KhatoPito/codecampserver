@@ -3,12 +3,13 @@ using System.Linq;
 using CodeCampServer.Core;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
+using Tarantino.RulesEngine;
 
 namespace CodeCampServer.Infrastructure.DataAccess.Impl
 {
 	public class EventRepository : KeyedRepository<Event>, IEventRepository
 	{
-		public EventRepository(ISessionBuilder sessionFactory) : base(sessionFactory) {}
+		public EventRepository(ISessionBuilder sessionFactory) : base(sessionFactory) { }
 
 		public Event[] GetAllForUserGroup(UserGroup usergroup)
 		{

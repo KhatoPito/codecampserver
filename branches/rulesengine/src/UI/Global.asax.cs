@@ -18,7 +18,7 @@ namespace CodeCampServer.UI
 		protected void Application_Start()
 		{
 			RegisterRoutes(RouteTable.Routes);
-			AutoMapperConfiguration.Configure();
+			
 			MvcContrib.UI.InputBuilder.InputBuilder.BootStrap();
 			MvcContrib.UI.InputBuilder.InputBuilder.SetConventionProvider(() => new InputBuilderConventions());
 			ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
