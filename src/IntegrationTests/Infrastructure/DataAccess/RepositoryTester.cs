@@ -67,7 +67,7 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 			TRepository repository = CreateRepository();
 
 			repository.Delete(one);
-
+			GetSession().Transaction.Commit();
 			GetSession().Dispose();
 
 			T[] all = repository.GetAll();

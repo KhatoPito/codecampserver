@@ -1,7 +1,9 @@
+using System;
 using AutoMapper;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.DependencyResolution;
+using CodeCampServer.Infrastructure.TypeConverters;
 using CodeCampServer.UI.Models.Input;
 
 namespace CodeCampServer.UI.Helpers.Mappers
@@ -10,6 +12,7 @@ namespace CodeCampServer.UI.Helpers.Mappers
 	{
 		protected override void Configure()
 		{
+			Mapper.CreateMap<Guid, Meeting>().ConvertUsing<IdToEntityConverter<Meeting>>();
 			Mapper.CreateMap<Meeting, MeetingInput>();
 			Mapper.CreateMap<Meeting, MeetingAnnouncementDisplay>()
 				.ForMember(x => x.Heading, o => o.MapFrom(m => m.Name))

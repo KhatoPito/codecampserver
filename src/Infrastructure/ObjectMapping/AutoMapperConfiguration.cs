@@ -4,7 +4,7 @@ using CodeCampServer.UI.Helpers.Mappers;
 
 namespace CodeCampServer.UI.Views
 {
-	public class AutoMapperConfiguration
+	public class AutoMapperConfiguration : IRequiresConfigurationOnStartup
 	{
 		public static void Configure()
 		{
@@ -14,7 +14,13 @@ namespace CodeCampServer.UI.Views
 			                  		x.AddProfile<AutoMapperProfile>();
 			                  		x.AddProfile<MeetingMapperProfile>();
 			                  		x.AddProfile<UserGroupMapperProfile>();
+									x.AddProfile<MeetingMessageMapperProfile>();									
 			                  	});
+		}
+
+		void IRequiresConfigurationOnStartup.Configure()
+		{
+			Configure();
 		}
 	}
 }

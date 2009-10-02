@@ -3,12 +3,14 @@ using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using NHibernate;
 using NHibernate.Criterion;
+using Tarantino.RulesEngine;
 
 namespace CodeCampServer.Infrastructure.DataAccess.Impl
 {
 	public class UserRepository : KeyedRepository<User>, IUserRepository
 	{
-		public UserRepository(ISessionBuilder sessionFactory) : base(sessionFactory)
+		public UserRepository(ISessionBuilder sessionFactory)
+			: base(sessionFactory) 
 		{
 		}
 

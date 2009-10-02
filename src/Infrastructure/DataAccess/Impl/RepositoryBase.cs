@@ -4,12 +4,14 @@ using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using NHibernate;
 using Tarantino.Infrastructure.Commons.DataAccess.Repositories;
+using Tarantino.RulesEngine;
 
 namespace CodeCampServer.Infrastructure.DataAccess.Impl
 {
 	public class RepositoryBase<T> : RepositoryBase, IRepository<T> where T : PersistentObject
 	{
-		public RepositoryBase(ISessionBuilder sessionFactory)
+
+		public RepositoryBase(ISessionBuilder sessionFactory )
 			: base(sessionFactory)
 		{
 		}
@@ -22,11 +24,11 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 
 		public virtual void Save(T entity)
 		{
-			using (ISession session = GetSession())
-			using (ITransaction tx = session.BeginTransaction())
+			using(var session = GetSession())
+			using(var transaction = session.BeginTransaction())
 			{
 				session.SaveOrUpdate(entity);
-				tx.Commit();
+					transaction.Commit();
 			}
 		}
 
@@ -39,12 +41,8 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 
 		public virtual void Delete(T entity)
 		{
-			using (ISession session = GetSession())
-			using (ITransaction tx = session.BeginTransaction())
-			{
-				session.Delete(entity);
-				tx.Commit();
-			}
+			GetSession().BeginTransaction();
+			GetSession().Delete(entity);
 		}
 	}
 }

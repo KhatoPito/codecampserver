@@ -79,6 +79,8 @@
     <Compile Include="Domain\Model\KeyedObject.cs" />
     <Compile Include="Domain\Model\User.cs" />
     <Compile Include="Services\Bases\ISystemClock.cs" />
+    <Compile Include="Services\BusinessRule\DeleteMeeting\DeleteMeetingCommandHandler.cs" />
+    <Compile Include="Services\BusinessRule\DeleteMeeting\DeleteMeetingCommandMessage.cs" />
     <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="Services\ICryptographer.cs" />
     <Compile Include="Services\IHttpFileDownloaderService.cs" />
@@ -94,6 +96,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommandProcessor\RulesEngine.csproj">
+      <Project>{37A1D1C4-5C10-4DC8-9972-DEBBBD80BB7C}</Project>
+      <Name>RulesEngine %28RulesEngine\RulesEngine%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\Messages\" />
