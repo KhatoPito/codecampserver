@@ -1,8 +1,5 @@
-using AutoMapper;
-using Castle.Components.Validator;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
-using Tarantino.RulesEngine.CommandProcessor;
 
 namespace CodeCampServer.DependencyResolution
 {
@@ -17,9 +14,9 @@ namespace CodeCampServer.DependencyResolution
 				x.Assembly(assemblyPrefix + ".Core");
 				x.Assembly(assemblyPrefix + ".Infrastructure");
 				x.Assembly(assemblyPrefix + ".UI");
+				x.Assembly("CommandProcessor");
 				x.With<DefaultConventionScanner>();
 				x.LookForRegistries();
-				x.ConnectImplementationsToTypesClosing(typeof(Command<>));
 				x.AddAllTypesOf<IRequiresConfigurationOnStartup>();
 			});
 		}
@@ -29,24 +26,6 @@ namespace CodeCampServer.DependencyResolution
 			string name = GetType().Assembly.GetName().Name;
 			name = name.Substring(0, name.LastIndexOf("."));
 			return name;
-		}
-	}
-
-
-	public class CastleValidatorRegistry : Registry
-	{
-		protected override void configure()
-		{
-			ForRequestedType<IValidatorRunner>().TheDefault.Is.ConstructedBy(
-				() => new ValidatorRunner(new CachedValidationRegistry()));
-		}
-	}
-
-	public class AutoMapperRegistry : Registry
-	{
-		protected override void configure()
-		{
-			ForRequestedType<IMappingEngine>().TheDefault.Is.ConstructedBy(() => Mapper.Engine);
 		}
 	}
 }

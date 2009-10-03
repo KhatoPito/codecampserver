@@ -1,4 +1,7 @@
-﻿using CodeCampServer.Core.Domain;
+﻿using AutoMapper;
+using Castle.Components.Validator;
+using CodeCampServer.Core.Domain;
+using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.Infrastructure.DataAccess.Impl;
 using CommandProcessor;
 using StructureMap.Configuration.DSL;
@@ -16,6 +19,30 @@ namespace CodeCampServer.Infrastructure
 			ForRequestedType<ISessionBuilder>().TheDefaultIsConcreteType<HybridSessionBuilder>();
 			ForRequestedType<IRulesEngine>().TheDefaultIsConcreteType<RulesEngine>();
 			ForRequestedType<IWebContext>().TheDefaultIsConcreteType<WebContext>();
+			
+			Scan(x =>
+			     	{
+						x.AssemblyContainingType<Event>();
+			     		x.ConnectImplementationsToTypesClosing(typeof (Command<>));
+			     	});
+
 		}
 	}
+	public class CastleValidatorRegistry : Registry
+	{
+		public CastleValidatorRegistry()
+		{
+			ForRequestedType<IValidatorRunner>().TheDefault.Is.ConstructedBy(
+				() => new ValidatorRunner(new CachedValidationRegistry()));			
+		}
+	}
+
+	public class AutoMapperRegistry : Registry
+	{
+		public AutoMapperRegistry()
+		{
+			ForRequestedType<IMappingEngine>().TheDefault.Is.ConstructedBy(() => Mapper.Engine);
+		}
+	}
+
 }

@@ -19,7 +19,9 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 		[Test]
 		public void Should_list_the_sponors_for_a_user_group()
 		{
-			var controller = new SponsorController(S<IUserGroupRepository>(),S<IUserGroupSponsorMapper>(),PermisiveSecurityContext());
+			var mapper = S<IUserGroupSponsorMapper>();
+			mapper.Stub(sponsorMapper => sponsorMapper.Map((Sponsor[]) null)).IgnoreArguments().Return(new SponsorInput[0]);
+			var controller = new SponsorController(S<IUserGroupRepository>(),mapper,PermisiveSecurityContext());
 
 		    controller.Index(new UserGroup())
             
@@ -44,7 +46,9 @@ namespace CodeCampServer.UnitTests.UI.Controllers
         [Test]
         public void Should_edit_an_existing_sponsor()
         {
-            var controller = new SponsorController(S<IUserGroupRepository>(), S<IUserGroupSponsorMapper>(), PermisiveSecurityContext());
+        	var mapper = S<IUserGroupSponsorMapper>();
+        	mapper.Stub(sponsorMapper => sponsorMapper.Map((Sponsor) null)).IgnoreArguments().Return(new SponsorInput());
+        	var controller = new SponsorController(S<IUserGroupRepository>(), mapper, PermisiveSecurityContext());
 
             var userGroup = new UserGroup();
             userGroup.Add(new Sponsor(){Id = Guid.Empty});

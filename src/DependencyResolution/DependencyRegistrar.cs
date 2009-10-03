@@ -40,11 +40,11 @@ namespace CodeCampServer.DependencyResolution
 			return ObjectFactory.GetInstance(modelType);
 		}
 
-		public static bool Registered<T>()
-		{
-			EnsureDependenciesRegistered();
-			return ObjectFactory.GetInstance<T>() != null;
-		}
+		//public static bool Registered<T>()
+		//{
+		//    EnsureDependenciesRegistered();
+		//    return ObjectFactory.GetInstance<T>() != null;
+		//}
 
 		public static bool Registered(Type type)
 		{
@@ -60,7 +60,7 @@ namespace CodeCampServer.DependencyResolution
 				{
 					if (!_dependenciesRegistered)
 					{
-						new DependencyRegistrar().ConfigureOnStartup();
+						new DependencyRegistrar().RegisterDependencies();
 						_dependenciesRegistered = true;
 						
 					}

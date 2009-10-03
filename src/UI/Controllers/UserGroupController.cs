@@ -43,7 +43,8 @@ namespace CodeCampServer.UI.Controllers
 			{
 				return RedirectToAction<UserGroupController>(c => c.New());
 			}
-			object entityListDto = AutoMapper.Mapper .Map(entities, typeof (UserGroup[]), typeof (UserGroupInput[]));
+
+			UserGroupInput[] entityListDto = _mapper.Map(entities);
 			return View(entityListDto);
 		}
 		

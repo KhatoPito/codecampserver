@@ -4,6 +4,7 @@ using AutoMapper;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.DependencyResolution;
+using CodeCampServer.Infrastructure.BusinessRules;
 using CodeCampServer.UI.Messages;
 using CodeCampServer.UI.Views;
 using CommandProcessor;

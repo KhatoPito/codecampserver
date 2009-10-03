@@ -12,7 +12,6 @@ namespace CodeCampServer.UnitTests.UI
 		public void Should_map_dtos()
 		{
 			DependencyRegistrar.EnsureDependenciesRegistered();
-
 			AutoMapperConfiguration.Configure();
 			Mapper.AssertConfigurationIsValid();
 		}

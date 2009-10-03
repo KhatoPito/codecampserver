@@ -32,10 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=0.1.0.39936, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\AutoMapper\AutoMapper.dll</HintPath>
-    </Reference>
     <Reference Include="Castle.Components.Validator, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\castle\Castle.Components.Validator.dll</HintPath>
@@ -82,22 +78,37 @@
     </Compile>
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\MeetingController.cs" />
+    <Compile Include="Controllers\SaveController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\SponsorController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserGroupController.cs" />
     <Compile Include="Helpers\Attributes\MultilineAttribute.cs" />
-    <Compile Include="Helpers\Binders\UserGroupModelBinder.cs" />
-    <Compile Include="Helpers\Binders\UserSelectorInputTypeConverter.cs" />
-    <Compile Include="Helpers\ConferenceViewExtensions.cs" />
+    <Compile Include="Helpers\ConferenceViewExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\Extensions\ModelStateExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\Extensions\MvcHelperExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\Extensions\UrlHelperExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Helpers\Filters\AddUserGroupToViewDataActionFilterAttribute.cs" />
-    <Compile Include="Helpers\ImageLinkHelper.cs" />
-    <Compile Include="Helpers\Mappers\IMeetingMapper.cs" />
-    <Compile Include="Helpers\Mappers\MeetingMapper.cs" />
-    <Compile Include="Helpers\Mappers\UserGroupSponsorMapper.cs" />
-    <Compile Include="Helpers\Mappers\IUserGroupSponsorMapper.cs" />
-    <Compile Include="Helpers\Mappers\IUserGroupMapper.cs" />
-    <Compile Include="Helpers\Mappers\UserGroupMapper.cs" />
+    <Compile Include="Helpers\ImageLinkHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\Mappers\IMeetingMapper.cs" />
+    <Compile Include="Services\Mappers\IUserGroupSponsorMapper.cs" />
+    <Compile Include="Services\Mappers\IUserGroupMapper.cs" />
+    <Compile Include="Helpers\UserSelectorInputTypeConverter.cs" />
     <Compile Include="Helpers\Validation\Attributes\ValidateKeyAttribute.cs" />
+    <Compile Include="HtmlExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="InputBuilderConventions.cs" />
     <Compile Include="Messages\DeleteMeetingMessage.cs" />
     <Compile Include="Models\Input\AdminInput.cs" />
@@ -109,7 +120,6 @@
     <Compile Include="Models\Input\SponsorInput.cs" />
     <Compile Include="Models\Input\UserGroupInput.cs" />
     <Compile Include="Models\Input\UserSelectorInput.cs" />
-    <Compile Include="Helpers\Binders\SmartBinder.cs" />
     <Compile Include="Helpers\Filters\AssemblyVersionrFilterAttribute.cs" />
     <Compile Include="Helpers\Filters\UrlReferrerFilterAttribute.cs" />
     <Compile Include="Models\PageInfo.cs" />
@@ -121,13 +131,12 @@
     <Compile Include="Services\UrlService.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewNames.cs" />
-    <Compile Include="ViewPages.cs" />
+    <Compile Include="ViewNames.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Services\ConferenceKeyCannotBeAControllerNameConstraint.cs" />
-    <Compile Include="AutoMapperProfile.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\SaveController.cs" />
     <Compile Include="Controllers\SmartController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -136,12 +145,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Binders\EnumerationModelBinder.cs" />
-    <Compile Include="Helpers\Binders\KeyedModelBinder.cs" />
-    <Compile Include="Helpers\Binders\ModelBinder.cs" />
     <Compile Include="Helpers\Filters\AuthenticationFilterAttribute.cs" />
-    <Compile Include="Helpers\Filters\AutoMappedFilterAttribute.cs" />
-    <Compile Include="Helpers\Filters\AutoMappedToModelFilter.cs" />
     <Compile Include="Helpers\Filters\BaseActionFilter.cs" />
     <Compile Include="Helpers\Filters\AdminUserCreatedFilterAttribute.cs" />
     <Compile Include="Helpers\Filters\RequireAuthenticationFilterAttribute.cs" />
@@ -150,13 +154,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Mappers\ConferenceMapper.cs" />
-    <Compile Include="Helpers\Mappers\EditMode.cs" />
-    <Compile Include="Helpers\Mappers\IConferenceMapper.cs" />
-    <Compile Include="Helpers\Mappers\IUserMapper.cs" />
-    <Compile Include="Helpers\Mappers\AutoInputMapper.cs" />
-    <Compile Include="Helpers\Mappers\UserMapper.cs" />
-    <Compile Include="Helpers\Extensions\ModelStateExtensions.cs" />
+    <Compile Include="Services\Mappers\IConferenceMapper.cs" />
+    <Compile Include="Services\Mappers\IUserMapper.cs" />
     <Compile Include="Helpers\Attributes\ShowAsRequiredAttribute.cs" />
     <Compile Include="Helpers\Attributes\HiddenAttribute.cs" />
     <Compile Include="Helpers\Attributes\LabelAttribute.cs" />
@@ -167,34 +166,15 @@
     <Compile Include="Helpers\Validation\Attributes\RequiredDateTimeAttribute.cs" />
     <Compile Include="Helpers\Validation\Attributes\RequiredDecimalAttribute.cs" />
     <Compile Include="Helpers\Validation\Attributes\RequiredEmailAttribute.cs" />
-    <Compile Include="Helpers\Extensions\MvcHelperExtensions.cs" />
-    <Compile Include="Helpers\Extensions\InputTextExtensions.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="HtmlExtensions.cs" />
-    <Compile Include="Models\CustomResolvers\BaseFormatter.cs" />
-    <Compile Include="Models\CustomResolvers\BaseResolver.cs" />
-    <Compile Include="Models\CustomResolvers\FixedPointFormatter.cs" />
-    <Compile Include="Models\CustomResolvers\HtmlEncoderFormatter.cs" />
-    <Compile Include="Models\CustomResolvers\MoneyFormatter.cs" />
-    <Compile Include="Models\CustomResolvers\SpanWrappingFormatter.cs" />
-    <Compile Include="Models\CustomResolvers\StandardDateFormatter.cs" />
-    <Compile Include="Models\CustomResolvers\StandardDateTimeFormatter.cs" />
-    <Compile Include="Models\CustomResolvers\StandardTimeFormatter.cs" />
-    <Compile Include="Models\CustomResolvers\TimeSpanFormatter.cs" />
-    <Compile Include="Models\CustomResolvers\YesNoBooleanFormatter.cs" />
     <Compile Include="Models\Input\UserInput.cs" />
-    <Compile Include="Helpers\Extensions\UrlHelperExtensions.cs" />
-    <Compile Include="Helpers\Extensions\ViewDataExtensions.cs" />
     <Compile Include="Controllers\ConferenceController.cs" />
     <Compile Include="Models\Input\ConferenceInput.cs" />
     <Compile Include="Models\Input\LoginInput.cs" />
-    <Compile Include="Models\CustomResolvers\NullValueResolver.cs" />
-    <Compile Include="PartialViewGenerator.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PartialViewGenerator.tt</DependentUpon>
-    </Compile>
     <Compile Include="RouteConfigurator.cs" />
+    <Compile Include="ViewPages.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Views\DisplayPartial.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -385,10 +365,6 @@
     </None>
     <None Include="CodeTemplates\AddView\List.tt">
     </None>
-    <None Include="PartialViewGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PartialViewGenerator.cs</LastGenOutput>
-    </None>
     <None Include="xhtml1-transitional.dtd">
     </None>
     <Content Include="images\indicator.gif" />
@@ -412,7 +388,6 @@
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Helpers\Validation\Validators\" />
     <Folder Include="images\Buttons\" />
     <Folder Include="images\layout\" />
     <Folder Include="images\samples\" />
