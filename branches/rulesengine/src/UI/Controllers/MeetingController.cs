@@ -1,9 +1,9 @@
 using System.Web.Mvc;
-using AutoMapper;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.Core.Services;
 using CodeCampServer.UI.Helpers.Filters;
+using CodeCampServer.UI.Helpers.Mappers;
 using CodeCampServer.UI.Messages;
 using CodeCampServer.UI.Models.Input;
 using CommandProcessor;
@@ -13,14 +13,14 @@ namespace CodeCampServer.UI.Controllers
 	public class MeetingController : SmartController
 	{
 		private readonly IMeetingRepository _repository;
-		private readonly IMappingEngine _mapper;
+		private readonly IMeetingMapper _mapper;
 		private readonly ISecurityContext _securityContext;
 		private readonly IRulesEngine _rulesEngine;
 
-		public MeetingController(IMeetingRepository repository, IMappingEngine mappingEngine, ISecurityContext securityContext,IRulesEngine rulesEngine)
+		public MeetingController(IMeetingRepository repository, IMeetingMapper meetingMapper, ISecurityContext securityContext,IRulesEngine rulesEngine)
 		{
 			_repository = repository;
-			_mapper = mappingEngine;
+			_mapper = meetingMapper;
 			_securityContext = securityContext;
 			_rulesEngine = rulesEngine;
 		}
@@ -28,14 +28,14 @@ namespace CodeCampServer.UI.Controllers
 		[AcceptVerbs(HttpVerbs.Get)]
 		public ActionResult Edit(Meeting meeting, UserGroup usergroup)
 		{
-			var input = new MeetingInput();
+			MeetingInput input;
 			if (meeting == null)
 			{
-				_mapper.Map(new Meeting {UserGroup = usergroup}, input);
+				input = _mapper.Map(new Meeting {UserGroup = usergroup});
 				return View(input);
 			}
 
-			_mapper.Map(meeting, input);
+			input = _mapper.Map(meeting);
 			return View(input);
 		}
 
@@ -55,7 +55,7 @@ namespace CodeCampServer.UI.Controllers
 				return View(input);
 			}
 
-			Meeting meeting = _mapper.Map<MeetingInput, Meeting>(input);
+			Meeting meeting = _mapper.Map(input);
 			_repository.Save(meeting);
 			return RedirectToAction<HomeController>(c => c.Index(meeting.UserGroup));
 		}

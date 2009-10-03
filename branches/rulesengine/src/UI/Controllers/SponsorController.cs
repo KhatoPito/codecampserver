@@ -35,7 +35,8 @@ namespace CodeCampServer.UI.Controllers
         {
             var entities = usergroup.GetSponsors();
 
-            var entityListDto = (SponsorInput[]) AutoMapper.Mapper.Map(entities, typeof(Sponsor[]), typeof(SponsorInput[]));
+
+        	SponsorInput[] entityListDto = _mapper.Map(entities);
             
             return View(entityListDto);
         }
@@ -62,16 +63,16 @@ namespace CodeCampServer.UI.Controllers
 
         public ActionResult Edit(UserGroup userGroup, Guid sponsorID)
         {
-            var sponsor = userGroup.GetSponsors().Where(sponsor1 => sponsor1.Id == sponsorID).FirstOrDefault();
-
-            return View(AutoMapper.Mapper.Map<Sponsor, SponsorInput>(sponsor));
+            Sponsor sponsor = userGroup.GetSponsors().Where(sponsor1 => sponsor1.Id == sponsorID).FirstOrDefault();
+			
+            return View(_mapper.Map(sponsor));
         }
 
         public ActionResult List(UserGroup userGroup)
         {
             var entities = userGroup.GetSponsors();
 
-            var entityListDto = (SponsorInput[]) AutoMapper.Mapper.Map(entities, typeof(Sponsor[]), typeof(SponsorInput[]));
+            SponsorInput[] entityListDto = _mapper.Map(entities);
 
             return View("HomePageWidget", entityListDto);
         }

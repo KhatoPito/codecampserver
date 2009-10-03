@@ -2,7 +2,7 @@ using System;
 using AutoMapper;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.DependencyResolution;
-using CodeCampServer.UnitTests.Core.Services;
+using CodeCampServer.Infrastructure.BusinessRules;
 using CommandProcessor;
 using Microsoft.Practices.ServiceLocation;
 using Tarantino.RulesEngine.CommandProcessor;

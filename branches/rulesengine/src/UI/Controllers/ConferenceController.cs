@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
-using AutoMapper;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.Core.Services;
@@ -42,7 +41,7 @@ namespace CodeCampServer.UI.Controllers
 				return RedirectToAction<ConferenceController>(c => c.New(null));
 			}
 
-			object conferenceListDto = Mapper.Map(conferences, typeof (Conference[]), typeof (ConferenceInput[]));
+			ConferenceInput[] conferenceListDto = _mapper.Map(conferences);
 			return View(conferenceListDto);
 		}
 
