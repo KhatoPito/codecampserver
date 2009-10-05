@@ -7,6 +7,7 @@ using CodeCampServer.DependencyResolution;
 using CodeCampServer.Infrastructure.BusinessRules;
 using CodeCampServer.Infrastructure.ObjectMapping;
 using CodeCampServer.UI.Messages;
+using CodeCampServer.UI.Models.Input;
 using CommandProcessor;
 using NBehave.Spec.NUnit;
 using NUnit.Framework;
@@ -22,7 +23,7 @@ namespace CodeCampServer.UnitTests.Core.Services
 	public class RulesEngineTester : TestBase
 	{		
 		[Test]
-		public void The_rules_engine_should_process_a_ui_message()
+		public void The_rules_engine_should_process_a_DeleteMeeting_ui_message()
 		{
 			DependencyRegistrar.EnsureDependenciesRegistered();
 			AutoMapperConfiguration.Configure();
@@ -41,6 +42,30 @@ namespace CodeCampServer.UnitTests.Core.Services
 			var result = rulesRunner.Process(new DeleteMeetingMessage(){Meeting = Guid.NewGuid()}, typeof (DeleteMeetingMessage));
 			result.Successful.ShouldBeTrue();
 			result.ReturnItems.Get<Meeting>().ShouldEqual(meeting);
+		}
+		[Test]
+		public void The_rules_engine_should_process_a_CreateMeeting_ui_message()
+		{
+			DependencyRegistrar.EnsureDependenciesRegistered();
+			AutoMapperConfiguration.Configure();
+			ObjectFactory.Inject(typeof(IUnitOfWork), S<IUnitOfWork>());
+			ObjectFactory.Inject(typeof(IWebContext), S<IWebContext>());
+
+			var repository = S<IRepository<Meeting>>();
+			ObjectFactory.Inject(typeof(IRepository<Meeting>), repository);
+			var meetingRepository = S<IMeetingRepository>();
+			ObjectFactory.Inject(typeof(IMeetingRepository), meetingRepository);
+
+			ObjectFactory.Inject(typeof(IUserGroupRepository), S<IUserGroupRepository>());
+
+			RulesEngineConfiguration.Configure(typeof(CreateMeetingMessageConfiguration));
+			var rulesRunner = new RulesEngine();
+
+			var result = rulesRunner.Process(new MeetingInput() { Description = "New Meeting" }, typeof(MeetingInput));
+			result.Successful.ShouldBeTrue();
+			result.ReturnItems.Get<Meeting>().ShouldNotBeNull();
+
+			meetingRepository.AssertWasCalled(r=>r.Save(null),options => options.IgnoreArguments());
 		}
 	}
 }

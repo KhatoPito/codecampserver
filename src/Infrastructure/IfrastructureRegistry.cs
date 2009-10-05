@@ -17,7 +17,7 @@ namespace CodeCampServer.Infrastructure
 			ForRequestedType(typeof(IRepository<>)).TheDefaultIsConcreteType(typeof(RepositoryBase<>));
 			ForRequestedType(typeof(IKeyedRepository<>)).TheDefaultIsConcreteType(typeof(KeyedRepository<>));
 			ForRequestedType<ISessionBuilder>().TheDefaultIsConcreteType<HybridSessionBuilder>();
-			ForRequestedType<IRulesEngine>().TheDefaultIsConcreteType<RulesEngine>();
+			//ForRequestedType<IRulesEngine>().TheDefaultIsConcreteType<RulesEngine>();
 			ForRequestedType<IWebContext>().TheDefaultIsConcreteType<WebContext>();
 			
 			Scan(x =>

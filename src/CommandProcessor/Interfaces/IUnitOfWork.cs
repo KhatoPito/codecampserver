@@ -9,6 +9,5 @@ namespace Tarantino.RulesEngine
 		void Begin();
 		void RollBack();
 		void Commit();
-		//	ISession CurrentSession { get; }
 	}
 }

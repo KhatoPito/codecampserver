@@ -9,8 +9,8 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 {
 	public class UserRepository : KeyedRepository<User>, IUserRepository
 	{
-		public UserRepository(ISessionBuilder sessionFactory)
-			: base(sessionFactory) 
+		public UserRepository(IUnitOfWork unitOfWork)
+			: base(unitOfWork) 
 		{
 		}
 

@@ -91,20 +91,22 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="BusinessRules\CreateMeetingMessageConfiguration.cs" />
     <Compile Include="BusinessRules\DeleteMeetingMessageConfiguration.cs" />
     <Compile Include="BusinessRules\RulesEngineConfiguration.cs" />
+    <Compile Include="DataAccess\UnitOfWork.cs" />
+    <Compile Include="DataAccess\UnitOfWorModule.cs" />
+    <Compile Include="DataAccess\IUnitOfWork.cs" />
     <Compile Include="ObjectMapping\AutoMapperConfiguration.cs" />
     <Compile Include="DataAccess\Bases\HybridSessionBuilder.cs" />
     <Compile Include="DataAccess\Bases\ISessionBuilder.cs" />
     <Compile Include="DataAccess\Bases\Logger.cs" />
     <Compile Include="DataAccess\Bases\NHibernateSessionModule.cs" />
-    <Compile Include="DataAccess\Bases\TarantinoRepositoryBase.cs" />
     <Compile Include="DataAccess\Impl\ConferenceRepository.cs" />
     <Compile Include="DataAccess\Impl\EventRepository.cs" />
     <Compile Include="DataAccess\Impl\KeyedRepository.cs" />
     <Compile Include="DataAccess\Impl\MeetingRepository.cs" />
     <Compile Include="DataAccess\Impl\RepositoryBase.cs" />
-    <Compile Include="DataAccess\Impl\UnitOfWork.cs" />
     <Compile Include="DataAccess\Impl\UserGroupRepository.cs" />
     <Compile Include="DataAccess\Impl\UserRepository.cs" />
     <Compile Include="IfrastructureRegistry.cs" />
@@ -113,7 +115,6 @@
     <Compile Include="ObjectMapping\ConfigurationProfiles\AutoMapperProfile.cs" />
     <Compile Include="ObjectMapping\CustomResolvers\BaseFormatter.cs" />
     <Compile Include="ObjectMapping\CustomResolvers\BaseResolver.cs" />
-    <Compile Include="ObjectMapping\CustomResolvers\FixedPointFormatter.cs" />
     <Compile Include="ObjectMapping\CustomResolvers\HtmlEncoderFormatter.cs" />
     <Compile Include="ObjectMapping\CustomResolvers\MoneyFormatter.cs" />
     <Compile Include="ObjectMapping\CustomResolvers\NullValueResolver.cs" />

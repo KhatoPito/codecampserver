@@ -9,8 +9,8 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 	{
 		protected const string KEY_NAME = "Key";
 
-		public KeyedRepository(ISessionBuilder sessionFactory)
-			: base(sessionFactory)
+		public KeyedRepository(IUnitOfWork unitOfWork)
+			: base(unitOfWork)
 		{
 		}
 

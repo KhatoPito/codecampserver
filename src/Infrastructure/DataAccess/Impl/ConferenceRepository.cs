@@ -9,7 +9,7 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 {
 	public class ConferenceRepository : KeyedRepository<Conference>, IConferenceRepository
 	{
-		public ConferenceRepository(ISessionBuilder sessionFactory) : base(sessionFactory) { }
+		public ConferenceRepository(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
 		public Conference GetNextConference()
 		{

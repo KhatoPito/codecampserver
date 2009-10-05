@@ -9,9 +9,7 @@ namespace Tarantino.RulesEngine
 		private readonly List<ErrorMessage> _messages = new List<ErrorMessage>();
 		private readonly GenericItemDictionary _returnItems = new GenericItemDictionary();
 
-		public ExecutionResult()
-		{
-		}
+		public ExecutionResult() {}
 
 		public ExecutionResult(GenericItemDictionary returnItems)
 		{

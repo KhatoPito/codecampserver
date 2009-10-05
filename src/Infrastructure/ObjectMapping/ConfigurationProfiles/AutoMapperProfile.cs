@@ -8,11 +8,11 @@ namespace CodeCampServer.Infrastructure.ObjectMapping.ConfigurationProfiles
 {
 	public class AutoMapperProfile : Profile
 	{
-		private const string CodeCampServer = "CodeCampServer";
+		private const string _profileName = "CodeCampServer";
 
 		protected override string ProfileName
 		{
-			get { return CodeCampServer; }
+			get { return _profileName; }
 		}
 
 		protected override void Configure()

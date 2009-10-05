@@ -37,7 +37,7 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 				session.Flush();
 			}
 
-			IUserGroupRepository repository = new UserGroupRepository(new HybridSessionBuilder());
+			IUserGroupRepository repository = new UserGroupRepository(GetSessionBuilder());
 			repository.Save(userGroup);
 			userGroup.Remove(userGroup.GetUsers()[0]);
 			repository.Save(userGroup);
@@ -64,7 +64,7 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 			}
 
 
-			IUserGroupRepository repository = new UserGroupRepository(new HybridSessionBuilder());
+			IUserGroupRepository repository = new UserGroupRepository(GetSessionBuilder());
 			UserGroup group = repository.GetDefaultUserGroup();
 
 			group.ShouldEqual(userGroup);

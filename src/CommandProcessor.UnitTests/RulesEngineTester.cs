@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-
 using Microsoft.Practices.ServiceLocation;
 using NBehave.Spec.NUnit;
 using NUnit.Framework;
@@ -20,8 +19,8 @@ namespace CommandProcessor.UnitTests
 			ServiceLocator.SetLocatorProvider(() => new FakeLocator());
 			var rulesEngine = new RulesEngine();
 			RulesEngine.MessageProcessorFactory = new FakeFactory();
-			
-			rulesEngine.Initialize(typeof (TestMessage).Assembly,new FakeMessageMapper());
+
+			rulesEngine.Initialize(typeof (TestMessage).Assembly, new FakeMessageMapper());
 			ExecutionResult result = rulesEngine.Process(new TestMessage(), typeof (TestMessage));
 			result.Successful.ShouldBeTrue();
 		}
@@ -30,7 +29,7 @@ namespace CommandProcessor.UnitTests
 		public void the_engine_should_store_configuration_and_mapping_as_a_static()
 		{
 			var rulesEngine = new RulesEngine();
-			rulesEngine.Initialize(typeof (TestMessage).Assembly,new FakeMessageMapper());
+			rulesEngine.Initialize(typeof (TestMessage).Assembly, new FakeMessageMapper());
 			rulesEngine.Configuration.ShouldNotBeNull();
 		}
 	}
@@ -45,16 +44,20 @@ namespace CommandProcessor.UnitTests
 
 	public class FakeFactory : IMessageProcessorFactory
 	{
-		public MessageProcessor Create(IUnitOfWork unitOfWork, IMessageMapper mappingEngine, CommandEngineConfiguration configuration, WebContext webContext)
+		public MessageProcessor Create(IUnitOfWork unitOfWork, IMessageMapper mappingEngine,
+		                               CommandEngineConfiguration configuration, WebContext webContext)
 		{
 			return new MessageProcessor(mappingEngine,
-										new CommandInvoker(new ValidationEngine(new ValidationRuleFactory()),new CommandFactory()), unitOfWork, 
-										configuration,new OriginalFormRetriever(new FakeWebContext(), new Serializer(new Base64Utility())));
+			                            new CommandInvoker(new ValidationEngine(new ValidationRuleFactory()),
+			                                               new CommandFactory()), unitOfWork,
+			                            configuration,
+			                            new OriginalFormRetriever(new FakeWebContext(), new Serializer(new Base64Utility())));
 		}
 
-		public MessageProcessor Create(IUnitOfWork unitOfWork, IMessageMapper mappingEngine, CommandEngineConfiguration configuration, IWebContext webContext)
+		public MessageProcessor Create(IUnitOfWork unitOfWork, IMessageMapper mappingEngine,
+		                               CommandEngineConfiguration configuration, IWebContext webContext)
 		{
-			throw new NotImplementedException();
+			return null;
 		}
 	}
 
@@ -72,6 +75,8 @@ namespace CommandProcessor.UnitTests
 
 	public class FakeLocator : IServiceLocator
 	{
+		private static int _count;
+
 		#region IServiceLocator Members
 
 		public object GetService(Type serviceType)
@@ -96,7 +101,13 @@ namespace CommandProcessor.UnitTests
 
 		public TService GetInstance<TService>()
 		{
-			return (TService) ((object)new FakeUoW());
+			_count++;
+			if(_count==1)
+				return (TService) ((object) new FakeUoW());
+			else
+			{
+				return (TService)((object)new FakeWebContext());
+			}
 		}
 
 		public TService GetInstance<TService>(string key)
@@ -112,32 +123,19 @@ namespace CommandProcessor.UnitTests
 		#endregion
 	}
 
-	public class FakeUoW:IUnitOfWork
+	public class FakeUoW : IUnitOfWork
 	{
-		public void Dispose()
-		{
-			
-		}
+		public void Dispose() {}
 
-		public void Begin()
-		{
-			
-		}
+		public void Begin() {}
 
-		public void RollBack()
-		{
-		
-		}
+		public void RollBack() {}
 
-		public void Commit()
-		{
-		
-		}
+		public void Commit() {}
 	}
 
 	public class TestMessage : IMessage //Defined in UI project?
-	{
-	}
+	{}
 
 	//Defined in UI project?
 	public class TestMessageConfiguration : MessageDefinition<TestMessage>
@@ -150,12 +148,11 @@ namespace CommandProcessor.UnitTests
 
 
 	//Domain Message
-	public class TestCommand : ICommandMessage//ICommandMessage defined in Core
-	{
-	}
+	public class TestCommand : ICommandMessage //ICommandMessage defined in Core
+	{}
 
 	//Domain Service
-	public class TestCommandHandler: Command<TestCommand>
+	public class TestCommandHandler : Command<TestCommand>
 	{
 		protected override ReturnValue Execute(TestCommand commandMessage)
 		{
