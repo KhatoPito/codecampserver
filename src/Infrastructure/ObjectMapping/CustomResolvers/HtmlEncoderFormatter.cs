@@ -2,7 +2,7 @@ using System.Web;
 using AutoMapper;
 using CodeCampServer.Core.Common;
 
-namespace CodeCampServer.UI.Models.CustomResolvers
+namespace CodeCampServer.Infrastructure.ObjectMapping.CustomResolvers
 {
 	public class HtmlEncoderFormatter : IValueFormatter
 	{

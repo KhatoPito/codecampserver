@@ -3,10 +3,10 @@ using AutoMapper;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.DependencyResolution;
-using CodeCampServer.Infrastructure.TypeConverters;
+using CodeCampServer.Infrastructure.ObjectMapping.TypeConverters;
 using CodeCampServer.UI.Models.Input;
 
-namespace CodeCampServer.UI.Helpers.Mappers
+namespace CodeCampServer.Infrastructure.ObjectMapping.ConfigurationProfiles
 {
 	public class MeetingMapperProfile : Profile
 	{

@@ -1,9 +1,10 @@
 using System;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
+using CodeCampServer.UI.Helpers.Mappers;
 using CodeCampServer.UI.Models.Input;
 
-namespace CodeCampServer.UI.Helpers.Mappers
+namespace CodeCampServer.Infrastructure.UI.Mappers
 {
 	public class ConferenceMapper : AutoInputMapper<Conference, ConferenceInput>, IConferenceMapper
 	{
@@ -40,6 +41,5 @@ namespace CodeCampServer.UI.Helpers.Mappers
 			model.HtmlContent = input.HtmlContent;
 			model.HasRegistration = input.HasRegistration;
 		}
-
 	}
 }

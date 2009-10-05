@@ -2,7 +2,7 @@ using System;
 using AutoMapper;
 using CodeCampServer.Core.Common;
 
-namespace CodeCampServer.UI.Models.CustomResolvers
+namespace CodeCampServer.Infrastructure.ObjectMapping.CustomResolvers
 {
 	public class StandardDateFormatter : IValueFormatter
 	{

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Microsoft.Practices.ServiceLocation;
 using StructureMap;
 
-namespace CodeCampServer.DependencyResolution
+namespace CodeCampServer.Infrastructure
 {
 	public class StructureMapServiceLocator : IServiceLocator
 	{

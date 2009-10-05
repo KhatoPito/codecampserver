@@ -1,15 +1,13 @@
 using System;
 using AutoMapper;
-using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.DependencyResolution;
-using CodeCampServer.Infrastructure.BusinessRules;
 using CommandProcessor;
 using Microsoft.Practices.ServiceLocation;
 using Tarantino.RulesEngine.CommandProcessor;
 
-namespace CodeCampServer.UI.Views
+namespace CodeCampServer.Infrastructure.BusinessRules
 {
-	public class RulesEngineConfiguration:IRequiresConfigurationOnStartup
+	public class RulesEngineConfiguration : IRequiresConfigurationOnStartup
 	{
 		public static void Configure(Type typeToLocatorConfigurationAssembly)
 		{
@@ -29,7 +27,7 @@ namespace CodeCampServer.UI.Views
 
 		public void Configure()
 		{
-			Configure(typeof(DeleteMeetingMessageConfiguration));
+			Configure(typeof (DeleteMeetingMessageConfiguration));
 		}
 	}
 }

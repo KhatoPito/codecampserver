@@ -1,5 +1,5 @@
 using CodeCampServer.Core.Services;
-using CodeCampServer.UI.Views;
+using CodeCampServer.Infrastructure.ObjectMapping;
 using NUnit.Framework;
 using Rhino.Mocks;
 using StructureMap;

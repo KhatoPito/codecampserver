@@ -6,7 +6,7 @@ using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.Core.Domain.Model.Enumerations;
 using CodeCampServer.DependencyResolution;
 
-namespace CodeCampServer.UI.Helpers.Binders
+namespace CodeCampServer.Infrastructure.UI.Binders
 {
 	public class SmartBinder : DefaultModelBinder
 	{

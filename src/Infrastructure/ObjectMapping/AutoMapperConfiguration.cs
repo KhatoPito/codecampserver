@@ -1,8 +1,8 @@
 using AutoMapper;
 using CodeCampServer.DependencyResolution;
-using CodeCampServer.UI.Helpers.Mappers;
+using CodeCampServer.Infrastructure.ObjectMapping.ConfigurationProfiles;
 
-namespace CodeCampServer.UI.Views
+namespace CodeCampServer.Infrastructure.ObjectMapping
 {
 	public class AutoMapperConfiguration : IRequiresConfigurationOnStartup
 	{
@@ -14,7 +14,7 @@ namespace CodeCampServer.UI.Views
 			                  		x.AddProfile<AutoMapperProfile>();
 			                  		x.AddProfile<MeetingMapperProfile>();
 			                  		x.AddProfile<UserGroupMapperProfile>();
-									x.AddProfile<MeetingMessageMapperProfile>();									
+			                  		x.AddProfile<MeetingMessageMapperProfile>();									
 			                  	});
 		}
 
