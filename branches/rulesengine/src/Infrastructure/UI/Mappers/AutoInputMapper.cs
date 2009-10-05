@@ -2,7 +2,7 @@ using AutoMapper;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 
-namespace CodeCampServer.UI.Helpers.Mappers
+namespace CodeCampServer.Infrastructure.UI.Mappers
 {
 	public abstract class AutoInputMapper<TModel, TForm> : Mapper<TModel, TForm> where TModel : PersistentObject, new()
 	{

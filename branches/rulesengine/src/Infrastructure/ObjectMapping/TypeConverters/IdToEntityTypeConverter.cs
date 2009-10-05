@@ -3,7 +3,7 @@ using AutoMapper;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 
-namespace CodeCampServer.Infrastructure.TypeConverters
+namespace CodeCampServer.Infrastructure.ObjectMapping.TypeConverters
 {
 	public class IdToEntityConverter<TEntity> : ITypeConverter<Guid, TEntity>
 		where TEntity : PersistentObject

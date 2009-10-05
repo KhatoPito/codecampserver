@@ -3,9 +3,10 @@ using System.Linq;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.Core.Services;
+using CodeCampServer.UI.Helpers.Mappers;
 using CodeCampServer.UI.Models.Input;
 
-namespace CodeCampServer.UI.Helpers.Mappers
+namespace CodeCampServer.Infrastructure.UI.Mappers
 {
 	public class UserMapper : AutoInputMapper<User, UserInput>, IUserMapper
 	{
@@ -32,9 +33,9 @@ namespace CodeCampServer.UI.Helpers.Mappers
 			model.Username = input.Username;
 		}
 
-	    public User[] Map(UserInput[] message)
-	    {
-	        return message.Select(form => Map(form)).ToArray();
-	    }
+		public User[] Map(UserInput[] message)
+		{
+			return message.Select(form => Map(form)).ToArray();
+		}
 	}
 }

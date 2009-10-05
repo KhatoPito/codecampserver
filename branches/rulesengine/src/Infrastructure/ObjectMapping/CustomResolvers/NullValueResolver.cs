@@ -1,14 +1,14 @@
 using System;
 using AutoMapper;
 
-namespace CodeCampServer.UI.Models.CustomResolvers
+namespace CodeCampServer.Infrastructure.ObjectMapping.CustomResolvers
 {
 	public class NullValueResolver : IValueResolver
 	{
 
-	    public ResolutionResult Resolve(ResolutionResult source)
-	    {
-	        return new ResolutionResult(null);
-	    }
+		public ResolutionResult Resolve(ResolutionResult source)
+		{
+			return new ResolutionResult(null);
+		}
 	}
 }

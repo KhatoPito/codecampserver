@@ -1,8 +1,9 @@
 using System.Web.Mvc;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.DependencyResolution;
+using CodeCampServer.Infrastructure.UI.Binders;
+using CodeCampServer.Infrastructure.UI.Services;
 using CodeCampServer.UI;
-using CodeCampServer.UI.Helpers.Binders;
 using MvcContrib.UI.InputBuilder;
 
 namespace CodeCampServer.Infrastructure.UI

@@ -4,9 +4,10 @@ using System.Linq;
 using AutoMapper;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
+using CodeCampServer.UI.Helpers.Mappers;
 using CodeCampServer.UI.Models.Input;
 
-namespace CodeCampServer.UI.Helpers.Mappers
+namespace CodeCampServer.Infrastructure.UI.Mappers
 {
 	public class UserGroupMapper : AutoInputMapper<UserGroup, UserGroupInput>, IUserGroupMapper,
 	                               ITypeConverter<string, UserGroup>, ITypeConverter<Guid, UserGroup>

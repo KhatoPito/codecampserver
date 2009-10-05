@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 
-namespace CodeCampServer.UI.Helpers.Binders
+namespace CodeCampServer.Infrastructure.UI.Binders
 {
 	public interface IKeyedModelBinder : IModelBinder {}
 

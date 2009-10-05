@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 
-namespace CodeCampServer.UI.Helpers.Binders
+namespace CodeCampServer.Infrastructure.UI.Binders
 {
 	public class ModelBinder<TEntity, TRepository> : DefaultModelBinder
 		where TRepository : IRepository<TEntity>
@@ -25,7 +25,7 @@ namespace CodeCampServer.UI.Helpers.Binders
 
 				string attemptedValue = value.AttemptedValue;
 				if (attemptedValue == "") return default(TEntity);
-				
+
 				var matchId = new Guid(attemptedValue);
 				TEntity match = _repository.GetById(matchId);
 				return match;

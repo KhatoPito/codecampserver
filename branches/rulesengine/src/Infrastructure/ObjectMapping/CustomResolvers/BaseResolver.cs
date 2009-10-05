@@ -1,7 +1,7 @@
 using System;
 using AutoMapper;
 
-namespace CodeCampServer.UI.Models.CustomResolvers
+namespace CodeCampServer.Infrastructure.ObjectMapping.CustomResolvers
 {
 	public abstract class BaseResolver<T, TReturn> : IValueResolver
 	{
@@ -12,9 +12,9 @@ namespace CodeCampServer.UI.Models.CustomResolvers
 
 		protected abstract TReturn ResolveCore(T model);
 	    
-        public ResolutionResult Resolve(ResolutionResult source)
-	    {
-            return new ResolutionResult(ResolveCore((T) source.Value));
-	    }
+		public ResolutionResult Resolve(ResolutionResult source)
+		{
+			return new ResolutionResult(ResolveCore((T) source.Value));
+		}
 	}
 }

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using AutoMapper;
 
-namespace CodeCampServer.UI.Models.CustomResolvers
+namespace CodeCampServer.Infrastructure.ObjectMapping.CustomResolvers
 {
 	public class TimeSpanFormatter : IValueFormatter
 	{
