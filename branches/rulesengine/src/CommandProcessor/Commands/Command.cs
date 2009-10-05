@@ -14,12 +14,10 @@ namespace Tarantino.RulesEngine.CommandProcessor
 		protected abstract ReturnValue Execute(T commandMessage);
 	}
 
-	public interface ICommandMessageHandler:ICommandMessageHandler<ICommandMessage,ReturnValue>
-	{		
-	}
-	public interface ICommandMessageHandler<TCommand, TResult> 
+	public interface ICommandMessageHandler : ICommandMessageHandler<ICommandMessage, ReturnValue> {}
+
+	public interface ICommandMessageHandler<TCommand, TResult>
 	{
 		TResult Execute(TCommand commandMessage);
 	}
-
 }

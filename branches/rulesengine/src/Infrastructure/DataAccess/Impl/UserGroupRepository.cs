@@ -6,7 +6,7 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 {
 	public class UserGroupRepository : KeyedRepository<UserGroup>, IUserGroupRepository
 	{
-		public UserGroupRepository(ISessionBuilder sessionFactory) : base(sessionFactory) { }
+		public UserGroupRepository(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
 		public UserGroup GetDefaultUserGroup()
 		{

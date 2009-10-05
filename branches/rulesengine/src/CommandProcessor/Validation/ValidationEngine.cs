@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Tarantino.RulesEngine.Configuration;
 
-
 namespace Tarantino.RulesEngine.CommandProcessor
 {
 	public interface IValidationEngine

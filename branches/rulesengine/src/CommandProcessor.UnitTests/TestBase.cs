@@ -2,7 +2,6 @@ using NBehave.Spec.NUnit;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-
 namespace Tarantino.UnitTests
 {
 	[TestFixture]

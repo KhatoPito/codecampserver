@@ -101,6 +101,7 @@
     <Compile Include="Helpers\ImageLinkHelper.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Messages\DeleteMeetingMessage.cs" />
     <Compile Include="Services\Mappers\IMeetingMapper.cs" />
     <Compile Include="Services\Mappers\IUserGroupSponsorMapper.cs" />
     <Compile Include="Services\Mappers\IUserGroupMapper.cs" />
@@ -110,7 +111,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="InputBuilderConventions.cs" />
-    <Compile Include="Messages\DeleteMeetingMessage.cs" />
     <Compile Include="Models\Input\AdminInput.cs" />
     <Compile Include="Models\Input\DateTimeSpan.cs" />
     <Compile Include="Models\Input\EventInput.cs" />

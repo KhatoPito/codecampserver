@@ -3,17 +3,16 @@ using System.Linq;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using NHibernate;
-using Tarantino.Infrastructure.Commons.DataAccess.Repositories;
-using Tarantino.RulesEngine;
 
 namespace CodeCampServer.Infrastructure.DataAccess.Impl
 {
-	public class RepositoryBase<T> : RepositoryBase, IRepository<T> where T : PersistentObject
+	public class RepositoryBase<T> :  IRepository<T> where T : PersistentObject
 	{
+		private readonly IUnitOfWork _unitOfWork;
 
-		public RepositoryBase(ISessionBuilder sessionFactory )
-			: base(sessionFactory)
+		public RepositoryBase(IUnitOfWork unitOfWork )
 		{
+			_unitOfWork = unitOfWork;
 		}
 
 		public virtual T GetById(Guid id)
@@ -22,14 +21,14 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 			return session.Get<T>(id);
 		}
 
+		protected ISession GetSession()
+		{
+			return _unitOfWork.CurrentSession;
+		}
+
 		public virtual void Save(T entity)
 		{
-			using(var session = GetSession())
-			using(var transaction = session.BeginTransaction())
-			{
-				session.SaveOrUpdate(entity);
-					transaction.Commit();
-			}
+			GetSession().SaveOrUpdate(entity);
 		}
 
 		public virtual T[] GetAll()
@@ -41,7 +40,6 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 
 		public virtual void Delete(T entity)
 		{
-			GetSession().BeginTransaction();
 			GetSession().Delete(entity);
 		}
 	}

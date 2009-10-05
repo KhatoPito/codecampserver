@@ -36,5 +36,10 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 		{
 			_sessionBuilder.GetSession().Transaction.Commit();
 		}
+
+		public ISession CurrentSession
+		{
+			get { throw new NotImplementedException(); }
+		}
 	}
 }

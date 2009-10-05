@@ -45,14 +45,10 @@ namespace Tarantino.RulesEngine.Configuration
 
 		#region Nested type: ConditionExpression
 
-		private class ConditionExpression : IConditionExpression<TMessage>
-		{
-		}
+		private class ConditionExpression : IConditionExpression<TMessage> {}
 
 		#endregion
 	}
 
-	public interface IConditionExpression<TMessage>
-	{
-	}
+	public interface IConditionExpression<TMessage> {}
 }

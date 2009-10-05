@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Practices.ServiceLocation;
 using NBehave.Spec.NUnit;
 using NUnit.Framework;
@@ -25,14 +24,15 @@ namespace RulesEngine.IntegrationTests
 			configuration.Initialize(typeof (MessageProcessorTester).Assembly);
 
 			var locator = S<IServiceLocator>();
-			locator.Stub(ioC => ioC.GetAllInstances(null)).IgnoreArguments().Return(new[] { new TestMessageCommandHandler() });
+			locator.Stub(ioC => ioC.GetAllInstances(null)).IgnoreArguments().Return(new[] {new TestMessageCommandHandler()});
 			ServiceLocator.SetLocatorProvider(() => locator);
 
 			//request startup code.
 			var invoker = new CommandInvoker(new ValidationEngine(new ValidationRuleFactory()), new CommandFactory());
 			var unitOfWork = S<IUnitOfWork>();
 			var mapper = S<IMessageMapper>();
-			mapper.Stub(messageMapper => messageMapper.MapUiMessageToCommandMessage(null, null, null)).IgnoreArguments().Return( new TestCommandMessage() );
+			mapper.Stub(messageMapper => messageMapper.MapUiMessageToCommandMessage(null, null, null)).IgnoreArguments().Return(
+				new TestCommandMessage());
 			var processor = new MessageProcessor(mapper, invoker, unitOfWork, configuration, S<IOriginalFormRetriever>());
 
 			ExecutionResult result = processor.Process(new TestViewModel {Message = "foo"}, typeof (TestViewModel));

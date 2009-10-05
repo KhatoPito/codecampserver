@@ -1,4 +1,3 @@
-
 using CommandProcessor.UnitTests;
 using Tarantino.RulesEngine;
 using Tarantino.RulesEngine.CommandProcessor;
@@ -9,8 +8,6 @@ namespace CommandProcessor
 {
 	public class MessageProcessorFactory : IMessageProcessorFactory
 	{
-		
-
 		public MessageProcessor Create(IUnitOfWork unitOfWork, IMessageMapper mappingEngine,
 		                               CommandEngineConfiguration configuration, IWebContext webContext)
 		{
@@ -19,7 +16,5 @@ namespace CommandProcessor
 			                                               new CommandFactory()), unitOfWork, configuration,
 			                            new OriginalFormRetriever(webContext, new Serializer(new Base64Utility())));
 		}
-
-		
 	}
 }

@@ -9,7 +9,7 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 {
 	public class EventRepository : KeyedRepository<Event>, IEventRepository
 	{
-		public EventRepository(ISessionBuilder sessionFactory) : base(sessionFactory) { }
+		public EventRepository(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
 		public Event[] GetAllForUserGroup(UserGroup usergroup)
 		{

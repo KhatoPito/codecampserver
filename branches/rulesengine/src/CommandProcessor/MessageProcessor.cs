@@ -30,14 +30,15 @@ namespace Tarantino.RulesEngine.CommandProcessor
 
 		#region IMessageProcessor Members
 
-		public ExecutionResult Process(IMessage message, Type messageType) 
+		public ExecutionResult Process(IMessage message, Type messageType)
 		{
 			var totalResult = new ExecutionResult();
 			IMessageConfiguration messageConfiguration = _configuration.GetMessageConfiguration(messageType);
 
-			IMessage original = (IMessage) _originalFormRetriever.Retrieve(messageType);
+			var original = (IMessage) _originalFormRetriever.Retrieve(messageType);
 
-			IEnumerable<ICommandConfiguration> commandConfigurations = messageConfiguration.GetApplicableCommands(original,message);
+			IEnumerable<ICommandConfiguration> commandConfigurations = messageConfiguration.GetApplicableCommands(original,
+			                                                                                                      message);
 
 			foreach (ICommandConfiguration commandConfiguration in commandConfigurations)
 			{
@@ -72,9 +73,6 @@ namespace Tarantino.RulesEngine.CommandProcessor
 			return totalResult;
 		}
 
-
 		#endregion
-
-		
 	}
 }

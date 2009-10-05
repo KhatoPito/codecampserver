@@ -6,6 +6,7 @@ using StructureMap;
 
 namespace CodeCampServer.UnitTests
 {
+	[TestFixture]
 	public abstract class TestBase
 	{
 		[TestFixtureSetUp]

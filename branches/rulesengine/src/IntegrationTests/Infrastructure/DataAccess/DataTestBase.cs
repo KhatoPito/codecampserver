@@ -2,10 +2,10 @@ using System;
 using System.Linq;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.DependencyResolution;
+using CodeCampServer.Infrastructure.DataAccess;
 using CodeCampServer.Infrastructure.DataAccess.Impl;
 using NHibernate;
 using NUnit.Framework;
-using Tarantino.Infrastructure.Commons.DataAccess.Repositories;
 
 namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 {
@@ -41,11 +41,14 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 					ToArray();
 			using (ISession session = GetSession())
 			{
+				session.Transaction.Begin();
 				foreach (Type type in types)
 				{
 					session.Delete("from " + type.Name + " o");
 				}
 				session.Flush();
+				session.Transaction.Commit();
+				
 			}
 		}
 
@@ -70,9 +73,11 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 			}
 		}
 
-		protected static ISessionBuilder GetSessionBuilder()
+		protected static IUnitOfWork GetSessionBuilder()
 		{
-			return new HybridSessionBuilder();
+			var builder = new UnitOfWork(new HybridSessionBuilder());
+			builder.Begin();
+			return builder;
 		}
 	}
 }

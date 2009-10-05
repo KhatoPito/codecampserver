@@ -16,6 +16,7 @@ namespace Tarantino.RulesEngine.CommandProcessor
 			return (IValidationRule)
 			       ServiceLocator.Current.GetInstance(ruleInstance.ValidationRuleType);
 		}
+
 		#endregion
 	}
 }

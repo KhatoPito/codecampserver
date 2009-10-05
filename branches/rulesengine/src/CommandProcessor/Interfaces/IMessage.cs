@@ -1,6 +1,4 @@
 namespace Tarantino.RulesEngine.CommandProcessor
 {
-	public interface IMessage
-	{
-	}
+	public interface IMessage {}
 }

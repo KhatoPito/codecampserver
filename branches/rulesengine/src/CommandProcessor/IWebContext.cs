@@ -1,4 +1,3 @@
-using System;
 using System.Web;
 
 namespace Tarantino.RulesEngine.Mvc
@@ -12,7 +11,7 @@ namespace Tarantino.RulesEngine.Mvc
 	{
 		public string GetRequestItem(string key)
 		{
-			var value = HttpContext.Current.Request[key];
+			string value = HttpContext.Current.Request[key];
 			return value;
 		}
 	}

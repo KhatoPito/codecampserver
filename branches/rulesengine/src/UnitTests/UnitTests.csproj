@@ -42,10 +42,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\castle\Castle.Components.Validator.dll</HintPath>
     </Reference>
-    <Reference Include="CommandProcessor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\tinorulesengine\CommandProcessor.dll</HintPath>
-    </Reference>
     <Reference Include="MvcContrib, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\mvccontrib\MvcContrib.dll</HintPath>
@@ -125,8 +121,10 @@
     <Compile Include="Core\Services\Updaters\UserMapperTester.cs" />
     <Compile Include="Core\TimeExtensionsTester.cs" />
     <Compile Include="MvcMockHelpers.cs" />
+    <Compile Include="PrimitiveExtensionsTester.cs" />
     <Compile Include="SpecExtensions.cs" />
     <Compile Include="TestBase.cs" />
+    <Compile Include="UINameHelperTester.cs" />
     <Compile Include="UI\AutoMappedConfigurationTester.cs" />
     <Compile Include="UI\BinderTester.cs" />
     <Compile Include="UI\Controllers\AdminControllerTester.cs" />
@@ -149,8 +147,13 @@
     <Compile Include="UI\Routes\IncomingRouteTester.cs" />
     <Compile Include="UI\Routes\RouteConstraintTestingExtension.cs" />
     <Compile Include="UI\Routes\UrlGenerationTester.cs" />
+    <Compile Include="UnitOfWorkTester.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommandProcessor\RulesEngine.csproj">
+      <Project>{37A1D1C4-5C10-4DC8-9972-DEBBBD80BB7C}</Project>
+      <Name>RulesEngine %28RulesEngine\RulesEngine%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{9C81B684-40CC-472A-804D-7C0F963315F5}</Project>
       <Name>Core</Name>
