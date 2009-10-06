@@ -4,15 +4,18 @@ using StructureMap;
 
 namespace CodeCampServer.Infrastructure.DataAccess
 {
-	public class UnitOfWorModule : IHttpModule
+	public class UnitOfWorkModule : IHttpModule
 	{
+		private HttpApplication _context;
+
 		public void Init(HttpApplication context)
 		{
+			_context = context;
 			context.BeginRequest += context_BeginRequest;
 			context.EndRequest += context_EndRequest;
 		}
 
-		private static void context_BeginRequest(object sender, EventArgs e)
+		private void context_BeginRequest(object sender, EventArgs e)
 		{
 			var instance = ObjectFactory.GetInstance<IUnitOfWork>();
 			instance.Begin();
@@ -20,20 +23,8 @@ namespace CodeCampServer.Infrastructure.DataAccess
 
 		private void context_EndRequest(object sender, EventArgs e)
 		{
-			var instance = ObjectFactory.GetInstance<IUnitOfWork>();
-			try
-			{
-				instance.Commit();
-			}
-			catch
-			{
-				instance.RollBack();
-				throw;
-			}
-			finally
-			{
-				instance.Dispose();
-			}
+
+			
 		}
 
 		public void Dispose()

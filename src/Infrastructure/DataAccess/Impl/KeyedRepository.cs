@@ -1,7 +1,6 @@
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using NHibernate.Criterion;
-using Tarantino.RulesEngine;
 
 namespace CodeCampServer.Infrastructure.DataAccess.Impl
 {
@@ -10,9 +9,7 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 		protected const string KEY_NAME = "Key";
 
 		public KeyedRepository(IUnitOfWork unitOfWork)
-			: base(unitOfWork)
-		{
-		}
+			: base(unitOfWork) {}
 
 		public virtual T GetByKey(string key)
 		{

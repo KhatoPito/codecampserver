@@ -56,11 +56,14 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 		{
 			using (ISession session = GetSession())
 			{
-				foreach (PersistentObject entity in entities)
+				using (var tran = session.BeginTransaction())
 				{
-					session.SaveOrUpdate(entity);
-				}
-				session.Flush();
+					foreach (PersistentObject entity in entities)
+					{
+						session.SaveOrUpdate(entity);
+					}					
+					tran.Commit();
+				}				
 			}
 		}
 

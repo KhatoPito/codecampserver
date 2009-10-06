@@ -23,6 +23,7 @@ namespace CodeCampServer.Infrastructure.DataAccess
 			CheckIsDisposed();
 
 			CurrentSession = _sessionSource.GetSession();
+			
 			//.CreateSession();
 
 			BeginNewTransaction();
@@ -91,6 +92,7 @@ namespace CodeCampServer.Infrastructure.DataAccess
 				Logger.Debug(this, string.Format("Dispose transaction {0}", _transaction.GetHashCode()));
 				_transaction.Dispose();
 				CurrentSession.Dispose();
+				CurrentSession = null;
 			}
 
 			_disposed = true;

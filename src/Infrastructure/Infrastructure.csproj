@@ -95,7 +95,7 @@
     <Compile Include="BusinessRules\DeleteMeetingMessageConfiguration.cs" />
     <Compile Include="BusinessRules\RulesEngineConfiguration.cs" />
     <Compile Include="DataAccess\UnitOfWork.cs" />
-    <Compile Include="DataAccess\UnitOfWorModule.cs" />
+    <Compile Include="DataAccess\UnitOfWorkModule.cs" />
     <Compile Include="DataAccess\IUnitOfWork.cs" />
     <Compile Include="ObjectMapping\AutoMapperConfiguration.cs" />
     <Compile Include="DataAccess\Bases\HybridSessionBuilder.cs" />
