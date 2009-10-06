@@ -50,14 +50,16 @@ namespace CodeCampServer.UI.Controllers
 				return View(ViewPages.NotAuthorized);
 			}
 
-			if (!ModelState.IsValid)
+			if (ModelState.IsValid)
 			{
-				return View(input);
+				var result = _rulesEngine.Process(input); 
+				if (result.Successful)
+				{
+					var meeting = result.ReturnItems.Get<Meeting>();
+					return RedirectToAction<HomeController>(c => c.Index(meeting.UserGroup));
+				}				
 			}
-
-			Meeting meeting = _mapper.Map(input);
-			_repository.Save(meeting);
-			return RedirectToAction<HomeController>(c => c.Index(meeting.UserGroup));
+			return View(input);
 		}
 
 		[RequireAuthenticationFilter]
