@@ -21,7 +21,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 			var repository = S<IUserGroupRepository>();
 			repository.Stub(repo => repo.GetById(Guid.Empty)).Return(new UserGroup());
 
-			var controller = new UserGroupController(repository, null,null,null,null);
+			var controller = new UserGroupController(repository, null,null,null,null,null);
 
 			ActionResult result = controller.Edit(Guid.Empty);
 			result.AssertActionRedirect().ToAction<UserGroupController>(e => e.List());
@@ -37,7 +37,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 			var repository = S<IUserGroupRepository>();
 			repository.Stub(repo => repo.GetAll()).Return(new UserGroup[0]);
 
-			var controller = new UserGroupController(repository, null,null,null,null);
+			var controller = new UserGroupController(repository, null,null,null,null,null);
 
 			ActionResult result = controller.List();
 
@@ -55,7 +55,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 
 			var repository = S<IUserGroupRepository>();
 
-			var controller = new UserGroupController(repository, mapper,null,null,PermisiveSecurityContext());
+			var controller = new UserGroupController(repository, mapper,null,null,PermisiveSecurityContext(),null);
 			var result = (RedirectToRouteResult) controller.Save(form);
 
 			repository.AssertWasCalled(r => r.Save(UserGroup));
@@ -74,7 +74,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 			var repository = S<IUserGroupRepository>();
 			repository.Stub(r => r.GetByKey("foo")).Return(new UserGroup());
 
-			var controller = new UserGroupController(repository, mapper,null,null,PermisiveSecurityContext());
+			var controller = new UserGroupController(repository, mapper,null,null,PermisiveSecurityContext(),null);
 			var result = (ViewResult) controller.Save(form);
 
 			result.AssertViewRendered().ViewName.ShouldEqual("Edit");

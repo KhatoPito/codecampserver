@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using CodeCampServer.UI.Helpers.Validation.Attributes;
+using Tarantino.RulesEngine.CommandProcessor;
 
 namespace CodeCampServer.UI.Models.Input
 {
-	public class UserGroupInput
+	public class UserGroupInput:IMessage
+
 	{
 		[Required("User Group Key")]
 		[ValidateKey]

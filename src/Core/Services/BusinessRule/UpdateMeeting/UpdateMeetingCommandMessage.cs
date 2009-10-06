@@ -3,7 +3,7 @@ using Tarantino.RulesEngine.CommandProcessor;
 
 namespace CodeCampServer.Core.Services.BusinessRule.CreateMeeting
 {
-	public class CreateMeetingCommandMessage : ICommandMessage
+	public class UpdateMeetingCommandMessage : ICommandMessage
 	{
 		public Meeting Meeting { get; set; }
 	}
