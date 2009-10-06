@@ -1,16 +1,14 @@
 using CodeCampServer.Core.Services.BusinessRule.CreateMeeting;
-using CodeCampServer.UI.Messages;
 using CodeCampServer.UI.Models.Input;
 using Tarantino.RulesEngine.Configuration;
 
 namespace CodeCampServer.Infrastructure.BusinessRules
 {
-	public class CreateMeetingMessageConfiguration : MessageDefinition<MeetingInput>
+	public class UpdateMeetingMessageConfiguration : MessageDefinition<MeetingInput>
 	{
-
-		public CreateMeetingMessageConfiguration()
+		public UpdateMeetingMessageConfiguration()
 		{
-			Execute<CreateMeetingCommandMessage>();
-		}		
+			Execute<UpdateMeetingCommandMessage>();
+		}
 	}
 }

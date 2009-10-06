@@ -12,17 +12,11 @@ namespace CodeCampServer.Infrastructure.ObjectMapping.ConfigurationProfiles
 		protected override void Configure()
 		{
 			Mapper.CreateMap<DeleteMeetingMessage, DeleteMeetingCommandMessage>();
-			Mapper.CreateMap<MeetingInput, CreateMeetingCommandMessage>()
-				.ConvertUsing(input =>
-					{
-						var meeting = new Meeting();
-						Mapper.Map<MeetingInput, Meeting>(input, meeting);
-						return new CreateMeetingCommandMessage()
-						       	{
-						       		Meeting = meeting,
-						       	};
-					}
-				              	);
+			Mapper.CreateMap<MeetingInput, UpdateMeetingCommandMessage>()
+				.ConvertUsing(input => new UpdateMeetingCommandMessage
+				                       	{
+				                       		Meeting = Mapper.Map<MeetingInput, Meeting>(input),
+				                       	});
 		}
 	}
 }

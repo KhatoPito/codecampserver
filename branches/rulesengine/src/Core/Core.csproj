@@ -79,10 +79,12 @@
     <Compile Include="Domain\Model\KeyedObject.cs" />
     <Compile Include="Domain\Model\User.cs" />
     <Compile Include="Services\Bases\ISystemClock.cs" />
-    <Compile Include="Services\BusinessRule\CreateMeeting\CreateMeetingCommandHandler.cs" />
-    <Compile Include="Services\BusinessRule\CreateMeeting\CreateMeetingCommandMessage.cs" />
+    <Compile Include="Services\BusinessRule\UpdateMeeting\UpdateMeetingCommandHandler.cs" />
+    <Compile Include="Services\BusinessRule\UpdateMeeting\UpdateMeetingCommandMessage.cs" />
     <Compile Include="Services\BusinessRule\DeleteMeeting\DeleteMeetingCommandHandler.cs" />
     <Compile Include="Services\BusinessRule\DeleteMeeting\DeleteMeetingCommandMessage.cs" />
+    <Compile Include="Services\BusinessRule\UpdateUserGroup\UpdateUserGroupCommandHandler.cs" />
+    <Compile Include="Services\BusinessRule\UpdateUserGroup\UpdateUserGroupCommandMessage.cs" />
     <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="Services\ICryptographer.cs" />
     <Compile Include="Services\IHttpFileDownloaderService.cs" />

@@ -8,6 +8,7 @@ using CodeCampServer.Infrastructure.BusinessRules;
 using CodeCampServer.Infrastructure.ObjectMapping;
 using CodeCampServer.UI.Messages;
 using CodeCampServer.UI.Models.Input;
+using CodeCampServer.UnitTests;
 using CommandProcessor;
 using NBehave.Spec.NUnit;
 using NUnit.Framework;
@@ -16,14 +17,13 @@ using StructureMap;
 using Tarantino.RulesEngine;
 using Tarantino.RulesEngine.Mvc;
 
-namespace CodeCampServer.UnitTests.Core.Services
+namespace CodeCampServer.IntegrationTests.BusinessRules
 {
-
 	[TestFixture]
 	public class RulesEngineTester : TestBase
 	{		
 		[Test]
-		public void The_rules_engine_should_process_a_DeleteMeeting_ui_message()
+		public void DeleteMeeting_message_should_delete_a_meeting()
 		{
 			DependencyRegistrar.EnsureDependenciesRegistered();
 			AutoMapperConfiguration.Configure();
@@ -43,8 +43,9 @@ namespace CodeCampServer.UnitTests.Core.Services
 			result.Successful.ShouldBeTrue();
 			result.ReturnItems.Get<Meeting>().ShouldEqual(meeting);
 		}
+
 		[Test]
-		public void The_rules_engine_should_process_a_CreateMeeting_ui_message()
+		public void UpdateMeeting_should_save_a_meeting()
 		{
 			DependencyRegistrar.EnsureDependenciesRegistered();
 			AutoMapperConfiguration.Configure();
@@ -56,9 +57,12 @@ namespace CodeCampServer.UnitTests.Core.Services
 			var meetingRepository = S<IMeetingRepository>();
 			ObjectFactory.Inject(typeof(IMeetingRepository), meetingRepository);
 
-			ObjectFactory.Inject(typeof(IUserGroupRepository), S<IUserGroupRepository>());
+			var userGroupRepository = S<IUserGroupRepository>();
+			userGroupRepository.Stub(groupRepository => groupRepository.GetById(Guid.Empty)).Return(new UserGroup());
+			ObjectFactory.Inject(typeof(IUserGroupRepository), userGroupRepository);
 
-			RulesEngineConfiguration.Configure(typeof(CreateMeetingMessageConfiguration));
+
+			RulesEngineConfiguration.Configure(typeof(UpdateMeetingMessageConfiguration));
 			var rulesRunner = new RulesEngine();
 
 			var result = rulesRunner.Process(new MeetingInput() { Description = "New Meeting" }, typeof(MeetingInput));
@@ -66,6 +70,38 @@ namespace CodeCampServer.UnitTests.Core.Services
 			result.ReturnItems.Get<Meeting>().ShouldNotBeNull();
 
 			meetingRepository.AssertWasCalled(r=>r.Save(null),options => options.IgnoreArguments());
+		}
+
+		[Test]
+		public void UpdateUserGroup_should_save_a_usergroup()
+		{
+			DependencyRegistrar.EnsureDependenciesRegistered();
+			AutoMapperConfiguration.Configure();
+			ObjectFactory.Inject(typeof(IUnitOfWork), S<IUnitOfWork>());
+			ObjectFactory.Inject(typeof(IWebContext), S<IWebContext>());
+
+			var repository = S<IRepository<UserGroup>>();
+			ObjectFactory.Inject(typeof(IRepository<UserGroup>), repository);
+			
+			var userGroupRepository = S<IUserGroupRepository>();
+			ObjectFactory.Inject(typeof(IUserGroupRepository), userGroupRepository);
+
+			var userRepository = S<IUserRepository>();
+			ObjectFactory.Inject(typeof(IUserRepository), userRepository);
+
+			RulesEngineConfiguration.Configure(typeof(UpdateUserGroupMessageConfiguration));
+			var rulesRunner = new RulesEngine();
+
+			var result = rulesRunner.Process(new UserGroupInput()
+			                                 	{
+			                                 		Name = "New Meeting",
+													Users = new List<UserSelectorInput>(),
+													Sponsors = new List<SponsorInput>(),
+			                                 	}, typeof(UserGroupInput));
+			result.Successful.ShouldBeTrue();
+			result.ReturnItems.Get<UserGroup>().ShouldNotBeNull();
+
+			userGroupRepository.AssertWasCalled(r => r.Save(null), options => options.IgnoreArguments());
 		}
 	}
 }

@@ -91,7 +91,8 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="BusinessRules\CreateMeetingMessageConfiguration.cs" />
+    <Compile Include="BusinessRules\UpdateUserGroupMessageConfiguration.cs" />
+    <Compile Include="BusinessRules\UpdateMeetingMessageConfiguration.cs" />
     <Compile Include="BusinessRules\DeleteMeetingMessageConfiguration.cs" />
     <Compile Include="BusinessRules\RulesEngineConfiguration.cs" />
     <Compile Include="DataAccess\UnitOfWork.cs" />
@@ -137,7 +138,9 @@
     <Compile Include="UI\Binders\UserGroupModelBinder.cs" />
     <Compile Include="UI\Mappers\AutoInputMapper.cs" />
     <Compile Include="UI\Mappers\ConferenceMapper.cs" />
+    <Compile Include="UI\Mappers\IUserGroupInputToUserGroupTypeConverter.cs" />
     <Compile Include="UI\Mappers\MeetingMapper.cs" />
+    <Compile Include="UI\Mappers\UserGroupInputToUserGroupTypeConverter.cs" />
     <Compile Include="UI\Mappers\UserGroupMapper.cs" />
     <Compile Include="UI\Mappers\UserGroupSponsorMapper.cs" />
     <Compile Include="UI\Mappers\UserMapper.cs" />

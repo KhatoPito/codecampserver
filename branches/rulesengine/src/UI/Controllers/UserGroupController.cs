@@ -7,6 +7,7 @@ using CodeCampServer.UI.Helpers.Filters;
 using CodeCampServer.UI.Helpers.Mappers;
 using CodeCampServer.UI.Models.Input;
 using CodeCampServer.Core.Services.Impl;
+using CommandProcessor;
 using MvcContrib;
 using CodeCampServer.UI;
 using CodeCampServer.Core.Services;
@@ -19,12 +20,14 @@ namespace CodeCampServer.UI.Controllers
 		private readonly IUserGroupRepository _repository;
 		private readonly IUserGroupMapper _mapper;
         private readonly ISecurityContext _securityContext;
+		private readonly IRulesEngine _rulesEngine;
 
-	    public UserGroupController(IUserGroupRepository repository, IUserGroupMapper mapper,IConferenceRepository conferenceRepository,IConferenceMapper conferenceMapper, ISecurityContext securityContext) : base(repository, mapper)
+		public UserGroupController(IUserGroupRepository repository, IUserGroupMapper mapper,IConferenceRepository conferenceRepository,IConferenceMapper conferenceMapper, ISecurityContext securityContext,IRulesEngine rulesEngine) : base(repository, mapper)
 		{
 			_repository = repository;
 			_mapper = mapper;
 	        _securityContext = securityContext;
+	    	_rulesEngine = rulesEngine;
 		}
 
 		
@@ -47,7 +50,7 @@ namespace CodeCampServer.UI.Controllers
 			UserGroupInput[] entityListDto = _mapper.Map(entities);
 			return View(entityListDto);
 		}
-		
+		[AcceptVerbs(HttpVerbs.Get)]
         [RequireAuthenticationFilter]
 		public ActionResult Edit(Guid Id)
 		{
@@ -66,6 +69,28 @@ namespace CodeCampServer.UI.Controllers
             return View(_mapper.Map(userGroup));
 		}
 
+		[AcceptVerbs(HttpVerbs.Post)]
+		[RequireAuthenticationFilter]
+		[ValidateInput(false)]
+		[ValidateModel(typeof(UserGroupInput))]
+		public ActionResult Edit(UserGroupInput input)
+		{
+			if (!_securityContext.HasPermissionsForUserGroup(input.Id))
+			{
+				return View(ViewPages.NotAuthorized);
+			}
+
+			if (ModelState.IsValid)
+			{
+				var result = _rulesEngine.Process(input);
+				if (result.Successful)
+				{
+					var userGroup = result.ReturnItems.Get<UserGroup>();
+					return RedirectToAction<HomeController>(c => c.Index(userGroup));
+				}
+			}
+			return View(input);
+		}
 	    protected bool CurrentUserHasPermissionToEditUserGroup(Guid Id)
 	    {
 	        return CurrentUserHasPermissionToEditUserGroup(_repository.GetById(Id));

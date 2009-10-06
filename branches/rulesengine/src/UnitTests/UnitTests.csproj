@@ -117,6 +117,7 @@
     <Compile Include="Core\Services\SecurityContextTester.cs" />
     <Compile Include="Core\Services\SystemTimeTester.cs" />
     <Compile Include="Core\Services\Updaters\ConferenceMapperTester.cs" />
+    <Compile Include="Core\Services\Updaters\UserGroupInputToUserGroupTypeconverterTester.cs" />
     <Compile Include="Core\Services\Updaters\UserGroupMapperTester.cs" />
     <Compile Include="Core\Services\Updaters\UserMapperTester.cs" />
     <Compile Include="Core\TimeExtensionsTester.cs" />
