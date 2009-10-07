@@ -117,6 +117,7 @@
     <Compile Include="HttpFileDownloaderService.cs" />
     <Compile Include="ObjectMapping\ConfigurationProfiles\AutoMapperProfile.cs" />
     <Compile Include="ObjectMapping\ConfigurationProfiles\UserMapperProfile.cs" />
+    <Compile Include="ObjectMapping\TypeConverters\UserToUserSelectorInputTypeConverter.cs" />
     <Compile Include="ObjectMapping\CustomResolvers\BaseFormatter.cs" />
     <Compile Include="ObjectMapping\CustomResolvers\BaseResolver.cs" />
     <Compile Include="ObjectMapping\CustomResolvers\HtmlEncoderFormatter.cs" />
