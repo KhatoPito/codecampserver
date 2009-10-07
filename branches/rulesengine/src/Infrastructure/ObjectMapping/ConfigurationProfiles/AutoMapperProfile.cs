@@ -33,12 +33,6 @@ namespace CodeCampServer.Infrastructure.ObjectMapping.ConfigurationProfiles
 
 		private static void CreateMaps()
 		{
-			Mapper.CreateMap<User, UserInput>()
-				.ForMember(u => u.Password, o => o.Ignore())
-				.ForMember(f => f.ConfirmPassword, o => o.Ignore());
-
-			Mapper.CreateMap<User, UserSelectorInput>();
-
 			Mapper.CreateMap<Sponsor, SponsorInput>()
 				.ForMember(x => x.ParentID, o => o.Ignore());
 

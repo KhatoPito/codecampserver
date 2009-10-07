@@ -9,7 +9,8 @@ namespace CodeCampServer.Infrastructure.BusinessRules
 		public UpdateUserGroupMessageConfiguration()
 		{
 			Execute<UpdateUserGroupCommandMessage>()
-				.Enforce(expression => expression.Rule<UserGroupKeyMustBeUnique>());
+				.Enforce(expression => expression.Rule<UserGroupKeyMustBeUnique>().RefersTo(i=>i.Key))
+				;
 		}
 	}
 }

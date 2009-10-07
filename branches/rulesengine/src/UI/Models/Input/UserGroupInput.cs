@@ -6,8 +6,13 @@ using Tarantino.RulesEngine.CommandProcessor;
 namespace CodeCampServer.UI.Models.Input
 {
 	public class UserGroupInput:IMessage
-
 	{
+		//public UserGroupInput()
+		//{
+		//    Users = new List<UserSelectorInput>();
+		//    Sponsors = new List<SponsorInput>();
+		//}
+
 		[Required("User Group Key")]
 		[ValidateKey]
 		public virtual string Key { get; set; }

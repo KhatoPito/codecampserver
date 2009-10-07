@@ -34,6 +34,7 @@ namespace CodeCampServer.UI.Models.Input
 		[Required("Time Zone")]
 		public override string TimeZone { get; set; }
 
+		[Multiline]
 		public string Description { get; set; }
 
 		[Required("Location")]

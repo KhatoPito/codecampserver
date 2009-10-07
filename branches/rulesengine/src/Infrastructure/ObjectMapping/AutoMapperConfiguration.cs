@@ -14,7 +14,8 @@ namespace CodeCampServer.Infrastructure.ObjectMapping
 			                  		x.AddProfile<AutoMapperProfile>();
 			                  		x.AddProfile<MeetingMapperProfile>();
 			                  		x.AddProfile<UserGroupMapperProfile>();
-			                  		x.AddProfile<MeetingMessageMapperProfile>();									
+			                  		x.AddProfile<MeetingMessageMapperProfile>();
+									x.AddProfile<UserMapperProfile>();									
 			                  	});
 		}
 
