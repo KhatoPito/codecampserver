@@ -3,76 +3,67 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
+using CodeCampServer.Core.Services;
 using CodeCampServer.UI.Helpers.Filters;
 using CodeCampServer.UI.Helpers.Mappers;
 using CodeCampServer.UI.Models.Input;
-using CodeCampServer.Core.Services.Impl;
 using CommandProcessor;
-using MvcContrib;
-using CodeCampServer.UI;
-using CodeCampServer.Core.Services;
-
+using Tarantino.RulesEngine;
 
 namespace CodeCampServer.UI.Controllers
 {
-	public class UserGroupController : SaveController<UserGroup, UserGroupInput>
+	public class UserGroupController : SmartController
 	{
 		private readonly IUserGroupRepository _repository;
 		private readonly IUserGroupMapper _mapper;
-        private readonly ISecurityContext _securityContext;
+		private readonly ISecurityContext _securityContext;
 		private readonly IRulesEngine _rulesEngine;
 
-		public UserGroupController(IUserGroupRepository repository, IUserGroupMapper mapper,IConferenceRepository conferenceRepository,IConferenceMapper conferenceMapper, ISecurityContext securityContext,IRulesEngine rulesEngine) : base(repository, mapper)
+		public UserGroupController(IUserGroupRepository repository, IUserGroupMapper mapper,
+		                           IConferenceRepository conferenceRepository, IConferenceMapper conferenceMapper,
+		                           ISecurityContext securityContext, IRulesEngine rulesEngine) 
+			//: base(repository, mapper)
 		{
 			_repository = repository;
 			_mapper = mapper;
-	        _securityContext = securityContext;
-	    	_rulesEngine = rulesEngine;
+			_securityContext = securityContext;
+			_rulesEngine = rulesEngine;
 		}
 
-		
+
 		public ActionResult Index(UserGroup usergroup)
 		{
-
-            UserGroupInput input = _mapper.Map(usergroup);
-			return View(input);
+			return View(_mapper.Map(usergroup));
 		}
 
 		public ActionResult List()
 		{
 			UserGroup[] entities = _repository.GetAll();
-
-			if (entities.Length < 1)
-			{
-				return RedirectToAction<UserGroupController>(c => c.New());
-			}
-
-			UserGroupInput[] entityListDto = _mapper.Map(entities);
-			return View(entityListDto);
+			return View(_mapper.Map(entities));
 		}
+
 		[AcceptVerbs(HttpVerbs.Get)]
-        [RequireAuthenticationFilter]
-		public ActionResult Edit(Guid Id)
+		[RequireAuthenticationFilter]
+		public ActionResult Edit(UserGroup entityToEdit)
 		{
-
-			if (Id == Guid.Empty)
+			if (entityToEdit == null)
 			{
-				TempData.Add("message", "UserGroup has been deleted.");
-				return RedirectToAction<UserGroupController>(c => c.List());
+				entityToEdit = new UserGroup();
 			}
-
-            UserGroup userGroup = _repository.GetById(Id);
-            if(!CurrentUserHasPermissionToEditUserGroup(userGroup))
-            {
-                return View(ViewPages.NotAuthorized);
-            }
-            return View(_mapper.Map(userGroup));
+			else
+			{
+				if (!CurrentUserHasPermissionToEditUserGroup(entityToEdit))
+				{
+					return View(ViewPages.NotAuthorized);
+				}
+			}
+			return View(_mapper.Map(entityToEdit));
 		}
 
 		[AcceptVerbs(HttpVerbs.Post)]
 		[RequireAuthenticationFilter]
 		[ValidateInput(false)]
-		[ValidateModel(typeof(UserGroupInput))]
+		[ValidateModel(typeof (UserGroupInput))]
 		public ActionResult Edit(UserGroupInput input)
 		{
 			if (!_securityContext.HasPermissionsForUserGroup(input.Id))
@@ -82,7 +73,7 @@ namespace CodeCampServer.UI.Controllers
 
 			if (ModelState.IsValid)
 			{
-				var result = _rulesEngine.Process(input);
+				ExecutionResult result = _rulesEngine.Process(input);
 				if (result.Successful)
 				{
 					var userGroup = result.ReturnItems.Get<UserGroup>();
@@ -91,73 +82,60 @@ namespace CodeCampServer.UI.Controllers
 			}
 			return View(input);
 		}
-	    protected bool CurrentUserHasPermissionToEditUserGroup(Guid Id)
-	    {
-	        return CurrentUserHasPermissionToEditUserGroup(_repository.GetById(Id));
-	    }
 
-        protected bool CurrentUserHasPermissionToEditUserGroup(UserGroup userGroup)
-        {
-            return _securityContext.HasPermissionsFor(userGroup);
-        }
-
-	    [ValidateInput(false)] 
-		[ValidateModel(typeof (UserGroupInput))]
-		public ActionResult Save(UserGroupInput input)
+		protected bool CurrentUserHasPermissionToEditUserGroup(Guid Id)
 		{
-            if(_securityContext.HasPermissionsForUserGroup(input.Id))
-            {
-                return ProcessSave(input, entity => RedirectToAction<UserGroupController>(c => c.List()));
-            }
-	        return View(ViewPages.NotAuthorized);
+			return CurrentUserHasPermissionToEditUserGroup(_repository.GetById(Id));
 		}
-        
 
-		protected override IDictionary<string, string[]> GetFormValidationErrors(UserGroupInput input)
+		protected bool CurrentUserHasPermissionToEditUserGroup(UserGroup userGroup)
 		{
-			var result = new ValidationResult();
-			if (CurrentUserHasPermissionToEditUserGroup(input.Id) && UserGroupKeyAlreadyExists(input))
+			return _securityContext.HasPermissionsFor(userGroup);
+		}
+
+
+
+		//protected override IDictionary<string, string[]> GetFormValidationErrors(UserGroupInput input)
+		//{
+		//    var result = new ValidationResult();
+		//    if (CurrentUserHasPermissionToEditUserGroup(input.Id) && UserGroupKeyAlreadyExists(input))
+		//    {
+		//        result.AddError<UserGroupInput>(x => x.Key, "This entity key already exists");
+		//    }
+		//    return result.GetAllErrors();
+		//}
+
+		//private bool UserGroupKeyAlreadyExists(UserGroupInput message)
+		//{
+		//    UserGroup entity = _repository.GetByKey(message.Key);
+		//    return entity != null && entity.Id != message.Id;
+		//}
+
+
+		//[RequireAdminAuthorizationFilter]
+		//public ActionResult New()
+		//{
+		//    return View("Edit", _mapper.Map(new UserGroup()));
+		//}
+
+		[RequireAdminAuthorizationFilter]
+		public ActionResult Delete(UserGroup entity)
+		{
+			if (!CurrentUserHasPermissionToEditUserGroup(entity))
 			{
-				result.AddError<UserGroupInput>(x => x.Key, "This entity key already exists");
+				return View(ViewPages.NotAuthorized);
 			}
-			return result.GetAllErrors();
+
+			if (entity.GetUsers().Length == 0)
+			{
+				_repository.Delete(entity);
+			}
+			else
+			{
+				TempData.Add("message", "UserGroup cannot be deleted.");
+			}
+
+			return RedirectToAction<UserGroupController>(c => c.List());
 		}
-
-	    private bool UserGroupKeyAlreadyExists(UserGroupInput message)
-		{
-			UserGroup entity = _repository.GetByKey(message.Key);
-			return entity != null && entity.Id != message.Id;
-		}
-
-		
-        [RequireAdminAuthorizationFilter]
-		public ActionResult New()
-		{
-			return View("Edit", _mapper.Map(new UserGroup()));
-		}
-
-        [RequireAdminAuthorizationFilter]
-        public ActionResult Delete(UserGroup entity)
-        {
-            if (!CurrentUserHasPermissionToEditUserGroup(entity))
-            {
-                return View(ViewPages.NotAuthorized);
-            }
-
-            if (entity.GetUsers().Length == 0)
-            {
-                _repository.Delete(entity);
-            }
-            else
-            {
-                TempData.Add("message", "UserGroup cannot be deleted.");
-            }
-
-            return RedirectToAction<UserGroupController>(c => c.List());
-        }
-
 	}
 }
-
-
-
