@@ -25,7 +25,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 
 			var controller = new UserGroupController(repository, S<IUserGroupMapper>(),null,null,null,null);
 
-			ActionResult result = controller.Edit((UserGroup)null);
+			ActionResult result = controller.Edit(Guid.Empty);
 			result.AssertViewRendered().ForView("");
 		}
 

@@ -44,20 +44,22 @@ namespace CodeCampServer.UI.Controllers
 
 		[AcceptVerbs(HttpVerbs.Get)]
 		[RequireAuthenticationFilter]
-		public ActionResult Edit(UserGroup entityToEdit)
+		public ActionResult Edit(Guid? entityToEdit)
 		{
-			if (entityToEdit == null)
+			UserGroup model;
+			if (!entityToEdit.HasValue || entityToEdit == Guid.Empty)
 			{
-				entityToEdit = new UserGroup();
+				model = new UserGroup();
 			}
 			else
 			{
-				if (!CurrentUserHasPermissionToEditUserGroup(entityToEdit))
+				model = _repository.GetById(entityToEdit.Value);
+				if (!CurrentUserHasPermissionToEditUserGroup(model))
 				{
 					return View(ViewPages.NotAuthorized);
 				}
 			}
-			return View(_mapper.Map(entityToEdit));
+			return View(_mapper.Map(model));
 		}
 
 		[AcceptVerbs(HttpVerbs.Post)]
@@ -78,6 +80,13 @@ namespace CodeCampServer.UI.Controllers
 				{
 					var userGroup = result.ReturnItems.Get<UserGroup>();
 					return RedirectToAction<HomeController>(c => c.Index(userGroup));
+				}
+				else
+				{
+					foreach (var errorMessage in result.Messages)
+					{
+						ModelState.AddModelError(errorMessage.IncorrectAttribute,errorMessage.MessageText);					
+					} 
 				}
 			}
 			return View(input);

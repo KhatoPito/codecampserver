@@ -91,11 +91,12 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="BusinessRules\UpdateUserGroupMessageConfiguration.cs" />
-    <Compile Include="BusinessRules\UpdateMeetingMessageConfiguration.cs" />
-    <Compile Include="BusinessRules\DeleteMeetingMessageConfiguration.cs" />
+    <Compile Include="BusinessRules\CommandConfiguration\UpdateUserConfiguration.cs" />
+    <Compile Include="BusinessRules\CommandConfiguration\UpdateUserGroupMessageConfiguration.cs" />
+    <Compile Include="BusinessRules\CommandConfiguration\UpdateMeetingMessageConfiguration.cs" />
+    <Compile Include="BusinessRules\CommandConfiguration\DeleteMeetingMessageConfiguration.cs" />
     <Compile Include="BusinessRules\RulesEngineConfiguration.cs" />
-    <Compile Include="BusinessRules\UserGroupKeyMustBeUnique.cs" />
+    <Compile Include="BusinessRules\Validation\UserGroupKeyMustBeUnique.cs" />
     <Compile Include="DataAccess\UnitOfWork.cs" />
     <Compile Include="DataAccess\UnitOfWorkModule.cs" />
     <Compile Include="DataAccess\IUnitOfWork.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="EnumerationType.cs" />
     <Compile Include="HttpFileDownloaderService.cs" />
     <Compile Include="ObjectMapping\ConfigurationProfiles\AutoMapperProfile.cs" />
+    <Compile Include="ObjectMapping\ConfigurationProfiles\UserMapperProfile.cs" />
     <Compile Include="ObjectMapping\CustomResolvers\BaseFormatter.cs" />
     <Compile Include="ObjectMapping\CustomResolvers\BaseResolver.cs" />
     <Compile Include="ObjectMapping\CustomResolvers\HtmlEncoderFormatter.cs" />
