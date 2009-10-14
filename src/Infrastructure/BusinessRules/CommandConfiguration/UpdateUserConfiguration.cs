@@ -1,4 +1,5 @@
 using CodeCampServer.Core.Services.BusinessRule.UpdateUser;
+using CodeCampServer.Infrastructure.BusinessRules.Validation;
 using CodeCampServer.UI.Models.Input;
 using Tarantino.RulesEngine.Configuration;
 using Tarantino.RulesEngine.ValidationRules;
@@ -18,6 +19,7 @@ namespace CodeCampServer.Infrastructure.BusinessRules.CommandConfiguration
 						v.Rule<ValidateNotNull>(c => c.EmailAddress).RefersTo(m => m.EmailAddress);
 						v.Rule<ValidateNotNull>(c => c.ConfirmPassword).RefersTo(m => m.ConfirmPassword);
 						v.Rule<ValidateEqualTo>(c => c.Password, c => c.ConfirmPassword).RefersTo(m => m.ConfirmPassword);
+						v.Rule<UsernameMustBeUnique>(c=>c).RefersTo(m=>m.Username);
 					});
 		}
 	}

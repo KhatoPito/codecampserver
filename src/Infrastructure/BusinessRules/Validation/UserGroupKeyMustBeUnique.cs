@@ -3,7 +3,7 @@ using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.Core.Services.BusinessRule.UpdateUserGroup;
 using Tarantino.RulesEngine;
 
-namespace CodeCampServer.Infrastructure.BusinessRules
+namespace CodeCampServer.Infrastructure.BusinessRules.Validation
 {
 	public class UserGroupKeyMustBeUnique : IValidationRule
 	{

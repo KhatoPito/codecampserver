@@ -19,10 +19,7 @@ namespace CodeCampServer.UI.Controllers
 		private readonly ISecurityContext _securityContext;
 		private readonly IRulesEngine _rulesEngine;
 
-		public UserGroupController(IUserGroupRepository repository, IUserGroupMapper mapper,
-		                           IConferenceRepository conferenceRepository, IConferenceMapper conferenceMapper,
-		                           ISecurityContext securityContext, IRulesEngine rulesEngine) 
-			//: base(repository, mapper)
+		public UserGroupController(IUserGroupRepository repository, IUserGroupMapper mapper, ISecurityContext securityContext, IRulesEngine rulesEngine) 
 		{
 			_repository = repository;
 			_mapper = mapper;
@@ -81,12 +78,10 @@ namespace CodeCampServer.UI.Controllers
 					var userGroup = result.ReturnItems.Get<UserGroup>();
 					return RedirectToAction<HomeController>(c => c.Index(userGroup));
 				}
-				else
+				
+				foreach (var errorMessage in result.Messages)
 				{
-					foreach (var errorMessage in result.Messages)
-					{
-						ModelState.AddModelError(errorMessage.IncorrectAttribute,errorMessage.MessageText);					
-					} 
+					ModelState.AddModelError(errorMessage.IncorrectAttribute,errorMessage.MessageText);					
 				}
 			}
 			return View(input);
@@ -128,21 +123,21 @@ namespace CodeCampServer.UI.Controllers
 		//}
 
 		[RequireAdminAuthorizationFilter]
-		public ActionResult Delete(UserGroup entity)
+		public ActionResult Delete(DeleteUserGroupInput input)
 		{
-			if (!CurrentUserHasPermissionToEditUserGroup(entity))
-			{
-				return View(ViewPages.NotAuthorized);
-			}
+			//if (!CurrentUserHasPermissionToEditUserGroup(entity))
+			//{
+			//    return View(ViewPages.NotAuthorized);
+			//}
 
-			if (entity.GetUsers().Length == 0)
-			{
-				_repository.Delete(entity);
-			}
-			else
-			{
-				TempData.Add("message", "UserGroup cannot be deleted.");
-			}
+			//if (entity.GetUsers().Length == 0)
+			//{
+			//    _repository.Delete(entity);
+			//}
+			//else
+			//{
+			//    TempData.Add("message", "UserGroup cannot be deleted.");
+			//}
 
 			return RedirectToAction<UserGroupController>(c => c.List());
 		}

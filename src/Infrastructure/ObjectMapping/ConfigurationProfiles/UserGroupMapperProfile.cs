@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using AutoMapper;
 using CodeCampServer.Core.Domain.Model;
+using CodeCampServer.Core.Services.BusinessRule.DeleteUserGroup;
 using CodeCampServer.Core.Services.BusinessRule.UpdateUserGroup;
 using CodeCampServer.Infrastructure.ObjectMapping.TypeConverters;
 using CodeCampServer.Infrastructure.UI.Mappers;
@@ -24,6 +25,12 @@ namespace CodeCampServer.Infrastructure.ObjectMapping.ConfigurationProfiles
 				                       	{
 				                       		UserGroup = Mapper.Map<UserGroupInput, UserGroup>(input)
 				                       	});
+			Mapper.CreateMap<DeleteUserGroupInput, DeleteUserGroupCommandMessage>();
+			//.ConvertUsing(
+			//    input => new DeleteUserGroupCommandMessage()
+			//                {
+			//                    UserGroup = input.UserGroup,
+			//            });
 		}
 	}
 }

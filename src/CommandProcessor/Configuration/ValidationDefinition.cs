@@ -31,13 +31,11 @@ namespace Tarantino.RulesEngine.Configuration
 
 			_instances.Add(instance);
 
-			if (toCheck.GetMember().GetMemberType().IsArray)
-			{
-				instance.ArrayRule = true;
-			}
+			instance.ArrayRule = toCheck.IsArray();
 
 			return this;
 		}
+
 
 		public ITargetTypeExpression<TMessage, TCommand> Rule<T>(Expression<Func<TCommand, object>> toCheck,
 		                                                         Expression<Func<TCommand, object>> toCompare)
@@ -201,6 +199,11 @@ namespace Tarantino.RulesEngine.Configuration
 
 	public static class ExpressionExtension
 	{
+		public static bool IsArray(this LambdaExpression actionExpression)
+		{
+			return actionExpression.GetMember() != null && actionExpression.GetMember().GetMemberType().IsArray;
+		}
+
 		public static MemberInfo GetMember(this LambdaExpression actionExpression)
 		{
 			Expression body = actionExpression.Body;

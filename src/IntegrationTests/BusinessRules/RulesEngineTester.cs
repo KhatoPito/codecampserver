@@ -105,6 +105,38 @@ namespace CodeCampServer.IntegrationTests.BusinessRules
 			userGroupRepository.AssertWasCalled(r => r.Save(null), options => options.IgnoreArguments());
 		}
 		[Test]
+		public void Delete_user_group_should_do_just_that()
+		{
+			DependencyRegistrar.EnsureDependenciesRegistered();
+			AutoMapperConfiguration.Configure();
+			ObjectFactory.Inject(typeof(IUnitOfWork), S<IUnitOfWork>());
+			ObjectFactory.Inject(typeof(IWebContext), S<IWebContext>());
+
+
+			var repository = S<IUserGroupRepository>();
+			repository.Stub(repository1 => repository1.GetById(Guid.Empty)).Return(new UserGroup());
+			ObjectFactory.Inject(typeof(IUserGroupRepository), repository);
+
+			//var userRepository = S<IUserRepository>();
+			//ObjectFactory.Inject(typeof(IUserRepository), userRepository);
+
+
+			RulesEngineConfiguration.Configure(typeof(DeleteUserGroupMessageConfiguration));
+
+			var rulesRunner = new RulesEngine();
+
+			var result = rulesRunner.Process(new DeleteUserGroupInput()
+			{
+				UserGroup = Guid.Empty,
+
+			}, typeof(DeleteUserGroupInput));
+			
+			result.Successful.ShouldBeTrue();
+			result.ReturnItems.Get<UserGroup>().ShouldNotBeNull();
+
+			repository.AssertWasCalled(r => r.Delete(null), options => options.IgnoreArguments());
+		}
+		[Test]
 		public void Update_User_should_save()
 		{
 			DependencyRegistrar.EnsureDependenciesRegistered();

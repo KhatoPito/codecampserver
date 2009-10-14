@@ -12,14 +12,12 @@ namespace CodeCampServer.UI.Controllers
 {
 	public class MeetingController : SmartController
 	{
-		private readonly IMeetingRepository _repository;
 		private readonly IMeetingMapper _mapper;
 		private readonly ISecurityContext _securityContext;
 		private readonly IRulesEngine _rulesEngine;
 
-		public MeetingController(IMeetingRepository repository, IMeetingMapper meetingMapper, ISecurityContext securityContext,IRulesEngine rulesEngine)
+		public MeetingController(IMeetingMapper meetingMapper, ISecurityContext securityContext, IRulesEngine rulesEngine)
 		{
-			_repository = repository;
 			_mapper = meetingMapper;
 			_securityContext = securityContext;
 			_rulesEngine = rulesEngine;
