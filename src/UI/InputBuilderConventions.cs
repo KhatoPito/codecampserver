@@ -1,17 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Web.Mvc;
 using Castle.Components.Validator;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
+using CodeCampServer.Core.Domain.Model.Enumerations;
 using CodeCampServer.DependencyResolution;
 using CodeCampServer.UI.Helpers.Attributes;
 using CodeCampServer.UI.Helpers.Validation.Attributes;
 using CodeCampServer.UI.Models.Input;
-using MvcContrib.UI.InputBuilder;
 using MvcContrib.UI.InputBuilder.Conventions;
 using MvcContrib.UI.InputBuilder.Views;
 
@@ -74,12 +73,18 @@ namespace CodeCampServer.UI
 		{
 			if (typeof (IEnumerable<UserSelectorInput>).IsAssignableFrom(propertyInfo.PropertyType))
 				return "UserPicker";
+			if (typeof (Enumeration).IsAssignableFrom(propertyInfo.PropertyType))
+				return "Enum";
+
 			if (propertyInfo.Name.ToLower().Contains("password"))
 				return "Password";
 			if (typeof (DateTime).IsAssignableFrom(propertyInfo.PropertyType))
 				return "DatePicker";
 			if (propertyInfo.AttributeExists<MultilineAttribute>())
 				return "MultilineText";
+			if (typeof (Guid?).IsAssignableFrom(propertyInfo.PropertyType))
+				return "Guid";
+
 
 			return _default.PartialNameConvention(propertyInfo);
 		}
@@ -88,7 +93,7 @@ namespace CodeCampServer.UI
 		public PropertyViewModel ModelPropertyBuilder(PropertyInfo propertyInfo, object model)
 		{
 			if (typeof (IEnumerable<UserSelectorInput>).IsAssignableFrom(propertyInfo.PropertyType))
-				return new PropertyViewModel<IEnumerable<SelectListItem>> { Value = (IEnumerable<SelectListItem>)model };
+				return new PropertyViewModel<IEnumerable<SelectListItem>> {Value = (IEnumerable<SelectListItem>) model};
 			return _default.ModelPropertyBuilder(propertyInfo, model);
 		}
 

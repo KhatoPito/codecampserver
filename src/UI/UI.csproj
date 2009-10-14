@@ -277,6 +277,7 @@
     <Content Include="Views\Home\Events.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Login\Index.aspx" />
+    <Content Include="Views\Shared\EditSponsorLink.ascx" />
     <Content Include="Views\Shared\DisplayLabel.aspx" />
     <Content Include="Views\Shared\DisplayParagraph.aspx" />
     <Content Include="Views\Shared\DisplayInline.aspx" />

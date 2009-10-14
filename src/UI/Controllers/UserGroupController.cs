@@ -97,48 +97,24 @@ namespace CodeCampServer.UI.Controllers
 			return _securityContext.HasPermissionsFor(userGroup);
 		}
 
-
-
-		//protected override IDictionary<string, string[]> GetFormValidationErrors(UserGroupInput input)
-		//{
-		//    var result = new ValidationResult();
-		//    if (CurrentUserHasPermissionToEditUserGroup(input.Id) && UserGroupKeyAlreadyExists(input))
-		//    {
-		//        result.AddError<UserGroupInput>(x => x.Key, "This entity key already exists");
-		//    }
-		//    return result.GetAllErrors();
-		//}
-
-		//private bool UserGroupKeyAlreadyExists(UserGroupInput message)
-		//{
-		//    UserGroup entity = _repository.GetByKey(message.Key);
-		//    return entity != null && entity.Id != message.Id;
-		//}
-
-
-		//[RequireAdminAuthorizationFilter]
-		//public ActionResult New()
-		//{
-		//    return View("Edit", _mapper.Map(new UserGroup()));
-		//}
-
 		[RequireAdminAuthorizationFilter]
 		public ActionResult Delete(DeleteUserGroupInput input)
 		{
-			//if (!CurrentUserHasPermissionToEditUserGroup(entity))
-			//{
-			//    return View(ViewPages.NotAuthorized);
-			//}
+			if (CurrentUserHasPermissionToEditUserGroup(input.UserGroup))
+			{
+				return NotAuthorizedView;
+			}
 
-			//if (entity.GetUsers().Length == 0)
-			//{
-			//    _repository.Delete(entity);
-			//}
-			//else
-			//{
-			//    TempData.Add("message", "UserGroup cannot be deleted.");
-			//}
+			var result = _rulesEngine.Process(input);
 
+			if (result.Successful)
+			{
+				TempData.Add("message", result.ReturnItems.Get<UserGroup>().Name + " was deleted.");
+			}
+			else
+			{
+				TempData.Add("message", result.Messages[0]);
+			}
 			return RedirectToAction<UserGroupController>(c => c.List());
 		}
 	}

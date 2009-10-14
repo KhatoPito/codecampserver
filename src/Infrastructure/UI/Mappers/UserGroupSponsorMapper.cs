@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using AutoMapper;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.UI.Helpers.Mappers;
@@ -43,12 +44,12 @@ namespace CodeCampServer.Infrastructure.UI.Mappers
 
 		public SponsorInput[] Map(Sponsor[] sponsors)
 		{
-			return Map(sponsors);
+			return Mapper.Map<Sponsor[],SponsorInput[]>(sponsors);
 		}
 
 		public SponsorInput Map(Sponsor sponsor)
 		{
-			return Map(sponsor);
+			return Mapper.Map<Sponsor, SponsorInput>(sponsor);
 		}
 	}
 }
