@@ -91,11 +91,13 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="BusinessRules\CommandConfiguration\DeleteUserGroupMessageConfiguration.cs" />
     <Compile Include="BusinessRules\CommandConfiguration\UpdateUserConfiguration.cs" />
     <Compile Include="BusinessRules\CommandConfiguration\UpdateUserGroupMessageConfiguration.cs" />
     <Compile Include="BusinessRules\CommandConfiguration\UpdateMeetingMessageConfiguration.cs" />
     <Compile Include="BusinessRules\CommandConfiguration\DeleteMeetingMessageConfiguration.cs" />
     <Compile Include="BusinessRules\RulesEngineConfiguration.cs" />
+    <Compile Include="BusinessRules\Validation\UsernameMustBeUnique.cs" />
     <Compile Include="BusinessRules\Validation\UserGroupKeyMustBeUnique.cs" />
     <Compile Include="DataAccess\UnitOfWork.cs" />
     <Compile Include="DataAccess\UnitOfWorkModule.cs" />

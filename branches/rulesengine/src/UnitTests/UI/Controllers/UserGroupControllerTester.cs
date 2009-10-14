@@ -23,7 +23,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 			var repository = S<IUserGroupRepository>();
 			repository.Stub(repo => repo.GetById(Guid.Empty)).Return(new UserGroup());
 
-			var controller = new UserGroupController(repository, S<IUserGroupMapper>(),null,null,null,null);
+			var controller = new UserGroupController(repository, S<IUserGroupMapper>(),null,null);
 
 			ActionResult result = controller.Edit(Guid.Empty);
 			result.AssertViewRendered().ForView("");
@@ -45,7 +45,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 			executionResult.ReturnItems.Add(new UserGroup());
 			engine.Stub(rulesEngine => rulesEngine.Process(form)).Return(executionResult);
 
-			var controller = new UserGroupController(null, mapper, null, null, PermisiveSecurityContext(), engine);
+			var controller = new UserGroupController(null, mapper, PermisiveSecurityContext(), engine);
 			var result = (RedirectToRouteResult) controller.Edit(form);
 
 			result.AssertActionRedirect().ToAction<HomeController>(a => a.Index(null));

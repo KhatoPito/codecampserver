@@ -10,7 +10,7 @@ namespace CodeCampServer.Infrastructure.ObjectMapping
 		{
 			Mapper.Initialize(x =>
 			                  	{
-			                  		x.ConstructTypeConvertersUsing(type => DependencyRegistrar.Resolve(type));
+									x.ConstructServicesUsing(type => DependencyRegistrar.Resolve(type));
 			                  		x.AddProfile<AutoMapperProfile>();
 			                  		x.AddProfile<MeetingMapperProfile>();
 			                  		x.AddProfile<UserGroupMapperProfile>();
