@@ -1,83 +1,76 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Castle.Components.Validator.Attributes;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
+using CodeCampServer.Core.Services;
 using CodeCampServer.UI.Helpers.Filters;
 using CodeCampServer.UI.Helpers.Mappers;
 using CodeCampServer.UI.Models.Input;
-using CodeCampServer.Core.Services.Impl;
-using MvcContrib;
-using CodeCampServer.UI;
-using CodeCampServer.Core.Services;
-
 
 namespace CodeCampServer.UI.Controllers
 {
-    public class SponsorController : SaveController<UserGroup, SponsorInput>
-    {
-        private readonly IUserGroupRepository _repository;
-        private readonly IUserGroupSponsorMapper _mapper;
-        private readonly ISecurityContext _securityContext;
+	public class SponsorController : SaveController<UserGroup, SponsorInput>
+	{
+		private readonly IUserGroupRepository _repository;
+		private readonly IUserGroupSponsorMapper _mapper;
+		private readonly ISecurityContext _securityContext;
 
-        public SponsorController(IUserGroupRepository repository, IUserGroupSponsorMapper mapper, ISecurityContext securityContext)
-            : base(repository, mapper)
-        {
-            _repository = repository;
-            _mapper = mapper;
-            _securityContext = securityContext;
-        }
-
-
-        public ActionResult Index(UserGroup usergroup)
-        {
-            var entities = usergroup.GetSponsors();
+		public SponsorController(IUserGroupRepository repository, 
+								 IUserGroupSponsorMapper mapper,
+		                         ISecurityContext securityContext)
+			: base(repository, mapper)
+		{
+			_repository = repository;
+			_mapper = mapper;
+			_securityContext = securityContext;
+		}
 
 
-        	SponsorInput[] entityListDto = _mapper.Map(entities);
-            
-            return View(entityListDto);
-        }
-
-        public ActionResult New(UserGroup userGroup)
-        {
-            return View("edit",new SponsorInput());  
-        }
-
-        [ValidateModel(typeof(SponsorInput))]
-        public ActionResult Save(UserGroup userGroup, SponsorInput sponsorInput)
-        {
-            sponsorInput.ParentID = userGroup.Id;
-            return ProcessSave(sponsorInput, entity => RedirectToAction<SponsorController>(s => s.Index(null)));
-        }
-
-        public ActionResult Delete(UserGroup userGroup, Sponsor sponsor)
-        {
-            userGroup.Remove(sponsor);
-            _repository.Save(userGroup);
-            return RedirectToAction<SponsorController>(c => c.Index(null));
-        }
+		public ActionResult Index(UserGroup usergroup)
+		{
+			Sponsor[] entities = usergroup.GetSponsors();
 
 
-        public ActionResult Edit(UserGroup userGroup, Guid sponsorID)
-        {
-            Sponsor sponsor = userGroup.GetSponsors().Where(sponsor1 => sponsor1.Id == sponsorID).FirstOrDefault();
-			
-            return View(_mapper.Map(sponsor));
-        }
+			SponsorInput[] entityListDto = _mapper.Map(entities);
 
-        public ActionResult List(UserGroup userGroup)
-        {
-            var entities = userGroup.GetSponsors();
+			return View(entityListDto);
+		}
 
-            SponsorInput[] entityListDto = _mapper.Map(entities);
+		public ActionResult New(UserGroup userGroup)
+		{
+			return View("edit", new SponsorInput());
+		}
 
-            return View("HomePageWidget", entityListDto);
-        }
-    }
+		[ValidateModel(typeof (SponsorInput))]
+		public ActionResult Save(UserGroup userGroup, SponsorInput sponsorInput)
+		{
+			sponsorInput.ParentID = userGroup.Id;
+			return ProcessSave(sponsorInput, entity => RedirectToAction<SponsorController>(s => s.Index(null)));
+		}
+
+		public ActionResult Delete(UserGroup userGroup, Sponsor sponsor)
+		{
+			userGroup.Remove(sponsor);
+			_repository.Save(userGroup);
+			return RedirectToAction<SponsorController>(c => c.Index(null));
+		}
+
+
+		public ActionResult Edit(UserGroup userGroup, Guid sponsorID)
+		{
+			Sponsor sponsor = userGroup.GetSponsors().Where(sponsor1 => sponsor1.Id == sponsorID).FirstOrDefault();
+
+			return View(_mapper.Map(sponsor));
+		}
+
+		public ActionResult List(UserGroup userGroup)
+		{
+			Sponsor[] entities = userGroup.GetSponsors();
+
+			SponsorInput[] entityListDto = _mapper.Map(entities);
+
+			return View("HomePageWidget", entityListDto);
+		}
+	}
 }
-
-
-

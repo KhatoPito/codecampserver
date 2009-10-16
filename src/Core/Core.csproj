@@ -85,6 +85,8 @@
     <Compile Include="Services\Bases\ISystemClock.cs" />
     <Compile Include="Services\BusinessRule\DeleteUserGroup\DeleteUserGroupCommandHandler.cs" />
     <Compile Include="Services\BusinessRule\DeleteUserGroup\DeleteUserGroupCommandMessage.cs" />
+    <Compile Include="Services\BusinessRule\Login\LoginCommandHandler.cs" />
+    <Compile Include="Services\BusinessRule\Login\UpdateMeetingCommandMessage.cs" />
     <Compile Include="Services\BusinessRule\UpdateMeeting\UpdateMeetingCommandHandler.cs" />
     <Compile Include="Services\BusinessRule\UpdateMeeting\UpdateMeetingCommandMessage.cs" />
     <Compile Include="Services\BusinessRule\DeleteMeeting\DeleteMeetingCommandHandler.cs" />

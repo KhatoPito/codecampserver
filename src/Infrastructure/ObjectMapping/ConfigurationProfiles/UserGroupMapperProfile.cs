@@ -13,7 +13,6 @@ namespace CodeCampServer.Infrastructure.ObjectMapping.ConfigurationProfiles
 		protected override void Configure()
 		{
 			Mapper.CreateMap<UserGroup, UserGroupInput>();
-			//.ForMember(m => m.Users,c => c.MapFrom(@group => group.GetUsers()) c.ResolveUsing<UserToUserSelectorInputTypeConverter>());
 			Mapper.CreateMap<string, UserGroup>().ConvertUsing<UserGroupMapper>();
 			Mapper.CreateMap<Guid, UserGroup>().ConvertUsing<UserGroupMapper>();
 			Mapper.CreateMap<UserGroupInput, UserGroup>().ConvertUsing<UserGroupInputToUserGroupTypeConverter>();
@@ -24,11 +23,6 @@ namespace CodeCampServer.Infrastructure.ObjectMapping.ConfigurationProfiles
 				                       		UserGroup = Mapper.Map<UserGroupInput, UserGroup>(input)
 				                       	});
 			Mapper.CreateMap<DeleteUserGroupInput, DeleteUserGroupCommandMessage>();
-			//.ConvertUsing(
-			//    input => new DeleteUserGroupCommandMessage()
-			//                {
-			//                    UserGroup = input.UserGroup,
-			//            });
 		}
 	}
 }
