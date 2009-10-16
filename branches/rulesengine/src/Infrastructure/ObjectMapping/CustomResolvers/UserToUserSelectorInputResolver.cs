@@ -5,7 +5,7 @@ using CodeCampServer.UI.Models.Input;
 
 namespace CodeCampServer.Infrastructure.ObjectMapping.TypeConverters
 {
-	public class UserToUserSelectorInputTypeConverter : IValueResolver {
+	public class UserToUserSelectorInputResolver : IValueResolver {
 		public ResolutionResult Resolve(ResolutionResult source)
 		{
 			User[] users = (User[]) source.Value;

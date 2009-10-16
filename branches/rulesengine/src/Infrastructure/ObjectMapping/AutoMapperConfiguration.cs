@@ -10,12 +10,13 @@ namespace CodeCampServer.Infrastructure.ObjectMapping
 		{
 			Mapper.Initialize(x =>
 			                  	{
-									x.ConstructServicesUsing(type => DependencyRegistrar.Resolve(type));
+			                  		x.ConstructServicesUsing(type => DependencyRegistrar.Resolve(type));
 			                  		x.AddProfile<AutoMapperProfile>();
 			                  		x.AddProfile<MeetingMapperProfile>();
 			                  		x.AddProfile<UserGroupMapperProfile>();
 			                  		x.AddProfile<MeetingMessageMapperProfile>();
-									x.AddProfile<UserMapperProfile>();									
+			                  		x.AddProfile<UserMapperProfile>();
+			                  		x.AddProfile<LoginMapperProfile>();
 			                  	});
 		}
 

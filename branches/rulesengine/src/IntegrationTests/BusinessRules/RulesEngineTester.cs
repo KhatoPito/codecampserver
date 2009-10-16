@@ -171,5 +171,34 @@ namespace CodeCampServer.IntegrationTests.BusinessRules
 
 			userRepository.AssertWasCalled(r => r.Save(null), options => options.IgnoreArguments());
 		}
+		[Test]
+		public void Login_user()
+		{
+			DependencyRegistrar.EnsureDependenciesRegistered();
+			AutoMapperConfiguration.Configure();
+			ObjectFactory.Inject(typeof(IUnitOfWork), S<IUnitOfWork>());
+			ObjectFactory.Inject(typeof(IWebContext), S<IWebContext>());
+
+			var repository = S<IUserRepository>();
+			ObjectFactory.Inject(typeof(IUserRepository), repository);
+
+
+			var auth = S<IAuthenticationService>();
+			ObjectFactory.Inject(typeof(IAuthenticationService), auth);
+			auth.Stub(service => service.PasswordMatches(null, "")).IgnoreArguments().Return(true);
+
+			repository.Stub(groupRepository => groupRepository.GetByUserName("foo")).Return(new User());
+			RulesEngineConfiguration.Configure(typeof(UpdateUserGroupMessageConfiguration));
+
+			var rulesRunner = new RulesEngine();
+
+			var result = rulesRunner.Process(new LoginInput()
+			{
+				Username = "foo",
+				Password = "thepass",
+			}, typeof(LoginInput));
+			result.Successful.ShouldBeTrue();
+			result.ReturnItems.Get<User>().ShouldNotBeNull();
+		}
 	}
 }
