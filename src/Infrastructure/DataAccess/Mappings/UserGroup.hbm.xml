@@ -11,7 +11,7 @@
 		<property name="Key" column="UserGroupKey" length="100"/>
 		<property name="Name" length="100"/>
     <property name="HomepageHTML" type="StringClob">
-      <column name="HomepageHTML" sql-type="ntext"/>
+      <column name="HomepageHTML" sql-type="text"/>
     </property> 
     <property name="City" length="75" />
     <property name="Region" length="50" />

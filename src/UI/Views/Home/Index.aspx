@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master" AutoEventWireup="true"
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.master" AutoEventWireup="true"
     Inherits="ViewPage<UserGroupInput>" %>
 <%@ Import Namespace="Microsoft.Web.Mvc"%>
 

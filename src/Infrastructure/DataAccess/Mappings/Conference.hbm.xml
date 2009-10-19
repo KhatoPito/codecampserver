@@ -7,7 +7,7 @@
     <key column="Id"/>
     <property name="PhoneNumber" />
     <property name="HtmlContent" type="StringClob">
-      <column name="HtmlContent" sql-type="ntext"/>
+      <column name="HtmlContent" sql-type="text"/>
     </property>
     <property name="HasRegistration" />
 
