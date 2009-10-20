@@ -4,20 +4,20 @@ using System.Linq;
 using AutoMapper;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
-using CodeCampServer.UI.Models.Input;
+using CodeCampServer.UI.Models.Forms;
 
 namespace CodeCampServer.UI.Helpers.Mappers
 {
-	public class UserGroupSponsorMapper : AutoInputMapper<UserGroup, SponsorInput>, IUserGroupSponsorMapper
+	public class UserGroupSponsorMapper : AutoFormMapper<UserGroup, SponsorForm>, IUserGroupSponsorMapper
 	{
 	    public UserGroupSponsorMapper(IRepository<UserGroup> repository) : base(repository) {}
 
-	    protected override Guid GetIdFromMessage(SponsorInput message)
+	    protected override Guid GetIdFromMessage(SponsorForm message)
 	    {
 	        return message.ParentID;
 	    }
 
-	    protected override void MapToModel(SponsorInput message, UserGroup model)
+	    protected override void MapToModel(SponsorForm message, UserGroup model)
 	    {
             var sponsors = model.GetSponsors();
             

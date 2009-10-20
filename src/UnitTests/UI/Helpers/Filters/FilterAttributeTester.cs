@@ -48,4 +48,7 @@ namespace CodeCampServer.UnitTests.UI.Helpers.Filters
 	{
 	}
 
+	public class TestSubController : SubController
+	{
+	}
 }

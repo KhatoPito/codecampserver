@@ -8,6 +8,7 @@ using NBehave.Spec.NUnit;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
+using Tarantino.Core.Commons.Model;
 
 namespace CodeCampServer.UnitTests.UI
 {
@@ -110,11 +111,11 @@ namespace CodeCampServer.UnitTests.UI
 	}
 
 	[TestFixture]
-	public class SampleModelBinderTester : ModelBinderTester<Meeting, IMeetingRepository>
+	public class SampleModelBinderTester : ModelBinderTester<Track, ITrackRepository>
 	{
 		public override Type return_model_binder()
 		{
-			return typeof (ModelBinder<Meeting, IMeetingRepository>);
+			return typeof (ModelBinder<Track, ITrackRepository>);
 		}
 	}
 

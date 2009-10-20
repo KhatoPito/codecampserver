@@ -1,5 +1,5 @@
 using System;
-using CodeCampServer.Core.Domain.Model;
+using Tarantino.Core.Commons.Model;
 
 namespace CodeCampServer.Core.Domain
 {

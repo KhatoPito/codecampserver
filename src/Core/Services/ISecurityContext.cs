@@ -5,12 +5,11 @@ namespace CodeCampServer.Core.Services
 {
     public interface ISecurityContext
     {
-        //bool HasPermissionsFor(Speaker speaker);
+        bool HasPermissionsFor(Speaker speaker);
         bool HasPermissionsFor(Conference conference);
         bool HasPermissionsFor(UserGroup usergroup);
         bool HasPermissionsForUserGroup(Guid Id);
         bool IsAdmin();
-        //bool HasPermissionsFor(Session session);
-        bool HasPermissionsFor(Meeting meeting);
+        bool HasPermissionsFor(Session session);
     }
 }

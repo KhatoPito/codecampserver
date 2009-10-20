@@ -1,7 +1,7 @@
 using System;
 using System.Web.Mvc;
 using CodeCampServer.Core.Domain;
-using CodeCampServer.Core.Domain.Model;
+using Tarantino.Core.Commons.Model;
 
 namespace CodeCampServer.UI.Helpers.Binders
 {

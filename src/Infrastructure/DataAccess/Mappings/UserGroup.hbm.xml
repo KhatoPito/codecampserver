@@ -18,7 +18,6 @@
     <property name="Country" length="50" />
     <property name="GoogleAnalysticsCode" length="50" />
     <property name="DomainName" length="255" />
-   
     <bag name="Users" access="field.camelcase-underscore"  table="UserGroupAdminUsers" >
 			<key column="UserGroupId"  />
 			<many-to-many class="User" column="UserID"/>
@@ -26,6 +25,10 @@
     <bag name="Sponsors" access="field.camelcase-underscore"  table="UserGroupSponsors" cascade="save-update" >
       <key column="UserGroupId"  />
       <many-to-many class="Sponsor" column="SponsorID" />
+    </bag>
+    <bag name="RssFeeds" access="field.camelcase-underscore"  table="UserGroupRssFeeds" cascade="save-update" >
+      <key column="UserGroupId"  />
+      <many-to-many class="RssFeed" column="RssFeedID" />
     </bag>
   </class>
 </hibernate-mapping>

@@ -100,6 +100,14 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tarantino.Core, Version=1.0.99.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\tarantino\Tarantino.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Tarantino.Infrastructure, Version=1.0.99.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\tarantino\Tarantino.Infrastructure.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
@@ -109,23 +117,29 @@
     <Compile Include="DatabaseConnectionTester.cs" />
     <Compile Include="DependencyResolution\DependencyRegistrarTester.cs" />
     <Compile Include="Infrastructure\DataAccess\ConferenceRepositoryTester.cs" />
-    <Compile Include="Infrastructure\DataAccess\EventRepositoryTester.cs" />
-    <Compile Include="Infrastructure\DataAccess\Mappings\MeetingMappingsTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\Mappings\RssFeedMappingsTester.cs" />
     <Compile Include="Infrastructure\DataAccess\Mappings\SponsorMappingsTester.cs" />
-    <Compile Include="Infrastructure\DataAccess\MeetingRepositoryTester.cs" />
-    <Compile Include="Infrastructure\DataAccess\PersistentObjectTestHelper.cs" />
     <Compile Include="Infrastructure\DataAccess\UserGroupRepositoryTester.cs" />
     <Compile Include="Infrastructure\DataAccess\KeyedRepositoryTester.cs" />
     <Compile Include="Infrastructure\DataAccess\Mappings\UserGroupMappingsTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\Mappings\Planning\ProposalMappingsTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\Mappings\SessionMappingsTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\Mappings\SpeakerMappingsTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\Mappings\TimeSlotMappingTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\Mappings\TrackMappingsTester.cs" />
     <Compile Include="Infrastructure\DataAccess\DataTestBase.cs" />
     <Compile Include="Infrastructure\DataAccess\Mappings\ConferenceMappingsTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\Mappings\AttendeeMappingsTester.cs" />
     <Compile Include="Infrastructure\DataAccess\Mappings\UserMappingsTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\ProposalRepositoryTester.cs" />
     <Compile Include="Infrastructure\DataAccess\RepositoryTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\SessionRepositoryTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\SpeakerRepositoryTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\TimeSlotRepositoryTester.cs" />
+    <Compile Include="Infrastructure\DataAccess\TrackRepositoryTester.cs" />
     <Compile Include="Infrastructure\DataAccess\UserRepositoryTester.cs" />
     <Compile Include="Infrastructure\UI\Controllers\DependencyRegistrarTester.cs" />
     <Compile Include="ReflectionHelper.cs" />
-    <Compile Include="SchemaExportTester.cs" />
-    <Compile Include="SchemaImportTester.cs" />
     <Compile Include="TestHelper.cs" />
     <Compile Include="UI\DataLoader\ZDataLoader.cs" />
   </ItemGroup>
@@ -169,9 +183,13 @@
     <None Include="RenameForeignKeys.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="UI\FullSchedulePresentationModel.cd" />
+    <None Include="UI\MediumSchedulePresentationModel.cd" />
+    <None Include="UI\SmallestSchedulePresentationModel.cd" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+    <Folder Include="UI\Filters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

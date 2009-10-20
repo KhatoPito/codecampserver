@@ -2,6 +2,7 @@ using AutoMapper;
 using Castle.Components.Validator;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
+using Tarantino.Infrastructure.Commons.DataAccess.ORMapper;
 
 namespace CodeCampServer.DependencyResolution
 {
@@ -21,6 +22,7 @@ namespace CodeCampServer.DependencyResolution
 			     	});
 
 
+			ForRequestedType<ISessionBuilder>().TheDefaultIsConcreteType<HybridSessionBuilder>();
 		}
 
 		private string GetThisAssembliesPrefix()

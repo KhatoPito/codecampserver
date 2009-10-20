@@ -6,7 +6,7 @@ using CodeCampServer.Core.Services;
 using CodeCampServer.UI;
 using CodeCampServer.UI.Controllers;
 using CodeCampServer.UI.Helpers.Mappers;
-using CodeCampServer.UI.Models.Input;
+using CodeCampServer.UI.Models.Forms;
 using MvcContrib.TestHelper;
 using NBehave.Spec.NUnit;
 using NUnit.Framework;
@@ -22,9 +22,9 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 			var repository = S<IConferenceRepository>();
 			repository.Stub(repo => repo.GetAll()).Return(new Conference[0]);
 
-			var controller = new ConferenceController(repository, null,null);
+			var controller = new ConferenceController(repository, null,null,null);
 
-			ActionResult result = controller.Edit((Conference)null);
+			ActionResult result = controller.Edit(null);
 			result.AssertActionRedirect().ToAction<ConferenceController>(e => e.List(null));
 			controller.TempData["Message"].ShouldEqual(
 				"Conference has been deleted.");
@@ -39,7 +39,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 			var repository = S<IConferenceRepository>();
 			repository.Stub(repo => repo.GetAllForUserGroup(usergroup)).Return(new Conference[0]);
 
-			var controller = new ConferenceController(repository, null,null);
+			var controller = new ConferenceController(repository, null,null,null);
 
 			ActionResult result = controller.List(usergroup);
 
@@ -49,7 +49,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 		[Test]
 		public void Should_save_the_conference()
 		{
-			var form = new ConferenceInput();
+			var form = new ConferenceForm();
 			var conference = new Conference();
 
 			var mapper = S<IConferenceMapper>();
@@ -59,11 +59,11 @@ namespace CodeCampServer.UnitTests.UI.Controllers
             var securityContext = S<ISecurityContext>();
             securityContext.Stub(context => context.HasPermissionsForUserGroup(Guid.Empty)).Return(true);
 
-            var controller = new ConferenceController(repository, mapper, securityContext);
-            var result = (RedirectToRouteResult)controller.Edit(form);
+            var controller = new ConferenceController(repository, mapper, securityContext, S<IUserGroupRepository>());
+            var result = (RedirectToRouteResult)controller.Save(form);
 
 			repository.AssertWasCalled(r => r.Save(conference));
-			result.AssertActionRedirect().ToAction<HomeController>(a => a.Index(null));
+			result.AssertActionRedirect().ToAction<ConferenceController>(a => a.List(null));
 		}
 
 	    [Test]
@@ -73,7 +73,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
             var securityContext = S<ISecurityContext>();
             securityContext.Stub(context => context.HasPermissionsFor(new Conference())).IgnoreArguments().Return(false);
 
-            var controller = new ConferenceController(null, null, securityContext);
+            var controller = new ConferenceController(null, null, securityContext, null);
             var result = (ViewResult)controller.Edit(new Conference());
 
             result.AssertViewRendered().ViewName.ShouldEqual(ViewPages.NotAuthorized);
@@ -84,8 +84,8 @@ namespace CodeCampServer.UnitTests.UI.Controllers
             var securityContext = S<ISecurityContext>();
             securityContext.Stub(context => context.HasPermissionsFor(new Conference())).IgnoreArguments().Return(false);
 
-            var controller = new ConferenceController(null, null, securityContext);
-            var result = (ViewResult)controller.Edit(new ConferenceInput());
+            var controller = new ConferenceController(null, null, securityContext, S<IUserGroupRepository>());
+            var result = (ViewResult)controller.Save(new ConferenceForm());
 
             result.AssertViewRendered().ViewName.ShouldEqual(ViewPages.NotAuthorized);
         }
@@ -94,7 +94,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 		[Test]
 		public void Should_not_save_conference_if_key_already_exists()
 		{
-			var form = new ConferenceInput {Key = "foo", Id = Guid.NewGuid()};
+			var form = new ConferenceForm {Key = "foo", Id = Guid.NewGuid()};
 			var conference = new Conference();
 
 			var mapper = S<IConferenceMapper>();
@@ -106,8 +106,8 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 		    var securityContext = S<ISecurityContext>();
 		    securityContext.Stub(context => context.HasPermissionsForUserGroup(Guid.Empty)).Return(true);
 
-		    var controller = new ConferenceController(repository, mapper, securityContext);
-			var result = (ViewResult) controller.Edit(form);
+		    var controller = new ConferenceController(repository, mapper, securityContext, S<IUserGroupRepository>());
+			var result = (ViewResult) controller.Save(form);
 
 			result.AssertViewRendered().ViewName.ShouldEqual("Edit");
 			controller.ModelState.Values.Count.ShouldEqual(1);

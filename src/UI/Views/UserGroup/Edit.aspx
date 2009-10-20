@@ -1,6 +1,9 @@
 <%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master" AutoEventWireup="true" 
-Inherits="ViewPage<UserGroupInput>"%>
-<%@ Import Namespace="Microsoft.Web.Mvc" %>
+Inherits="CodeCampServer.UI.Helpers.ViewPage.BaseViewPage<UserGroupForm>"%>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="Menu" runat="server">
+<% Html.RenderPartial("HomeMenu"); %>
+</asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Stylesheets" runat="server">
 <script type="text/javascript" src="/scripts/tiny_mce/tiny_mce.js"></script>
@@ -21,9 +24,8 @@ Inherits="ViewPage<UserGroupInput>"%>
     <% using(Html.BeginForm<UserGroupController>(x=>x.Save(null))) { %>
     <%= Html.ValidationSummary() %>
     
-    
     <fieldset class="wide">
-        <h3>Edit User Group</h3>
+        <legend>Edit User Group</legend>
         
         <%=Html.Input(a => a.Key)%>
         <%=Html.Input(a => a.DomainName)%>
@@ -33,7 +35,7 @@ Inherits="ViewPage<UserGroupInput>"%>
         <%=Html.Input(a => a.Region)%>
         <%=Html.Input(a => a.Country)%>
         <%=Html.Input(a => a.Users)%>
-        <%=Html.Input(a => a.HomepageHTML).Partial("MultilineText")%>
+        <%=Html.Input(a => a.HomepageHTML, new { rows = 20 }.ToDictionary())%>
         <%=Html.Input(a => a.GoogleAnalysticsCode)%>        
         
         <p class="buttons">

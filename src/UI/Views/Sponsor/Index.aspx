@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master" 
-AutoEventWireup="true" Inherits="ViewPage<SponsorInput[]>"%>
+AutoEventWireup="true" Inherits="CodeCampServer.UI.Helpers.ViewPage.BaseViewPage<SponsorForm[]>"%>
 <%@ Import Namespace="MvcContrib.UI.Grid"%>
 <%@ Import Namespace="CodeCampServer.Core.Domain.Model"%>
 <%@ Import Namespace="CodeCampServer.UI"%>
@@ -9,7 +9,7 @@ AutoEventWireup="true" Inherits="ViewPage<SponsorInput[]>"%>
 			<a class="" href="<%=Url.Action<SponsorController>(c=>c.New(null))%>" title="Add a new Sponsor"><img src="/images/icons/application_add.png" /></a>
 		<%}%>
 	</h2>
-	<%=Html.ValidationSummary() %>	
+	<%=Errors.Display() %>	
 	<%=Html.Grid(Model)
 	    .WithClass("datatable")
 	    .AutoColumns()

@@ -1,44 +1,40 @@
 using System;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
-using CodeCampServer.UI.Models.Input;
+using CodeCampServer.UI.Models.Forms;
 
 namespace CodeCampServer.UI.Helpers.Mappers
 {
-	public class ConferenceMapper : AutoInputMapper<Conference, ConferenceInput>, IConferenceMapper
+	public class ConferenceMapper : AutoFormMapper<Conference, ConferenceForm>, IConferenceMapper
 	{
-		private readonly IUserGroupRepository _userGroupRepository;
+	    private readonly IUserGroupRepository _userGroupRepository;
 
-		public ConferenceMapper(IConferenceRepository repository, IUserGroupRepository userGroupRepository)
-			: base(repository)
+	    public ConferenceMapper(IConferenceRepository repository,IUserGroupRepository userGroupRepository) : base(repository)
 		{
-			_userGroupRepository = userGroupRepository;
+		    _userGroupRepository = userGroupRepository;
 		}
 
-
-		protected override Guid GetIdFromMessage(ConferenceInput message)
+	    protected override Guid GetIdFromMessage(ConferenceForm form)
 		{
-			return message.Id;
+			return form.Id;
 		}
 
-		protected override void MapToModel(ConferenceInput input, Conference model)
+		protected override void MapToModel(ConferenceForm form, Conference model)
 		{
-			model.Key = input.Key;
-			model.Name = input.Name;
-			model.Description = input.Description;
-			model.StartDate = input.StartDate;
-			model.EndDate = input.EndDate;
-			model.LocationName = input.LocationName;
-			model.LocationUrl = input.LocationUrl;
-			model.Address = input.Address;
-			model.City = input.City;
-			model.Region = input.Region;
-			model.PostalCode = input.PostalCode;
-			model.UserGroup = _userGroupRepository.GetById(input.UserGroupId);
-			model.TimeZone = input.TimeZone;
-			model.PhoneNumber = input.PhoneNumber;
-			model.HtmlContent = input.HtmlContent;
-			model.HasRegistration = input.HasRegistration;
+			model.Address = form.Address;
+			model.City = form.City;
+			model.Key = form.Key;
+			model.Description = form.Description;
+			model.EndDate = ToDateTime(form.EndDate);
+			model.LocationName = form.LocationName;
+			model.Name = form.Name;
+			model.PhoneNumber = form.PhoneNumber;
+			model.PostalCode = form.PostalCode;
+			model.Region = form.Region;
+			model.StartDate = ToDateTime(form.StartDate);
+		    model.HtmlContent = form.HtmlContent;
+		    model.HasRegistration = form.HasRegistration;
+		    model.UserGroup = _userGroupRepository.GetById(form.UserGroupId);
 		}
 	}
 }

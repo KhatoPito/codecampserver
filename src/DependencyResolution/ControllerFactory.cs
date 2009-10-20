@@ -1,6 +1,7 @@
 using System;
 using System.Web.Mvc;
 using StructureMap;
+using Tarantino.Core.Commons.Services.Logging;
 
 namespace CodeCampServer.DependencyResolution
 {
@@ -10,7 +11,7 @@ namespace CodeCampServer.DependencyResolution
 		{
 			if(controllerType!=null)
 			{
-				//Logger.Debug(this, string.Format("Creating controller {0}", controllerType.Name));
+				Logger.Debug(this, string.Format("Creating controller {0}", controllerType.Name));
 				return (IController)ObjectFactory.GetInstance(controllerType);
 			}
 			return null;

@@ -1,5 +1,5 @@
 using System;
-using CodeCampServer.Core.Domain.Model;
+using Tarantino.Core.Commons.Model;
 
 namespace CodeCampServer.Core.Domain
 {
@@ -43,6 +43,15 @@ namespace CodeCampServer.Core.Domain
 				return null;
 			}
 			return result;
+		}
+
+		protected static int ToInt32(string value)
+		{
+			if (string.IsNullOrEmpty(value))
+			{
+				return default(int);
+			}
+			return Convert.ToInt32(value);
 		}
 	}
 }

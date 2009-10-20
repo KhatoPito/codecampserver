@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using CodeCampServer.Core.Domain;
-using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.UI.Helpers;
+using Tarantino.Core.Commons.Model;
 
 namespace CodeCampServer.UI.Controllers
 {
@@ -21,20 +21,7 @@ namespace CodeCampServer.UI.Controllers
 
 		protected ActionResult ProcessSave(TForm form, Func<TModel, ActionResult> successRedirect)
 		{
-		    try
-		    {
-                return ProcessSave(form, successRedirect, model => { });
-		    }
-		    catch (Exception e)
-		    {
-		        while (e.InnerException!=null)
-		        {
-		            e = e.InnerException;
-		        }
-                ModelState.AddModelError("form",e.Message);
-		        return View("edit",form);
-		    }
-			
+			return ProcessSave(form, successRedirect, model => {});
 		}
 
 		protected ActionResult ProcessSave(TForm form, Func<TModel, ActionResult> successRedirect, Action<TModel> preSaveAction)

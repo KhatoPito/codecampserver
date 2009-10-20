@@ -1,46 +1,36 @@
 using System.Web.Mvc;
+using AutoMapper;
+using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.UI.Helpers.Filters;
 using CodeCampServer.UI.Helpers.Mappers;
-using CodeCampServer.UI.Models.Input;
+using CodeCampServer.UI.Models;
+using CodeCampServer.UI.Models.Forms;
+using MvcContrib;
 
 namespace CodeCampServer.UI.Controllers
 {
-	[AdminUserCreatedFilter]
-	public class HomeController : SmartController
-	{
-		private readonly IUserGroupMapper _mapper;
+    [AdminUserCreatedFilter]
+    public class HomeController : SmartController
+    {
+        private readonly IUserGroupMapper _mapper;
 
-		public HomeController(IUserGroupMapper mapper)
-		{
-			_mapper = mapper;
-		}
+        public HomeController(IUserGroupMapper mapper)
+        {
+            _mapper = mapper;
+        }
 
-		public ViewResult Index(UserGroup userGroup)
-		{
-			UserGroupInput input = MapToForm(userGroup);
-			if (userGroup == null || userGroup.IsDefault())
-			{
-				return View("defaultIndex", input);
-			}
-			return View(input);
-		}
+        public ViewResult Index(UserGroup userGroup, IConferenceRepository _conferenceRepository)
+        {
+            Conference[] conferences = _conferenceRepository.GetFutureForUserGroup(userGroup);
 
-		public ViewResult Events(UserGroup userGroup)
-		{
-			UserGroupInput input = MapToForm(userGroup);
-			return View(input);
-		}
+            var conferenceForms =
+                (ConferenceForm[]) Mapper.Map(conferences, typeof (Conference[]), typeof (ConferenceForm[]));
 
-		public ViewResult About(UserGroup userGroup)
-		{
-			UserGroupInput input = MapToForm(userGroup);
-			return View(input);
-		}
+            ViewData.Add(conferenceForms);
 
-		private UserGroupInput MapToForm(UserGroup userGroup)
-		{
-			return _mapper.Map(userGroup);
-		}
-	}
+            
+            return View(_mapper.Map(userGroup));
+        }
+    }
 }

@@ -1,28 +1,26 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master"
- AutoEventWireup="true" Inherits="ViewPage<LoginInput>"%>
-<%@ Import Namespace="MvcContrib.UI.InputBuilder"%>
+ AutoEventWireup="true" Inherits="CodeCampServer.UI.Helpers.ViewPage.BaseViewPage<LoginForm>"%>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="Menu" runat="server">
+<% Html.RenderPartial("HomeMenu"); %>
+</asp:Content>
 
 <asp:Content ContentPlaceHolderID="Main" runat="server">  
-
-<fieldset>
-  <h3>Please log in</h3>
-  <%=Html.ValidationSummary() %>
-  
-  <form action="/Login" method="post"> 
-    <label for="Username"><span class="required">*</span> Username:</label> 
-    <%=Html.TextBox("Username") %><%=Html.ValidationMessage("Username", "*") %>
-    <div class="cleaner"></div> 
-    
-    <label for="Password"><span class="required">*</span> Password:</label> 
-    <%=Html.Password("Password") %><%=Html.ValidationMessage("Password", "*")%>
-    <div class="cleaner"></div> 
-    
-    <label></label> 
-    <input type="submit" Value="Submit" /> 
-    <div class="cleaner"></div> 
-  </form> 
-  <%=Html.ActionLink<HomeController>("Cancel", x=>x.Index(null)) %>		
-  		
-</fieldset>	
+       <form action="<%= Url.Action<LoginController>(x => x.Login(null)) %>" method="post">
+		
+	    <h2>Please Log In:</h2>
+        <%=Errors.Display()%>
+        
+        <fieldset id="login">
+            <legend>Login Details</legend>
+            
+            <%=Html.Input(f=>f.Username) %>
+		    <%=Html.Input(f=>f.Password) %>
+		    
+		    <p class="buttons"><%=Html.SubmitButton("login", "Log in") %>
+		        <%= Html.ActionLink<HomeController>("Cancel", x => x.Index(null, null)) %>			   
+			</p>
+        </fieldset>
                 	
+</form>
 </asp:Content>

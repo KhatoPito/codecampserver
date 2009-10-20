@@ -12,6 +12,7 @@ namespace CodeCampServer.UI
 	{
 		public static void RegisterRoutes(RouteCollection routes)
 		{
+
 			new RouteConfigurator().RegisterRoutes();
 		}
 
@@ -19,14 +20,11 @@ namespace CodeCampServer.UI
 		{
 			RegisterRoutes(RouteTable.Routes);
 			AutoMapperConfiguration.Configure();
-			MvcContrib.UI.InputBuilder.InputBuilder.BootStrap();
-			MvcContrib.UI.InputBuilder.InputBuilder.SetConventionProvider(() => new InputBuilderConventions());
 			ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
 
 			ModelBinders.Binders.DefaultBinder = new SmartBinder();
-			DependencyRegistrar.EnsureDependenciesRegistered();
-			ModelBinders.Binders.Add(typeof (UserGroup),
-			                         DependencyRegistrar.Resolve<UserGroupModelBinder>());
+            DependencyRegistrar.EnsureDependenciesRegistered();
+            ModelBinders.Binders.Add(typeof(UserGroup),DependencyRegistrar.Resolve<UserGroupModelBinder>());
 		}
 	}
 }

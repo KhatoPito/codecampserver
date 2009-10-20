@@ -1,5 +1,9 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master" Inherits="ViewPage<UserGroupInput[]>"%>
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master" Inherits="CodeCampServer.UI.Helpers.ViewPage.BaseViewPage<UserGroupForm[]>"%>
 <%@ Import Namespace="CodeCampServer.UI.Helpers"%>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="Menu" runat="server">
+<% Html.RenderPartial("HomeMenu"); %>
+</asp:Content>
 
 <asp:Content ContentPlaceHolderID="Main" runat="server">
     <h2>User Groups

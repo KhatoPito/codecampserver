@@ -1,6 +1,5 @@
 using System.Web;
 using AutoMapper;
-using CodeCampServer.Core.Common;
 
 namespace CodeCampServer.UI.Models.CustomResolvers
 {
@@ -8,7 +7,7 @@ namespace CodeCampServer.UI.Models.CustomResolvers
 	{
 		public string FormatValue(ResolutionContext context)
 		{
-			return HttpUtility.HtmlEncode(PrimitiveExtensions.ToNullSafeString(context.SourceValue));
+			return HttpUtility.HtmlEncode(Core.Common.PrimitiveExtensions.ToNullSafeString(context.SourceValue));
 		}
 	}
 }

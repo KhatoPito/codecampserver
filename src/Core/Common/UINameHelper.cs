@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using CodeCampServer.Core.Domain.Model.Enumerations;
+using Tarantino.Core.Commons.Model.Enumerations;
 
 namespace CodeCampServer.Core.Common
 {

@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
-using CodeCampServer.UI.Models.Input;
+using CodeCampServer.UI.Models.Forms;
 
 namespace CodeCampServer.UI.Helpers
 {
     public static class ConferenceViewExtensions
     {
-        public static string ConferenceLink(this HtmlHelper html, ConferenceInput conferenceInput)
+        public static string ConferenceLink(this HtmlHelper html, ConferenceForm conferenceForm)
         {            
-            return html.RouteLink(conferenceInput.Name, "conferencedefault", 
-                new { controller="conference", action="index", conferenceKey = conferenceInput.Key });
+            return html.RouteLink(conferenceForm.Name, "conferencedefault", 
+                new { controller="conference", action="index", conferenceKey = conferenceForm.Key });
         }
 
         private static string GetDateBadge(DateTime dtm)
@@ -23,7 +23,7 @@ namespace CodeCampServer.UI.Helpers
             dtm.Month, dtm.Day, dtm.Year);
         }
 
-        public static string DateBadge(this HtmlHelper html, ConferenceInput conferenceInput)
+        public static string DateBadge(this HtmlHelper html, ConferenceForm conferenceForm)
         {
             return "";
         }

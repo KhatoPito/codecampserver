@@ -4,66 +4,52 @@ using System.Linq;
 using AutoMapper;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
-using CodeCampServer.UI.Models.Input;
+using CodeCampServer.UI.Models.Forms;
 
 namespace CodeCampServer.UI.Helpers.Mappers
 {
-	public class UserGroupMapper : AutoInputMapper<UserGroup, UserGroupInput>, IUserGroupMapper,
-	                               ITypeConverter<string, UserGroup>, ITypeConverter<Guid, UserGroup>
+	public class UserGroupMapper : AutoFormMapper<UserGroup, UserGroupForm>, IUserGroupMapper
 	{
-		private readonly IUserGroupRepository _repository;
-		private readonly IUserRepository _userRepository;
+	    private readonly IUserRepository _userRepository;
 
-		public UserGroupMapper(IUserGroupRepository repository, IUserRepository userRepository) : base(repository)
+	    public UserGroupMapper(IUserGroupRepository repository, IUserRepository userRepository) : base(repository)
 		{
-			_repository = repository;
-			_userRepository = userRepository;
+		    _userRepository = userRepository;
 		}
 
-		protected override Guid GetIdFromMessage(UserGroupInput input)
+	    protected override Guid GetIdFromMessage(UserGroupForm form)
 		{
-			return input.Id;
+			return form.Id;
 		}
 
-		protected override void MapToModel(UserGroupInput input, UserGroup model)
+		protected override void MapToModel(UserGroupForm form, UserGroup model)
 		{
-			model.DomainName = input.DomainName;
-			model.Key = input.Key;
-			model.Id = input.Id;
-			model.Name = input.Name;
-			model.HomepageHTML = input.HomepageHTML;
-			model.City = input.City;
-			model.Region = input.Region;
-			model.Country = input.Country;
-			model.GoogleAnalysticsCode = input.GoogleAnalysticsCode;
-			User[] existingUsers = model.GetUsers();
+		    model.DomainName = form.DomainName;
+			model.Key = form.Key;
+			model.Id = form.Id;
+			model.Name = form.Name;
+		    model.HomepageHTML = form.HomepageHTML;
+		    model.City = form.City;
+		    model.Region = form.Region;
+		    model.Country = form.Country;
+		    model.GoogleAnalysticsCode = form.GoogleAnalysticsCode;
+		    var existingUsers = model.GetUsers();
+		    
+            IEnumerable<User> usersToRemove = existingUsers.Where(user => !form.Users.Any(uf => uf.Id==user.Id) );
+		    
+            foreach (var user in usersToRemove)
+		    {
+                model.Remove(user);    
+		    }
 
-			IEnumerable<User> usersToRemove = existingUsers.Where(user => !input.Users.Any(uf => uf.Id == user.Id));
+		    IEnumerable<UserSelector> userFormToAdd = form.Users.Where(userForm => !existingUsers.Any(user => user.Id == userForm.Id));
+		    var users = _userRepository.GetAll();
 
-			foreach (User user in usersToRemove)
-			{
-				model.Remove(user);
-			}
-
-			IEnumerable<UserSelectorInput> userFormToAdd =
-				input.Users.Where(userForm => !existingUsers.Any(user => user.Id == userForm.Id));
-			User[] users = _userRepository.GetAll();
-
-			foreach (UserSelectorInput userForm in userFormToAdd)
-			{
-				User user = users.FirstOrDefault(user1 => user1.Id == userForm.Id);
-				model.Add(user);
-			}
-		}
-
-		public UserGroup Convert(string source)
-		{
-			return _repository.GetByKey(source);
-		}
-
-		public UserGroup Convert(Guid source)
-		{
-			return _repository.GetById(source);
+            foreach (var userForm in userFormToAdd)
+		    {
+		        User user = users.FirstOrDefault(user1 => user1.Id == userForm.Id);
+		        model.Add(user);
+		    }
 		}
 	}
 }
