@@ -59,7 +59,7 @@ namespace CodeCampServer.UI.Controllers
 		private ViewResult GetEvents(IEnumerable<Event> events)
 		{
 			string[] keys = (from e in events select e.Key).ToArray();
-			return View("list", keys);
+			return View("List", keys);
 		}
 
 		public ViewResult AllUpcomingEvents()

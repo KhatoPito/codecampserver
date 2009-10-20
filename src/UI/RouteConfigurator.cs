@@ -44,11 +44,7 @@ namespace CodeCampServer.UI
 				.RouteHandler = new DomainNameRouteHandler();
 
 			MvcRoute.MappUrl("{controller}/{action}")
-				.WithDefaults(new {controller = "home", action = "index"})
-				.WithConstraints(new
-				                 	{
-				                 		controller = "(admin|login|home|conference|usergroup|user|rss|sponsor|rssfeed|event|meeting)"
-				                 	})
+				.WithDefaults(new {controller = "Home", action = "Index"})
 				.AddWithName("default", routes)
 				.RouteHandler = new DomainNameRouteHandler();
 		}
