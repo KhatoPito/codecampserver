@@ -23,6 +23,21 @@ namespace CodeCampServer.Infrastructure.ObjectMapping.ConfigurationProfiles
 				                       		UserGroup = Mapper.Map<UserGroupInput, UserGroup>(input)
 				                       	});
 			Mapper.CreateMap<DeleteUserGroupInput, DeleteUserGroupCommandMessage>();
+
+			Mapper.CreateMap<SponsorInput, UpdateSponsorCommandMessage>()
+				.ConvertUsing(input =>
+
+				              new UpdateSponsorCommandMessage()
+				              	{
+				              		Sponsor = Mapper.Map<SponsorInput, Sponsor>(input),
+				              		UserGroup = Mapper.Map<Guid,UserGroup>(input.UserGroupId)
+				              			}
+				              	);
+			Mapper.CreateMap<SponsorInput,Sponsor>().ConvertUsing<SponsorInputToSponsorTypeConverter>();
+
+			Mapper.CreateMap<Sponsor, SponsorInput>()
+				.ForMember(x => x.UserGroupId, o => o.Ignore());
+
 		}
 	}
 }

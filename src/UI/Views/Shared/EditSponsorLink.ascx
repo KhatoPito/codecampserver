@@ -2,6 +2,6 @@
 <%@ Import Namespace="CodeCampServer.UI.Helpers" %>
 <%if (ViewContext.HttpContext.User.Identity.IsAuthenticated){%>
     <%= Html.ImageLink<SponsorController>(
-            t=>t.Edit(null,Guid.Empty), new{sponsorID = Model.ID},
+            t=>t.Edit(null,(SponsorInput)null), new{sponsorID = Model.ID},
             "~/images/icons/application_edit.png", "Edit the conference") %>
 <%}%>

@@ -91,6 +91,8 @@
     <Compile Include="Services\BusinessRule\UpdateMeeting\UpdateMeetingCommandMessage.cs" />
     <Compile Include="Services\BusinessRule\DeleteMeeting\DeleteMeetingCommandHandler.cs" />
     <Compile Include="Services\BusinessRule\DeleteMeeting\DeleteMeetingCommandMessage.cs" />
+    <Compile Include="Services\BusinessRule\UpdateSponsor\UpdateSponsorCommandHandler.cs" />
+    <Compile Include="Services\BusinessRule\UpdateSponsor\UpdateSponsorCommandMessage.cs" />
     <Compile Include="Services\BusinessRule\UpdateUserGroup\UpdateUserGroupCommandHandler.cs" />
     <Compile Include="Services\BusinessRule\UpdateUserGroup\UpdateUserGroupCommandMessage.cs" />
     <Compile Include="Services\BusinessRule\UpdateUser\UpdateUserCommandHandler.cs" />

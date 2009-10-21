@@ -200,5 +200,42 @@ namespace CodeCampServer.IntegrationTests.BusinessRules
 			result.Successful.ShouldBeTrue();
 			result.ReturnItems.Get<User>().ShouldNotBeNull();
 		}
+		[Test]
+		public void Update_sponsor_should_save_a_usergroup()
+		{
+			DependencyRegistrar.EnsureDependenciesRegistered();
+			AutoMapperConfiguration.Configure();
+			ObjectFactory.Inject(typeof(IUnitOfWork), S<IUnitOfWork>());
+			ObjectFactory.Inject(typeof(IWebContext), S<IWebContext>());
+
+			var repository = S<IRepository<UserGroup>>();
+			ObjectFactory.Inject(typeof(IRepository<UserGroup>), repository);
+			repository.Stub(repository1 => repository1.GetById(Guid.Empty)).IgnoreArguments().Repeat.Any().Return(new UserGroup());
+			
+			var userGroupRepository = S<IUserGroupRepository>();
+			ObjectFactory.Inject(typeof(IUserGroupRepository), userGroupRepository);
+			userGroupRepository.Stub(repository1 => repository1.GetById(Guid.Empty)).IgnoreArguments().Repeat.Any().Return(new UserGroup());
+			
+			//var userRepository = S<IUserRepository>();
+			///ObjectFactory.Inject(typeof(IUserRepository), userRepository);
+
+			RulesEngineConfiguration.Configure(typeof(UpdateUserGroupMessageConfiguration));
+			var rulesRunner = new RulesEngine();
+
+			var result = rulesRunner.Process(new SponsorInput()
+			{
+				Name = "New Meeting",
+				BannerUrl = "the url",
+                ID = Guid.Empty,
+                Level = SponsorLevel.Gold,
+                Url = "http://foo.com",
+                UserGroupId = Guid.NewGuid(),
+			}, typeof(SponsorInput));
+
+			result.Successful.ShouldBeTrue();
+			result.ReturnItems.Get<Sponsor>().ShouldNotBeNull();
+
+			userGroupRepository.AssertWasCalled(r => r.Save(null), options => options.IgnoreArguments());
+		}
 	}
 }

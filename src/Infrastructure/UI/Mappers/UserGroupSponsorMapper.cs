@@ -14,7 +14,7 @@ namespace CodeCampServer.Infrastructure.UI.Mappers
 
 		protected override Guid GetIdFromMessage(SponsorInput message)
 		{
-			return message.ParentID;
+			return message.UserGroupId;
 		}
 
 		protected override void MapToModel(SponsorInput message, UserGroup model)

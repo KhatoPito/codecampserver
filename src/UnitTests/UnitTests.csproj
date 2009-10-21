@@ -133,12 +133,13 @@
     <Compile Include="UI\AutoMappedConfigurationTester.cs" />
     <Compile Include="UI\BinderTester.cs" />
     <Compile Include="UI\Controllers\AdminControllerTester.cs" />
-    <Compile Include="UI\Controllers\ConferenceControllerTester.cs" />
     <Compile Include="UI\Controllers\EventControllerTester.cs" />
+    <Compile Include="UI\Controllers\SaveControllerTester.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="UI\Controllers\SponsorControllerTester.cs" />
     <Compile Include="UI\Controllers\HomeControllerTester.cs" />
     <Compile Include="UI\Controllers\RedirectToRouteExtensions.cs" />
-    <Compile Include="UI\Controllers\SaveControllerTester.cs" />
     <Compile Include="UI\Controllers\UserControllerTester.cs" />
     <Compile Include="UI\Controllers\UserGroupControllerTester.cs" />
     <Compile Include="UI\Helpers\Filters\FilterAttributeTester.cs" />

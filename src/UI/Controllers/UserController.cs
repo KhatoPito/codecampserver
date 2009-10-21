@@ -29,22 +29,22 @@ namespace CodeCampServer.UI.Controllers
 			_rulesEngine = rulesEngine;
 		}
 
-		[AcceptVerbs(HttpVerbs.Get)]
-		public ViewResult Edit(User user)
-		{
-			if (!_securityContext.IsAdmin())
+			[AcceptVerbs(HttpVerbs.Get)]
+			public ViewResult Edit(User user)
 			{
-				return NotAuthorizedView;
-			}
+				if (!_securityContext.IsAdmin())
+				{
+					return NotAuthorizedView;
+				}
 
-			if (user == null)
-			{
-				return View(_mapper.Map(new User()));
-			}
+				if (user == null)
+				{
+					return View(_mapper.Map(new User()));
+				}
 
-			UserInput input = _mapper.Map(user);
-			return View(input);
-		}
+				UserInput input = _mapper.Map(user);
+				return View(input);
+			}
 
 		[AcceptVerbs(HttpVerbs.Post)]
 		[RequireAuthenticationFilter]
