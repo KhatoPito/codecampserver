@@ -140,6 +140,7 @@
     <Compile Include="ObjectMapping\ConfigurationProfiles\MeetingMapperProfile.cs" />
     <Compile Include="ObjectMapping\ConfigurationProfiles\MeetingMessageMapperProfile.cs" />
     <Compile Include="ObjectMapping\ConfigurationProfiles\UserGroupMapperProfile.cs" />
+    <Compile Include="ObjectMapping\TypeConverters\UserGroupInputToUserGroupTypeConverter.cs" />
     <Compile Include="StructureMapServiceLocator.cs" />
     <Compile Include="SystemClock.cs" />
     <Compile Include="ObjectMapping\TypeConverters\IdToEntityTypeConverter.cs" />
@@ -152,7 +153,7 @@
     <Compile Include="UI\Mappers\ConferenceMapper.cs" />
     <Compile Include="UI\Mappers\IUserGroupInputToUserGroupTypeConverter.cs" />
     <Compile Include="UI\Mappers\MeetingMapper.cs" />
-    <Compile Include="ObjectMapping\TypeConverters\UserGroupInputToUserGroupTypeConverter.cs" />
+    <Compile Include="ObjectMapping\TypeConverters\SponsorInputToSponsorTypeConverter.cs" />
     <Compile Include="UI\Mappers\UserGroupMapper.cs" />
     <Compile Include="UI\Mappers\UserGroupSponsorMapper.cs" />
     <Compile Include="UI\Mappers\UserMapper.cs" />

@@ -14,4 +14,11 @@ namespace CodeCampServer.Infrastructure.BusinessRules
 				;
 		}
 	}
+	public class UpdateSponsorMessageConfiguration : MessageDefinition<SponsorInput>
+	{
+		public UpdateSponsorMessageConfiguration()
+		{
+			Execute<UpdateSponsorCommandMessage>();
+		}
+	}
 }

@@ -1,4 +1,4 @@
-<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -82,9 +82,6 @@
     </Compile>
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\MeetingController.cs" />
-    <Compile Include="Controllers\SaveController.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Controllers\SponsorController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserGroupController.cs" />
@@ -154,7 +151,6 @@
     <Compile Include="Helpers\Filters\BaseActionFilter.cs" />
     <Compile Include="Helpers\Filters\AdminUserCreatedFilterAttribute.cs" />
     <Compile Include="Helpers\Filters\RequireAuthenticationFilterAttribute.cs" />
-    <Compile Include="Helpers\Filters\RequiresConferenceFilterAttribute.cs" />
     <Compile Include="Helpers\Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -173,7 +169,6 @@
     <Compile Include="Helpers\Validation\Attributes\RequiredEmailAttribute.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Models\Input\UserInput.cs" />
-    <Compile Include="Controllers\ConferenceController.cs" />
     <Compile Include="Models\Input\ConferenceInput.cs" />
     <Compile Include="Models\Input\LoginInput.cs" />
     <Compile Include="RouteConfigurator.cs" />
@@ -277,6 +272,7 @@
     <Content Include="Views\Home\Events.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Login\Index.aspx" />
+    <Content Include="Views\Shared\DropDown.aspx" />
     <Content Include="Views\Shared\EditSponsorLink.ascx" />
     <Content Include="Views\Shared\DisplayLabel.aspx" />
     <Content Include="Views\Shared\DisplayParagraph.aspx" />
@@ -335,7 +331,7 @@
     <Content Include="Views\Shared\Display.Master" />
     <None Include="Views\Shared\Field.Master" />
     <Content Include="Views\Shared\Password.aspx" />
-    <Content Include="Views\Shared\UserPicker.aspx" />
+    <Content Include="Views\Shared\ListBox.aspx" />
     <Content Include="Views\Shared\DatePicker.aspx" />
     <Content Include="Views\Shared\DeleteConferenceLink.ascx" />
     <Content Include="Views\Shared\DeleteMeetingLink.ascx" />

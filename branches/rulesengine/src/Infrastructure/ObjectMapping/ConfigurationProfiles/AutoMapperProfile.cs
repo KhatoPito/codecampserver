@@ -33,8 +33,6 @@ namespace CodeCampServer.Infrastructure.ObjectMapping.ConfigurationProfiles
 
 		private static void CreateMaps()
 		{
-			Mapper.CreateMap<Sponsor, SponsorInput>()
-				.ForMember(x => x.ParentID, o => o.Ignore());
 
 			Mapper.CreateMap<Conference, ConferenceInput>()
 				.ForMember(x => x.StartDate, o => o.AddFormatter<StandardDateTimeFormatter>())

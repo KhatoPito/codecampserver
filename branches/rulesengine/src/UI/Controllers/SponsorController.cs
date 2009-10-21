@@ -7,23 +7,25 @@ using CodeCampServer.Core.Services;
 using CodeCampServer.UI.Helpers.Filters;
 using CodeCampServer.UI.Helpers.Mappers;
 using CodeCampServer.UI.Models.Input;
+using CommandProcessor;
+using Tarantino.RulesEngine;
 
 namespace CodeCampServer.UI.Controllers
 {
-	public class SponsorController : SaveController<UserGroup, SponsorInput>
+	public class SponsorController : SmartController
 	{
 		private readonly IUserGroupRepository _repository;
 		private readonly IUserGroupSponsorMapper _mapper;
 		private readonly ISecurityContext _securityContext;
+		private readonly IRulesEngine _rulesEngine;
 
-		public SponsorController(IUserGroupRepository repository, 
-								 IUserGroupSponsorMapper mapper,
-		                         ISecurityContext securityContext)
-			: base(repository, mapper)
+		public SponsorController(IUserGroupRepository repository, IUserGroupSponsorMapper mapper, ISecurityContext securityContext, IRulesEngine rulesEngine)
+			
 		{
 			_repository = repository;
 			_mapper = mapper;
 			_securityContext = securityContext;
+			_rulesEngine = rulesEngine;
 		}
 
 
@@ -31,22 +33,32 @@ namespace CodeCampServer.UI.Controllers
 		{
 			Sponsor[] entities = usergroup.GetSponsors();
 
+			SponsorInput[] displayModel = _mapper.Map(entities);
 
-			SponsorInput[] entityListDto = _mapper.Map(entities);
-
-			return View(entityListDto);
+			return View(displayModel);
 		}
 
-		public ActionResult New(UserGroup userGroup)
-		{
-			return View("edit", new SponsorInput());
-		}
 
+		[AcceptVerbs(HttpVerbs.Post)]
+		[RequireAuthenticationFilter]
+		[ValidateInput(false)]
 		[ValidateModel(typeof (SponsorInput))]
-		public ActionResult Save(UserGroup userGroup, SponsorInput sponsorInput)
+		public ActionResult Edit(UserGroup userGroup, SponsorInput sponsorInput)
 		{
-			sponsorInput.ParentID = userGroup.Id;
-			return ProcessSave(sponsorInput, entity => RedirectToAction<SponsorController>(s => s.Index(null)));
+			if (ModelState.IsValid)
+			{
+				ExecutionResult result = _rulesEngine.Process(sponsorInput);
+				if (result.Successful)
+				{
+					return RedirectToAction<SponsorController>(c => c.Index(null));
+				}
+
+				foreach (var errorMessage in result.Messages)
+				{
+					ModelState.AddModelError(errorMessage.IncorrectAttribute, errorMessage.MessageText);
+				}
+			}
+			return View(sponsorInput);
 		}
 
 		public ActionResult Delete(UserGroup userGroup, Sponsor sponsor)
@@ -57,11 +69,23 @@ namespace CodeCampServer.UI.Controllers
 		}
 
 
-		public ActionResult Edit(UserGroup userGroup, Guid sponsorID)
+		[AcceptVerbs(HttpVerbs.Get)]
+		public ViewResult Edit(UserGroup userGroup, Sponsor sponsor)
 		{
-			Sponsor sponsor = userGroup.GetSponsors().Where(sponsor1 => sponsor1.Id == sponsorID).FirstOrDefault();
+			if (!_securityContext.IsAdmin())
+			{
+				return NotAuthorizedView;
+			}
 
-			return View(_mapper.Map(sponsor));
+			if (sponsor == null)
+			{
+				sponsor = new Sponsor();
+			}
+
+			SponsorInput input = _mapper.Map(sponsor);
+			input.UserGroupId = userGroup.Id;
+
+			return View(input);
 		}
 
 		public ActionResult List(UserGroup userGroup)
