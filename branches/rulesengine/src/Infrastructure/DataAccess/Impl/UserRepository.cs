@@ -35,6 +35,7 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 				.ToArray();
 		}
 
+
 		protected override string GetEntityNaturalKeyName()
 		{
 			return "Username";

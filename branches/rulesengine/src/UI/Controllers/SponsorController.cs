@@ -31,7 +31,9 @@ namespace CodeCampServer.UI.Controllers
 
 		public ActionResult Index(UserGroup usergroup)
 		{
-			Sponsor[] entities = usergroup.GetSponsors();
+			var group = _repository.GetById(usergroup.Id);
+
+			Sponsor[] entities = group.GetSponsors();
 
 			SponsorInput[] displayModel = _mapper.Map(entities);
 

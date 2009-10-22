@@ -13,7 +13,11 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 	public abstract class DataTestBase : PersistanceSpecificationHelper
 	{
 		#region Setup/Teardown
-
+		[TearDown]
+		public virtual void TearDown()
+		{
+			GetSession().Flush();
+		}
 		[SetUp]
 		public virtual void Setup()
 		{
@@ -37,13 +41,14 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 		{
 			Type[] types =
 				typeof (User).Assembly.GetTypes().Where(
-					type => typeof (PersistentObject).IsAssignableFrom(type) && !type.IsAbstract).
-					ToArray();
+					type => typeof (PersistentObject).IsAssignableFrom(type) && !type.IsAbstract)
+					.OrderBy(type => type.Name).ToArray();
 			using (ISession session = GetSession())
 			{
 				session.Transaction.Begin();
 				foreach (Type type in types)
 				{
+					
 					session.Delete("from " + type.Name + " o");
 				}
 				session.Flush();
