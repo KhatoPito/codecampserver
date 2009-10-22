@@ -73,11 +73,6 @@ namespace CodeCampServer.UI.Controllers
 			return View(input);
 		}
 
-		public ActionResult New(UserGroup usergroup)
-		{
-			return RedirectToAction<UserController>(c => c.Edit((User)null));
-		}
-
 		public ViewResult Index()
 		{
 			return View(_mapper.Map(_repository.GetAll()));

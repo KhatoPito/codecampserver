@@ -37,5 +37,10 @@ namespace CodeCampServer.Infrastructure.UI.Mappers
 		{
 			return message.Select(form => Map(form)).ToArray();
 		}
+
+		public new UserInput[] Map(User[] message)
+		{
+			return message.Select(form => Map(form)).ToArray();
+		}
 	}
 }

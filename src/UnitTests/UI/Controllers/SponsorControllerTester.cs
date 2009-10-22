@@ -23,7 +23,9 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 		{
 			var mapper = S<IUserGroupSponsorMapper>();
 			mapper.Stub(sponsorMapper => sponsorMapper.Map((Sponsor[]) null)).IgnoreArguments().Return(new SponsorInput[0]);
-			var controller = new SponsorController(S<IUserGroupRepository>(),mapper,PermisiveSecurityContext(), null);
+			var repository = S<IUserGroupRepository>();
+			repository.Stub(groupRepository => groupRepository.GetById(Guid.NewGuid())).IgnoreArguments().Return(new UserGroup());
+			var controller = new SponsorController(repository,mapper,PermisiveSecurityContext(), null);
 
 		    controller.Index(new UserGroup())
             
