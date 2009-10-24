@@ -10,7 +10,7 @@ namespace CodeCampServer.UnitTests
 	public abstract class TestBase
 	{
 		[TestFixtureSetUp]
-		public void Setup()
+		public void TestFixtureSetup()
 		{
             AutoMapperConfiguration.Configure();
 			ObjectFactory.Inject(typeof(IUserSession), S<IUserSession>());	
