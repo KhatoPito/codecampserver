@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using CodeCampServer.Infrastructure.DataAccess.Mappings;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Conventions.Helpers;
 using NHibernate.Cfg;
@@ -24,13 +25,13 @@ namespace CodeCampServer.Infrastructure.DataAccess
 			return Fluently.Configure(configuration)
 				.Mappings(cfg =>
 				          	{
-				          		cfg.HbmMappings.AddFromAssembly(Assembly.GetCallingAssembly());
-//				          		cfg.FluentMappings.AddFromAssembly(Assembly.GetCallingAssembly())
-//				          			.Conventions.Setup(mappings =>
-//				          			                   	{
-//				          			                   		mappings.AddAssembly(Assembly.GetCallingAssembly());
-//				          			                   		mappings.Add(ForeignKey.EndsWith("Id"));
-//				          			                   	});
+								cfg.HbmMappings.AddFromAssembly(typeof(UserMap).Assembly);
+								cfg.FluentMappings.AddFromAssembly(typeof(UserMap).Assembly)
+				          			.Conventions.Setup(mappings =>
+				          			                   	{
+				          			                   		mappings.AddAssembly(typeof(UserMap).Assembly);
+				          			                   		mappings.Add(ForeignKey.EndsWith("Id"));
+				          			                   	});
 				          	}).BuildConfiguration();
 		}
 	}

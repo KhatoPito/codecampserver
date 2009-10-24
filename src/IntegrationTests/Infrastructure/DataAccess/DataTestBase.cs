@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using CodeCampServer.Core.Domain.Model;
 using NHibernate;
 using NUnit.Framework;
@@ -14,7 +15,7 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 		public override void Setup()
 		{
 			base.Setup();
-			TestHelper.DeleteAllObjects();
+			DeleteAllObjects();
 		}
 
 		protected void PersistEntities(params PersistentObject[] entities)
@@ -32,6 +33,27 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 				doStuffInTheSession(session);
 			}
 		}
+
+		protected virtual void DeleteAllObjects()
+		{
+			Type[] types =
+					typeof(User).Assembly.GetTypes().Where(
+							type => typeof(PersistentObject).IsAssignableFrom(type) && !type.IsAbstract)
+							.OrderBy(type => type.Name).ToArray();
+			using (ISession session = GetSession())
+			{
+				session.Transaction.Begin();
+				foreach (Type type in types)
+				{
+
+					session.Delete("from " + type.Name + " o");
+				}
+				session.Flush();
+				session.Transaction.Commit();
+
+			}
+		}
+
 
 		protected static void Persist(IEnumerable<PersistentObject> entities, ISession session)
 		{

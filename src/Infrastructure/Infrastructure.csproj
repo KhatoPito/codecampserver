@@ -49,7 +49,7 @@
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\nhibernate\log4net.dll</HintPath>
+      <HintPath>..\..\lib\NHibernate-2.1.0.GA-bin\Required_Bins\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -115,6 +115,14 @@
     <Compile Include="DataAccess\ConfigBasedSessionSource.cs" />
     <Compile Include="DataAccess\ConfigurationFactory.cs" />
     <Compile Include="DataAccess\ISessionSource.cs" />
+    <Compile Include="DataAccess\Mappings\ConferenceMap.cs" />
+    <Compile Include="DataAccess\Mappings\EntityClassMap.cs" />
+    <Compile Include="DataAccess\Mappings\EnumerationTypeConvention.cs" />
+    <Compile Include="DataAccess\Mappings\EventMap.cs" />
+    <Compile Include="DataAccess\Mappings\MeetingMap.cs" />
+    <Compile Include="DataAccess\Mappings\SponsorMap.cs" />
+    <Compile Include="DataAccess\Mappings\UserGroupMap.cs" />
+    <Compile Include="DataAccess\Mappings\UserMap.cs" />
     <Compile Include="DataAccess\NHibernateRegistry.cs" />
     <Compile Include="DataAccess\UnitOfWork.cs" />
     <Compile Include="DataAccess\UnitOfWorkModule.cs" />
@@ -211,24 +219,6 @@
       <Project>{98200972-A038-4DA8-8917-CBC4895175DC}</Project>
       <Name>UI</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="DataAccess\Mappings\User.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="DataAccess\Mappings\Conference.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="DataAccess\Mappings\UserGroup.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="DataAccess\Mappings\Sponsor.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="DataAccess\Mappings\Meeting.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="DataAccess\Mappings\Event.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
