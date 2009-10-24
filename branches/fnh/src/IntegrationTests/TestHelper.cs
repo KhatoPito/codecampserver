@@ -1,43 +1,36 @@
-using CodeCampServer.Infrastructure.DataAccess.Impl;
+using CodeCampServer.DependencyResolution;
+using NHibernate;
+using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using NUnit.Framework;
+using StructureMap;
 
 namespace CodeCampServer.IntegrationTests
 {
 	[TestFixture]
-	public class TestHelper
+	public static class TestHelper
 	{
+		static TestHelper()
+		{
+			DependencyRegistrar.EnsureDependenciesRegistered();
+		}
+
 		private static bool _databaseRecreated;
-
-		[Test, Explicit("To output and apply the schema export script")]
-		public void ExportSchema()
-		{
-			new SchemaExport(GetSessionBuilder().GetConfiguration())
-				.Create(true, true);
-		}
-
-		[Test, Explicit("To drop the database")]
-		public void DropSchema()
-		{
-			new SchemaExport(GetSessionBuilder().GetConfiguration()).Drop(true, true);
-		}
-
-		[Test, Explicit("To drop the database")]
-		public void DeleteAllData()
-		{
-			DeleteAllObjects();
-		}
 
 		private static void RecreateDatabase()
 		{
-			ISessionBuilder sessionBuilder = GetSessionBuilder();
-			var exporter = new SchemaExport(sessionBuilder.GetConfiguration());
-			exporter.Execute(false, true, false, false);
+			var exporter = new SchemaExport(GetConfiguration());
+			exporter.Execute(false, true, false);
 		}
 
-		private static ISessionBuilder GetSessionBuilder()
+		public static ISessionFactory GetSessionFactory()
 		{
-			return new HybridSessionBuilder();
+			return ObjectFactory.GetInstance<ISessionFactory>();
+		}
+
+		public static Configuration GetConfiguration()
+		{
+			return ObjectFactory.GetInstance<Configuration>();
 		}
 
 		public static void DeleteAllObjects()

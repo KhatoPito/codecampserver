@@ -43,6 +43,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\tinorulesengine\CommandProcessor.dll</HintPath>
     </Reference>
+    <Reference Include="FluentNHibernate, Version=1.0.0.593, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\FluentNHibernate\FluentNHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\nhibernate\log4net.dll</HintPath>
@@ -55,13 +59,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\mvccontrib\MvcContrib.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate, Version=2.1.0.1001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+    <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\nhibernate\NHibernate.dll</HintPath>
+      <HintPath>..\..\lib\NHibernate-2.1.0.GA-bin\Required_Bins\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate.Caches.SysCache, Version=2.0.0.1001, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\nhibernate\NHibernate.Caches.SysCache.dll</HintPath>
+      <HintPath>..\..\lib\NHibernate-2.1.0.GA-bin\Required_For_LazyLoading\LinFu\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Caches.SysCache, Version=2.1.0.4000, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate-2.1.0.GA-bin\NHibernate.Caches.SysCache.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -104,14 +112,15 @@
     <Compile Include="BusinessRules\RulesEngineConfiguration.cs" />
     <Compile Include="BusinessRules\Validation\UsernameMustBeUnique.cs" />
     <Compile Include="BusinessRules\Validation\UserGroupKeyMustBeUnique.cs" />
+    <Compile Include="DataAccess\ConfigBasedSessionSource.cs" />
+    <Compile Include="DataAccess\ConfigurationFactory.cs" />
+    <Compile Include="DataAccess\ISessionSource.cs" />
+    <Compile Include="DataAccess\NHibernateRegistry.cs" />
     <Compile Include="DataAccess\UnitOfWork.cs" />
     <Compile Include="DataAccess\UnitOfWorkModule.cs" />
     <Compile Include="DataAccess\IUnitOfWork.cs" />
     <Compile Include="ObjectMapping\AutoMapperConfiguration.cs" />
-    <Compile Include="DataAccess\Bases\HybridSessionBuilder.cs" />
-    <Compile Include="DataAccess\Bases\ISessionBuilder.cs" />
     <Compile Include="DataAccess\Bases\Logger.cs" />
-    <Compile Include="DataAccess\Bases\NHibernateSessionModule.cs" />
     <Compile Include="DataAccess\Impl\ConferenceRepository.cs" />
     <Compile Include="DataAccess\Impl\EventRepository.cs" />
     <Compile Include="DataAccess\Impl\KeyedRepository.cs" />
@@ -119,7 +128,7 @@
     <Compile Include="DataAccess\Impl\RepositoryBase.cs" />
     <Compile Include="DataAccess\Impl\UserGroupRepository.cs" />
     <Compile Include="DataAccess\Impl\UserRepository.cs" />
-    <Compile Include="IfrastructureRegistry.cs" />
+    <Compile Include="InfrastructureRegistry.cs" />
     <Compile Include="EnumerationType.cs" />
     <Compile Include="HttpFileDownloaderService.cs" />
     <Compile Include="ObjectMapping\ConfigurationProfiles\AutoMapperProfile.cs" />
