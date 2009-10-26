@@ -1,5 +1,6 @@
 using System;
 using System.Web.Mvc;
+using CodeCampServer.Infrastructure.Database;
 using CodeCampServer.Infrastructure.UI.Services;
 using CodeCampServer.UI.Helpers.Binders;
 using CodeCampServer.UI.Views;
@@ -72,7 +73,7 @@ namespace CodeCampServer.DependencyResolution
 						//ModelBinders.Binders.Add(typeof (UserGroup),
 						//                         DependencyRegistrar.Resolve<UserGroupModelBinder>());
 
-
+						DatabaseCreator.Create();
 						_dependenciesRegistered = true;
 					}
 				}

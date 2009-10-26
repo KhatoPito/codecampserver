@@ -22,12 +22,12 @@ namespace CodeCampServer.UI.Controllers
 		}
 
 		[AcceptVerbs(HttpVerbs.Get)]
-		public ActionResult Edit(Meeting meeting, UserGroup usergroup)
+		public ActionResult Edit(Meeting meeting)
 		{
 			var input = new MeetingInput();
 			if (meeting == null)
 			{
-				_mapper.Map(new Meeting {UserGroup = usergroup}, input);
+				_mapper.Map(new Meeting(), input);
 				return View(input);
 			}
 
@@ -36,15 +36,10 @@ namespace CodeCampServer.UI.Controllers
 		}
 
 		[AcceptVerbs(HttpVerbs.Post)]
-		[RequireAuthenticationFilter]
 		[ValidateInput(false)]
 		[ValidateModel(typeof (MeetingInput))]
 		public ActionResult Edit(MeetingInput input)
 		{
-			if (!_securityContext.HasPermissionsForUserGroup(input.UserGroupId))
-			{
-				return View(ViewPages.NotAuthorized);
-			}
 
 			if (!ModelState.IsValid)
 			{
@@ -53,27 +48,13 @@ namespace CodeCampServer.UI.Controllers
 
 			Meeting meeting = _mapper.Map<MeetingInput, Meeting>(input);
 			_repository.Save(meeting);
-			return RedirectToAction<HomeController>(c => c.Index(meeting.UserGroup));
+			return RedirectToAction<HomeController>(c => c.Index());
 		}
 
-		[RequireAuthenticationFilter]
-		public ActionResult Delete(Meeting meeting)
+
+		public ActionResult New()
 		{
-			if (!_securityContext.HasPermissionsFor(meeting))
-			{
-				return NotAuthorizedView;
-			}
-
-			_repository.Delete(meeting);
-
-			TempData.Add("message", meeting.Name + " was deleted.");
-
-			return RedirectToAction<HomeController>(c => c.Index(meeting.UserGroup));
-		}
-
-		public ActionResult New(UserGroup usergroup)
-		{
-			return RedirectToAction<MeetingController>(c => c.Edit(null, null));
+			return RedirectToAction<MeetingController>(c => c.Edit((Meeting)null));
 		}
 	}
 }
