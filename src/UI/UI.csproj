@@ -287,6 +287,7 @@
     <None Include="CodeTemplates\AddView\List.tt" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\MeetingAnnouncement.aspx" />
+    <Content Include="Views\Shared\Display.master" />
     <Content Include="Views\Shared\HiddenField.Master" />
     <Content Include="Views\Shared\String.aspx" />
     <None Include="Views\Shared\Field.master">
