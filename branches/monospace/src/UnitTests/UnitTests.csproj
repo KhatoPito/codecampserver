@@ -40,7 +40,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\castle\Castle.Components.Validator.dll</HintPath>
     </Reference>
-    <Reference Include="MvcContrib, Version=1.0.0.987, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="MvcContrib, Version=1.0.0.99, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\mvccontrib\MvcContrib.dll</HintPath>
     </Reference>
@@ -76,7 +76,6 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>
@@ -98,11 +97,7 @@
     <Compile Include="Core\Common\PrimitiveExtensionsTester.cs" />
     <Compile Include="Core\Common\UINameHelperTester.cs" />
     <Compile Include="Core\Domain\EnumerationTester.cs" />
-    <Compile Include="Core\Domain\Model\ConferenceTester.cs" />
-    <Compile Include="Core\Domain\Model\Enumerations\OrderedEnumerationTester.cs" />
-    <Compile Include="Core\Domain\Model\Enumerations\YesNoTester.cs" />
     <Compile Include="Core\Domain\Model\ObjectExtensionsTester.cs" />
-    <Compile Include="Core\Domain\Model\UserGroupTester.cs" />
     <Compile Include="Core\Domain\Model\UserTester.cs" />
     <Compile Include="Core\Domain\PersistentObjectTester.cs" />
     <Compile Include="Core\Domain\ValidationResultTester.cs" />
@@ -110,8 +105,6 @@
     <Compile Include="Core\Services\CryptographerTester.cs" />
     <Compile Include="Core\Services\SecurityContextTester.cs" />
     <Compile Include="Core\Services\SystemTimeTester.cs" />
-    <Compile Include="Core\Services\Updaters\ConferenceMapperTester.cs" />
-    <Compile Include="Core\Services\Updaters\UserGroupMapperTester.cs" />
     <Compile Include="Core\Services\Updaters\UserMapperTester.cs" />
     <Compile Include="Core\TimeExtensionsTester.cs" />
     <Compile Include="MvcMockHelpers.cs" />
@@ -119,25 +112,14 @@
     <Compile Include="TestBase.cs" />
     <Compile Include="UI\AutoMappedConfigurationTester.cs" />
     <Compile Include="UI\BinderTester.cs" />
-    <Compile Include="UI\Controllers\AdminControllerTester.cs" />
-    <Compile Include="UI\Controllers\ConferenceControllerTester.cs" />
-    <Compile Include="UI\Controllers\EventControllerTester.cs" />
-    <Compile Include="UI\Controllers\SponsorControllerTester.cs" />
-    <Compile Include="UI\Controllers\HomeControllerTester.cs" />
     <Compile Include="UI\Controllers\RedirectToRouteExtensions.cs" />
     <Compile Include="UI\Controllers\SaveControllerTester.cs" />
     <Compile Include="UI\Controllers\UserControllerTester.cs" />
-    <Compile Include="UI\Controllers\UserGroupControllerTester.cs" />
-    <Compile Include="UI\Helpers\Filters\AutoMappedFilterAttributeTester.cs" />
     <Compile Include="UI\Helpers\Filters\FilterAttributeTester.cs" />
     <Compile Include="UI\Helpers\UserGroupModelBinderTester.cs" />
     <Compile Include="UI\KeyedModelBinderTester.cs" />
     <Compile Include="UI\ModelBinderTester.cs" />
     <Compile Include="UI\Models\Forms\DateTimeSpanTester.cs" />
-    <Compile Include="UI\Models\Forms\EventInputTester.cs" />
-    <Compile Include="UI\Routes\ConferenceKeyControllerNameConstraintTester.cs" />
-    <Compile Include="UI\Routes\DomainNameRouteHandlerTester.cs" />
-    <Compile Include="UI\Routes\IncomingRouteTester.cs" />
     <Compile Include="UI\Routes\RouteConstraintTestingExtension.cs" />
     <Compile Include="UI\Routes\UrlGenerationTester.cs" />
   </ItemGroup>
@@ -166,6 +148,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Core\Domain\Model\Enumerations\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

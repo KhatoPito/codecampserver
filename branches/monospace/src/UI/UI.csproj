@@ -12,7 +12,7 @@
     <RootNamespace>CodeCampServer.UI</RootNamespace>
     <AssemblyName>CodeCampServer.UI</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <MvcBuildViews>true</MvcBuildViews>
+    <MvcBuildViews>false</MvcBuildViews>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,15 +41,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\castle\Castle.Components.Validator.dll</HintPath>
     </Reference>
-    <Reference Include="Exceptioneer.WebClient, Version=1.0.0.45, Culture=neutral, PublicKeyToken=null">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\exceptioneer\Exceptioneer.WebClient.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\aspnetmvc\Microsoft.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="MvcContrib, Version=1.0.0.987, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="MvcContrib, Version=1.0.0.99, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\mvccontrib\MvcContrib.dll</HintPath>
     </Reference>
@@ -64,7 +60,6 @@
     <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\aspnetmvc\System.Web.Mvc.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Routing, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>
@@ -79,56 +74,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs" />
-    <Compile Include="Controllers\EventController.cs" />
-    <Compile Include="Controllers\MeetingController.cs" />
-    <Compile Include="Controllers\SponsorController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\UserGroupController.cs" />
     <Compile Include="Helpers\Attributes\MultilineAttribute.cs" />
-    <Compile Include="Helpers\Binders\UserGroupModelBinder.cs" />
-    <Compile Include="Helpers\Binders\UserSelectorInputTypeConverter.cs" />
-    <Compile Include="Helpers\ConferenceViewExtensions.cs" />
-    <Compile Include="Helpers\Filters\AddUserGroupToViewDataActionFilterAttribute.cs" />
     <Compile Include="Helpers\ImageLinkHelper.cs" />
-    <Compile Include="Helpers\Mappers\IMeetingMapper.cs" />
-    <Compile Include="Helpers\Mappers\MeetingMapper.cs" />
-    <Compile Include="Helpers\Mappers\MeetingMapperProfile.cs" />
-    <Compile Include="Helpers\Mappers\UserGroupMapperProfile.cs" />
-    <Compile Include="Helpers\Mappers\UserGroupSponsorMapper.cs" />
-    <Compile Include="Helpers\Mappers\IUserGroupSponsorMapper.cs" />
-    <Compile Include="Helpers\Mappers\IUserGroupMapper.cs" />
-    <Compile Include="Helpers\Mappers\UserGroupMapper.cs" />
     <Compile Include="Helpers\Validation\Attributes\ValidateKeyAttribute.cs" />
-    <Compile Include="InputBuilderConventions.cs" />
-    <Compile Include="Models\Input\AdminInput.cs" />
     <Compile Include="Models\Input\DateTimeSpan.cs" />
-    <Compile Include="Models\Input\EventInput.cs" />
-    <Compile Include="Models\Input\EventList.cs" />
-    <Compile Include="Models\Input\MeetingAnnouncementDisplay.cs" />
-    <Compile Include="Models\Input\MeetingInput.cs" />
-    <Compile Include="Models\Input\SponsorInput.cs" />
-    <Compile Include="Models\Input\UserGroupInput.cs" />
-    <Compile Include="Models\Input\UserSelectorInput.cs" />
-    <Compile Include="Helpers\Binders\SmartBinder.cs" />
-    <Compile Include="Helpers\Filters\AssemblyVersionrFilterAttribute.cs" />
-    <Compile Include="Helpers\Filters\UrlReferrerFilterAttribute.cs" />
     <Compile Include="Models\PageInfo.cs" />
     <Compile Include="Services\IAssemblyVersion.cs" />
-    <Compile Include="DomainnameRouteHandler.cs" />
-    <Compile Include="Services\IUrlService.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Services\UrlService.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ViewNames.cs" />
-    <Compile Include="ViewPages.cs" />
-    <Compile Include="Views\AutoMapperConfiguration.cs" />
-    <Compile Include="Services\ConferenceKeyCannotBeAControllerNameConstraint.cs" />
     <Compile Include="AutoMapperProfile.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\SaveController.cs" />
     <Compile Include="Controllers\SmartController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -137,23 +91,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Binders\EnumerationModelBinder.cs" />
-    <Compile Include="Helpers\Binders\KeyedModelBinder.cs" />
-    <Compile Include="Helpers\Binders\ModelBinder.cs" />
-    <Compile Include="Helpers\Filters\AuthenticationFilterAttribute.cs" />
-    <Compile Include="Helpers\Filters\AutoMappedFilterAttribute.cs" />
-    <Compile Include="Helpers\Filters\AutoMappedToModelFilter.cs" />
     <Compile Include="Helpers\Filters\BaseActionFilter.cs" />
-    <Compile Include="Helpers\Filters\AdminUserCreatedFilterAttribute.cs" />
-    <Compile Include="Helpers\Filters\RequireAuthenticationFilterAttribute.cs" />
-    <Compile Include="Helpers\Filters\RequiresConferenceFilterAttribute.cs" />
     <Compile Include="Helpers\Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Mappers\ConferenceMapper.cs" />
-    <Compile Include="Helpers\Mappers\EditMode.cs" />
-    <Compile Include="Helpers\Mappers\IConferenceMapper.cs" />
     <Compile Include="Helpers\Mappers\IUserMapper.cs" />
     <Compile Include="Helpers\Mappers\AutoInputMapper.cs" />
     <Compile Include="Helpers\Mappers\UserMapper.cs" />
@@ -170,7 +112,6 @@
     <Compile Include="Helpers\Validation\Attributes\RequiredEmailAttribute.cs" />
     <Compile Include="Helpers\Extensions\MvcHelperExtensions.cs" />
     <Compile Include="Helpers\Extensions\InputTextExtensions.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="HtmlExtensions.cs" />
     <Compile Include="Models\CustomResolvers\BaseFormatter.cs" />
     <Compile Include="Models\CustomResolvers\BaseResolver.cs" />
@@ -186,14 +127,10 @@
     <Compile Include="Models\Input\UserInput.cs" />
     <Compile Include="Helpers\Extensions\UrlHelperExtensions.cs" />
     <Compile Include="Helpers\Extensions\ViewDataExtensions.cs" />
-    <Compile Include="Controllers\ConferenceController.cs" />
-    <Compile Include="Models\Input\ConferenceInput.cs" />
     <Compile Include="Models\Input\LoginInput.cs" />
     <Compile Include="Models\CustomResolvers\NullValueResolver.cs" />
-    <Compile Include="PartialViewGenerator.cs">
-      <DependentUpon>PartialViewGenerator.tt</DependentUpon>
-    </Compile>
     <Compile Include="RouteConfigurator.cs" />
+    <Compile Include="Services\ValidatiorRunnerFactory.cs" />
     <Compile Include="Views\DisplayPartial.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +139,8 @@
     </Content>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Shared\Form.aspx" />
+    <Content Include="Views\Shared\Guid.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
     <Content Include="..\Log4Net.config">
@@ -262,44 +201,20 @@
     <Content Include="scripts\tests\testrunner.1.3.js" />
     <Content Include="scripts\tests\testrunner.js" />
     <Content Include="scripts\tests\testsuite.css" />
-    <Content Include="Views\Admin\Index.aspx" />
-    <Content Include="Views\Conference\Index.aspx" />
-    <Content Include="Views\Conference\Edit.aspx" />
-    <Content Include="Views\Conference\List.aspx" />
     <Content Include="css\emporium.css" />
-    <Content Include="Views\Event\ConferenceAnnouncement.ascx" />
-    <Content Include="Views\Event\MeetingAnnouncement.aspx" />
-    <Content Include="Views\Home\About.aspx" />
-    <Content Include="Views\Event\AllUpcomingEvents.aspx" />
-    <Content Include="Views\Home\DefaultIndex.aspx" />
-    <Content Include="Views\Home\Events.aspx" />
-    <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Login\Index.aspx" />
     <Content Include="Views\Shared\DisplayLabel.aspx" />
     <Content Include="Views\Shared\DisplayParagraph.aspx" />
     <Content Include="Views\Shared\DisplayInline.aspx" />
     <Content Include="Views\Shared\Submit.aspx" />
-    <Content Include="Views\Meeting\Edit.aspx" />
-    <Content Include="Views\Shared\AddMeetingLink.ascx" />
     <Content Include="Views\Shared\Display.Master" />
     <Content Include="Views\Shared\Password.aspx" />
     <Content Include="Views\Shared\UserPicker.aspx" />
     <Content Include="Views\Shared\DatePicker.aspx" />
-    <Content Include="Views\Shared\DeleteConferenceLink.ascx" />
-    <Content Include="Views\Shared\DeleteMeetingLink.ascx" />
-    <Content Include="Views\Shared\EditMeetingLink.ascx" />
     <Content Include="Views\Shared\Main.master" />
-    <Content Include="Views\Event\List.ascx" />
-    <Content Include="Views\Shared\ConferenceList.ascx" />
     <Content Include="Views\Shared\NotAuthorized.ascx" />
-    <Content Include="Views\Shared\EditConferenceLink.ascx" />
     <Content Include="Views\Shared\HomeMenu.ascx" />
-    <Content Include="Views\Shared\EditUserGroupLink.ascx" />
     <Content Include="Views\Shared\Menu.ascx" />
-    <Content Include="Views\Home\Sponsors.ascx" />
-    <Content Include="Views\Sponsor\Edit.aspx" />
-    <Content Include="Views\Sponsor\Index.aspx" />
-    <Content Include="Views\Shared\AdminMenu.ascx" />
     <Content Include="Views\Shared\Modal.Master" />
     <Content Include="images\indicator.gif" />
     <Content Include="scripts\jquery-1.2.6.min.js" />
@@ -312,9 +227,6 @@
     <Content Include="scripts\jquery.templating.js" />
     <Content Include="Views\Shared\http404.ascx" />
     <Content Include="Views\Shared\Empty.ascx" />
-    <Content Include="Views\UserGroup\Edit.aspx" />
-    <Content Include="Views\UserGroup\Index.aspx" />
-    <Content Include="Views\UserGroup\List.aspx" />
     <Content Include="Views\User\Edit.aspx" />
     <Content Include="Views\User\Index.aspx" />
   </ItemGroup>
@@ -322,10 +234,6 @@
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{9C81B684-40CC-472A-804D-7C0F963315F5}</Project>
       <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DependencyResolution\DependencyResolution.csproj">
-      <Project>{3A222037-75A5-4DFF-BA27-9487BF3A8536}</Project>
-      <Name>DependencyResolution</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -365,7 +273,6 @@
     <None Include="CodeTemplates\Headspring ASP Net MVC Crud Controller\ViewModelMapperUnitTest.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Include="Views\Shared\Field.Master" />
     <None Include="CodeTemplates\AddController\Controller.tt" />
     <None Include="CodeTemplates\AddView\Create.tt" />
     <None Include="CodeTemplates\AddView\Details.tt" />
@@ -373,8 +280,10 @@
     <None Include="CodeTemplates\AddView\Empty.tt" />
     <None Include="CodeTemplates\AddView\IndexTemplate.tt" />
     <None Include="CodeTemplates\AddView\List.tt" />
-    <None Include="PartialViewGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
+    <Content Include="Views\Shared\HiddenField.Master" />
+    <Content Include="Views\Shared\String.aspx" />
+    <None Include="Views\Shared\Field1.master">
+      <SubType>ASPXCodeBehind</SubType>
     </None>
     <None Include="xhtml1-transitional.dtd" />
   </ItemGroup>

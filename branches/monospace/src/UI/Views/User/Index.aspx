@@ -1,25 +1,19 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master" Inherits="ViewPage<UserInput[]>"%>
-<%@ Import Namespace="CodeCampServer.UI.Helpers"%>
-<%@ Import Namespace="MvcContrib.UI.Grid"%>
-<%@ Import Namespace="Microsoft.Web.Mvc"%>
-<asp:Content ID="Content1" ContentPlaceHolderID="Main" runat="server">
-	 <h2>Users
-		<%if (User.Identity.IsAuthenticated){%>
-		    <%= Html.ImageLink<UserController>(c=>c.New(), "~/images/icons/application_add.png", "Add a new user") %>			
-		<%}%>
+<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.master" inherits="System.Web.Mvc.ViewPage"%>
+<%@ Import Namespace="MvcContrib"%>
+<%@ Import Namespace="CodeCampServer.UI.Models.Input"%>
+<asp:Content ContentPlaceHolderID="Main" runat="server">
+	 	 <h2>Users
 	</h2>
     
-    <table class="default datatable">
+    <table class="">
         <tr>
             <th>Username</th>
             <th>Name</th>
         </tr>
-        <% foreach(var user in Model) { %>
+        <% foreach(var user in ViewData.Get<UserInput[]>()) { %>
         <tr>
-			<td><%= Html.ActionLink<UserController>(c=>c.Edit((User)null), user.Username, new{user=user.Id}) %></td>
-            <td><%= user.Name %></td>
+            <td><a href="/User/Edit/?userid=<%=user.Id%>"><%= user.Name%></a></td>
         </tr>
         <% } %>
     </table>
-        
 </asp:Content>

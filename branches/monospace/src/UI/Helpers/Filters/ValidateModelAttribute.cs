@@ -1,7 +1,9 @@
 using System;
 using System.Web.Mvc;
 using Castle.Components.Validator;
-using CodeCampServer.DependencyResolution;
+using CodeCampServer.Infrastructure.UI.Services;
+
+//using CodeCampServer.DependencyResolution;
 
 
 namespace CodeCampServer.UI.Helpers.Filters
@@ -13,7 +15,7 @@ namespace CodeCampServer.UI.Helpers.Filters
 		private readonly IValidatorRunner _validatorRunner;
 
 		public ValidateModelAttribute(Type viewModelType)
-			: this(viewModelType, DependencyRegistrar.Resolve<IValidatorRunner>())
+			: this(viewModelType, ValidatiorRunnerFactory.Default.Create())
 		{
 		}
 

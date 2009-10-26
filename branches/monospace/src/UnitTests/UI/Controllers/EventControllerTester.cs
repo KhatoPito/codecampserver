@@ -53,7 +53,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 
 			var controller = new EventController(repository, null, null);
 			ViewResult result = controller.UpComing(usergroup);
-			result.ViewName.ShouldEqual("list");
+			result.ViewName.ShouldEqual("List");
 			result.ViewData.Model.ShouldEqual(new[] {"meeting1", "conference1"});
 		}
 
@@ -68,7 +68,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 
 			var controller = new EventController(repository, null, null);
 			ViewResult result = controller.List(usergroup);
-			result.ViewName.ShouldEqual("list");
+			result.ViewName.ShouldEqual("List");
 			result.ViewData.Model.ShouldEqual(new[] {"meeting1", "conference1"});
 		}
 

@@ -7,7 +7,7 @@ namespace CodeCampServer.UI
 	{
 		public void Page_Load(object sender, EventArgs e)
 		{
-			Response.Redirect("~/home");
+			Response.Redirect("~/User");
 		}
 	}
 }

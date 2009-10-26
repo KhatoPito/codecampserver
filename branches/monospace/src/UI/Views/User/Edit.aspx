@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master" AutoEventWireup="true" Inherits="ViewPage<UserInput>"%>
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.master" AutoEventWireup="true" Inherits="ViewPage<UserInput>"%>
+<%@ Import Namespace="MvcContrib.UI.InputBuilder.Views"%>
+<%@ Import Namespace="CodeCampServer.UI.Models.Input"%>
 <%@ Import Namespace="MvcContrib.UI.InputBuilder"%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Stylesheets" runat="server">
@@ -8,8 +10,7 @@
 
 <fieldset>
 <h3>Edit User</h3>
-  <%=Html.InputForm() %>
-  <%=Html.ActionLink<AdminController>("Cancel", x=>x.Index(null)) %>				
+  <%=Html.Input(m=>m.Username) %>
 </fieldset>			
 
 </asp:Content>

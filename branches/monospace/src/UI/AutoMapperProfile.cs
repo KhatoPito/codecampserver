@@ -38,16 +38,16 @@ namespace CodeCampServer.UI
 				.ForMember(u => u.Password, o => o.Ignore())
 				.ForMember(f => f.ConfirmPassword, o => o.Ignore());
 
-			Mapper.CreateMap<User, UserSelectorInput>();
+			//Mapper.CreateMap<User, UserSelectorInput>();
 
-			Mapper.CreateMap<Sponsor, SponsorInput>()
-				.ForMember(x => x.ParentID, o => o.Ignore());
+			//Mapper.CreateMap<Sponsor, SponsorInput>()
+			//    .ForMember(x => x.ParentID, o => o.Ignore());
 
-			Mapper.CreateMap<Conference, ConferenceInput>()
-				.ForMember(x => x.StartDate, o => o.AddFormatter<StandardDateTimeFormatter>())
-				.ForMember(x => x.EndDate, o => o.AddFormatter<StandardDateTimeFormatter>());
+			//Mapper.CreateMap<Conference, ConferenceInput>()
+			//    .ForMember(x => x.StartDate, o => o.AddFormatter<StandardDateTimeFormatter>())
+			//    .ForMember(x => x.EndDate, o => o.AddFormatter<StandardDateTimeFormatter>());
 
-			Mapper.CreateMap<Event, EventList>();
+			//Mapper.CreateMap<Event, EventList>();
 		}
 	}
 }

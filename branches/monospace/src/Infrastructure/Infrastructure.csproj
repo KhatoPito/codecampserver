@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=0.4.0.126, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\AutoMapper\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Components.Validator, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\castle\Castle.Components.Validator.dll</HintPath>
@@ -43,13 +47,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\mvccontrib\MvcContrib.dll</HintPath>
     </Reference>
+    <Reference Include="mysql.data, Version=6.2.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\mysql\mysql.data.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=2.1.0.1001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\nhibernate\NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate.Caches.SysCache, Version=2.0.0.1001, Culture=neutral, PublicKeyToken=null">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\nhibernate\NHibernate.Caches.SysCache.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap, Version=2.5.2.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223">
       <SpecificVersion>False</SpecificVersion>
@@ -59,7 +63,6 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>
@@ -73,31 +76,30 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\aspnetmvc\System.Web.Routing.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Npgsql, Version=2.0.6.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\npgsql\mono\Npgsql.dll</HintPath>
-    </Reference>
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs" />
+    <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="DataAccess\Bases\HybridSessionBuilder.cs" />
     <Compile Include="DataAccess\Bases\ISessionBuilder.cs" />
     <Compile Include="DataAccess\Bases\Logger.cs" />
     <Compile Include="DataAccess\Bases\NHibernateSessionModule.cs" />
     <Compile Include="DataAccess\Bases\TarantinoRepositoryBase.cs" />
-    <Compile Include="DataAccess\Impl\ConferenceRepository.cs" />
-    <Compile Include="DataAccess\Impl\EventRepository.cs" />
     <Compile Include="DataAccess\Impl\KeyedRepository.cs" />
-    <Compile Include="DataAccess\Impl\MeetingRepository.cs" />
     <Compile Include="DataAccess\Impl\RepositoryBase.cs" />
-    <Compile Include="DataAccess\Impl\UserGroupRepository.cs" />
     <Compile Include="DataAccess\Impl\UserRepository.cs" />
     <Compile Include="DependencyRegistry.cs" />
-    <Compile Include="EnumerationType.cs" />
+    <Compile Include="DependencyResolution\ControllerFactory.cs" />
+    <Compile Include="DependencyResolution\DependencyRegistrar.cs" />
+    <Compile Include="DependencyResolution\DependencyRegistrarModule.cs" />
+    <Compile Include="DependencyResolution\DependencyRegistry.cs" />
+    <Compile Include="DependencyResolution\StructureMapExtensions.cs" />
     <Compile Include="HttpFileDownloaderService.cs" />
     <Compile Include="SystemClock.cs" />
+    <Compile Include="UI\Binders\KeyedModelBinder.cs" />
+    <Compile Include="UI\Binders\ModelBinder.cs" />
+    <Compile Include="UI\Binders\SmartBinder.cs" />
     <Compile Include="UI\Services\AssemblyVersion.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -127,11 +129,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DataAccess\Mappings\User.hbm.xml" />
-    <EmbeddedResource Include="DataAccess\Mappings\Conference.hbm.xml" />
-    <EmbeddedResource Include="DataAccess\Mappings\UserGroup.hbm.xml" />
-    <EmbeddedResource Include="DataAccess\Mappings\Sponsor.hbm.xml" />
-    <EmbeddedResource Include="DataAccess\Mappings\Meeting.hbm.xml" />
-    <EmbeddedResource Include="DataAccess\Mappings\Event.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

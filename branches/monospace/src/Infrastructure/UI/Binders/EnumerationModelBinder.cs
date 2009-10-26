@@ -28,17 +28,17 @@ namespace CodeCampServer.UI.Helpers.Binders
 			}
 		}
 
-		private static Enumeration GetEnumeration(Type enumerationType, string value)
-		{
-			int enumValue;
-			bool success = int.TryParse(value, out enumValue);
-			if (success)
-			{
-				return EnumerationHelper.FromValueOrDefault(enumerationType, enumValue);
-			}
+		//private static Enumeration GetEnumeration(Type enumerationType, string value)
+		//{
+		//    int enumValue;
+		//    bool success = int.TryParse(value, out enumValue);
+		//    if (success)
+		//    {
+		//        return EnumerationHelper.FromValueOrDefault(enumerationType, enumValue);
+		//    }
 
-			return EnumerationHelper.FromDisplayNameOrDefault(enumerationType, value);
-		}
+		//    return EnumerationHelper.FromDisplayNameOrDefault(enumerationType, value);
+		//}
 
 		private static string GetAttemptedValue(ModelBindingContext bindingContext)
 		{
