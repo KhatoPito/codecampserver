@@ -18,6 +18,7 @@ namespace CodeCampServer.Core.Domain.Model
 			{
 				Username = value;
 			}
+		
 		}
         public virtual bool IsAdmin()
         {

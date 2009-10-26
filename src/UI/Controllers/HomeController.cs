@@ -1,46 +1,31 @@
 using System.Web.Mvc;
-using CodeCampServer.Core.Domain.Model;
-using CodeCampServer.UI.Helpers.Filters;
+using CodeCampServer.Core.Domain;
 using CodeCampServer.UI.Helpers.Mappers;
 using CodeCampServer.UI.Models.Input;
 
 namespace CodeCampServer.UI.Controllers
 {
-	[AdminUserCreatedFilter]
 	public class HomeController : SmartController
 	{
-		private readonly IUserGroupMapper _mapper;
+		private readonly IMeetingRepository _meetingRepository;
+		private readonly IMeetingMapper _meetingMapper;
 
-		public HomeController(IUserGroupMapper mapper)
+		public HomeController(IMeetingRepository meetingRepository, IMeetingMapper meetingMapper)
 		{
-			_mapper = mapper;
+			_meetingRepository = meetingRepository;
+			_meetingMapper = meetingMapper;
 		}
 
-		public ViewResult Index(UserGroup userGroup)
+		public ViewResult Index()
 		{
-			UserGroupInput input = MapToForm(userGroup);
-			if (userGroup == null || userGroup.IsDefault())
-			{
-				return View("defaultIndex", input);
-			}
-			return View(input);
+			MeetingAnnouncementDisplay[] meetings = _meetingMapper.Map(_meetingRepository.GetAll());
+			return View(new HomeDisplay(){Meetings = meetings});
 		}
 
-		public ViewResult Events(UserGroup userGroup)
-		{
-			UserGroupInput input = MapToForm(userGroup);
-			return View(input);
-		}
 
-		public ViewResult About(UserGroup userGroup)
+		public ViewResult About()
 		{
-			UserGroupInput input = MapToForm(userGroup);
-			return View(input);
-		}
-
-		private UserGroupInput MapToForm(UserGroup userGroup)
-		{
-			return _mapper.Map(userGroup);
+			return View();
 		}
 	}
 }

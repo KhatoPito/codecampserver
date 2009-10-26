@@ -45,7 +45,7 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <div id="wrapper"> 
 <!-- start header --> 
 <div id="logo"> 
-	<h1><a href="/"></a></h1> 
+	<h1><a href="/">Monospace Workshops</a></h1> 
 	<h2>
 	    <asp:LoginView ID="LoginView3" runat="server">
 		    <LoggedInTemplate>

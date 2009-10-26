@@ -12,7 +12,7 @@
         </tr>
         <% foreach(var user in ViewData.Get<UserInput[]>()) { %>
         <tr>
-            <td><a href="/User/Edit/?userid=<%=user.Id%>"><%= user.Name%></a></td>
+            <td><a href="/User/Edit/?user=<%=user.Username%>"><%= user.Name%></a></td>
         </tr>
         <% } %>
     </table>

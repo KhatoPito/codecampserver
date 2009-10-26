@@ -4,7 +4,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Stylesheets" runat="server">
 
-    <script type="text/javascript" src="/scripts/rsswidget.js"></script>
 
 </asp:Content>
 <asp:Content ContentPlaceHolderID="Main" runat="server">

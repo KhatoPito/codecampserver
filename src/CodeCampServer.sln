@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{98200972-A038-4DA8-8917-CBC4895175DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{9AA9FD4D-58F4-4148-9376-EE09868E2B73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AutomatedDebug|Any CPU = AutomatedDebug|Any CPU
@@ -32,6 +34,12 @@ Global
 		{98200972-A038-4DA8-8917-CBC4895175DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98200972-A038-4DA8-8917-CBC4895175DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98200972-A038-4DA8-8917-CBC4895175DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AA9FD4D-58F4-4148-9376-EE09868E2B73}.AutomatedDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AA9FD4D-58F4-4148-9376-EE09868E2B73}.AutomatedDebug|Any CPU.Build.0 = Debug|Any CPU
+		{9AA9FD4D-58F4-4148-9376-EE09868E2B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AA9FD4D-58F4-4148-9376-EE09868E2B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AA9FD4D-58F4-4148-9376-EE09868E2B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AA9FD4D-58F4-4148-9376-EE09868E2B73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

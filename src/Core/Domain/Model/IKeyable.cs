@@ -2,6 +2,6 @@ namespace CodeCampServer.Core.Domain.Model
 {
 	public interface IKeyable
 	{
-		string Key { get; }
+		string Key { get; set; }
 	}
 }

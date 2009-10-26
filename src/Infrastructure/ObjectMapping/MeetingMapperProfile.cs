@@ -18,7 +18,7 @@ namespace CodeCampServer.UI.Helpers.Mappers
 
 			Mapper.CreateMap<MeetingInput, Meeting>().ConstructUsing(
 				input => DependencyRegistrar.Resolve<IMeetingRepository>().GetById(input.Id) ?? new Meeting())
-				.ForMember(x => x.UserGroup, o => o.MapFrom(x => x.UserGroupId))
+				//.ForMember(x => x.UserGroup, o => o.MapFrom(x => x.UserGroupId))
 				.ForMember(x => x.Address, o => o.Ignore())
 				.ForMember(x => x.City, o => o.Ignore())
 				.ForMember(x => x.Region, o => o.Ignore())

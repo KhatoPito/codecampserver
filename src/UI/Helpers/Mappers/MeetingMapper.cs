@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using AutoMapper;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.UI.Models.Input;
@@ -26,6 +28,11 @@ namespace CodeCampServer.UI.Helpers.Mappers
 		public Meeting Map(MeetingInput message)
 		{
 			return _mappingEngine.Map<MeetingInput, Meeting>(message);
+		}
+
+		public MeetingAnnouncementDisplay[] Map(Meeting[] meetings)
+		{
+			return meetings.Select(meeting => _mappingEngine.Map<Meeting,MeetingAnnouncementDisplay>(meeting)).ToArray();
 		}
 	}
 }

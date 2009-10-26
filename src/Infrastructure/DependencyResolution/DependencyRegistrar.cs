@@ -1,5 +1,6 @@
 using System;
 using System.Web.Mvc;
+using CodeCampServer.Infrastructure.UI.Services;
 using CodeCampServer.UI.Helpers.Binders;
 using CodeCampServer.UI.Views;
 using StructureMap;
@@ -56,6 +57,8 @@ namespace CodeCampServer.DependencyResolution
 				{
 					if (!_dependenciesRegistered)
 					{
+						ValidatiorRunnerFactory.Default=new ValidatiorRunnerFactory();
+						
 						new DependencyRegistrar().RegisterDependencies();
 
 						AutoMapperConfiguration.Configure();
