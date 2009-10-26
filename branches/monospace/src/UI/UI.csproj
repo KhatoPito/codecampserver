@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MeetingController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Helpers\Attributes\MultilineAttribute.cs" />
     <Compile Include="Helpers\ImageLinkHelper.cs" />
@@ -247,6 +248,7 @@
     <Content Include="Views\Shared\Display.master" />
     <Content Include="Views\Shared\HiddenField.Master" />
     <Content Include="Views\Shared\String.aspx" />
+    <None Include="Package1.pkgxml" />
     <None Include="Views\Shared\Field.master">
       <SubType>ASPXCodeBehind</SubType>
     </None>

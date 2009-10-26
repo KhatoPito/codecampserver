@@ -90,6 +90,7 @@
     <Compile Include="DataAccess\Impl\MeetingRepository.cs" />
     <Compile Include="DataAccess\Impl\RepositoryBase.cs" />
     <Compile Include="DataAccess\Impl\UserRepository.cs" />
+    <Compile Include="Database\DatabaseCreator.cs" />
     <Compile Include="DependencyRegistry.cs" />
     <Compile Include="DependencyResolution\ControllerFactory.cs" />
     <Compile Include="DependencyResolution\DependencyRegistrar.cs" />
