@@ -12,10 +12,7 @@ namespace CodeCampServer.UI.Controllers
 {
 	public abstract class SmartController : Controller
 	{
-		protected ViewResult NotAuthorizedView
-		{
-			get { return View(ViewPages.NotAuthorized); }
-		}
+		
 
 		protected override void OnActionExecuted(ActionExecutedContext filterContext)
 		{
@@ -31,36 +28,25 @@ namespace CodeCampServer.UI.Controllers
 				pageInfo = ViewData.Get<PageInfo>();
 			}
 
-			if (ViewData.Contains<UserGroup>())
-			{
-				var usergroup = ViewData.Get<UserGroup>();
-				pageInfo.Title = usergroup.Name;
+			//if (ViewData.Contains<UserGroup>())
+			//{
+			//    var usergroup = ViewData.Get<UserGroup>();
+			//    pageInfo.Title = usergroup.Name;
 
-				if (!usergroup.IsDefault())
-					pageInfo.TrackingCode = usergroup.GoogleAnalysticsCode;
-			}
+			//    if (!usergroup.IsDefault())
+			//        pageInfo.TrackingCode = usergroup.GoogleAnalysticsCode;
+			//}
 
-			if (ViewData.Contains<Conference>())
-			{
-				pageInfo.SubTitle = ViewData.Get<Conference>().Name;
-			}
+			//if (ViewData.Contains<Conference>())
+			//{
+			//    pageInfo.SubTitle = ViewData.Get<Conference>().Name;
+			//}
 		}
 
 
 		protected override void OnActionExecuting(ActionExecutingContext filterContext)
 		{
-			//temporarily putting it here.
-			var authentication = new AuthenticationFilterAttribute();
-			authentication.OnActionExecuting(filterContext);
-
-			var referrer = new UrlReferrerFilterAttribute();
-			referrer.OnActionExecuting(filterContext);
-
-			var version = new AssemblyVersionFilterAttribute();
-			version.OnActionExecuting(filterContext);
-
-			var usergroup = new AddUserGroupToViewDataActionFilterAttribute();
-			usergroup.OnActionExecuting(filterContext);
+			
 		}
 
 		public RedirectToRouteResult RedirectToAction<TController>(Expression<Func<TController, object>> actionExpression)

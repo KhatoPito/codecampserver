@@ -12,10 +12,10 @@ namespace CodeCampServer.UI.Helpers.Binders
 	{
 		public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
 		{
-			if (ShouldBuildInstanceFromContainer(bindingContext.ModelType))
-			{
-				return BindFromContainer(bindingContext);
-			}
+			//if (ShouldBuildInstanceFromContainer(bindingContext.ModelType))
+			//{
+			//    return BindFromContainer(bindingContext);
+			//}
 
 			if (ShouldBuildInstanceFromKeyedModelBinder(bindingContext.ModelType))
 			{
@@ -27,34 +27,34 @@ namespace CodeCampServer.UI.Helpers.Binders
 				return BindUsingModelBinder(controllerContext, bindingContext);
 			}
 
-			if (ShouldBuildInstanceForEnumeration(bindingContext.ModelType))
-			{
-				return BindUsingEnumerationBinder(controllerContext, bindingContext);
-			}
+			//if (ShouldBuildInstanceForEnumeration(bindingContext.ModelType))
+			//{
+			//    return BindUsingEnumerationBinder(controllerContext, bindingContext);
+			//}
 
 			return base.BindModel(controllerContext, bindingContext);
 		}
 
-		private static object BindFromContainer(ModelBindingContext bindingContext)
-		{
-			object instance = DependencyRegistrar.Resolve(bindingContext.ModelType);
-			return instance;
-		}
+		//private static object BindFromContainer(ModelBindingContext bindingContext)
+		//{
+		//    object instance = DependencyRegistrar.Resolve(bindingContext.ModelType);
+		//    return instance;
+		//}
 
-		private static object BindUsingEnumerationBinder(ControllerContext controllerContext,
-		                                                 ModelBindingContext bindingContext)
-		{
-			var binder = new EnumerationModelBinder();
+		//private static object BindUsingEnumerationBinder(ControllerContext controllerContext,
+		//                                                 ModelBindingContext bindingContext)
+		//{
+		//    var binder = new EnumerationModelBinder();
 
-			return binder.BindModel(controllerContext, bindingContext);
-		}
+		//    return binder.BindModel(controllerContext, bindingContext);
+		//}
 
 		private static object BindUsingModelBinder(ControllerContext controllerContext, ModelBindingContext bindingContext)
 		{
 			Type repositoryType = typeof (IRepository<>).MakeGenericType(bindingContext.ModelType);
 			Type modelBinderType = typeof (ModelBinder<,>).MakeGenericType(bindingContext.ModelType, repositoryType);
-
-			var binder = (IModelBinder) DependencyRegistrar.Resolve(modelBinderType);
+//			throw new NotImplementedException("Need a static factory here");
+			var binder = (IModelBinder)DependencyRegistrar.Resolve(modelBinderType);
 
 			return binder.BindModel(controllerContext, bindingContext);
 		}
@@ -65,7 +65,8 @@ namespace CodeCampServer.UI.Helpers.Binders
 			Type repositoryType = typeof (IKeyedRepository<>).MakeGenericType(bindingContext.ModelType);
 			Type modelBinderType = typeof (KeyedModelBinder<,>).MakeGenericType(bindingContext.ModelType, repositoryType);
 
-			var binder = (IModelBinder) DependencyRegistrar.Resolve(modelBinderType);
+//			throw new NotImplementedException("Need a static factory here");
+			var binder = (IModelBinder)DependencyRegistrar.Resolve(modelBinderType);
 
 			return binder.BindModel(controllerContext, bindingContext);
 		}

@@ -28,18 +28,18 @@ namespace CodeCampServer.UI
 
 		public object ValueFromModelPropertyConvention(PropertyInfo propertyInfo, object model)
 		{
-			if (typeof (IEnumerable<UserSelectorInput>).IsAssignableFrom(propertyInfo.PropertyType))
-			{
-				var value = propertyInfo.GetValue(model, null) as IEnumerable<UserSelectorInput>;
-				var items = new List<SelectListItem>();
-				var repo = DependencyRegistrar.Resolve<IUserRepository>();
-				foreach (User user in repo.GetAll())
-				{
-					bool isChecked = value != null && (value).Where(form => form.Id == user.Id).Count() > 0;
-					items.Add(new SelectListItem {Selected = isChecked, Text = user.Name, Value = user.Id.ToString()});
-				}
-				return items;
-			}
+			//if (typeof (IEnumerable<UserSelectorInput>).IsAssignableFrom(propertyInfo.PropertyType))
+			//{
+			//    var value = propertyInfo.GetValue(model, null) as IEnumerable<UserSelectorInput>;
+			//    var items = new List<SelectListItem>();
+			//    var repo = DependencyRegistrar.Resolve<IUserRepository>();
+			//    foreach (User user in repo.GetAll())
+			//    {
+			//        bool isChecked = value != null && (value).Where(form => form.Id == user.Id).Count() > 0;
+			//        items.Add(new SelectListItem {Selected = isChecked, Text = user.Name, Value = user.Id.ToString()});
+			//    }
+			//    return items;
+			//}
 
 			return _default.ValueFromModelPropertyConvention(propertyInfo, model);
 		}
@@ -72,8 +72,8 @@ namespace CodeCampServer.UI
 
 		public string PartialNameConvention(PropertyInfo propertyInfo)
 		{
-			if (typeof (IEnumerable<UserSelectorInput>).IsAssignableFrom(propertyInfo.PropertyType))
-				return "UserPicker";
+			//if (typeof (IEnumerable<UserSelectorInput>).IsAssignableFrom(propertyInfo.PropertyType))
+			//    return "UserPicker";
 			if (propertyInfo.Name.ToLower().Contains("password"))
 				return "Password";
 			if (typeof (DateTime).IsAssignableFrom(propertyInfo.PropertyType))
@@ -87,8 +87,8 @@ namespace CodeCampServer.UI
 
 		public PropertyViewModel ModelPropertyBuilder(PropertyInfo propertyInfo, object model)
 		{
-			if (typeof (IEnumerable<UserSelectorInput>).IsAssignableFrom(propertyInfo.PropertyType))
-				return new PropertyViewModel<IEnumerable<SelectListItem>> { Value = (IEnumerable<SelectListItem>)model };
+			//if (typeof (IEnumerable<UserSelectorInput>).IsAssignableFrom(propertyInfo.PropertyType))
+			//    return new PropertyViewModel<IEnumerable<SelectListItem>> { Value = (IEnumerable<SelectListItem>)model };
 			return _default.ModelPropertyBuilder(propertyInfo, model);
 		}
 

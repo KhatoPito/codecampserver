@@ -7,17 +7,22 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Infrastructure" expanded="True" selected="True">
-            <Node name="References" expanded="True" />
+          <Node name="Infrastructure" expanded="True" />
+          <Node name="UI" expanded="True">
+            <Node name="Views" expanded="True">
+              <Node name="Shared" expanded="True" />
+              <Node name="User" expanded="True">
+                <Node name="Index.aspx" selected="True" />
+              </Node>
+            </Node>
           </Node>
-          <Node name="UI" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
         <State expanded="True" selected="True" />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True" />
+        <State selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

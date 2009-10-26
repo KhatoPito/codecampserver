@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Web.Mvc;
 using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.Core.Services;
-using CodeCampServer.Infrastructure.UI.Services.Impl;
+//using CodeCampServer.Infrastructure.UI.Services.Impl;
 using CodeCampServer.UI;
 using CodeCampServer.UI.Controllers;
 using CodeCampServer.UI.Helpers.Mappers;
@@ -36,7 +36,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 
 			controller.Edit(new User())
 				.AssertViewRendered()
-				.ForView(ViewPages.NotAuthorized);
+				.ForView("NotAuthorized");
 		}
 
 		[Test]
@@ -44,20 +44,6 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 		{
 			var controller = new UserController(S<IUserRepository>(), S<IUserMapper>(), PermisiveSecurityContext(), null);
 			ViewResult result = controller.Index();
-		}
-
-		[Test]
-		public void New_should_render_the_edit_view()
-		{
-			//Arrange
-			new UserController(null, null, PermisiveSecurityContext(), S<IUserSession>())
-			
-				//Act
-				.New()
-			
-				//Assert
-				.ForView("Edit")
-				.ModelShouldBe<UserInput>();
 		}
 
 
@@ -74,7 +60,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 			var result = (RedirectToRouteResult) controller.Edit(form);
 
 			repository.AssertWasCalled(r => r.Save(user));
-			result.AssertActionRedirect().ToAction<HomeController>(a => a.Index(null));
+			result.AssertActionRedirect().ToAction<UserController>(a => a.Index());
 		}
 
 		[Test]
@@ -109,7 +95,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 
 			controller.Edit((User)null)
 				.AssertViewRendered()
-				.ForView(ViewNames.Default)
+				.ForView("")
 				.ModelShouldBe<UserInput>();
 			mapper.MappedUser.ShouldNotBeNull();
 			mapper.MappedUser.Id.ShouldEqual(user.Id);

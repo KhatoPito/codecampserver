@@ -37,7 +37,7 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 		{
 			Type[] types =
 				typeof (User).Assembly.GetTypes().Where(
-					type => typeof (PersistentObject).IsAssignableFrom(type) && !type.IsAbstract).
+					type => typeof (PersistentObject).IsAssignableFrom(type) && !type.IsAbstract).OrderBy(type => type.Name).
 					ToArray();
 			using (ISession session = GetSession())
 			{

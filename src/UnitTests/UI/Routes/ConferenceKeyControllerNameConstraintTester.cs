@@ -24,7 +24,7 @@ namespace CodeCampServer.UnitTests.UI.Routes
 		public void Should_not_allow_any_controller_names_into_this_route()
 		{
 			var constraint = new ConferenceKeyCannotBeAControllerNameConstraint();
-			Type[] types = typeof (HomeController).Assembly.GetTypes();
+			Type[] types = typeof (UserController).Assembly.GetTypes();
 			IEnumerable<Type> controllers = types.Where(e => IsAController(e));
 			foreach (Type controller in controllers)
 			{

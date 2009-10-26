@@ -10,8 +10,6 @@ using CodeCampServer.Core;
 using CodeCampServer.Core.Domain.Model.Enumerations;
 using CodeCampServer.UI.Views;
 using MvcContrib;
-using MvcContrib.UI.Grid;
-using MvcContrib.UI.Grid.Syntax;
 using MvcContrib.UI.InputBuilder.InputSpecification;
 using MvcContrib.UI.InputBuilder.Views;
 
@@ -177,47 +175,6 @@ namespace CodeCampServer.UI
 			                         new {@class = "action-link " + linkText.ToLower()});
 		}
 
-		public static IGridColumn<T> PartialCell<T>(this IGridColumn<T> column, string partialName) where T : class
-		{
-			column.CustomItemRenderer = (context, item) =>
-			                            	{
-			                            		IView view = context.ViewEngines.TryLocatePartial(context.ViewContext, partialName);
-			                            		var newViewData = new ViewDataDictionary<T>(item);
-			                            		var newContext = new ViewContext(context.ViewContext, context.ViewContext.View,
-			                            		                                 newViewData, context.ViewContext.TempData);
-			                            		context.Writer.Write("<td>");
-			                            		view.Render(newContext, context.Writer);
-			                            		context.Writer.Write("</td>");
-			                            	};
-			return column;
-		}
-
-
-		public static IGridWithOptions<T> WithID<T>(this IGridWithOptions<T> grid, string htmlID) where T : class
-		{
-			return grid.Attributes(id => htmlID);
-		}
-
-		public static IGridWithOptions<T> WithClass<T>(this IGridWithOptions<T> grid, string htmlID) where T : class
-		{
-			return grid.Attributes(@class => htmlID);
-		}
-
-		public static IGridColumn<T> PartialInCell<T>(this IGridColumn<T> column, string viewName) where T : class
-		{
-			return column;
-		}
-
-		public static IGridWithOptions<T> AutoColumns<T>(this IGridWithOptions<T> grid) where T : class
-		{
-			Expression<Func<T, object>>[] properySpecifiers = typeof (T).GetProperties()
-				.Where(info => ShouldPropertyBeDisplayed(info))
-				.Select(info => ProperyToLamdaExpression<T>(info)).ToArray();
-
-			grid.Columns(
-				builder => { properySpecifiers.ForEach(propertySpecifier => builder.For(propertySpecifier)); });
-			return grid;
-		}
 
 		private static bool ShouldPropertyBeDisplayed(PropertyInfo info)
 		{
@@ -250,24 +207,5 @@ namespace CodeCampServer.UI
 		}
 
 
-		public static IInputSpecification<PropertyViewModel> Display<TModel>(this HtmlHelper<TModel> helper,
-		                                                                     Expression<Func<TModel, object>> expression)
-			where TModel : class
-		{
-			IInputSpecification<PropertyViewModel> specification = helper.Input(expression);
-			specification.Model.Layout = "Display";
-			specification.Model.PartialName = DisplayPartial.Paragraph;
-			return specification;
-		}
-
-		public static IInputSpecification<PropertyViewModel> Label<TModel>(this HtmlHelper<TModel> helper,
-		                                   Expression<Func<TModel, object>> expression)
-			where TModel : class
-		{
-			IInputSpecification<PropertyViewModel> specification = helper.Input(expression);
-			specification.Model.Layout = "Display";
-			specification.Model.PartialName = DisplayPartial.Label;
-			return specification;
-		}
 	}
 }

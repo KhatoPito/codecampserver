@@ -29,12 +29,12 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 
 		private void SetSecurityReturn(ISecurityContext context, bool allowPermision)
 		{
-			context.Stub(securityContext => securityContext.HasPermissionsFor(new Conference())).IgnoreArguments().
-				Return(allowPermision).Repeat.Any();
-			context.Stub(securityContext => securityContext.HasPermissionsFor(new UserGroup())).IgnoreArguments().
-				Return(allowPermision).Repeat.Any();
-			context.Stub(securityContext => securityContext.HasPermissionsForUserGroup(Guid.Empty)).IgnoreArguments().
-				Return(allowPermision).Repeat.Any();
+			//context.Stub(securityContext => securityContext.HasPermissionsFor(new Conference())).IgnoreArguments().
+			//    Return(allowPermision).Repeat.Any();
+			//context.Stub(securityContext => securityContext.HasPermissionsFor(new UserGroup())).IgnoreArguments().
+			//    Return(allowPermision).Repeat.Any();
+			//context.Stub(securityContext => securityContext.HasPermissionsForUserGroup(Guid.Empty)).IgnoreArguments().
+			//    Return(allowPermision).Repeat.Any();
 			context.Stub(securityContext => securityContext.IsAdmin()).Return(allowPermision).Repeat.Any();
 		}
 	}
@@ -43,7 +43,7 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 	{
 		public static void ShouldBeNotAuthorized(this ActionResult result)
 		{
-			result.AssertViewRendered().ForView(ViewPages.NotAuthorized);
+			result.AssertViewRendered().ForView("NotAuthorized");
 		}
 
 		public static void ModelShouldBe<Type>(this ViewResult result)
