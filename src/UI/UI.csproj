@@ -242,49 +242,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="CodeTemplates\Headspring ASP Net MVC Crud Controller\ActionLink.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="CodeTemplates\Headspring ASP Net MVC Crud Controller\Controller.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="CodeTemplates\Headspring ASP Net MVC Crud Controller\ControllerUnitTest.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="CodeTemplates\Headspring ASP Net MVC Crud Controller\IMapper.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="CodeTemplates\Headspring ASP Net MVC Crud Controller\Mapper.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="CodeTemplates\Headspring ASP Net MVC Crud Controller\View-Edit.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="CodeTemplates\Headspring ASP Net MVC Crud Controller\View-Index.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="CodeTemplates\Headspring ASP Net MVC Crud Controller\View-List.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="CodeTemplates\Headspring ASP Net MVC Crud Controller\View-show.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="CodeTemplates\Headspring ASP Net MVC Crud Controller\ViewModelMapper.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="CodeTemplates\Headspring ASP Net MVC Crud Controller\ViewModelMapperInterface.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="CodeTemplates\Headspring ASP Net MVC Crud Controller\ViewModelMapperUnitTest.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Include="CodeTemplates\AddController\Controller.tt" />
-    <None Include="CodeTemplates\AddView\Create.tt" />
-    <None Include="CodeTemplates\AddView\Details.tt" />
-    <None Include="CodeTemplates\AddView\Edit.tt" />
-    <None Include="CodeTemplates\AddView\Empty.tt" />
-    <None Include="CodeTemplates\AddView\IndexTemplate.tt" />
-    <None Include="CodeTemplates\AddView\List.tt" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\MeetingAnnouncement.aspx" />
     <Content Include="Views\Shared\Display.master" />
