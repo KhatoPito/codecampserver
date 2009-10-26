@@ -12,7 +12,7 @@ namespace CodeCampServer.UI.Views
 			                  	{
 			                  		x.ConstructTypeConvertersUsing(type => DependencyRegistrar.Resolve(type));
 			                  		x.AddProfile<AutoMapperProfile>();
-									//x.AddProfile<MeetingMapperProfile>();
+									x.AddProfile<MeetingMapperProfile>();
 									//x.AddProfile<UserGroupMapperProfile>();
 			                  	});
 		}

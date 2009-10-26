@@ -52,10 +52,12 @@
     <Compile Include="Domain\IKeyedRepository.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Domain\IMeetingRepository.cs" />
     <Compile Include="Domain\Mapper.cs" />
     <Compile Include="Domain\IMapper.cs" />
     <Compile Include="Domain\IRepository.cs" />
     <Compile Include="Domain\IUserRepository.cs" />
+    <Compile Include="Domain\Model\Event.cs" />
     <Compile Include="Domain\Model\IGloballyUnique.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -65,6 +67,7 @@
     <Compile Include="Domain\Model\KeyedObject.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Domain\Model\Meeting.cs" />
     <Compile Include="Domain\Model\User.cs" />
     <Compile Include="Domain\ValidationResult.cs">
       <SubType>Code</SubType>

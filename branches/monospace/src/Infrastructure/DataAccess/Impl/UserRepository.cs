@@ -10,6 +10,7 @@ namespace CodeCampServer.Infrastructure.DataAccess.Impl
 	{
 		public UserRepository(ISessionBuilder sessionFactory) : base(sessionFactory)
 		{
+			
 		}
 
 		public User GetByUserName(string username)

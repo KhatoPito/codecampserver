@@ -6,6 +6,7 @@ namespace CodeCampServer.UI.Helpers.Mappers
 {
 	public interface IMeetingMapper : IMapper<Meeting, MeetingInput>
 	{
+		MeetingAnnouncementDisplay[] Map(Meeting[] meetings);
 		
 	}
 }

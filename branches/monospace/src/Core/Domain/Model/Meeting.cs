@@ -1,3 +1,5 @@
+using System;
+
 namespace CodeCampServer.Core.Domain.Model
 {
 	public class Meeting : Event
@@ -12,5 +14,7 @@ namespace CodeCampServer.Core.Domain.Model
 		{
 			return Name + ": " + Topic;
 		}
+
+		
 	}
 }

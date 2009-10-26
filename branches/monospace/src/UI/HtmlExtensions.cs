@@ -6,12 +6,8 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
-using CodeCampServer.Core;
 using CodeCampServer.Core.Domain.Model.Enumerations;
-using CodeCampServer.UI.Views;
 using MvcContrib;
-using MvcContrib.UI.InputBuilder.InputSpecification;
-using MvcContrib.UI.InputBuilder.Views;
 
 namespace CodeCampServer.UI
 {
@@ -205,7 +201,5 @@ namespace CodeCampServer.UI
 					"<div class=\"buttonLeftEndCap\"></div><div class=\"buttonContentBackground\">{0}</div><div class=\"buttonRightEndCap\"></div>",
 					helper.ActionLink(linkText, actionName, controllerName));
 		}
-
-
 	}
 }

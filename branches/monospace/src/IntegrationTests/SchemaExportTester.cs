@@ -11,6 +11,7 @@ namespace CodeCampServer.IntegrationTests
 		public void ExportSchema()
 		{
 			new SchemaExport(getSessionBuilder().GetConfiguration())
+				//.Drop(false,true);
 				.Create(true, true);
 		}
 

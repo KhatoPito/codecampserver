@@ -74,11 +74,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Helpers\Attributes\MultilineAttribute.cs" />
     <Compile Include="Helpers\ImageLinkHelper.cs" />
+    <Compile Include="Helpers\Mappers\IMeetingMapper.cs" />
+    <Compile Include="Helpers\Mappers\MeetingMapper.cs" />
     <Compile Include="Helpers\Validation\Attributes\ValidateKeyAttribute.cs" />
     <Compile Include="Models\Input\DateTimeSpan.cs" />
+    <Compile Include="Models\Input\EventInput.cs" />
+    <Compile Include="Models\Input\HomeDisplay.cs" />
+    <Compile Include="Models\Input\MeetingAnnouncementDisplay.cs" />
+    <Compile Include="Models\Input\MeetingInput.cs" />
     <Compile Include="Models\PageInfo.cs" />
     <Compile Include="Services\IAssemblyVersion.cs" />
     <Compile Include="AutoMapperProfile.cs" />
@@ -131,7 +138,6 @@
     <Compile Include="Models\CustomResolvers\NullValueResolver.cs" />
     <Compile Include="RouteConfigurator.cs" />
     <Compile Include="Services\ValidatiorRunnerFactory.cs" />
-    <Compile Include="Views\DisplayPartial.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\hibernate.cfg.xml">
@@ -207,7 +213,6 @@
     <Content Include="Views\Shared\DisplayParagraph.aspx" />
     <Content Include="Views\Shared\DisplayInline.aspx" />
     <Content Include="Views\Shared\Submit.aspx" />
-    <Content Include="Views\Shared\Display.Master" />
     <Content Include="Views\Shared\Password.aspx" />
     <Content Include="Views\Shared\UserPicker.aspx" />
     <Content Include="Views\Shared\DatePicker.aspx" />
@@ -280,9 +285,11 @@
     <None Include="CodeTemplates\AddView\Empty.tt" />
     <None Include="CodeTemplates\AddView\IndexTemplate.tt" />
     <None Include="CodeTemplates\AddView\List.tt" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Home\MeetingAnnouncement.aspx" />
     <Content Include="Views\Shared\HiddenField.Master" />
     <Content Include="Views\Shared\String.aspx" />
-    <None Include="Views\Shared\Field1.master">
+    <None Include="Views\Shared\Field.master">
       <SubType>ASPXCodeBehind</SubType>
     </None>
     <None Include="xhtml1-transitional.dtd" />
