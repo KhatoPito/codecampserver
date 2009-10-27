@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CodeCampServer.Core;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.Core.Services.Impl;
 using CodeCampServer.DependencyResolution;
@@ -33,33 +34,36 @@ namespace CodeCampServer.IntegrationTests.UI.DataLoader
 
 		private IEnumerable<Meeting> CreateMeetings()
 		{
-			DateTime startDate = DateTime.Now.AddDays(-7*5);
+			DateTime startDate = DateTime.Today.Midnight().AddHours(8).AddDays(-7*5);
 			for (int i = 0; i < 6; i++)
 			{
-				DateTime meetingDate = startDate.AddDays(7*i);
+				DateTime meetingDate = startDate.AddHours(1.5*i);
+
 				yield return new Meeting
 				             	{
-				             		Address = "123 Guadalupe Street",
+				             		Address = "500 E Cesar Chavez St",
 				             		City = "Austin",
-				             		Description = "Regular meeting.  Don't forget CodeCamp planning next month!",
-				             		EndDate = meetingDate.AddDays(1),
+				             		Description = "Monospace Tutorial",
+				             		EndDate = meetingDate.AddHours(1.25),
 				             		StartDate = meetingDate,
 				             		Key = meetingDate.Month.ToString().ToLower() + meetingDate.Day + "meeting",
-				             		LocationName = "St. Edward's Professional Education Center",
-				             		Name = meetingDate.ToString("MMMM") + " meeting",
-				             		PostalCode = "78787",
+				             		LocationName = "Austin Convention Center",
+				             		Name = "Session " +i +" Tutorial",
+				             		PostalCode = "78701",
 				             		Region = "Texas",
-				             		//UserGroup = userGroup,
-				             		Topic = "ASP.NET MVC in Action",
+									Topic = "iPhone Development with MonoTouch",
 				             		Summary =
-				             			"With the new version of ASP.NET, developers can easily leverage the Model-View-Controller pattern in ASP.NET applications. Pulling logic away from the UI and the views has been difficult for a long time. The Model-View-Presenter pattern helps a little bit, but the fact that the view has to delegate to the presenter makes the UI pattern difficult to work with. This session is a detailed overview of the ASP.NET MVC Framework.  It is meant for developers already building systems with ASP.NET 3.5 SP1.",
+				             			"MonoTouch allows developers to create C# and .NET based applications that run on Apple's iPhone and Apple's iPod Touch devices, while taking advantage of the iPhone APIs and reusing both code and libraries that have been built for .NET, as well as existing skills. ",
 				             		LocationUrl = "http://maps.google.com",
 				             		TimeZone = "CST",
-				             		SpeakerName = "Jeffrey Palermo",
+									SpeakerName = "Geoff Norton",
 				             		SpeakerBio =
-				             			"Jeffrey Palermo is the CTO of Headspring Systems. Jeffrey specializes in Agile management coaching and helps companies double the productivity of software teams. He is instrumental in the Austin software community as a member of AgileAustin and a director of the Austin .Net User Group. Jeffrey has been recognized by Microsoft as a “Microsoft Most Valuable Professional” (MVP) for technical and community leadership. He is also certified as a MCSD.Net and ScrumMaster. Jeffrey has spoken and facilitated at industry conferences such as VSLive, DevTeach, and Microsoft Tech Ed. He also speaks to user groups around the country as part of the INETA Speakers’ Bureau. His web sites are headspringsystems.com and jeffreypalermo.com. He is a graduate from Texas A&M University, an Eagle Scout, and an Iraq war veteran.  Jeffrey is the founder of the CodeCampServer open-source project and a co-founder of the MvcContrib project.",
-				             		SpeakerUrl = "http://jeffreypalermo.com"
+				             			"He is a smart dude.",
+				             		SpeakerUrl = "http://monospace.us"
 				             	};
+
+				
+
 			}
 		}
 

@@ -57,27 +57,27 @@ namespace CodeCampServer.DependencyResolution
 				lock (sync)
 				{
 					if (!_dependenciesRegistered)
-					{
-						ValidatiorRunnerFactory.Default=new ValidatiorRunnerFactory();
-						
-						new DependencyRegistrar().RegisterDependencies();
-
-						AutoMapperConfiguration.Configure();
-						//MvcContrib.UI.InputBuilder.InputBuilder.BootStrap();
-						//			MvcContrib.UI.InputBuilder.InputBuilder.SetConventionProvider(() => new InputBuilderConventions());
-						ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
-						ModelBinders.Binders.DefaultBinder = new SmartBinder();
-
-						ModelBinders.Binders.DefaultBinder = new SmartBinder();
-						//DependencyRegistrar.EnsureDependenciesRegistered();
-						//ModelBinders.Binders.Add(typeof (UserGroup),
-						//                         DependencyRegistrar.Resolve<UserGroupModelBinder>());
-
-						DatabaseCreator.Create();
-						_dependenciesRegistered = true;
+					{						
+						StartupConfiguration();
 					}
 				}
 			}
+		}
+
+		private static void StartupConfiguration() {
+			new DependencyRegistrar().RegisterDependencies();
+
+			ValidatiorRunnerFactory.Default = new ValidatiorRunnerFactory();
+
+			AutoMapperConfiguration.Configure();
+		
+			ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
+						
+			ModelBinders.Binders.DefaultBinder = new SmartBinder();
+
+			DatabaseUpdater.Update();
+
+			_dependenciesRegistered = true;
 		}
 	}
 }

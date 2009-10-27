@@ -9,7 +9,7 @@ IncludeJavaScript('/scripts/date.js');
 IncludeJavaScript('/scripts/jquery.datePicker.js');
 IncludeJavaScript('/scripts/jquery.dataTables.js');
 IncludeJavaScript('/scripts/jquery.corners.min.js');
-IncludeJavaScript('/scripts/documentready.js');
+IncludeJavaScript('/scripts/DocumentReady.js');
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 
