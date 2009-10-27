@@ -251,6 +251,9 @@
     <Content Include="images\icons\delete.png" />
     <Content Include="images\icons\exclamation.png" />
     <Content Include="images\icons\feed.png" />
+    <Content Include="images\layout\available-day.gif" />
+    <Content Include="images\layout\disabled-day.gif" />
+    <Content Include="images\layout\heading-background.gif" />
     <Content Include="scripts\jquery.corners.min.js" />
     <Content Include="scripts\jquery.dataTables.min.js" />
     <Content Include="scripts\tiny_mce\langs\en.js" />
@@ -505,9 +508,9 @@
     <Content Include="Views\Shared\String.aspx" />
     <Content Include="Views\Shared\HiddenField.master" />
     <None Include="Package1.pkgxml" />
-    <None Include="Views\Shared\Field.master">
+    <Content Include="Views\Shared\Field.master">
       <SubType>ASPXCodeBehind</SubType>
-    </None>
+    </Content>
     <None Include="xhtml1-transitional.dtd" />
   </ItemGroup>
   <ItemGroup>
@@ -516,7 +519,6 @@
   <ItemGroup>
     <Folder Include="Helpers\Validation\Validators\" />
     <Folder Include="images\Buttons\" />
-    <Folder Include="images\layout\" />
     <Folder Include="images\samples\" />
     <Folder Include="images\Text\" />
     <Folder Include="Properties\" />
