@@ -78,6 +78,7 @@
     <Compile Include="Controllers\MeetingController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Helpers\Attributes\MultilineAttribute.cs" />
+    <Compile Include="Helpers\Extensions\DateTimeExtensions.cs" />
     <Compile Include="Helpers\ImageLinkHelper.cs" />
     <Compile Include="Helpers\Mappers\IMeetingMapper.cs" />
     <Compile Include="Helpers\Mappers\MeetingMapper.cs" />
@@ -250,7 +251,7 @@
     <Content Include="Views\Shared\DateTime.aspx" />
     <Content Include="Views\Shared\Display.master" />
     <Content Include="Views\Shared\String.aspx" />
-    <Content Include="Views\Shared\Copy of HiddenField.Master" />
+    <Content Include="Views\Shared\HiddenField.master" />
     <None Include="Views\Shared\Field.master">
       <SubType>ASPXCodeBehind</SubType>
     </None>
