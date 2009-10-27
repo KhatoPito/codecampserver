@@ -24,7 +24,7 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
     <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	  
     <link href="<%=Url.Content("~/css/emporium.css")%>" id="cssStyleSheet" rel="Stylesheet" type="text/css" media="all" />
-    <link href="<%=Url.Content("~/css/datepicker.css")%>" id="Link1" rel="Stylesheet" type="text/css" media="all" />
+    <link href="<%=Url.Content("~/css/datePicker.css")%>" id="Link1" rel="Stylesheet" type="text/css" media="all" />
     <link href="<%=Url.Content("~/css/datatable.css")%>" id="Link2" rel="Stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="/scripts/bootstrap.js"></script>
     <script type="text/javascript" src="/scripts/tiny_mce/tiny_mce.js"></script>
