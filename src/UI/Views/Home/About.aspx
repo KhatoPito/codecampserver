@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master" AutoEventWireup="true"
-    Inherits="ViewPage<UserGroupInput>" %>
+    Inherits="System.Web.Mvc.ViewPage" %>
 
 <asp:Content ContentPlaceHolderID="Main" runat="server">
-    <%= Model.HomepageHTML %>
+    About us
 </asp:Content>

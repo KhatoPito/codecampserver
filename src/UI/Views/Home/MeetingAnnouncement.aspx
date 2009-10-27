@@ -7,7 +7,7 @@
 <%@ Import Namespace="CodeCampServer.UI.Controllers" %>
 <h1 class="title">
   <%=Html.Display(m=>m.Heading).Partial(DisplayPartial.Inline).Label("") %>
-  </h1>
+  </h1><a href="/Meeting/Edit?meeting=<%=Model.Id %>">Edit</a>
 <div class="entry">
   <p>
     <%=Html.Display(m=>m.When).Partial(DisplayPartial.Inline) %>

@@ -46,7 +46,7 @@ namespace CodeCampServer.UI.Controllers
 
 		protected override void OnActionExecuting(ActionExecutingContext filterContext)
 		{
-			
+						
 		}
 
 		public RedirectToRouteResult RedirectToAction<TController>(Expression<Func<TController, object>> actionExpression)

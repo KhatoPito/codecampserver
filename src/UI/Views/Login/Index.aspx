@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master"
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.master"
  AutoEventWireup="true" Inherits="ViewPage<LoginInput>"%>
+<%@ Import Namespace="CodeCampServer.UI.Controllers"%>
+<%@ Import Namespace="CodeCampServer.UI.Models.Input"%>
 <%@ Import Namespace="MvcContrib.UI.InputBuilder"%>
-
 <asp:Content ContentPlaceHolderID="Main" runat="server">  
-
 <fieldset>
   <h3>Please log in</h3>
   <%=Html.ValidationSummary() %>
@@ -21,8 +21,5 @@
     <input type="submit" Value="Submit" /> 
     <div class="cleaner"></div> 
   </form> 
-  <%=Html.ActionLink<HomeController>("Cancel", x=>x.Index(null)) %>		
-  		
-</fieldset>	
-                	
+</fieldset>                	
 </asp:Content>

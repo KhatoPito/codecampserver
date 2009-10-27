@@ -49,7 +49,7 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 	<h2>
 	    <asp:LoginView ID="LoginView3" runat="server">
 		    <LoggedInTemplate>
-			    Welcome, <%=ViewData.Get<User>().Name%>	(<a href="<%=Url.Action<LoginController>(c=>c.LogOut()) %>">Log out</a>) | <%=Html.ActionLink<UserController>("My Profile", c=>c.Edit((User)null)) %>
+			    Welcome, <%=Context.User.Identity.Name %>	(<a href="<%=Url.Action<LoginController>(c=>c.LogOut()) %>">Log out</a>) | <%=Html.ActionLink<UserController>("My Profile", c=>c.Edit((User)null)) %>
 		    </LoggedInTemplate>
 		    <AnonymousTemplate>
 			    <%=Html.ActionButton<LoginController>("Log in", c => c.Index((string)null))%>

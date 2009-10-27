@@ -7,7 +7,7 @@ namespace CodeCampServer.Infrastructure.Database
 	{
 		public static void Create()
 		{
-			new SchemaExport(new HybridSessionBuilder().GetConfiguration()).Create(true, false);			
+			new SchemaUpdate(new HybridSessionBuilder().GetConfiguration()).Execute(false, true);			
 		}
 	}
 }

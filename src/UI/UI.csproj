@@ -243,12 +243,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Home\About.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\MeetingAnnouncement.aspx" />
+    <Content Include="Views\Meeting\Edit.aspx" />
+    <Content Include="Views\Shared\DateTime.aspx" />
     <Content Include="Views\Shared\Display.master" />
-    <Content Include="Views\Shared\HiddenField.Master" />
     <Content Include="Views\Shared\String.aspx" />
-    <None Include="Package1.pkgxml" />
+    <Content Include="Views\Shared\Copy of HiddenField.Master" />
     <None Include="Views\Shared\Field.master">
       <SubType>ASPXCodeBehind</SubType>
     </None>
