@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using AutoMapper;
+using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.UI.Models.Input;
 
@@ -9,10 +10,12 @@ namespace CodeCampServer.UI.Helpers.Mappers
 	public class MeetingMapper : IMeetingMapper
 	{
 		private readonly IMappingEngine _mappingEngine;
+		private readonly IMeetingRepository _meetingRepository;
 
-		public MeetingMapper(IMappingEngine mappingEngine)
+		public MeetingMapper(IMappingEngine mappingEngine,IMeetingRepository meetingRepository)
 		{
 			_mappingEngine = mappingEngine;
+			_meetingRepository = meetingRepository;
 		}
 
 		public MeetingInput Map(Meeting model)

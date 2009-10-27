@@ -6,8 +6,8 @@ namespace CodeCampServer.Core.Domain.Model
 	{
 		public virtual string Name { get; set; }
 		public virtual string Description { get; set; }
-		public virtual DateTime? StartDate { get; set; }
-		public virtual DateTime? EndDate { get; set; }
+		public virtual DateTime StartDate { get; set; }
+		public virtual DateTime EndDate { get; set; }
 		public virtual string LocationName { get; set; }
 		public virtual string LocationUrl { get; set; }
 		public virtual string Address { get; set; }
