@@ -2,7 +2,7 @@ using CodeCampServer.Core.Domain.Model;
 
 namespace CodeCampServer.Infrastructure.DataAccess.Mappings
 {
-	public class EventMap : EntityClassMap<Event>
+	public class EventMap : AuditedEntityClassMap<Event>
 	{
 		public EventMap()
 		{

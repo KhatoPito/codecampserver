@@ -4,7 +4,7 @@ using CodeCampServer.Core.Domain.Model;
 
 namespace CodeCampServer.Infrastructure.DataAccess.Mappings
 {
-	public class SponsorMap : EntityClassMap<Sponsor>
+	public class SponsorMap : AuditedEntityClassMap<Sponsor>
 	{
 		public SponsorMap()
 		{

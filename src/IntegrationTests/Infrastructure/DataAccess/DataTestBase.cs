@@ -50,7 +50,6 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 				}
 				session.Flush();
 				session.Transaction.Commit();
-
 			}
 		}
 

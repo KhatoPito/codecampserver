@@ -1,4 +1,7 @@
+using System;
+using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.Core.Services;
+using CodeCampServer.Core.Services.Bases;
 using CodeCampServer.Infrastructure.ObjectMapping;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -12,8 +15,8 @@ namespace CodeCampServer.UnitTests
 		[TestFixtureSetUp]
 		public void TestFixtureSetup()
 		{
-            AutoMapperConfiguration.Configure();
-			ObjectFactory.Inject(typeof(IUserSession), S<IUserSession>());	
+			AutoMapperConfiguration.Configure();
+			ObjectFactory.Inject(typeof (IUserSession), S<IUserSession>());
 		}
 
 		/// <summary>
@@ -36,6 +39,20 @@ namespace CodeCampServer.UnitTests
 		protected static T S<T>(params object[] argumentsForConstructor) where T : class
 		{
 			return MockRepository.GenerateStub<T>(argumentsForConstructor);
+		}
+
+		protected static ISystemClock ClockStub(DateTime time)
+		{
+			var clock = S<ISystemClock>();
+			clock.Stub(x => x.GetCurrentDateTime()).Return(time);
+			return clock;
+		}
+
+		protected static IUserSession CurrentUserStub(User user)
+		{
+			var session = S<IUserSession>();
+			session.Stub(x => x.GetCurrentUser()).Return(user);
+			return session;
 		}
 	}
 }

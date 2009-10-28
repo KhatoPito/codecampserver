@@ -2,7 +2,7 @@ using CodeCampServer.Core.Domain.Model;
 
 namespace CodeCampServer.Infrastructure.DataAccess.Mappings
 {
-	public class UserMap : EntityClassMap<User>
+	public class UserMap : AuditedEntityClassMap<User>
 	{
 		public UserMap()
 		{

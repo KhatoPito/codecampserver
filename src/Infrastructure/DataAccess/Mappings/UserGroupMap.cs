@@ -3,7 +3,7 @@ using FluentNHibernate.Mapping;
 
 namespace CodeCampServer.Infrastructure.DataAccess.Mappings
 {
-	public class UserGroupMap : EntityClassMap<UserGroup>
+	public class UserGroupMap : AuditedEntityClassMap<UserGroup>
 	{
 		public UserGroupMap()
 		{

@@ -33,7 +33,8 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 
 		protected virtual ISession GetSession()
 		{
-			return TestHelper.GetSessionFactory().OpenSession();
+			var interceptor = ObjectFactory.GetInstance<ChangeAuditInfoInterceptor>();
+			return TestHelper.GetSessionFactory().OpenSession(interceptor);
 		}
 
 		protected virtual void CommitChanges()
