@@ -1,4 +1,5 @@
-﻿using NHibernate;
+﻿using CodeCampServer.DependencyResolution;
+using NHibernate;
 using NHibernate.Cfg;
 
 namespace CodeCampServer.Infrastructure.DataAccess
@@ -14,7 +15,9 @@ namespace CodeCampServer.Infrastructure.DataAccess
 
 		public ISession CreateSession()
 		{
-			return _sessionFactory.OpenSession();
+			var interceptor = DependencyRegistrar.Resolve<ChangeAuditInfoInterceptor>();
+
+			return _sessionFactory.OpenSession(interceptor);
 		}
 	}
 }

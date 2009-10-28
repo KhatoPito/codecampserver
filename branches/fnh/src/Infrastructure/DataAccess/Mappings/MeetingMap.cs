@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using CodeCampServer.Core.Domain.Model;
 using FluentNHibernate.Mapping;
 
@@ -15,6 +13,7 @@ namespace CodeCampServer.Infrastructure.DataAccess.Mappings
 			Map(x => x.SpeakerName);
 			Map(x => x.SpeakerBio).Length(1000);
 			Map(x => x.SpeakerUrl).Length(255);
+			this.ChangeAuditInfo();
 		}
 	}
 

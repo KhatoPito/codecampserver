@@ -112,11 +112,13 @@
     <Compile Include="BusinessRules\RulesEngineConfiguration.cs" />
     <Compile Include="BusinessRules\Validation\UsernameMustBeUnique.cs" />
     <Compile Include="BusinessRules\Validation\UserGroupKeyMustBeUnique.cs" />
+    <Compile Include="DataAccess\ChangeAuditInfoInterceptor.cs" />
     <Compile Include="DataAccess\ConfigBasedSessionSource.cs" />
     <Compile Include="DataAccess\ConfigurationFactory.cs" />
     <Compile Include="DataAccess\ISessionSource.cs" />
+    <Compile Include="DataAccess\Mappings\ClassMapExtensions.cs" />
     <Compile Include="DataAccess\Mappings\ConferenceMap.cs" />
-    <Compile Include="DataAccess\Mappings\EntityClassMap.cs" />
+    <Compile Include="DataAccess\Mappings\AuditedEntityClassMap.cs" />
     <Compile Include="DataAccess\Mappings\EnumerationTypeConvention.cs" />
     <Compile Include="DataAccess\Mappings\EventMap.cs" />
     <Compile Include="DataAccess\Mappings\MeetingMap.cs" />

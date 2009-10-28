@@ -3,15 +3,15 @@ using FluentNHibernate.Mapping;
 
 namespace CodeCampServer.Infrastructure.DataAccess.Mappings
 {
-	public class EntityClassMap<TEntity> : ClassMap<TEntity>
-		where TEntity : PersistentObject
+	public class AuditedEntityClassMap<TEntity> : ClassMap<TEntity>
+		where TEntity : AuditedPersistentObject
 	{
-		public EntityClassMap()
+		public AuditedEntityClassMap()
 		{
 			Cache.ReadWrite();
 			DynamicUpdate();
-			Id(x => x.Id)
-				.GeneratedBy.GuidComb();
+			this.StandardId();
+			this.ChangeAuditInfo();
 		}
 	}
 }

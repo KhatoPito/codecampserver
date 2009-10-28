@@ -13,6 +13,7 @@ namespace CodeCampServer.Infrastructure.DataAccess.Mappings
 			Map(x => x.HasRegistration);
 
 			References(x => x.UserGroup);
+			this.ChangeAuditInfo();
 		}
 	}
 

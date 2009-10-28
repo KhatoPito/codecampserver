@@ -1,5 +1,4 @@
 using System.Data;
-using CodeCampServer.Infrastructure.DataAccess;
 using CodeCampServer.IntegrationTests.Infrastructure.DataAccess;
 using NHibernate;
 using NUnit.Framework;
