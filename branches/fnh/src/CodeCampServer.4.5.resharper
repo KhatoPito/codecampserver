@@ -30,8 +30,7 @@
     </CSharp>
     <VB>
       <FormatSettings>
-        <INDENT_SIZE>3</INDENT_SIZE>
-        <INSERT_TABS>True</INSERT_TABS>
+        <INDENT_SIZE>4</INDENT_SIZE>
       </FormatSettings>
       <ImportsSettings />
       <Naming2 />
