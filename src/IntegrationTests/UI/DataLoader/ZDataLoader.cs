@@ -5,11 +5,11 @@ using CodeCampServer.Core.Domain;
 using CodeCampServer.Core.Domain.Model;
 using CodeCampServer.Core.Services.Impl;
 using CodeCampServer.DependencyResolution;
-using CodeCampServer.Infrastructure.DataAccess.Impl;
 using CodeCampServer.Infrastructure.UI.Mappers;
 using CodeCampServer.IntegrationTests.Infrastructure.DataAccess;
 using CodeCampServer.UI.Models.Input;
 using NUnit.Framework;
+using StructureMap;
 
 namespace CodeCampServer.IntegrationTests.UI.DataLoader
 {
@@ -21,6 +21,7 @@ namespace CodeCampServer.IntegrationTests.UI.DataLoader
 		{
 //			Logger.EnsureInitialized();
 			DependencyRegistrar.EnsureDependenciesRegistered();
+			ObjectFactory.Inject(CurrentUserStub(null));
 			LoadData();
 		}
 
