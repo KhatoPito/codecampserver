@@ -1,8 +1,11 @@
+using CodeCampServer.Core.Domain.Model;
+using CodeCampServer.Core.Services;
 using CodeCampServer.DependencyResolution;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using NUnit.Framework;
+using Rhino.Mocks;
 using StructureMap;
 
 namespace CodeCampServer.IntegrationTests
@@ -10,6 +13,8 @@ namespace CodeCampServer.IntegrationTests
 	[TestFixture]
 	public static class TestHelper
 	{
+		public static User CurrentUser;
+
 		static TestHelper()
 		{
 			DependencyRegistrar.EnsureDependenciesRegistered();
@@ -45,6 +50,14 @@ namespace CodeCampServer.IntegrationTests
 				RecreateDatabase();
 				_databaseRecreated = true;
 			}
+		}
+
+		public static void ResetCurrentUser()
+		{
+			var userSession = MockRepository.GenerateStub<IUserSession>();
+			CurrentUser = new User();
+			userSession.Stub(us => us.GetCurrentUser()).Return(CurrentUser);
+			ObjectFactory.Inject(userSession);
 		}
 	}
 }

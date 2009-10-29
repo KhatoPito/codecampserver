@@ -12,6 +12,7 @@ namespace CodeCampServer.UnitTests
 	[TestFixture]
 	public abstract class TestBase
 	{
+
 		[TestFixtureSetUp]
 		public void TestFixtureSetup()
 		{
@@ -54,5 +55,6 @@ namespace CodeCampServer.UnitTests
 			session.Stub(x => x.GetCurrentUser()).Return(user);
 			return session;
 		}
+
 	}
 }
