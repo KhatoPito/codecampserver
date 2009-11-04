@@ -5,7 +5,7 @@ using CodeCampServer.UI.Models.Input;
 
 namespace CodeCampServer.UI.Controllers
 {
-	public class AdminController : SmartController
+	public class AdminController : ConventionController
 	{
 		private readonly IUserRepository _repository;
 
@@ -20,7 +20,7 @@ namespace CodeCampServer.UI.Controllers
 			User user = _repository.GetByUserName("admin");
 			if (user == null)
 			{
-				return RedirectToAction<UserController>(c => c.Edit((User)null));
+				return RedirectToAction<UserController>(c => c.Edit((User) null));
 			}
 			var model = new AdminInput {ConferenceIsSelected = conference != null};
 
