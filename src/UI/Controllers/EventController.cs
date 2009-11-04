@@ -8,7 +8,7 @@ using CodeCampServer.UI.Models.Input;
 
 namespace CodeCampServer.UI.Controllers
 {
-	public class EventController : SmartController
+	public class EventController : ConventionController
 	{
 		public const string ANNOUNCEMENT_PARTIAL_SUFFIX = "Announcement";
 		private readonly IEventRepository _eventRepository;
@@ -37,7 +37,7 @@ namespace CodeCampServer.UI.Controllers
 			else
 			{
 				announcementDisplay =
-					_meetingMapper.Map<MeetingAnnouncementDisplay>((Meeting)@event);
+					_meetingMapper.Map<MeetingAnnouncementDisplay>((Meeting) @event);
 //					.Map<Meeting, MeetingAnnouncementDisplay>();
 			}
 

@@ -1,14 +1,13 @@
-using Castle.Components.Validator;
-using Tarantino.RulesEngine.CommandProcessor;
+using System.ComponentModel.DataAnnotations;
 
 namespace CodeCampServer.UI.Models.Input
 {
-	public class LoginInput : IMessage
+	public class LoginInput
 	{
-		[ValidateNonEmpty]
+		[Required]
 		public string Username { get; set; }
 
-		[ValidateNonEmpty]		
+		[Required]
 		public string Password { get; set; }
 	}
 }

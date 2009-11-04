@@ -1,17 +1,17 @@
 using System;
-using CodeCampServer.UI.Helpers.Validation.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace CodeCampServer.UI.Models.Input
 {
 	public abstract class EventInput
 	{
-		[RequiredDateTime("Start Date")]
+		[Required]
 		public abstract DateTime StartDate { get; set; }
 
-		[RequiredDateTime("End Date")]
+		[Required]
 		public abstract DateTime EndDate { get; set; }
 
-		[Required("Time Zone")]
+		[Required]
 		public abstract string TimeZone { get; set; }
 
 		public string GetDate()
