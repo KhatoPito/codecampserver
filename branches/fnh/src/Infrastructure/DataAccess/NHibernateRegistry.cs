@@ -28,6 +28,9 @@ namespace CodeCampServer.Infrastructure.DataAccess
 			ForRequestedType<IUnitOfWork>()
 				.TheDefaultIsConcreteType<UnitOfWork>()
 				.CacheBy(InstanceScope.Hybrid);
+
+			ForRequestedType<Tarantino.RulesEngine.IUnitOfWork>().TheDefault.Is.ConstructedBy(
+				ctx => ctx.GetInstance<IUnitOfWork>());
 		}
 	}
 }
