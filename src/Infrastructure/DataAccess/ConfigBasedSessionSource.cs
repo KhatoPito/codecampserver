@@ -17,7 +17,9 @@ namespace CodeCampServer.Infrastructure.DataAccess
 		{
 			var interceptor = DependencyRegistrar.Resolve<ChangeAuditInfoInterceptor>();
 
-			return _sessionFactory.OpenSession(interceptor);
+			ISession session = _sessionFactory.OpenSession(interceptor);
+			session.FlushMode = FlushMode.Commit;
+			return session;
 		}
 	}
 }
