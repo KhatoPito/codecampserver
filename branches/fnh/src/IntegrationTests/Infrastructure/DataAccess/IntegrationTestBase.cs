@@ -16,6 +16,9 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 	[TestFixture]
 	public abstract class IntegrationTestBase : TestBase
 	{
+		private readonly IDictionary<Type, Object> injectedInstances = new Dictionary<Type, Object>();
+		private IUnitOfWork _unitOfWork;
+
 		[SetUp]
 		public virtual void Setup()
 		{
@@ -41,8 +44,6 @@ namespace CodeCampServer.IntegrationTests.Infrastructure.DataAccess
 			UnitOfWork.Commit();
 		}
 
-		private readonly IDictionary<Type, Object> injectedInstances = new Dictionary<Type, Object>();
-		private IUnitOfWork _unitOfWork;
 
 		protected IUnitOfWork UnitOfWork
 		{
