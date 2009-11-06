@@ -1,0 +1,1 @@
+nant\nant.exe -buildfile:deployment.build -D:connection.string="%connectionString%" -D:website.target.dir="%websiteTargetDir%" -D:database.server="%databaseServer%" -D:database.name="%databaseName%" -D:database.integrated="%databaseIntegrated%"  %*
