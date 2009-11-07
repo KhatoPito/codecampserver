@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using AutoMapper;
 using CodeCampServer.Core.Common;
 using CodeCampServer.DependencyResolution;
-using CodeCampServer.Infrastructure.ObjectMapping.ConfigurationProfiles;
 
 namespace CodeCampServer.Infrastructure.ObjectMapping
 {
@@ -14,15 +13,15 @@ namespace CodeCampServer.Infrastructure.ObjectMapping
 			Mapper.Initialize(x =>
 			                  	{
 			                  		x.ConstructServicesUsing(type => DependencyRegistrar.Resolve(type));
-									GetProfiles().ForEach(type => x.AddProfile((Profile)Activator.CreateInstance(type)));
-								});
+			                  		GetProfiles().ForEach(type => x.AddProfile((Profile) Activator.CreateInstance(type)));
+			                  	});
 		}
 
 		private static IEnumerable<Type> GetProfiles()
 		{
-			foreach (Type type in typeof(AutoMapperConfiguration).Assembly.GetTypes())
+			foreach (Type type in typeof (AutoMapperConfiguration).Assembly.GetTypes())
 			{
-				if (!type.IsAbstract && typeof(Profile).IsAssignableFrom(type))
+				if (!type.IsAbstract && typeof (Profile).IsAssignableFrom(type))
 					yield return type;
 			}
 		}
