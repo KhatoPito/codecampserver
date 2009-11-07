@@ -64,6 +64,7 @@
     <Compile Include="Domain\IMeetingRepository.cs" />
     <Compile Include="Domain\IUserGroupRepository.cs" />
     <Compile Include="Domain\Model\AuditedPersistentObject.cs" />
+    <Compile Include="Domain\Model\Enumerations\SponsorLevel.cs" />
     <Compile Include="Domain\Model\Event.cs" />
     <Compile Include="Domain\Model\IGloballyUnique.cs" />
     <Compile Include="Domain\Model\IKeyable.cs" />
@@ -71,7 +72,6 @@
     <Compile Include="Domain\Mapper.cs" />
     <Compile Include="Domain\IMapper.cs" />
     <Compile Include="Domain\Model\Sponsor.cs" />
-    <Compile Include="Domain\Model\Enumerations\SponsorLevel.cs" />
     <Compile Include="Domain\Model\UserGroup.cs" />
     <Compile Include="Domain\ValidationResult.cs" />
     <Compile Include="Domain\IConferencerRepository.cs" />
