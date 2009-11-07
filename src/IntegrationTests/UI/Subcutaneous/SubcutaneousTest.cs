@@ -51,7 +51,7 @@ namespace CodeCampServer.IntegrationTests.UI.Subcutaneous
 		protected static void SetupClock(DateTime today)
 		{
 			var clock = S<ISystemClock>();
-			clock.Stub(x => x.GetCurrentDateTime()).Return(today);
+			clock.Stub(x => x.Now()).Return(today);
 			ObjectFactory.Inject(clock);
 		}
 
