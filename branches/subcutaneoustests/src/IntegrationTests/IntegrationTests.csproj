@@ -152,7 +152,7 @@
     <Compile Include="TestHelper.cs" />
     <Compile Include="UI\DataLoader\ZDataLoader.cs" />
     <Compile Include="UI\Subcutaneous\SubcutaneousTest.cs" />
-    <Compile Include="UI\Subcutaneous\UpdateUser\Class1.cs" />
+    <Compile Include="UI\Subcutaneous\ExecutionResultAssertionExtensions.cs" />
     <Compile Include="UI\Subcutaneous\UpdateUser\UpdateUserSubcutaneousTest.cs" />
   </ItemGroup>
   <ItemGroup>
