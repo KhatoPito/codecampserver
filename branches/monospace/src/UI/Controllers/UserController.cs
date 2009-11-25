@@ -11,7 +11,7 @@ using MvcContrib;
 
 namespace CodeCampServer.UI.Controllers
 {
-	public class UserController : Controller
+	public class UserController : SmartController
 	{
 		private readonly IUserMapper _mapper;
 		private readonly IUserRepository _repository;
@@ -48,11 +48,15 @@ namespace CodeCampServer.UI.Controllers
 		[ValidateModel(typeof (UserInput))]
 		public ActionResult Edit(UserInput input)
 		{
-			return View();
+			if(ModelState.IsValid)
+			{
+				User user = _mapper.Map(input);
+				_repository.Save(user);
+				return RedirectToAction<UserController>(m=>m.Index());
+			}
+			return View(input);
 		}
-
-
-
+        
 		public ViewResult Index()
 		{
 			ViewData.Add(_mapper.Map(_repository.GetAll()));

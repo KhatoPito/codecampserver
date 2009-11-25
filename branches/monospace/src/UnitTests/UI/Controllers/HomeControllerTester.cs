@@ -7,6 +7,7 @@ using MvcContrib.TestHelper;
 using NBehave.Spec.NUnit;
 using NUnit.Framework;
 using Rhino.Mocks;
+using CodeCampServer.Core.Domain;
 
 namespace CodeCampServer.UnitTests.UI.Controllers
 {
@@ -15,33 +16,20 @@ namespace CodeCampServer.UnitTests.UI.Controllers
 		[Test]
 		public void About_should_go_to_about_view()
 		{
-			var userGroup = new UserGroup();
+			var home = new HomeController(S<IMeetingRepository>(), S<IMeetingMapper>());
 
-			var mapper = S<IUserGroupMapper>();
-			var groupForm = new UserGroupInput();
-			mapper.Stub(m => m.Map(userGroup)).Return(groupForm);
-
-			var home = new HomeController(mapper);
-
-			ViewResult result = home.About(userGroup);
+			ViewResult result = home.About();
 			result.ViewName.ShouldEqual("");
-			result.ViewData.Model.ShouldEqual(groupForm);
 		}
 
 		[Test]
 		public void The_index_should_retrieve_the_user_group_by_its_domain_name()
 		{
-			var userGroup = new UserGroup();
-		    userGroup.Key = "adnug";
+			var home = new HomeController(S<IMeetingRepository>(), S<IMeetingMapper>());
 
-			var mapper = S<IUserGroupMapper>();
-			mapper.Stub(groupMapper => groupMapper.Map(userGroup)).Return(new UserGroupInput());
-
-			var home = new HomeController(mapper);
-
-			ViewResult result = home.Index(userGroup);
+			ViewResult result = home.Index();
 			result.ForView("");
-			result.WithViewData<UserGroupInput>().ShouldNotBeNull();
+			result.WithViewData<HomeDisplay>().ShouldNotBeNull();
 		}
 	}
 }

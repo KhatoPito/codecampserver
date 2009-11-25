@@ -8,7 +8,6 @@ namespace CodeCampServer.UI.Models.Input
 	public class MeetingInput : EventInput
 	{
 		public Guid Id { get; set; }
-		public Guid UserGroupId { get; set; }
 
 		[Required("Name")]
 		public string Name { get; set; }
