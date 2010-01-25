@@ -59,20 +59,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseFormInputManipulator.cs" />
-    <Compile Include="DisabledField.cs" />
     <Compile Include="FluentForm.cs" />
-    <Compile Include="FormShouldHaveValidationSummary.cs" />
-    <Compile Include="IBrowserDriver.cs" />
-    <Compile Include="IFormInputManipulator.cs" />
     <Compile Include="IInputWrapper.cs" />
-    <Compile Include="InputBuilderPropertyConventionManipulator.cs" />
-    <Compile Include="MultiLinePropertyConventionManipulator.cs" />
-    <Compile Include="InputWrapperBase.cs" />
+    <Compile Include="TextInputWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestBase.cs" />
-    <Compile Include="ValidationMessage.cs" />
-    <Compile Include="VerifyField.cs" />
+    <Compile Include="UITestExceptionFactory.cs" />
     <Compile Include="WatinDriver.cs" />
   </ItemGroup>
   <ItemGroup>

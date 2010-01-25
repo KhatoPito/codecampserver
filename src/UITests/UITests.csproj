@@ -64,7 +64,6 @@
     <Compile Include="HomePageTester.cs" />
     <Compile Include="MeetingEditViewTester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UITestRegistry.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
