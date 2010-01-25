@@ -9,7 +9,7 @@ using WatiN.Core;
 
 namespace UITestHelper
 {
-	public class WatinDriver : IBrowserDriver
+	public class WatinDriver
 	{
 		public WatinDriver(IE ie)
 		{
@@ -20,27 +20,7 @@ namespace UITestHelper
 		public IE IE { get; set; }
 
 
-		public void SetInput<TFormType>(InputWrapperBase<TFormType> wrapper)
-		{
-			var propertyInfo = ReflectionHelper.FindProperty(wrapper.Property);
-			var name = UINameHelper.BuildNameFrom(wrapper.Property);
-
-			var conventions = InputBuilder.Conventions.ToArray();
-			
-
-			Type factoryType;
-
-			foreach (var factory in conventions)
-			{
-				if(factory.CanHandle(propertyInfo))
-				{
-					factoryType = factory.GetType();
-					break;
-				}
-
-				throw new InvalidOperationException("Could not find an Input Builder convention(IPropertyViewModelFactory) for type:" + propertyInfo.PropertyType + " and Name:" + name);
-			}
-		}
+		
 
 		public virtual void CaptureScreenShot(string testname) {
 			Bitmap desktopBMP = new Bitmap(
@@ -64,9 +44,9 @@ namespace UITestHelper
 			return testMethodFrame.GetMethod().Name;
 		}
 
-		public virtual void ClickButton(string name)
+		public virtual void ClickButton(string value)
 		{
-			IE.Button(Find.By("rel",name)).Click();
+			IE.Button(Find.By("value", value)).Click();
 		}
 	}
 }
