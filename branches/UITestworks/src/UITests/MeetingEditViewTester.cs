@@ -1,61 +1,81 @@
 using System;
-using CodeCampServer.DependencyResolution;
-using CodeCampServer.UI.InputBuilders;
+using System.Collections.Generic;
+using System.Configuration;
+using CodeCampServer.UI;
 using CodeCampServer.UI.Models.Input;
 using NUnit.Framework;
-using StructureMap;
+using NUnit.Framework.SyntaxHelpers;
 using UITestHelper;
+using UITestHelper.WatiN;
 using WatiN.Core;
 
 namespace CodeCampServerUiTests
 {
-	[TestFixture]
-	public class MeetingEditViewTester
-	{
-		private IE _ie;
+    [TestFixture]
+    public class MeetingEditViewTester
+    {
+        private IBrowserDriver _driver;
 
-		[SetUp]
-		public void Setup()
-		{
-			AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-			var baseurl = System.Configuration.ConfigurationManager.AppSettings["url"];
-			_ie = new IE(baseurl + "/Meeting/New");
-		}
+        [TestFixtureSetUp]
+        public void Setup()
+        {
+            string baseurl = ConfigurationManager.AppSettings["url"];
 
-		static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
-		{
-			throw new NotImplementedException();
-		}
+            _driver = new WatinDriver(new IE(), baseurl);
 
-		[TearDown]
-		public void teardown()
-		{
-			_ie.Dispose();
-		}
+            InputWrapperFactory.Factory = () => new InputWrapperFactoryOverride();
+        }
 
-		public FluentForm<T> Form<T>()
-		{
-			return new FluentForm<T>(new WatinDriver(_ie), _ie);
-		}
+        [TestFixtureTearDown]
+        public void teardown()
+        {
+            _driver.Dispose();
+            _driver = null;
+        }
 
-		[Test]
-		public void Should_create_a_new_meeting()
-		{
-			Form<MeetingInput>()
-				.WithTextInput(m => m.Name, "TX")
-				.WithTextInput(m => m.Topic, "my topic")
-				.WithTextInput(m => m.Summary, "this will be a normal meeting")
-				.WithTextBoxInput(m => m.Description, "The description")
-				.WithTextInput(m => m.Key, "foe")
-				.WithTextInput(m => m.LocationName, "our location")
-				.WithTextInput(m => m.LocationUrl, "http://foolocation.com")
-				.WithTextBoxInput(m => m.SpeakerBio, "this is a great speaker")
-				.WithTextInput(m => m.SpeakerName, "bart simpson")
-				.WithTextInput(m => m.SpeakerUrl, "http://thesimpsons.com")
-				.WithTextInput(m => m.TimeZone, "CST")
-				.WithDateInput(m => m.EndDate, new DateTime(2009, 12, 12))
-				.WithDateInput(m => m.StartDate, new DateTime(2009, 12, 11))
-				.Submit();
-		}
-	}
+
+        public InputForm<T> Form<T>(string url)
+        {
+            return new InputForm<T>(_driver.Navigate(url));
+        }
+
+        [Test]
+        public void Should_create_a_new_meeting()
+        {
+            _driver.ScreenCaptureOnFailure(() =>
+               {
+                   Form<LoginInputProxy>("/login/login/index")
+                       .Input(m => m.Username, "admin")
+                       .Input(m => m.Password, "password")
+                       .Submit();
+
+                   Form<MeetingInput>("/Meeting/New")
+                       .Input(m => m.Name, "TX")
+                       .Input(m => m.Topic, "my topic")
+                       .Input(m => m.Summary, "this will be a normal meeting")
+                       .Input(m => m.Description, "The description")
+                       .Input(m => m.Key, Guid.NewGuid().ToString())
+                       .Input(m => m.LocationName, "our location")
+                       .Input(m => m.LocationUrl, "http://foolocation.com")
+                       .Input(m => m.SpeakerBio, "this is a great speaker")
+                       .Input(m => m.SpeakerName, "bart simpson")
+                       .Input(m => m.SpeakerUrl, "http://thesimpsons.com")
+                       .Input(m => m.TimeZone, "CST")
+                       .Input(m => m.StartDate, "12/11/2010 12:00 pm")
+                       .Input(m => m.EndDate, "12/11/2010 1:00 pm")
+                       .Submit();
+
+                   _driver.Url.ShouldBe("/home");
+               });
+        }
+    }
+
+    public static class AssertExtensions
+    {
+        public static string ShouldBe(this string actualValue, string expectedValue)
+        {
+            Assert.That(actualValue, Is.EqualTo(expectedValue));
+            return actualValue;
+        }
+    }
 }
