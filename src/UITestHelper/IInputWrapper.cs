@@ -1,12 +1,11 @@
 using System.Linq.Expressions;
-using WatiN.Core;
-using WatiN.Core.Interfaces;
+using System.Reflection;
 
 namespace UITestHelper
 {
 	public interface IInputWrapper
 	{
-		void SetInput(Form form, WatinDriver browserDriver);
-		void AssertInputValueMatches(Form form, WatinDriver browserDriver);
+        void SetInput(IBrowserDriver browserDriver);
+		void AssertInputValueMatches(IBrowserDriver browserDriver);
 	}
 }
