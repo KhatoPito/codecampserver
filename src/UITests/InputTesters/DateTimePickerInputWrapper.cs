@@ -1,11 +1,12 @@
 using System;
 using System.Linq.Expressions;
 using System.Reflection;
+using MvcContrib.TestHelper.Ui;
 using MvcContrib.UI.InputBuilder.Helpers;
 
 namespace UITestHelper
 {
-    public class DateTimePickerInputWrapper : IInputWrapper
+    public class DateTimePickerInputWrapper : IInputTester
     {
         private readonly string _baseName;
         private readonly string _text;
@@ -38,14 +39,14 @@ namespace UITestHelper
         }
     }
 
-    public class DateTimeInputWrapperFactory : IInputWrapperFactory
+    public class DateTimeInputWrapperFactory : IInputTesterFactory
     {
         public bool CanHandle(PropertyInfo info)
         {
             return info.PropertyType == typeof(DateTime);
         }
 
-        public IInputWrapper Create(LambdaExpression expression, string text)
+        public IInputTester Create(LambdaExpression expression, string text)
         {
             return new DateTimePickerInputWrapper(ReflectionHelper.BuildNameFrom(expression), text);
         }
