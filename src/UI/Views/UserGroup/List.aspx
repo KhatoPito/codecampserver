@@ -7,7 +7,7 @@
 <asp:Content ContentPlaceHolderID="Main" runat="server">
     <h2>User Groups    </h2>
 		<%if (User.Identity.IsAuthenticated) { %>
-		    <%= Html.AddImageButton(Url.Action("Edit", new { }), CodeCampSite.Admin.CreateUserGroup)%>
+		    <%= Html.AddImageButton(Url.Action("Edit", Params.Empty), CodeCampSite.Admin.CreateUserGroup)%>
 		<%}%>
 
 		<table class="fullWidth" id="UserGroupInput">

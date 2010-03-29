@@ -5,9 +5,9 @@ namespace CodeCampServer.UI.Services.Common
 {
 	public static class ParamBuilderExtensions
 	{
-		public static ParamBuilder ViewAsPdf(this ParamBuilder builder)
+		public static ParamBuilder Rows(this ParamBuilder builder, int count)
 		{
-			return ViewAsPdf(builder, 1);
+			return builder.Add(ParamNames.Rows, count);
 		}
 
 		public static ParamBuilder User(this ParamBuilder builder, Guid id)
@@ -18,6 +18,11 @@ namespace CodeCampServer.UI.Services.Common
 		public static ParamBuilder UserGroup(this ParamBuilder builder, string key)
 		{
 			return builder.Add(ParamNames.UserGroup, key);
+		}
+
+		public static ParamBuilder ViewAsPdf(this ParamBuilder builder)
+		{
+			return ViewAsPdf(builder, 1);
 		}
 
 		public static ParamBuilder ViewAsPdf(this ParamBuilder builder, int value)

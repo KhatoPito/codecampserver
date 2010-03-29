@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master" 
 AutoEventWireup="true" Inherits="ViewPage<SponsorInput[]>"%>
+<%@ Import Namespace="MvcContrib.UI.ParamBuilder"%>
 <%@ Import Namespace="CodeCampServer.UI.Helpers.Extensions"%>
 <%@ Import Namespace="MvcContrib.UI.Grid"%>
 <%@ Import Namespace="CodeCampServer.Core.Domain.Model"%>
@@ -7,7 +8,7 @@ AutoEventWireup="true" Inherits="ViewPage<SponsorInput[]>"%>
 <asp:Content ContentPlaceHolderID="Main" runat="server">
 	 <h2><%=ViewData.Get<PageInfo>().SubTitle%> Sponsors </h2>
 
-			<form method="get" action="<%=(Url.Action("Edit", new {})) %>">
+			<form method="get" action="<%=(Url.Action("Edit", Params.Empty)) %>">
 				<button class="ui-state-default ui-corner-all fg-button-icon-solo" type="submit" title="Add a new Sponsor">
 						<span class="ui-icon ui-icon-plus"/>
 				</button>
