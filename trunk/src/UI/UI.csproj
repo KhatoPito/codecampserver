@@ -547,7 +547,6 @@
     <Content Include="Views\Shared\DateTime.aspx" />
     <Content Include="Views\Shared\Display.aspx" />
     <Content Include="Views\Shared\Edit.aspx" />
-    <Content Include="Views\Shared\EditUserLink.ascx" />
     <Content Include="Views\Shared\DropDown.aspx" />
     <Content Include="Views\Shared\EditSponsorLink.ascx" />
     <Content Include="Views\Shared\DisplayLabel.aspx" />
