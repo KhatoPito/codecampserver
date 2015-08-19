@@ -1,0 +1,41 @@
+### High Priority (Must Have) ###
+  * ~~show upcoming events on the usergroup homepage~~
+  * ~~show past events on the schedule page - add as a secound list or just sort them by newest first.~~
+  * ~~display a usergroup from a domain name(hostheader)~~
+  * ~~Deploy to the production server cruise control setup to deploy. one click.~~
+  * ~~Change deployment process to support database migrations. The deploy currently rebuilds the database/schema and data.~~
+  * ~~Clean up packaging nant target. There are files that need to be excluded in the packaging process.~~
+  * ~~Add Method to reverse map the key to a domain name... or add a domain name to the User Group Entity.~~
+  * ~~Change the key for the Default User Group. localhost is currently being used.  This causes a problem on the User Groups list page.  The url for the user group turns into http://localhost, we need to be able to generate the domain name from the key.~~
+  * ~~Add A record to CodeCampServer.com to point to the production server.~~
+  * ~~Add new new.adung.org cname to test out the adnug.org website.~~
+  * ~~Allow HTML editing of conference homepage html.~~
+  * ~~Remove auto schema export in zdataloader. Have migration nant target call export schema.~~
+  * ~~Upgrade to MVC V1 with MvcContrib~~
+  * ~~Change the Speaker entity to be a child of a Conference. Currently it is a Root Aggregate.~~
+  * ~~Add users to manage a User Group.~~
+  * ~~Apply System Admin Security to editing~~
+  * ~~google analytics per usergroup.~~
+  * ~~manage user permissions by usergroup.~~
+  * ~~Apply User Group Admin Security to editing~~
+    * ~~Sessions~~
+    * ~~speakers~~
+    * ~~Conferences~~
+    * ~~UserGroups~~
+    * ~~Tracks~~
+    * ~~Timeslots~~
+    * ~~Users~~
+  * ~~allow users to register on the site~~
+
+### Low Priority (Should Have) ###
+  * Sponsors management
+  * convert proposal to allow anonymous access
+  * Configure TeamCity to auto commit the LatestVersion zip file.
+  * Show sessions for a single track conference on the conference homepage.
+
+
+### Could Have ###
+  * edit / css overrides for the group / deal with image later.
+  * RSS Mashups for group / conference bloggers / local events
+  * ICS for events.
+  * add a map link to the location on conference
